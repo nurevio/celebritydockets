@@ -83,18 +83,7 @@
     overflow: hidden;
   }
 
-  .case-hero::before {
-    content: '§';
-    position: absolute;
-    top: 20px;
-    right: -20px;
-    font-size: 20rem;
-    font-family: 'DM Serif Display', serif;
-    color: var(--border-light);
-    opacity: 0.3;
-    line-height: 1;
-    pointer-events: none;
-  }
+  .case-hero::before { display: none; }
 
   .case-status-bar {
     display: flex;
@@ -544,6 +533,7 @@ function toggleTheme(){var c=document.documentElement.getAttribute('data-theme')
 
   <!-- Hero -->
   <section class="case-hero">
+    <img src="henson-sony-hero.jpg" alt="Pop-art illustration: Darrin Henson and Deadpool figure" style="width:100%;height:auto;border-radius:10px;margin-bottom:24px;display:block;border:1px solid var(--border);">
     <div class="case-status-bar">
       <span class="status-badge status-active">Active Case</span>
       <span class="status-badge status-category">Copyright</span>
