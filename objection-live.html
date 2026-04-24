@@ -1,0 +1,166 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<link rel="icon" type="image/png" href="favicon.png">
+<link rel="apple-touch-icon" href="favicon.png">
+<link rel="icon" type="image/png" href="favicon.png"><link rel="apple-touch-icon" href="favicon.png">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Objection Live! | Celebrity Dockets</title>
+<link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&family=IBM+Plex+Sans:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+<style>
+:root{--bg:#0a0a0f;--card:#12121a;--elev:#1a1a26;--red:#E11028;--gold:#F6C340;--t1:#e8e6e1;--t2:#9a9a9a;--t3:#5a5a6a;--bdr:#2a2a3a}
+*{margin:0;padding:0;box-sizing:border-box}
+body{background:var(--bg);color:var(--t1);font-family:'IBM Plex Sans',sans-serif;line-height:1.6}
+
+.hdr{border-bottom:1px solid var(--bdr);padding:16px 24px;display:flex;align-items:center;justify-content:space-between;background:var(--bg);position:sticky;top:0;z-index:100;backdrop-filter:blur(12px)}
+.logo{font-family:'DM Serif Display',serif;font-size:1.4rem;color:var(--t1);text-decoration:none}.logo span{color:var(--red)}
+.nav{display:flex;gap:24px;font-size:.8rem;text-transform:uppercase;letter-spacing:1.5px;font-weight:600}
+.nav a{color:var(--t2);text-decoration:none;transition:color .2s}.nav a:hover{color:var(--gold)}.nav a.on{color:var(--red)}
+
+/* Hero */
+.hero{padding:80px 24px 50px;text-align:center;position:relative;overflow:hidden}
+.hero::before{content:'';position:absolute;top:0;left:0;right:0;bottom:0;background:radial-gradient(ellipse at top,rgba(225,16,40,.08) 0%,transparent 60%)}
+.hero-icon{font-size:4rem;margin-bottom:16px;display:block}
+.hero h1{font-family:'DM Serif Display',serif;font-size:3.2rem;line-height:1.05;margin-bottom:8px}
+.hero h1 span{color:var(--red)}
+.hero-sub{font-size:1.1rem;color:var(--t2);max-width:600px;margin:0 auto 24px}
+.live-badge{display:inline-block;font-family:'JetBrains Mono',monospace;font-size:.7rem;text-transform:uppercase;letter-spacing:2px;color:var(--red);background:rgba(225,16,40,.1);padding:6px 18px;border-radius:4px;border:1px solid rgba(225,16,40,.25);margin-bottom:20px}
+.hero-schedule{font-family:'JetBrains Mono',monospace;font-size:.8rem;color:var(--gold);margin-bottom:32px}
+
+/* About Section */
+.about{max-width:700px;margin:0 auto;padding:0 24px 50px}
+.about-label{font-family:'JetBrains Mono',monospace;font-size:.65rem;text-transform:uppercase;letter-spacing:3px;color:var(--red);margin-bottom:16px}
+.about p{font-size:1rem;color:var(--t2);margin-bottom:16px;line-height:1.7}
+.about strong{color:var(--t1)}
+
+/* What We Cover */
+.covers{max-width:700px;margin:0 auto;padding:0 24px 50px}
+.covers-label{font-family:'JetBrains Mono',monospace;font-size:.65rem;text-transform:uppercase;letter-spacing:3px;color:var(--gold);margin-bottom:20px}
+.cover-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:12px}
+.cover-item{background:var(--card);border:1px solid var(--bdr);border-radius:8px;padding:16px;transition:border-color .2s}
+.cover-item:hover{border-color:var(--gold)}
+.cover-icon{font-size:1.4rem;margin-bottom:8px}
+.cover-name{font-family:'DM Serif Display',serif;font-size:.95rem;color:var(--t1);margin-bottom:4px}
+.cover-desc{font-size:.75rem;color:var(--t3)}
+
+/* Video Section */
+.video-section{max-width:800px;margin:0 auto;padding:0 24px 50px}
+.video-header{display:flex;align-items:center;gap:16px;margin-bottom:24px}
+.video-header h2{font-family:'DM Serif Display',serif;font-size:1.5rem;white-space:nowrap}
+.video-header .line{flex:1;height:1px;background:var(--bdr)}
+.video-header .tag{font-family:'JetBrains Mono',monospace;font-size:.65rem;color:var(--red);background:rgba(225,16,40,.1);padding:4px 12px;border-radius:4px;border:1px solid rgba(225,16,40,.2)}
+.video-wrap{position:relative;width:100%;padding-bottom:56.25%;border-radius:12px;overflow:hidden;border:1px solid var(--bdr);background:var(--card)}
+.video-wrap iframe{position:absolute;top:0;left:0;width:100%;height:100%;border:none}
+
+/* CTA */
+.cta{max-width:700px;margin:0 auto;padding:40px 24px 60px;text-align:center}
+.cta-buttons{display:flex;gap:16px;justify-content:center;flex-wrap:wrap;margin-top:24px}
+.cta-btn{padding:14px 32px;border-radius:8px;text-decoration:none;font-family:'JetBrains Mono',monospace;font-size:.8rem;font-weight:600;letter-spacing:.5px;transition:all .2s}
+.cta-primary{background:var(--red);color:#fff;border:1px solid var(--red)}.cta-primary:hover{background:transparent;color:var(--red)}
+.cta-secondary{background:transparent;color:var(--gold);border:1px solid rgba(246,195,64,.3)}.cta-secondary:hover{background:rgba(246,195,64,.08)}
+
+/* Host */
+.host{max-width:700px;margin:0 auto;padding:0 24px 50px}
+.host-card{background:var(--card);border:1px solid var(--bdr);border-radius:12px;padding:32px;text-align:center}
+.host-name{font-family:'DM Serif Display',serif;font-size:1.8rem;color:var(--t1);margin-bottom:4px}
+.host-title{font-family:'JetBrains Mono',monospace;font-size:.7rem;text-transform:uppercase;letter-spacing:2px;color:var(--red);margin-bottom:16px}
+.host-bio{font-size:.9rem;color:var(--t2);line-height:1.7;max-width:500px;margin:0 auto}
+
+/* Footer */
+.ft{border-top:1px solid var(--bdr);padding:40px 24px;text-align:center}
+.ftl{font-family:'DM Serif Display',serif;font-size:1.4rem;color:var(--t1);margin-bottom:8px}.ftl span{color:var(--red)}
+.ftt{font-size:.8rem;color:var(--t3);margin-bottom:16px}
+.ftk{display:flex;gap:24px;justify-content:center;flex-wrap:wrap}
+.ftk a{font-size:.7rem;text-transform:uppercase;letter-spacing:1.5px;font-weight:600;color:var(--t2);text-decoration:none}.ftk a:hover{color:var(--gold)}
+
+@media(max-width:600px){.hero h1{font-size:2.2rem}.nav{gap:14px;font-size:.65rem}}
+
+.hamburger{display:none;background:none;border:none;color:var(--t1);cursor:pointer;padding:8px;flex-direction:column;gap:5px}
+.hamburger span{display:block;width:24px;height:2px;background:var(--t1);transition:all .3s}
+@media(max-width:768px){
+  .nav{display:none;position:absolute;top:100%;left:0;right:0;background:var(--bg);flex-direction:column;padding:20px 24px;gap:18px;border-bottom:1px solid var(--bdr);box-shadow:0 4px 20px rgba(0,0,0,.4);z-index:99}
+  .nav.open{display:flex}
+  .hamburger{display:flex}
+  .hamburger.open span:nth-child(1){transform:rotate(45deg) translate(5px,5px)}
+  .hamburger.open span:nth-child(2){opacity:0}
+  .hamburger.open span:nth-child(3){transform:rotate(-45deg) translate(7px,-7px)}
+}
+
+:root[data-theme="light"]{--bg:#f5f2ea;--bg-primary:#f5f2ea;--card:#ffffff;--bg-card:#ffffff;--elev:#fffcf5;--bg-elev:#fffcf5;--bg-elevated:#fffcf5;--red:#9b2226;--accent-red:#9b2226;--gold:#8b6f20;--accent-gold:#8b6f20;--accent:#9b2226;--blue:#1e5091;--cyan:#0891b2;--t1:#1a1a1f;--text-primary:#1a1a1f;--t2:#5a5a5f;--text-secondary:#5a5a5f;--t3:#8a8a8f;--text-muted:#8a8a8f;--bdr:#d4cfc0;--border:#d4cfc0;--bdr2:#e8e3d4;--border-light:#e8e3d4}
+body{transition:background .3s,color .3s}
+.theme-toggle{background:none;border:1px solid currentColor;cursor:pointer;padding:6px 10px;border-radius:4px;font-size:.85rem;font-family:'JetBrains Mono',monospace;opacity:.7;transition:opacity .2s;margin-left:12px}
+.theme-toggle:hover{opacity:1}
+
+</style>
+<script>
+function toggleTheme(){var c=document.documentElement.getAttribute('data-theme')||'dark';var n=c==='dark'?'light':'dark';document.documentElement.setAttribute('data-theme',n);localStorage.setItem('cdTheme',n);var ic=document.getElementById('theme-icon');if(ic)ic.textContent=n==='dark'?'🌙':'☀️';}
+(function(){var s=localStorage.getItem('cdTheme');if(s){document.documentElement.setAttribute('data-theme',s);window.addEventListener('DOMContentLoaded',function(){var ic=document.getElementById('theme-icon');if(ic)ic.textContent=s==='dark'?'🌙':'☀️';});}})();
+</script>
+</head>
+<body>
+
+<header class="hdr"><a href="index.html" class="logo">Celebrity<span>Dockets</span></a><button class="hamburger" onclick="this.classList.toggle('open');document.querySelector('.nav').classList.toggle('open')"><span></span><span></span><span></span></button><nav class="nav"><a href="index.html">Cases</a><a href="#" class="on">Objection Live!</a><a href="recess.html">RECESS</a><a href="star-bar.html">Star Bar</a><a href="courtroom-culture.html">Courtroom Culture</a><a href="about.html">About</a><button class="theme-toggle" onclick="toggleTheme()"><span id="theme-icon">🌙</span></button></nav></header>
+
+<section class="hero">
+<span class="hero-icon">⚖️</span>
+<div class="live-badge">Live on YouTube</div>
+<h1>Objection <span>Live!</span></h1>
+<p class="hero-sub">Celebrity court cases. Broken down live. Every filing, every ruling, every twist — as it happens.</p>
+<div class="hero-schedule">Mondays · 9 AM EST · @CJournalist24</div>
+</section>
+
+<div class="host">
+<div class="host-card">
+<img src="cj-profile.jpg" alt="CJ" style="width:120px;height:120px;border-radius:50%;object-fit:cover;border:3px solid var(--red);margin-bottom:16px;">
+<div class="host-name">CJ</div>
+<div class="host-title">Host</div>
+<div class="host-bio">Former websleuth turned celebrity legal correspondent. CJ digs through court filings, tracks dockets, and breaks down the cases everyone is talking about — live, with receipts. No law degree required to follow along. From the Lively trial to Diddy's appeal to Drake's defamation fight, if there's a docket, CJ is on it.</div>
+</div>
+</div>
+
+<div class="about">
+<div class="about-label">The Show</div>
+<p><strong>Objection Live!</strong> is where CJ goes live every Monday and pulls apart the biggest celebrity court cases in real time. New filings, new rulings, new drama — all of it gets broken down so you don't need a law degree to follow what's happening.</p>
+<p>Everything comes from the actual filings. PACER, CourtListener, state court records, public documents. If it's in the docket, it's on the show.</p>
+<p>Think of it as your front row seat to the cases everyone is talking about.</p>
+</div>
+
+<div class="covers">
+<div class="covers-label">What Gets Covered</div>
+<div class="cover-grid">
+<div class="cover-item"><div class="cover-icon">📋</div><div class="cover-name">Filing Breakdowns</div><div class="cover-desc">New complaints, motions, and rulings read and explained live</div></div>
+<div class="cover-item"><div class="cover-icon">🔴</div><div class="cover-name">Live Reactions</div><div class="cover-desc">Real-time coverage when rulings drop and verdicts land</div></div>
+<div class="cover-item"><div class="cover-icon">🧾</div><div class="cover-name">Docket Tracking</div><div class="cover-desc">Following cases from filing to trial — every procedural move</div></div>
+<div class="cover-item"><div class="cover-icon">🎨</div><div class="cover-name">Courtroom Culture</div><div class="cover-desc">Court fashion, courtroom sketches, PR strategy, and the theater of it all</div></div>
+<div class="cover-item"><div class="cover-icon">🎙️</div><div class="cover-name">Citizen Commentary</div><div class="cover-desc">Creators and citizens breaking down legal filings in their own words</div></div>
+<div class="cover-item"><div class="cover-icon">🔔</div><div class="cover-name">Recess</div><div class="cover-desc">Pop culture segment — music, movies, and celebrity drama beyond the courtroom</div></div>
+</div>
+</div>
+
+<div class="video-section">
+<div class="video-header"><h2>Latest Episode</h2><div class="line"></div><span class="tag">YouTube</span></div>
+<div class="video-wrap" style="padding-bottom:0;height:auto;display:flex;flex-direction:column;align-items:center;justify-content:center;padding:60px 24px;background:var(--card);cursor:pointer;" onclick="window.open('https://www.youtube.com/@CJournalist24','_blank')">
+<div style="font-size:3rem;margin-bottom:16px;">▶️</div>
+<div style="font-family:'DM Serif Display',serif;font-size:1.3rem;color:var(--t1);margin-bottom:8px;">Watch on YouTube</div>
+<div style="font-family:'JetBrains Mono',monospace;font-size:.75rem;color:var(--gold);">@CJournalist24</div>
+</div>
+<div style="text-align:center;margin-top:16px;">
+<a href="https://www.youtube.com/@CJournalist24" target="_blank" style="color:var(--gold);font-family:'JetBrains Mono',monospace;font-size:.78rem;text-decoration:none;font-weight:600;">Watch all episodes on YouTube →</a>
+</div>
+</div>
+
+<div class="cta">
+<div class="cta-buttons">
+<a href="https://www.youtube.com/@CJournalist24" target="_blank" class="cta-btn cta-primary">Subscribe on YouTube</a>
+<a href="https://www.buymeacoffee.com/CJournalist24" target="_blank" class="cta-btn" style="background:#FFDD00;color:#000;border:1px solid #FFDD00;">☕ Fuel The Docket</a>
+<a href="index.html" class="cta-btn cta-secondary">Browse All Cases →</a>
+</div>
+</div>
+
+<footer class="ft"><div class="ftl">Celebrity<span>Dockets</span></div><p class="ftt">Tracking celebrity court cases, one docket at a time.</p><div class="ftk"><a href="index.html">Cases</a><a href="objection-live.html">Objection Live!</a><a href="recess.html">RECESS</a><a href="star-bar.html">Star Bar</a><a href="courtroom-culture.html">Courtroom Culture</a><a href="about.html">About</a></div></footer>
+
+<script type="text/javascript" src="https://cdnjs.buymeacoffee.com/1.0.0/button.prod.min.js" data-name="bmc-button" data-slug="CJournalist24" data-color="#FFDD00" data-emoji="☕" data-font="Cookie" data-text="Fuel The Docket " data-outline-color="#000000" data-font-color="#000000" data-coffee-color="#FFDD00"></script>
+<script data-name="BMC-Widget" data-cfasync="false" src="https://cdnjs.buymeacoffee.com/1.0.0/widget.prod.min.js" data-id="CJournalist24" data-description="Support me on Buy me a coffee!" data-message="Help keep the docket running. Buy CJ a coffee." data-color="#FFDD00" data-position="Right" data-x_margin="18" data-y_margin="18"></script>
+</body>
+</html>

@@ -1,0 +1,388 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<link rel="icon" type="image/png" href="favicon.png"><link rel="apple-touch-icon" href="favicon.png">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Star Bar: The Celebrity Lawyers | Celebrity Dockets</title>
+<link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&family=IBM+Plex+Sans:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+<style>
+:root{--bg:#0a0a0f;--card:#12121a;--elev:#1a1a26;--red:#E11028;--gold:#F6C340;--t1:#e8e6e1;--t2:#9a9a9a;--t3:#5a5a6a;--bdr:#2a2a3a}
+*{margin:0;padding:0;box-sizing:border-box}
+body{background:var(--bg);color:var(--t1);font-family:'IBM Plex Sans',sans-serif;line-height:1.6}
+.hdr{border-bottom:1px solid var(--bdr);padding:16px 24px;display:flex;align-items:center;justify-content:space-between;background:var(--bg);position:sticky;top:0;z-index:100;backdrop-filter:blur(12px)}
+.logo{font-family:'DM Serif Display',serif;font-size:1.4rem;color:var(--t1);text-decoration:none}.logo span{color:var(--red)}
+.nav{display:flex;gap:24px;font-size:.8rem;text-transform:uppercase;letter-spacing:1.5px;font-weight:600}
+.nav a{color:var(--t2);text-decoration:none;transition:color .2s}.nav a:hover{color:var(--gold)}.nav a.on{color:var(--gold)}
+.hero{padding:60px 24px 20px;text-align:center}
+.ey{font-family:'JetBrains Mono',monospace;font-size:.7rem;text-transform:uppercase;letter-spacing:4px;color:var(--red);margin-bottom:12px}
+.ht{font-family:'DM Serif Display',serif;font-size:3rem;line-height:1.1;margin-bottom:12px}.ht span{color:var(--red)}
+.hs{font-size:1rem;color:var(--t2);max-width:600px;margin:0 auto}
+.content{max-width:900px;margin:0 auto;padding:40px 24px 60px}
+/* Lawyer cards */
+.lc{background:var(--card);border:1px solid var(--bdr);border-radius:12px;padding:28px;margin-bottom:16px;transition:border-color .2s}
+.lc:hover{border-color:var(--gold)}
+.lc-top{display:flex;justify-content:space-between;align-items:flex-start;gap:16px;margin-bottom:12px;flex-wrap:wrap}
+.lc-name{font-family:'DM Serif Display',serif;font-size:1.4rem;color:var(--t1)}
+.lc-nick{font-family:'JetBrains Mono',monospace;font-size:.7rem;color:var(--red);background:rgba(225,16,40,.1);padding:4px 12px;border-radius:4px;border:1px solid rgba(225,16,40,.2);white-space:nowrap}
+.lc-firm{font-family:'JetBrains Mono',monospace;font-size:.7rem;color:var(--t3);margin-bottom:12px}
+.lc-bio{font-size:.88rem;color:var(--t2);line-height:1.7;margin-bottom:16px}
+.lc-cases{display:flex;flex-wrap:wrap;gap:8px}
+.lc-tag{font-size:.65rem;font-weight:600;text-transform:uppercase;letter-spacing:.5px;padding:4px 10px;border-radius:4px;background:rgba(246,195,64,.08);color:var(--gold);border:1px solid rgba(246,195,64,.15);text-decoration:none;transition:background .2s}
+.lc-tag:hover{background:rgba(246,195,64,.2)}
+.lc-label{font-family:'JetBrains Mono',monospace;font-size:.6rem;text-transform:uppercase;letter-spacing:2px;color:var(--t3);margin-bottom:8px}
+/* Section headers */
+.sh{display:flex;align-items:center;gap:16px;margin:40px 0 20px}
+.sh h2{font-family:'DM Serif Display',serif;font-size:1.3rem;white-space:nowrap}
+.sh .line{flex:1;height:1px;background:var(--bdr)}
+.sh .tag{font-family:'JetBrains Mono',monospace;font-size:.65rem;color:var(--t3);background:var(--elev);padding:3px 10px;border-radius:4px}
+.ft{border-top:1px solid var(--bdr);padding:40px 24px;text-align:center}
+.ftl{font-family:'DM Serif Display',serif;font-size:1.4rem;color:var(--t1);margin-bottom:8px}.ftl span{color:var(--red)}
+.ftt{font-size:.8rem;color:var(--t3);margin-bottom:16px}
+.ftk{display:flex;gap:24px;justify-content:center;flex-wrap:wrap}
+.ftk a{font-size:.7rem;text-transform:uppercase;letter-spacing:1.5px;font-weight:600;color:var(--t2);text-decoration:none}.ftk a:hover{color:var(--gold)}
+.ftd{font-size:.65rem;color:var(--t3);margin-top:12px;max-width:600px;margin-left:auto;margin-right:auto;line-height:1.5}
+.ftc{font-size:.65rem;color:var(--t3);margin-top:8px}
+@media(max-width:600px){.ht{font-size:2.2rem}.lc-top{flex-direction:column}}
+
+.hamburger{display:none;background:none;border:none;color:var(--t1);cursor:pointer;padding:8px;flex-direction:column;gap:5px}
+.hamburger span{display:block;width:24px;height:2px;background:var(--t1);transition:all .3s}
+@media(max-width:768px){
+  .nav{display:none;position:absolute;top:100%;left:0;right:0;background:var(--bg);flex-direction:column;padding:20px 24px;gap:18px;border-bottom:1px solid var(--bdr);box-shadow:0 4px 20px rgba(0,0,0,.4);z-index:99}
+  .nav.open{display:flex}
+  .hamburger{display:flex}
+  .hamburger.open span:nth-child(1){transform:rotate(45deg) translate(5px,5px)}
+  .hamburger.open span:nth-child(2){opacity:0}
+  .hamburger.open span:nth-child(3){transform:rotate(-45deg) translate(7px,-7px)}
+}
+
+:root[data-theme="light"]{--bg:#f5f2ea;--bg-primary:#f5f2ea;--card:#ffffff;--bg-card:#ffffff;--elev:#fffcf5;--bg-elev:#fffcf5;--bg-elevated:#fffcf5;--red:#9b2226;--accent-red:#9b2226;--gold:#8b6f20;--accent-gold:#8b6f20;--accent:#9b2226;--blue:#1e5091;--cyan:#0891b2;--t1:#1a1a1f;--text-primary:#1a1a1f;--t2:#5a5a5f;--text-secondary:#5a5a5f;--t3:#8a8a8f;--text-muted:#8a8a8f;--bdr:#d4cfc0;--border:#d4cfc0;--bdr2:#e8e3d4;--border-light:#e8e3d4}
+body{transition:background .3s,color .3s}
+.theme-toggle{background:none;border:1px solid currentColor;cursor:pointer;padding:6px 10px;border-radius:4px;font-size:.85rem;font-family:'JetBrains Mono',monospace;opacity:.7;transition:opacity .2s;margin-left:12px}
+.theme-toggle:hover{opacity:1}
+
+</style>
+<script>
+function toggleTheme(){var c=document.documentElement.getAttribute('data-theme')||'dark';var n=c==='dark'?'light':'dark';document.documentElement.setAttribute('data-theme',n);localStorage.setItem('cdTheme',n);var ic=document.getElementById('theme-icon');if(ic)ic.textContent=n==='dark'?'🌙':'☀️';}
+(function(){var s=localStorage.getItem('cdTheme');if(s){document.documentElement.setAttribute('data-theme',s);window.addEventListener('DOMContentLoaded',function(){var ic=document.getElementById('theme-icon');if(ic)ic.textContent=s==='dark'?'🌙':'☀️';});}})();
+</script>
+</head>
+<body>
+
+<header class="hdr"><a href="index.html" class="logo">Celebrity<span>Dockets</span></a><button class="hamburger" onclick="this.classList.toggle('open');document.querySelector('.nav').classList.toggle('open')"><span></span><span></span><span></span></button><nav class="nav"><a href="index.html">Cases</a><a href="objection-live.html">Objection Live!</a><a href="recess.html">RECESS</a><a href="star-bar.html" class="on">Star Bar</a><a href="courtroom-culture.html">Courtroom Culture</a><a href="about.html">About</a><button class="theme-toggle" onclick="toggleTheme()"><span id="theme-icon">🌙</span></button></nav></header>
+
+<section class="hero">
+<div class="ey">⚖️ Star Bar</div>
+<h1 class="ht">The Celebrity Lawyers<br>Behind the <span>Cases</span></h1>
+<p class="hs">The sharks, the fixers, the closers. When the headline drops, these are the lawyers who get the call.</p>
+</section>
+
+<div class="content">
+
+<div class="sh"><h2>The Heavyweights</h2><div class="line"></div><span class="tag">Top Tier</span></div>
+
+<div class="lc">
+<div class="lc-top"><div class="lc-name">Alex Spiro</div><div class="lc-nick">"The Fixer"</div></div>
+<div class="lc-firm">Quinn Emanuel Urquhart & Sullivan · New York</div>
+<div class="lc-bio">The most in-demand celebrity lawyer alive. Harvard Law grad and former Manhattan prosecutor who convicted the "Dating Game" serial killer. Charges $3,000 per hour. Hasn't lost a case in over a decade. Has publicly said he only sleeps around four hours a night due to insomnia, which he credits with giving him a competitive edge. If you're famous and in trouble, Spiro's phone rings first. Tried over 50 cases to verdict. Got Alec Baldwin's manslaughter charge dismissed. Got Eric Adams' federal corruption case dismissed with prejudice. Defended Jay-Z against sexual assault allegations where the plaintiff eventually dropped the suit. Represented Elon Musk in multiple cases including the Twitter acquisition fight.</div>
+<div class="lc-label">Notable Clients</div>
+<div class="lc-cases">
+<span class="lc-tag">Elon Musk</span><span class="lc-tag">Jay-Z</span><span class="lc-tag">Alec Baldwin</span><span class="lc-tag">Eric Adams</span><span class="lc-tag">Megan Thee Stallion</span><span class="lc-tag">MrBeast</span><span class="lc-tag">Aaron Hernandez</span><span class="lc-tag">Mick Jagger</span><span class="lc-tag">Robert Kraft</span><span class="lc-tag">Bobby Shmurda</span><span class="lc-tag">21 Savage</span><span class="lc-tag">Naomi Osaka</span>
+</div>
+<div class="lc-label" style="margin-top:12px;">On Celebrity Dockets</div>
+<div class="lc-cases">
+<a href="kardashian-v-ray-j.html" class="lc-tag">Kim K v. Ray J →</a>
+<a href="tyler-perry-lawsuits.html" class="lc-tag">Tyler Perry defense →</a>
+</div>
+</div>
+
+<div class="lc">
+<div class="lc-top"><div class="lc-name">Bryan Freedman</div><div class="lc-nick">"The Terminator"</div></div>
+<div class="lc-firm">Freedman + Taitelman · Los Angeles</div>
+<div class="lc-bio">One of Hollywood's most respected and fiercely passionate litigators. Freedman fights for his clients with unmatched intensity, which is exactly why the biggest names in entertainment call him when the stakes are highest. Nicknamed "The Terminator" for his relentless pursuit of favorable outcomes, he represents production companies, executives, and talent in the industry's most high-profile disputes. Currently leading the defense of Justin Baldoni and Wayfarer Studios in the Blake Lively case, where his strategic approach has already secured dismissal of most claims against individual defendants.</div>
+<div class="lc-label">On Celebrity Dockets</div>
+<div class="lc-cases">
+<a href="lively-v-baldoni.html" class="lc-tag">Baldoni/Wayfarer defense →</a>
+</div>
+</div>
+
+<div class="lc">
+<div class="lc-top"><div class="lc-name">Marty Singer</div><div class="lc-nick">"The Bulldozer"</div></div>
+<div class="lc-firm">Lavely & Singer · Los Angeles</div>
+<div class="lc-bio">The original celebrity fixer. Has been protecting A-list reputations for decades. His threatening pre-litigation letters are legendary in Hollywood. Studios and tabloids know that when a Marty Singer letter lands, a lawsuit is right behind it. He called the Costner/Horizon stunt performer suit a "shakedown" before it even got to discovery. Clients have included everyone from Arnold Schwarzenegger to Charlie Sheen to John Travolta.</div>
+<div class="lc-label">Notable Clients</div>
+<div class="lc-cases">
+<span class="lc-tag">Kevin Costner</span><span class="lc-tag">Arnold Schwarzenegger</span><span class="lc-tag">Charlie Sheen</span><span class="lc-tag">John Travolta</span><span class="lc-tag">Steven Seagal</span>
+</div>
+<div class="lc-label" style="margin-top:12px;">On Celebrity Dockets</div>
+<div class="lc-cases">
+<a href="costner-horizon-lawsuits.html" class="lc-tag">Costner/Horizon defense →</a>
+</div>
+</div>
+
+<div class="lc">
+<div class="lc-top"><div class="lc-name">Camille Vasquez</div></div>
+<div class="lc-firm">Brown Rudnick · Los Angeles</div>
+<div class="lc-bio">Became a household name during the Johnny Depp v. Amber Heard defamation trial in 2022. Her cross-examination of Heard went viral and turned her into the most famous trial lawyer of her generation overnight. Promoted to partner at Brown Rudnick during the trial. Now represents production companies and entertainment clients in high-profile disputes.</div>
+<div class="lc-label">Notable Clients</div>
+<div class="lc-cases">
+<span class="lc-tag">Johnny Depp</span>
+</div>
+<div class="lc-label" style="margin-top:12px;">On Celebrity Dockets</div>
+<div class="lc-cases">
+<a href="wilson-v-ghost-the-deb.html" class="lc-tag">Ghost v. Rebel Wilson →</a>
+</div>
+</div>
+
+<div class="lc">
+<div class="lc-top"><div class="lc-name">Howard King</div></div>
+<div class="lc-firm">King, Holmes, Paterno & Soriano · Los Angeles</div>
+<div class="lc-bio">One of entertainment law's most experienced litigators. Has represented artists, producers, and executives in music, film, and television disputes for decades. Known for handling cases that involve both legal complexity and intense media scrutiny. Currently leading Ray J's countersuit against Kim Kardashian and Kris Jenner, arguing they breached a $6M settlement by discussing the sex tape on their Hulu show.</div>
+<div class="lc-label">On Celebrity Dockets</div>
+<div class="lc-cases">
+<a href="kardashian-v-ray-j.html" class="lc-tag">Ray J defense (v. Kardashian) →</a>
+</div>
+</div>
+
+<div class="lc">
+<div class="lc-top"><div class="lc-name">Shawn Holley</div></div>
+<div class="lc-firm">Kinsella Weitzman Iser Kump Holley · Los Angeles</div>
+<div class="lc-bio">One of LA's most powerful criminal defense attorneys. Made her name as part of the O.J. Simpson defense team early in her career. Has been the go-to for celebrities in crisis ever since, from Lindsay Lohan's multiple arrests to Justin Bieber's DUI to Kanye West. Known for getting cases resolved quietly and keeping her clients out of prison.</div>
+<div class="lc-label">Notable Clients</div>
+<div class="lc-cases">
+<span class="lc-tag">Lindsay Lohan</span><span class="lc-tag">Justin Bieber</span><span class="lc-tag">Kanye West</span><span class="lc-tag">O.J. Simpson (team)</span><span class="lc-tag">Nicole Richie</span><span class="lc-tag">The Kardashians</span>
+</div>
+<div class="lc-label" style="margin-top:12px;">On Celebrity Dockets</div>
+<div class="lc-cases">
+<a href="barnett-v-labeouf.html" class="lc-tag">Shia LaBeouf defense →</a>
+</div>
+</div>
+
+<div class="lc">
+<div class="lc-top"><div class="lc-name">Marc Agnifilo</div></div>
+<div class="lc-firm">Agnifilo Intrater · New York</div>
+<div class="lc-bio">Won acquittals on the top charges for Sean "Diddy" Combs in his federal RICO and sex-trafficking trial, one of the most watched criminal trials in recent memory. Former federal and state prosecutor. Has tried more than 200 cases in his 30-year career. Served as lead of the Violent Crimes Unit as Assistant U.S. Attorney in New Jersey. Also represented NXIVM founder Keith Raniere, "Pharma Bro" Martin Shkreli, former IMF chief Dominique Strauss-Kahn, and Luigi Mangione. Known for his calm, almost apologetic style in court that masks a deeply strategic mind.</div>
+<div class="lc-label">Notable Clients</div>
+<div class="lc-cases">
+<span class="lc-tag">Sean "Diddy" Combs</span><span class="lc-tag">Keith Raniere (NXIVM)</span><span class="lc-tag">Martin Shkreli</span><span class="lc-tag">Dominique Strauss-Kahn</span><span class="lc-tag">Luigi Mangione</span><span class="lc-tag">Roger Ng (Goldman)</span>
+</div>
+<div class="lc-label" style="margin-top:12px;">On Celebrity Dockets</div>
+<div class="lc-cases">
+<a href="combs-appeal.html" class="lc-tag">Combs defense →</a>
+</div>
+</div>
+
+<div class="lc">
+<div class="lc-top"><div class="lc-name">Teny Geragos</div></div>
+<div class="lc-firm">Agnifilo Intrater · New York</div>
+<div class="lc-bio">Partner at Agnifilo Intrater and co-lead on the Diddy defense team where she delivered the opening statement and handled the cross-examination of "Jane," one of the key accusers. Particularly experienced in defending allegations of sexual misconduct. NYU and Loyola Law School graduate. Daughter of famed celebrity defense attorney Mark Geragos, whose clients have included Michael Jackson, Chris Brown, and Winona Ryder. Has worked alongside Marc Agnifilo for eight years on high-profile defense cases including the NXIVM trial.</div>
+<div class="lc-label">Notable Clients</div>
+<div class="lc-cases">
+<span class="lc-tag">Sean "Diddy" Combs</span><span class="lc-tag">Keith Raniere (NXIVM)</span><span class="lc-tag">Roger Ng (Goldman)</span>
+</div>
+<div class="lc-label" style="margin-top:12px;">On Celebrity Dockets</div>
+<div class="lc-cases">
+<a href="combs-appeal.html" class="lc-tag">Combs defense →</a>
+</div>
+</div>
+
+<div class="lc">
+<div class="lc-top"><div class="lc-name">Joe Tacopina</div></div>
+<div class="lc-firm">Tacopina Seigel & DeOreo · New York</div>
+<div class="lc-bio">A fixture on cable news and one of the most recognized defense attorneys in America. Has represented Donald Trump, A$AP Rocky, Alex Rodriguez, Joran van der Sloot, Michael Jackson, and dozens of other high-profile clients across criminal and civil matters. Known for aggressive media strategy and courtroom presence. Currently representing Fat Joe in his defamation and extortion cases.</div>
+<div class="lc-label">Notable Clients</div>
+<div class="lc-cases">
+<span class="lc-tag">Donald Trump</span><span class="lc-tag">A$AP Rocky</span><span class="lc-tag">Alex Rodriguez</span><span class="lc-tag">Michael Jackson</span><span class="lc-tag">Joran van der Sloot</span><span class="lc-tag">Meek Mill</span>
+</div>
+<div class="lc-label" style="margin-top:12px;">On Celebrity Dockets</div>
+<div class="lc-cases">
+<a href="fat-joe-v-dixon.html" class="lc-tag">Fat Joe defense →</a>
+</div>
+</div>
+
+<div class="sh"><h2>The Trial Lawyers</h2><div class="line"></div><span class="tag">Courtroom</span></div>
+
+<div class="lc">
+<div class="lc-top"><div class="lc-name">Michael Gottlieb</div></div>
+<div class="lc-firm">Willkie Farr & Gallagher · Washington, D.C.</div>
+<div class="lc-bio">Running two of the biggest cases on Celebrity Dockets simultaneously. Represents Blake Lively in her retaliation case against Wayfarer Studios AND Drake in his defamation appeal against UMG over "Not Like Us." Former White House associate counsel under Obama.</div>
+<div class="lc-label">On Celebrity Dockets</div>
+<div class="lc-cases">
+<a href="lively-v-baldoni.html" class="lc-tag">Lively v. Wayfarer →</a>
+<a href="drake-v-umg-appeal.html" class="lc-tag">Drake v. UMG appeal →</a>
+</div>
+</div>
+
+<div class="lc">
+<div class="lc-top"><div class="lc-name">Alexandra Shapiro</div></div>
+<div class="lc-firm">Shapiro Arato Bach · New York</div>
+<div class="lc-bio">Appellate specialist who handles the cases after the trial lawyers are done. When you need a ruling overturned, Shapiro is the call. Currently on both the Wayfarer/Baldoni defense team and Diddy's sentencing appeal. Her firm's involvement signals that a case is heading to the appeals court, and that the client is serious about winning there.</div>
+<div class="lc-label">On Celebrity Dockets</div>
+<div class="lc-cases">
+<a href="lively-v-baldoni.html" class="lc-tag">Wayfarer defense →</a>
+<a href="combs-appeal.html" class="lc-tag">Combs appeal →</a>
+</div>
+</div>
+
+<div class="lc">
+<div class="lc-top"><div class="lc-name">Mathew Rosengart</div></div>
+<div class="lc-firm">Greenberg Traurig · Los Angeles</div>
+<div class="lc-bio">Best known for freeing Britney Spears from her 13-year conservatorship in 2021, the legal victory that launched the #FreeBritney movement into the history books. A former federal prosecutor who now represents artists and public figures in entertainment and civil rights disputes. Currently representing FKA twigs in her STAND Act challenge against Shia LaBeouf's NDA.</div>
+<div class="lc-label">Notable Clients</div>
+<div class="lc-cases">
+<span class="lc-tag">Britney Spears (conservatorship)</span><span class="lc-tag">Sean Penn</span><span class="lc-tag">Steven Spielberg</span>
+</div>
+<div class="lc-label" style="margin-top:12px;">On Celebrity Dockets</div>
+<div class="lc-cases">
+<a href="barnett-v-labeouf.html" class="lc-tag">FKA twigs v. LaBeouf →</a>
+</div>
+</div>
+
+<div class="lc">
+<div class="lc-top"><div class="lc-name">Kevin Fritz</div></div>
+<div class="lc-firm">Meister Seelig & Schuster · New York</div>
+<div class="lc-bio">Part of the defense team for Justin Baldoni and Wayfarer Studios in the Blake Lively case. Works alongside Bryan Freedman and Mitchell Schuster. Handles complex entertainment litigation with a focus on production company disputes and talent conflicts.</div>
+<div class="lc-label">On Celebrity Dockets</div>
+<div class="lc-cases">
+<a href="lively-v-baldoni.html" class="lc-tag">Baldoni/Wayfarer defense →</a>
+</div>
+</div>
+
+<div class="lc">
+<div class="lc-top"><div class="lc-name">Mitchell Schuster</div></div>
+<div class="lc-firm">Meister Seelig & Schuster · New York</div>
+<div class="lc-bio">Name partner at Meister Seelig & Schuster and a seasoned commercial litigator who represents high-profile clients in complex business disputes, entertainment matters, and contract fights. Part of the Wayfarer Studios defense team alongside Kevin Fritz and Bryan Freedman. Also represents crisis PR specialist Melissa Nathan, who is a defendant in both the Lively v. Wayfarer case AND the Wilson v. Ghost (The Deb) litigation, where leaked texts allegedly tie her PR team to anonymous defamatory websites.</div>
+<div class="lc-label">On Celebrity Dockets</div>
+<div class="lc-cases">
+<a href="lively-v-baldoni.html" class="lc-tag">Lively v. Wayfarer →</a>
+<a href="wilson-v-ghost-the-deb.html" class="lc-tag">Ghost v. Wilson →</a>
+</div>
+</div>
+
+<div class="lc">
+<div class="lc-top"><div class="lc-name">Allyson Thompson & Melody Kramer</div></div>
+<div class="lc-firm">Hart Kienle Pentecost · Santa Ana, CA</div>
+<div class="lc-bio">Representing Rebel Wilson in the defamation cross-complaints from Ghost et al over The Deb. Currently pushing an ex parte application to restrict extrajudicial statements by Camille Vasquez, arguing that Ghost's counsel has violated California Rules of Professional Conduct Rule 3.6 through public comments about the case.</div>
+<div class="lc-label">On Celebrity Dockets</div>
+<div class="lc-cases">
+<a href="wilson-v-ghost-the-deb.html" class="lc-tag">Rebel Wilson defense →</a>
+</div>
+</div>
+
+<div class="lc">
+<div class="lc-top"><div class="lc-name">Ellyn Garofalo</div></div>
+<div class="lc-firm">Liner Freedman Taitelman + Cooley · Los Angeles</div>
+<div class="lc-bio">Writes some of the most admired briefs in the business. A trial attorney with over 30 years of courtroom experience handling civil, criminal, and regulatory matters including SEC enforcement actions. Obtained a defense verdict after an eight-week jury trial in a $100 million partnership dispute. Recognized as a Southern California Super Lawyer from 2006 through 2021 and named to the Top 50 Women in Southern California multiple years. Previously represented stars like Anna Nicole Smith and Alyssa Milano. Joined the Wayfarer defense team for the Lively case. Pepperdine Law graduate.</div>
+<div class="lc-label">Notable Clients</div>
+<div class="lc-cases">
+<span class="lc-tag">Anna Nicole Smith</span><span class="lc-tag">Alyssa Milano</span>
+</div>
+<div class="lc-label" style="margin-top:12px;">On Celebrity Dockets</div>
+<div class="lc-cases">
+<a href="lively-v-baldoni.html" class="lc-tag">Wayfarer defense →</a>
+</div>
+</div>
+
+<div class="lc">
+<div class="lc-top"><div class="lc-name">Esra Hudson</div></div>
+<div class="lc-firm">Manatt, Phelps & Phillips · Los Angeles</div>
+<div class="lc-bio">Chair of Manatt's Employment and Labor practice. Part of Blake Lively's legal team handling the retaliation claims against Wayfarer Studios. Ranked Chambers USA Top-Ranked Attorney every year from 2022 to 2025. Named Los Angeles Business Journal Top 100 Lawyer in 2025. UCLA Law graduate.</div>
+<div class="lc-label">On Celebrity Dockets</div>
+<div class="lc-cases">
+<a href="lively-v-baldoni.html" class="lc-tag">Lively v. Wayfarer →</a>
+</div>
+</div>
+
+<div class="lc">
+<div class="lc-top"><div class="lc-name">Kristin Bender</div></div>
+<div class="lc-firm">Willkie Farr & Gallagher · Washington, D.C.</div>
+<div class="lc-bio">Partner in Willkie Farr's Litigation Department and member of the Crisis Management and Appeals & Strategic Motions Groups. Works alongside Michael Gottlieb on Blake Lively's case against Wayfarer Studios. Previously represented the Kurdistan Regional Government in transnational oil export litigation and the brother of DNC staffer Seth Rich in defamation litigation against viral conspiracy theories.</div>
+<div class="lc-label">On Celebrity Dockets</div>
+<div class="lc-cases">
+<a href="lively-v-baldoni.html" class="lc-tag">Lively v. Wayfarer →</a>
+</div>
+</div>
+
+<div class="lc">
+<div class="lc-top"><div class="lc-name">Anne Kiley</div></div>
+<div class="lc-firm">Representing Brad Pitt</div>
+<div class="lc-bio">Lead attorney representing Brad Pitt in his ongoing legal battle with Angelina Jolie over the $164M Château Miraval winery dispute. Has guided Pitt's side through multiple years of litigation involving competing claims, international jurisdiction issues, and Jolie's 2021 sale of her stake to a Stoli vodka affiliate.</div>
+<div class="lc-label">On Celebrity Dockets</div>
+<div class="lc-cases">
+<a href="pitt-v-jolie-miraval.html" class="lc-tag">Pitt v. Jolie (Miraval) →</a>
+</div>
+</div>
+
+<div class="lc">
+<div class="lc-top"><div class="lc-name">Paul Murphy</div></div>
+<div class="lc-firm">Representing Angelina Jolie</div>
+<div class="lc-bio">Lead attorney for Angelina Jolie in the Château Miraval winery dispute with Brad Pitt. Has aggressively pursued evidence related to the former couple's 2016 aircraft incident, arguing that Pitt's alleged conduct is central to the broader dispute over the sale of Jolie's stake in the winery. Most recently sought to push the trial to November 2027.</div>
+<div class="lc-label">On Celebrity Dockets</div>
+<div class="lc-cases">
+<a href="pitt-v-jolie-miraval.html" class="lc-tag">Pitt v. Jolie (Miraval) →</a>
+</div>
+</div>
+
+<div class="lc">
+<div class="lc-top"><div class="lc-name">Rollin Ransom</div></div>
+<div class="lc-firm">Sidley Austin · Los Angeles (Managing Partner)</div>
+<div class="lc-bio">Managing Partner of Sidley Austin's Los Angeles office and co-leader of the firm's global Commercial Litigation and Disputes practice. One of the most recognized music industry lawyers in the country. Successfully obtained dismissal of Drake's original defamation suit over "Not Like Us." Named a "Top Music Lawyer" by Billboard every year from 2020 to 2025 and by The Hollywood Reporter in 2025. Previously represented UMG in the Robin Thicke/Pharrell "Blurred Lines" copyright case and defended UMG against a class action involving copyright termination rights. Magna cum laude graduate of University of Michigan Law School and Phi Beta Kappa from Northwestern.</div>
+<div class="lc-label">Recognition</div>
+<div class="lc-cases">
+<span class="lc-tag">Billboard Top Music Lawyer 2020-2025</span><span class="lc-tag">THR Top Music Lawyer 2025</span><span class="lc-tag">Chambers USA</span><span class="lc-tag">Benchmark Litigation Star</span>
+</div>
+<div class="lc-label" style="margin-top:12px;">On Celebrity Dockets</div>
+<div class="lc-cases">
+<a href="drake-v-umg-appeal.html" class="lc-tag">UMG defense (v. Drake) →</a>
+</div>
+</div>
+
+<div class="sh"><h2>Criminal Defense</h2><div class="line"></div><span class="tag">Defense</span></div>
+
+<div class="lc">
+<div class="lc-top"><div class="lc-name">Blair Berk</div></div>
+<div class="lc-firm">Tarlow & Berk · Los Angeles</div>
+<div class="lc-bio">LA's most elite criminal defense attorney for celebrities. When a famous person gets arrested at 2 AM, Blair Berk is the first call. Has represented an extraordinary list of A-listers through DUIs, drug charges, domestic disputes, and worse. Almost always keeping them out of prison and out of the press. Now leading the defense of d4vd in what could be the highest-profile celebrity murder case in years.</div>
+<div class="lc-label">Notable Clients</div>
+<div class="lc-cases">
+<span class="lc-tag">Mel Gibson</span><span class="lc-tag">Reese Witherspoon</span><span class="lc-tag">Kiefer Sutherland</span><span class="lc-tag">Heather Locklear</span><span class="lc-tag">Vince Vaughn</span>
+</div>
+<div class="lc-label" style="margin-top:12px;">On Celebrity Dockets</div>
+<div class="lc-cases">
+<a href="d4vd-grand-jury.html" class="lc-tag">d4vd murder defense →</a>
+</div>
+</div>
+
+<div class="lc">
+<div class="lc-top"><div class="lc-name">David Meier</div></div>
+<div class="lc-firm">Massachusetts</div>
+<div class="lc-bio">Defending Stefon Diggs against felony strangulation and assault charges in Dedham District Court. Called the allegations "unsubstantiated, uncorroborated, and were never investigated, because they did not occur." Argued the charges stem from a financial dispute between Diggs and his former personal chef.</div>
+<div class="lc-label">On Celebrity Dockets</div>
+<div class="lc-cases">
+<a href="stefon-diggs-criminal.html" class="lc-tag">Commonwealth v. Diggs →</a>
+</div>
+</div>
+
+<div style="background:linear-gradient(135deg,rgba(225,16,40,.08),rgba(246,195,64,.08));border:2px solid rgba(225,16,40,.2);border-radius:16px;padding:36px;margin:40px 0;">
+<div style="font-family:'JetBrains Mono',monospace;font-size:.65rem;text-transform:uppercase;letter-spacing:3px;color:var(--red);margin-bottom:6px;">🎯 Prosecutor Spotlight</div>
+<div style="font-family:'DM Serif Display',serif;font-size:1.6rem;color:var(--t1);margin-bottom:4px;">Beth Silverman</div>
+<div class="lc-nick" style="display:inline-block;margin-bottom:12px;">"The Sniper"</div>
+<div class="lc-firm" style="margin-bottom:14px;">LA County District Attorney's Office · Major Crimes Division</div>
+<div style="font-size:.9rem;color:var(--t2);line-height:1.7;margin-bottom:16px;">Has <strong style="color:var(--t1);">never lost a murder case.</strong> Deputy DA since 1994. Earned her nickname for "picking off" defendants. She has obtained the death penalty in multiple capital cases. Prosecuted some of California's most notorious serial killers: Lonnie Franklin Jr. (the Grim Sleeper), Michael Hughes (the Southside Slayer), Chester Turner, and Samuel Little. Convicted a husband in a no-body cold case murder. Got a mother sentenced to death for killing her four daughters. Now assigned to the d4vd murder case.</div>
+<div class="lc-label">Notable Prosecutions</div>
+<div class="lc-cases">
+<span class="lc-tag">Grim Sleeper</span><span class="lc-tag">Southside Slayer</span><span class="lc-tag">Chester Turner</span><span class="lc-tag">Samuel Little</span><span class="lc-tag">Sandi Nieves (death penalty)</span><span class="lc-tag">John Racz (no-body case)</span>
+</div>
+<div class="lc-label" style="margin-top:12px;">On Celebrity Dockets</div>
+<div class="lc-cases">
+<a href="d4vd-grand-jury.html" class="lc-tag">d4vd murder prosecution →</a>
+</div>
+</div>
+
+</div>
+
+<footer class="ft"><div class="ftl">Celebrity<span>Dockets</span></div><p class="ftt">Tracking celebrity court cases, one docket at a time.</p><div class="ftk"><a href="index.html">Cases</a><a href="objection-live.html">Objection Live!</a><a href="recess.html">RECESS</a><a href="star-bar.html">Star Bar</a><a href="courtroom-culture.html">Courtroom Culture</a><a href="about.html">About</a></div><div class="ftk" style="margin-top:12px;"><a href="legal.html">Terms &amp; Privacy</a></div><p class="ftd">Celebrity Dockets is an independent media site. Nothing here is legal advice. All case information is sourced from public court filings and verified reporting.</p><p class="ftc">&copy; 2026 CelebrityDockets.com &middot; All rights reserved.</p></footer>
+<script type="text/javascript" src="https://cdnjs.buymeacoffee.com/1.0.0/button.prod.min.js" data-name="bmc-button" data-slug="CJournalist24" data-color="#FFDD00" data-emoji="☕" data-font="Cookie" data-text="Fuel The Docket " data-outline-color="#000000" data-font-color="#000000" data-coffee-color="#FFDD00"></script>
+<script data-name="BMC-Widget" data-cfasync="false" src="https://cdnjs.buymeacoffee.com/1.0.0/widget.prod.min.js" data-id="CJournalist24" data-description="Support me on Buy me a coffee!" data-message="Help keep the docket running. Buy CJ a coffee." data-color="#FFDD00" data-position="Right" data-x_margin="18" data-y_margin="18"></script>
+</body>
+</html>

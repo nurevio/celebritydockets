@@ -1,0 +1,266 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<link rel="icon" type="image/png" href="favicon.png">
+<link rel="apple-touch-icon" href="favicon.png">
+<link rel="icon" type="image/png" href="favicon.png"><link rel="apple-touch-icon" href="favicon.png">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Celebrity Dockets — Tracking Celebrity Court Cases</title>
+<link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&family=IBM+Plex+Sans:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+<style>
+:root,:root[data-theme="dark"]{--bg:#0a0a0f;--card:#12121a;--elev:#1a1a26;--red:#E11028;--gold:#F6C340;--blue:#4a90d9;--t1:#e8e6e1;--t2:#9a9a9a;--t3:#5a5a6a;--bdr:#2a2a3a;--bdr2:#1e1e2e}
+:root[data-theme="light"]{--bg:#f5f2ea;--card:#ffffff;--elev:#fffcf5;--red:#9b2226;--gold:#8b6f20;--blue:#1e5091;--t1:#1a1a1f;--t2:#5a5a5f;--t3:#8a8a8f;--bdr:#d4cfc0;--bdr2:#e8e3d4}
+*{margin:0;padding:0;box-sizing:border-box}
+body{background:var(--bg);color:var(--t1);font-family:'IBM Plex Sans',sans-serif;line-height:1.6;transition:background .3s,color .3s}
+.theme-toggle{background:none;border:1px solid var(--bdr);color:var(--t2);cursor:pointer;padding:6px 10px;border-radius:4px;font-size:.75rem;font-family:'JetBrains Mono',monospace;text-transform:uppercase;letter-spacing:1px;transition:all .2s;display:flex;align-items:center;gap:6px}
+.theme-toggle:hover{border-color:var(--gold);color:var(--gold)}
+.hdr{border-bottom:1px solid var(--bdr);padding:16px 24px;display:flex;align-items:center;justify-content:space-between;background:var(--bg);position:sticky;top:0;z-index:100;backdrop-filter:blur(12px)}
+.logo{font-family:'DM Serif Display',serif;font-size:1.4rem;color:var(--t1);text-decoration:none}.logo span{color:var(--red)}
+.nav{display:flex;gap:24px;font-size:.8rem;text-transform:uppercase;letter-spacing:1.5px;font-weight:600}
+.nav a{color:var(--t2);text-decoration:none;transition:color .2s}.nav a:hover{color:var(--gold)}.nav a.on{color:var(--gold)}
+.hero{position:relative;padding:80px 24px 60px;text-align:center;overflow:hidden}
+.hero::before{content:'';position:absolute;inset:0;background:radial-gradient(ellipse at 20% 50%,rgba(225,16,40,.06) 0%,transparent 60%),radial-gradient(ellipse at 80% 50%,rgba(246,195,64,.04) 0%,transparent 60%);pointer-events:none}
+.hey{font-family:'JetBrains Mono',monospace;font-size:.7rem;text-transform:uppercase;letter-spacing:4px;color:var(--red);margin-bottom:16px;position:relative;display:inline-flex;align-items:center;gap:8px}
+.hey::before{content:'';width:6px;height:6px;background:var(--red);border-radius:50%;animation:p 2s infinite}
+@keyframes p{0%,100%{opacity:1}50%{opacity:.3}}
+.ht{font-family:'DM Serif Display',serif;font-size:4rem;line-height:1.1;margin-bottom:16px;position:relative}.ht span{color:var(--red)}
+.hs{font-size:1.15rem;color:var(--t2);max-width:600px;margin:0 auto 32px}
+.shows{display:flex;gap:24px;justify-content:center;flex-wrap:wrap}
+.sb{display:inline-flex;align-items:center;gap:8px;padding:8px 20px;border-radius:6px;font-size:.8rem;font-weight:600;text-decoration:none;transition:transform .2s}.sb:hover{transform:translateY(-2px)}
+.sb1{background:rgba(225,16,40,.12);color:var(--red);border:1px solid rgba(225,16,40,.25)}
+.sb2{background:rgba(246,195,64,.12);color:var(--gold);border:1px solid rgba(246,195,64,.25)}
+/* Spotlight */
+.spot{max-width:1100px;margin:0 auto;padding:0 24px 24px}
+.spot-card{background:var(--card);border:1px solid var(--bdr);border-radius:12px;padding:36px;display:grid;grid-template-columns:1fr 1fr;gap:32px;text-decoration:none;color:inherit;transition:transform .2s}
+.spot-card:hover{transform:translateY(-3px)}
+.spot-ey{font-family:'JetBrains Mono',monospace;font-size:.65rem;text-transform:uppercase;letter-spacing:3px;color:var(--red);margin-bottom:12px;display:flex;align-items:center;gap:6px}
+.spot-ey::before{content:'';width:5px;height:5px;background:var(--red);border-radius:50%;animation:p 2s infinite}
+.spot-t{font-family:'DM Serif Display',serif;font-size:1.8rem;line-height:1.2;margin-bottom:12px}.spot-t em{color:var(--red)}
+.spot-d{font-size:.9rem;color:var(--t2);line-height:1.7;margin-bottom:20px}
+.spot-cta{color:var(--gold);font-size:.82rem;font-weight:600;text-transform:uppercase;letter-spacing:1px}
+.spot-stats{display:grid;grid-template-columns:1fr 1fr;gap:16px}
+.ss{background:var(--elev);border-radius:8px;padding:20px;text-align:center}
+.ssn{font-family:'DM Serif Display',serif;font-size:1.8rem;color:var(--gold)}
+.ssl{font-size:.65rem;text-transform:uppercase;letter-spacing:1.2px;color:var(--t3);margin-top:4px}
+/* Section */
+.sh{max-width:1100px;margin:0 auto;padding:48px 24px 24px;display:flex;align-items:center;gap:16px}
+.sht{font-family:'DM Serif Display',serif;font-size:1.6rem;color:var(--t1);white-space:nowrap}
+.shl{flex:1;height:1px;background:var(--bdr)}
+.shtg{font-family:'JetBrains Mono',monospace;font-size:.7rem;color:var(--gold);background:rgba(246,195,64,.1);padding:4px 12px;border-radius:4px;border:1px solid rgba(246,195,64,.2)}
+/* Grid */
+.grid{max-width:1100px;margin:0 auto;padding:0 24px 60px;display:grid;grid-template-columns:repeat(auto-fill,minmax(310px,1fr));gap:20px}
+@media(max-width:720px){.grid{grid-template-columns:1fr}.ht{font-size:2.6rem}.spot-card{grid-template-columns:1fr}}
+.sfbtn{padding:6px 14px;border-radius:5px;font-size:.7rem;font-weight:600;text-transform:uppercase;letter-spacing:.8px;border:1px solid var(--bdr);background:var(--card);color:var(--t2);cursor:pointer;transition:all .2s;font-family:'JetBrains Mono',monospace}
+.sfbtn:hover,.sfbtn.active{background:rgba(246,195,64,.12);color:var(--gold);border-color:rgba(246,195,64,.3)}
+.cc{background:var(--card);border:1px solid var(--bdr);border-radius:10px;padding:24px;text-decoration:none;color:inherit;display:flex;flex-direction:column;transition:transform .25s,border-color .25s;position:relative;overflow:hidden;cursor:pointer}
+.cc::before{content:'';position:absolute;top:0;left:0;right:0;height:3px;background:var(--ca);opacity:0;transition:opacity .25s}
+.cc:hover{transform:translateY(-4px);border-color:var(--ca)}.cc:hover::before{opacity:1}
+.cb{display:flex;gap:8px;margin-bottom:12px;flex-wrap:wrap}
+.cbd{font-size:.6rem;font-weight:700;text-transform:uppercase;letter-spacing:1px;padding:3px 10px;border-radius:3px}
+.ba{background:rgba(225,16,40,.15);color:var(--red)}
+.bs{background:rgba(74,144,217,.12);color:var(--blue)}
+.bt{background:rgba(246,195,64,.12);color:var(--gold)}
+.bc{background:rgba(255,255,255,.05);color:var(--t3)}
+.bap{background:rgba(155,89,182,.12);color:#9b72cf}
+.cctt{font-family:'DM Serif Display',serif;font-size:1.3rem;line-height:1.25;margin-bottom:8px;color:var(--t1)}.cctt em{color:var(--ca)}
+.ccs{font-size:.82rem;color:var(--t2);line-height:1.6;flex:1;margin-bottom:14px}
+.ccf{display:flex;justify-content:space-between;align-items:center;padding-top:12px;border-top:1px solid var(--bdr2)}
+.ccd{font-family:'JetBrains Mono',monospace;font-size:.68rem;color:var(--t3)}
+.cca{font-size:.85rem;color:var(--ca);transition:transform .2s}.cc:hover .cca{transform:translateX(4px)}
+/* Footer */
+.ft{border-top:1px solid var(--bdr);padding:40px 24px;text-align:center}
+.ftl{font-family:'DM Serif Display',serif;font-size:1.6rem;color:var(--t1);margin-bottom:8px}.ftl span{color:var(--red)}
+.ftt{font-size:.82rem;color:var(--t3);margin-bottom:20px}
+.ftk{display:flex;gap:24px;justify-content:center;flex-wrap:wrap;margin-bottom:20px}
+.ftk a{font-size:.75rem;text-transform:uppercase;letter-spacing:1.5px;font-weight:600;color:var(--t2);text-decoration:none}.ftk a:hover{color:var(--gold)}
+.ftc{font-size:.7rem;color:var(--t3)}
+@keyframes fu{from{opacity:0;transform:translateY(24px)}to{opacity:1;transform:translateY(0)}}
+.hero{animation:fu .6s ease-out}.cc{animation:fu .5s ease-out both}
+
+.hamburger{display:none;background:none;border:none;color:var(--t1);cursor:pointer;padding:8px;flex-direction:column;gap:5px}
+.hamburger span{display:block;width:24px;height:2px;background:var(--t1);transition:all .3s}
+@media(max-width:768px){
+  .nav{display:none;position:absolute;top:100%;left:0;right:0;background:var(--bg);flex-direction:column;padding:20px 24px;gap:18px;border-bottom:1px solid var(--bdr);box-shadow:0 4px 20px rgba(0,0,0,.4);z-index:99}
+  .nav.open{display:flex}
+  .hamburger{display:flex}
+  .hamburger.open span:nth-child(1){transform:rotate(45deg) translate(5px,5px)}
+  .hamburger.open span:nth-child(2){opacity:0}
+  .hamburger.open span:nth-child(3){transform:rotate(-45deg) translate(7px,-7px)}
+}
+</style>
+</head>
+<body>
+
+<header class="hdr"><a href="index.html" class="logo">Celebrity<span>Dockets</span></a><button class="hamburger" onclick="this.classList.toggle('open');document.querySelector('.nav').classList.toggle('open')"><span></span><span></span><span></span></button><nav class="nav"><a href="#" class="on">Cases</a><a href="objection-live.html">Objection Live!</a><a href="recess.html">RECESS</a><a href="star-bar.html">Star Bar</a><a href="courtroom-culture.html">Courtroom Culture</a><a href="about.html">About</a></nav><button class="theme-toggle" onclick="toggleTheme()" title="Toggle theme"><span id="theme-icon">🌙</span></button></header>
+<script>
+function toggleTheme(){var c=document.documentElement.getAttribute('data-theme')||'dark';var n=c==='dark'?'light':'dark';document.documentElement.setAttribute('data-theme',n);localStorage.setItem('cdTheme',n);document.getElementById('theme-icon').textContent=n==='dark'?'🌙':'☀️';}
+(function(){var s=localStorage.getItem('cdTheme');if(s){document.documentElement.setAttribute('data-theme',s);window.addEventListener('DOMContentLoaded',function(){var ic=document.getElementById('theme-icon');if(ic)ic.textContent=s==='dark'?'🌙':'☀️';});}})();
+</script>
+
+<section class="hero">
+<div class="hey">Now Tracking 33 Cases</div>
+<img src="logo-transparent.png" alt="Celebrity Dockets" style="width:320px;height:auto;margin:0 auto 20px;display:block;">
+<h1 class="ht">Celebrity<span>Dockets</span></h1>
+<p class="hs">Your courtroom source for celebrity legal drama. Every filing, every ruling, every verdict — broken down and docketed.</p>
+<div class="shows">
+<a href="https://www.youtube.com/@CJournalist24" target="_blank" class="sb sb1">⚖️ Objection Live! — YouTube</a>
+<a href="recess.html" class="sb sb2">🔔 RECESS — Pop Culture</a>
+</div>
+</section>
+
+<!-- SPOTLIGHT: D4VD CHARGED -->
+<div class="sh"><h2 class="sht">Breaking</h2><div class="shl"></div><span class="shtg">CHARGED APRIL 20</span></div>
+<div class="spot">
+<div class="spot-card" style="grid-template-columns:minmax(280px,1fr) 594px;grid-template-areas:'text slideshow' 'sketch stats';gap:28px 32px;align-items:start;">
+
+<!-- TOP-LEFT: Text -->
+<div style="grid-area:text;">
+<div class="spot-ey">🚨 Charges Filed · April 20, 2026</div>
+<div class="spot-t"><em>People</em> v. David Burke (d4vd) · First-Degree Murder</div>
+<p class="spot-d">LA County DA Nathan Hochman formally charged d4vd with first-degree murder, continuous sexual abuse of a child under 14, and mutilation of human remains. Three special circumstance allegations make the case death-penalty eligible. Pleaded not guilty. Held without bail at Twin Towers. Prosecutors disclosed 40TB of evidence including CSAM on his phone. Preliminary hearing May 1.</p>
+<a href="d4vd-grand-jury.html" class="spot-cta" style="display:inline-block;">Read Full Docket →</a>
+</div>
+
+<!-- TOP-RIGHT: Getty Slideshow -->
+<div style="grid-area:slideshow;display:flex;flex-direction:column;align-items:center;">
+<a id='Fw1FDbfkQQNP6A4cNza9fQ' class='gie-slideshow' href='https://www.gettyimages.com/detail/2271757635' target='_blank' style='color:#a7a7a7;text-decoration:none;font-weight:normal !important;border:none;display:inline-block;'>Embed from Getty Images</a><script>window.gie=window.gie||function(c){(gie.q=gie.q||[]).push(c)};gie(function(){gie.widgets.load({id:'Fw1FDbfkQQNP6A4cNza9fQ',sig:'-9y-TLaPNyjR-N5cfttAV9XiJ2mXRmmTD8eYQdpDZ-c=',w:'594px',h:'396px',items:'2271757635,2271757301,2271757555,2271757655,2271757363',caption: true ,tld:'com',is360: false })});</script><script src='//embed-cdn.gettyimages.com/widgets.js' charset='utf-8' async></script>
+<div style="font-family:'JetBrains Mono',monospace;font-size:.6rem;letter-spacing:1.5px;text-transform:uppercase;color:var(--t3);margin-top:8px;text-align:center;">Getty Images · Click for caption &amp; photographer</div>
+</div>
+
+<!-- BOTTOM-LEFT: Sketch -->
+<div style="grid-area:sketch;">
+<img src="d4vd-courtroom-sketch.png" alt="Courtroom sketch of d4vd at preliminary hearing by Bill Robles" style="width:100%;border-radius:8px;display:block;">
+<div style="font-family:'JetBrains Mono',monospace;font-size:.6rem;letter-spacing:1.5px;text-transform:uppercase;color:var(--t3);text-align:center;margin-top:8px;line-height:1.7;">Courtroom sketch · d4vd at preliminary hearing<br>Art by Bill Robles</div>
+</div>
+
+<!-- BOTTOM-RIGHT: Stats -->
+<div style="grid-area:stats;display:grid;grid-template-columns:1fr 1fr;gap:14px;align-content:start;">
+<div class="ss"><div class="ssn">No Bail</div><div class="ssl">Held at Twin Towers</div></div>
+<div class="ss"><div class="ssn">3</div><div class="ssl">Special Circumstances</div></div>
+<div class="ss"><div class="ssn">40 TB</div><div class="ssl">Evidence Disclosed</div></div>
+<div class="ss"><div class="ssn">May 1</div><div class="ssl">Prelim Hearing</div></div>
+</div>
+
+</div>
+</div>
+
+<!-- ALL CASES -->
+<div class="sh"><h2 class="sht">All Cases on the Docket</h2><div class="shl"></div><span class="shtg">33 CASES</span></div>
+
+<div style="max-width:500px;margin:0 auto 24px;padding:0;text-align:center;">
+<input type="text" id="caseSearch" placeholder="Search cases..." oninput="searchCases()" style="width:100%;padding:10px 18px;background:var(--card);border:1px solid var(--bdr);border-radius:6px;color:var(--t1);font-family:'IBM Plex Sans',sans-serif;font-size:.85rem;outline:none;transition:border-color .2s;" onfocus="this.style.borderColor='var(--gold)'" onblur="this.style.borderColor='var(--bdr)'">
+<div id="subjectFilters" style="display:flex;flex-wrap:wrap;gap:6px;margin-top:10px;justify-content:center;">
+<button class="sfbtn active" onclick="filterSubject('all')">All</button>
+<button class="sfbtn" onclick="filterSubject('Defamation')">Defamation</button>
+<button class="sfbtn" onclick="filterSubject('Criminal')">Criminal</button>
+<button class="sfbtn" onclick="filterSubject('Copyright')">Copyright / IP</button>
+<button class="sfbtn" onclick="filterSubject('Appeal')">Appeal</button>
+<button class="sfbtn" onclick="filterSubject('Sexual Assault')">SA / Misconduct</button>
+<button class="sfbtn" onclick="filterSubject('Workplace')">Workplace</button>
+<button class="sfbtn" onclick="filterSubject('DUI')">DUI</button>
+<button class="sfbtn" onclick="filterSubject('Property')">Property / Estate</button>
+<button class="sfbtn" onclick="filterSubject('Battery')">Battery</button>
+<button class="sfbtn" onclick="filterSubject('Antitrust')">Antitrust</button>
+<button class="sfbtn" onclick="filterSubject('UK')">UK Cases</button>
+</div>
+</div>
+
+<div class="grid">
+
+<a href="lively-v-baldoni.html" class="cc" style="--ca:#d94f8c"><div class="cb"><span class="cbd bt">Trial May 18</span><span class="cbd bc">Retaliation</span></div><div class="cctt"><em>Lively</em> v. Wayfarer / IEWU Movie LLC</div><div class="ccs">10 of 13 claims dismissed. All individual defendants out. Only the two companies go to trial.</div><div class="ccf"><span class="ccd">Trial May 18, 2026</span><span class="cca">→</span></div></a>
+
+<a href="combs-appeal.html" class="cc" style="--ca:#9b59b6"><div class="cb"><span class="cbd bap">Appeal</span><span class="cbd bc">Mann Act</span></div><div class="cctt"><em>Combs</em> — Appeal + $100M Defamation</div><div class="ccs">Diddy appeals 50-month sentence. Also suing NewsNation for $100M. Attorney Ariel Mitchell suspended. 89+ civil cases active.</div><div class="ccf"><span class="ccd">Appeal argued Apr 9</span><span class="cca">→</span></div></a>
+
+<a href="drake-v-umg-appeal.html" class="cc" style="--ca:#3498db"><div class="cb"><span class="cbd bap">Appeal</span><span class="cbd bc">Defamation / Rap</span></div><div class="cctt"><em>Drake</em> v. UMG — Not Like Us</div><div class="ccs">Drake appeals dismissal of defamation suit over "certified pedophile" lyric. UMG calls him a "sore loser."</div><div class="ccf"><span class="ccd">Reply due Apr 17</span><span class="cca">→</span></div></a>
+
+<a href="live-nation-ticketmaster.html" class="cc" style="--ca:#e74c3c"><div class="cb"><span class="cbd ba">Verdict</span><span class="cbd bc">Antitrust</span></div><div class="cctt"><em>U.S.</em> v. Live Nation / Ticketmaster</div><div class="ccs">Jury finds illegal monopoly. Overcharged $1.72/ticket. Appeal planned. Breakup possible.</div><div class="ccf"><span class="ccd">Verdict Apr 15, 2026</span><span class="cca">→</span></div></a>
+
+<a href="henson-v-sony.html" class="cc" style="--ca:#E11028"><div class="cb"><span class="cbd ba">Active</span><span class="cbd bc">Copyright</span></div><div class="cctt"><em>Henson</em> v. Sony Music</div><div class="ccs">NSYNC "Bye Bye Bye" choreographer sues over Deadpool & Wolverine and Fortnite use.</div><div class="ccf"><span class="ccd">Filed Mar 27, 2026</span><span class="cca">→</span></div></a>
+
+<a href="barnett-v-labeouf.html" class="cc" style="--ca:#9b72cf"><div class="cb"><span class="cbd ba">Active</span><span class="cbd bc">NDA / STAND Act</span></div><div class="cctt"><em>Barnett</em> v. LaBeouf</div><div class="ccs">FKA twigs challenges NDA from sexual battery settlement under California's STAND Act.</div><div class="ccf"><span class="ccd">Filed Mar 25, 2026</span><span class="cca">→</span></div></a>
+
+<a href="kardashian-v-ray-j.html" class="cc" style="--ca:#e6a031"><div class="cb"><span class="cbd ba">Active</span><span class="cbd bc">Defamation</span></div><div class="cctt"><em>Kardashian & Jenner</em> v. Ray J</div><div class="ccs">$6M sex tape settlement unsealed. Judge refused to keep the deal private.</div><div class="ccf"><span class="ccd">Filed Oct 2025</span><span class="cca">→</span></div></a>
+
+<a href="pitt-v-jolie-miraval.html" class="cc" style="--ca:#8b5cf6"><div class="cb"><span class="cbd ba">Active</span><span class="cbd bc">$164M Winery</span></div><div class="cctt"><em>Pitt</em> v. Jolie — Château Miraval</div><div class="ccs">$164M winery war. Key witness died. Jolie wants trial pushed to Nov 2027.</div><div class="ccf"><span class="ccd">Trial TBD 2027</span><span class="cca">→</span></div></a>
+
+<a href="costner-horizon-lawsuits.html" class="cc" style="--ca:#c4813a"><div class="cb"><span class="cbd ba">Multiple</span><span class="cbd bc">Harassment / Finance</span></div><div class="cctt">The <em>Horizon</em> Lawsuits — Costner</div><div class="ccs">Stunt performer rape scene suit + unpaid costume bills + New Line financing war.</div><div class="ccf"><span class="ccd">4+ lawsuits · 2025–present</span><span class="cca">→</span></div></a>
+
+<a href="wilson-v-ghost-the-deb.html" class="cc" style="--ca:#e67e22"><div class="cb"><span class="cbd ba">Active</span><span class="cbd bc">Defamation / Film</span></div><div class="cctt"><em>Ghost et al.</em> v. Wilson</div><div class="ccs">The Deb producers sue Rebel Wilson. Anonymous smear websites and TAG PR links exposed.</div><div class="ccf"><span class="ccd">Trial Oct 2026</span><span class="cca">→</span></div></a>
+
+<a href="wade-v-swift-showgirl.html" class="cc" style="--ca:#ec4899"><div class="cb"><span class="cbd ba">Active</span><span class="cbd bc">Trademark</span></div><div class="cctt"><em>Wade</em> v. Swift</div><div class="ccs">"Life of a Showgirl" vs "Confessions of a Showgirl." USPTO flagged the conflict. Swift used it anyway.</div><div class="ccf"><span class="ccd">Filed Mar 30, 2026</span><span class="cca">→</span></div></a>
+
+<a href="d4vd-grand-jury.html" class="cc" style="--ca:#c0392b"><div class="cb"><span class="cbd ba" style="background:rgba(225,16,40,.25);color:#ff4757;">🚨 ARRESTED</span><span class="cbd bc">Murder</span></div><div class="cctt"><em>d4vd</em> — Arrested for Murder</div><div class="ccs">Arrested Apr 16 and held without bail. Teen's dismembered remains found in his Tesla. DA reviewing Monday.</div><div class="ccf"><span class="ccd">Arrested Apr 16, 2026</span><span class="cca">→</span></div></a>
+
+<a href="russell-brand-uk-trial.html" class="cc" style="--ca:#8e44ad"><div class="cb"><span class="cbd bt">Trial Oct 2026</span><span class="cbd bc">Rape / Sexual Assault</span></div><div class="cctt"><em>R v. Brand</em> — UK Trial</div><div class="ccs">7 charges, 6 women, spanning 1999-2009. Up to life imprisonment if convicted.</div><div class="ccf"><span class="ccd">Trial Oct 12, 2026</span><span class="cca">→</span></div></a>
+
+<a href="chris-brown-uk-trial.html" class="cc" style="--ca:#c0392b"><div class="cb"><span class="cbd bt">Trial Oct 2026</span><span class="cbd bc">GBH / Assault</span></div><div class="cctt"><em>R v. Brown</em> — UK Trial</div><div class="ccs">Accused of bottle attack at London nightclub. $6.7M bond. 2-16 years if convicted.</div><div class="ccf"><span class="ccd">Trial Oct 26, 2026</span><span class="cca">→</span></div></a>
+
+<a href="tiger-woods-dui.html" class="cc" style="--ca:#2ecc71"><div class="cb"><span class="cbd ba">Active</span><span class="cbd bc">DUI + Subpoena Fight</span></div><div class="cctt"><em>State</em> v. Woods — DUI</div><div class="ccs">Rollover crash. Hydrocodone. Refused urine test. Now fighting subpoena for pharmacy records.</div><div class="ccf"><span class="ccd">Hearing May 5</span><span class="cca">→</span></div></a>
+
+<a href="britney-spears-dui.html" class="cc" style="--ca:#e91e63"><div class="cb"><span class="cbd ba">Active</span><span class="cbd bc">DUI · In Rehab</span></div><div class="cctt"><em>People</em> v. Spears — DUI</div><div class="ccs">Arrested March 4 driving erratically. Voluntarily entered rehab April 12.</div><div class="ccf"><span class="ccd">Court May 4</span><span class="cca">→</span></div></a>
+
+<a href="stefon-diggs-criminal.html" class="cc" style="--ca:#2c3e50"><div class="cb"><span class="cbd bt">Trial May 4</span><span class="cbd bc">Felony Strangulation</span></div><div class="cctt"><em>Commonwealth</em> v. Diggs</div><div class="ccs">Patriots WR charged with choking his personal chef during a wage dispute.</div><div class="ccf"><span class="ccd">Trial May 4, 2026</span><span class="cca">→</span></div></a>
+
+<a href="tyler-perry-lawsuits.html" class="cc" style="--ca:#27ae60"><div class="cb"><span class="cbd ba">2 Active</span><span class="cbd bc">Sexual Assault</span></div><div class="cctt">The <em>Tyler Perry</em> Lawsuits</div><div class="ccs">Two actors suing for sexual assault — $260M + $77M. Same legal team. Perry calls it coordinated.</div><div class="ccf"><span class="ccd">Lionsgate hearing May 7</span><span class="cca">→</span></div></a>
+
+<a href="kanye-west-employee-lawsuits.html" class="cc" style="--ca:#f39c12"><div class="cb"><span class="cbd ba">Multiple</span><span class="cbd bc">Unpaid Wages</span></div><div class="cctt">The <em>Kanye West</em> Employee Cases</div><div class="ccs">Jury ordered $140K for Malibu mansion case. Security guard suing for $850K. Jane Doe harassment suit on hold.</div><div class="ccf"><span class="ccd">Multiple courts · Ongoing</span><span class="cca">→</span></div></a>
+
+<a href="fat-joe-v-dixon.html" class="cc" style="--ca:#e74c3c"><div class="cb"><span class="cbd ba">Active</span><span class="cbd bc">Defamation / Extortion</span></div><div class="cctt"><em>Cartagena</em> v. Dixon</div><div class="ccs">Fat Joe vs. former hype man. RICO and sex abuse claims dropped. Defamation proceeding.</div><div class="ccf"><span class="ccd">SDNY Federal Court</span><span class="cca">→</span></div></a>
+
+<a href="cardi-b-mic-lawsuit.html" class="cc" style="--ca:#e91e63"><div class="cb"><span class="cbd ba">Active</span><span class="cbd bc">Battery</span></div><div class="cctt">Jane Doe v. <em>Cardi B</em></div><div class="ccs">Fan sues after Cardi threw a microphone at her during a Las Vegas concert.</div><div class="ccf"><span class="ccd">Filed Jul 2025</span><span class="cca">→</span></div></a>
+
+<a href="pratt-v-city-of-la.html" class="cc" style="--ca:#e67e22"><div class="cb"><span class="cbd ba">Discovery</span><span class="cbd bc">Palisades Fire</span></div><div class="cctt"><em>Pratt & Montag</em> v. City of LA</div><div class="ccs">Lost uninsured home in LA fires. Suing city for draining reservoir. Now running for mayor.</div><div class="ccf"><span class="ccd">Filed Jan 2025</span><span class="cca">→</span></div></a>
+
+<a href="bad-bunny-lawsuits.html" class="cc" style="--ca:#16a085"><div class="cb"><span class="cbd ba">Multiple</span><span class="cbd bc">Property / Voice Theft</span></div><div class="cctt">The <em>Bad Bunny</em> Lawsuits</div><div class="ccs">La Casita exploitation + two voice theft suits totaling $62M+ in Puerto Rico.</div><div class="ccf"><span class="ccd">3 suits · Puerto Rico</span><span class="cca">→</span></div></a>
+
+<a href="littrell-beach-lawsuit.html" class="cc" style="--ca:#1abc9c"><div class="cb"><span class="cbd ba">Active</span><span class="cbd bc">Property Rights</span></div><div class="cctt"><em>Littrell</em> v. Walton County</div><div class="ccs">Backstreet Boy sues FL sheriff over beach trespassers. Family receiving death threats.</div><div class="ccf"><span class="ccd">Motion to dismiss pending</span><span class="cca">→</span></div></a>
+
+<a href="perry-rose-criminal-probe.html" class="cc" style="--ca:#9b59b6"><div class="cb"><span class="cbd ba">Probe</span><span class="cbd bc">Sexual Assault · Australia</span></div><div class="cctt"><em>Perry</em> — Ruby Rose Allegation</div><div class="ccs">Ruby Rose accuses Katy Perry of assault 20 years ago. Police reports filed. Perry denies.</div><div class="ccf"><span class="ccd">Reports filed Apr 14</span><span class="cca">→</span></div></a>
+
+<a href="cohen-v-mcsweeney.html" class="cc" style="--ca:#e67e22"><div class="cb"><span class="cbd ba">MTD Pending</span><span class="cbd bc">Workplace / Reality TV</span></div><div class="cctt"><em>McSweeney</em> v. Cohen & Bravo</div><div class="ccs">RHONY star sues Andy Cohen over toxic workplace culture and cocaine claims. Cohen moves to dismiss.</div><div class="ccf"><span class="ccd">MTD filed Apr 8, 2026</span><span class="cca">→</span></div></a>
+
+<a href="paris-jackson-v-mj-estate.html" class="cc" style="--ca:#F6C340"><div class="cb"><span class="cbd ba">Active</span><span class="cbd bc">Estate / Probate</span></div><div class="cctt"><em>Paris Jackson</em> v. MJ Estate</div><div class="ccs">Paris accuses executors of using her father's fortune to bully and mock her in court filings.</div><div class="ccf"><span class="ccd">Filed Apr 6, 2026</span><span class="cca">→</span></div></a>
+
+<a href="prince-harry-uk-cases.html" class="cc" style="--ca:#2980b9"><div class="cb"><span class="cbd ba">Multiple UK</span><span class="cbd bc">Defamation / Hacking</span></div><div class="cctt">The <em>Prince Harry</em> UK Cases</div><div class="ccs">His own charity suing him for defamation. Daily Mail trial ongoing. Landmark Murdoch settlement won.</div><div class="ccf"><span class="ccd">Multiple · UK High Court</span><span class="cca">→</span></div></a>
+
+<a href="salt-n-pepa-v-umg.html" class="cc" style="--ca:#e91e63"><div class="cb"><span class="cbd bap">Appeal</span><span class="cbd bc">Masters / Copyright</span></div><div class="cctt"><em>Salt-N-Pepa</em> v. UMG</div><div class="ccs">Fighting to reclaim Push It and their masters after 35 years. Dismissed — now appealing, calling ruling "riddled with error."</div><div class="ccf"><span class="ccd">Appeal brief Apr 2026</span><span class="cca">→</span></div></a>
+
+<a href="tory-lanez-prison-lawsuit.html" class="cc" style="--ca:#00897b"><div class="cb"><span class="cbd ba">New Filing</span><span class="cbd bc">Prison Lawsuit</span></div><div class="cctt"><em>Tory Lanez</em> v. CDCR</div><div class="ccs">Suing California prison system after being stabbed 14 times. Both lungs collapsed. Calls for pardon.</div><div class="ccf"><span class="ccd">Filed 2026</span><span class="cca">→</span></div></a>
+
+<a href="brown-v-ample-defamation.html" class="cc" style="--ca:#c0392b"><div class="cb"><span class="cbd ba">Dismissed</span><span class="cbd bc">Defamation / $500M</span></div><div class="cctt"><em>Brown</em> v. Warner Bros. / Ample</div><div class="ccs">Chris Brown sued over "A History of Violence" documentary. $500M defamation claim dismissed Jan 2026.</div><div class="ccf"><span class="ccd">Dismissed Jan 12, 2026</span><span class="cca">→</span></div></a>
+
+<a href="smith-v-king-joseph.html" class="cc" style="--ca:#c9a227"><div class="cb"><span class="cbd ba">Active</span><span class="cbd bc">Workplace / Harassment</span></div><div class="cctt"><em>King Joseph</em> v. Will Smith</div><div class="ccs">Professional violinist sues Will Smith and Treyball Studios for retaliation, wrongful termination, and sexual harassment.</div><div class="ccf"><span class="ccd">Filed Dec 30, 2025</span><span class="cca">→</span></div></a>
+
+<a href="capolongo-v-spotify.html" class="cc" style="--ca:#3b82f6"><div class="cb"><span class="cbd ba">Active</span><span class="cbd bc">Class Action / Consumer</span></div><div class="cctt"><em>Capolongo</em> v. Spotify</div><div class="ccs">Class action alleges Discovery Mode is "modern payola" — labels pay for algorithmic boost while users pay for "neutral" recommendations. TX AG probe opened Apr 22.</div><div class="ccf"><span class="ccd">Filed Nov 2025</span><span class="cca">→</span></div></a>
+
+</div>
+
+<footer class="ft"><div class="ftl">Celebrity<span>Dockets</span></div><p class="ftt">Tracking celebrity court cases, one docket at a time.</p><div class="ftk"><a href="index.html">Cases</a><a href="objection-live.html">Objection Live!</a><a href="recess.html">RECESS</a><a href="star-bar.html">Star Bar</a><a href="https://www.youtube.com/@CJournalist24" target="_blank">YouTube</a><a href="about.html">About</a></div><div class="ftk" style="margin-top:12px;"><a href="legal.html">Terms &amp; Privacy</a></div><p style="font-size:.65rem;color:#5a5a6a;margin-top:12px;max-width:600px;margin-left:auto;margin-right:auto;line-height:1.5;">Celebrity Dockets is an independent media site. Nothing here is legal advice. All case information is sourced from public court filings and verified reporting.</p><p class="ftc">&copy; 2026 CelebrityDockets.com &middot; All rights reserved.</p></footer>
+
+<script>
+function searchCases(){
+  var q=document.getElementById('caseSearch').value.toLowerCase();
+  document.querySelectorAll('.grid .cc').forEach(function(c){
+    var text=c.textContent.toLowerCase();
+    c.style.display=text.indexOf(q)!==-1?'':'none';
+  });
+  // Reset subject filter buttons
+  document.querySelectorAll('.sfbtn').forEach(function(b){b.classList.remove('active')});
+  if(q==='')document.querySelector('.sfbtn').classList.add('active');
+}
+function filterSubject(subject){
+  document.getElementById('caseSearch').value='';
+  document.querySelectorAll('.sfbtn').forEach(function(b){b.classList.remove('active')});
+  event.target.classList.add('active');
+  document.querySelectorAll('.grid .cc').forEach(function(c){
+    if(subject==='all'){c.style.display='';return;}
+    var badges=c.textContent.toLowerCase();
+    c.style.display=badges.indexOf(subject.toLowerCase())!==-1?'':'none';
+  });
+}
+</script>
+<script type="text/javascript" src="https://cdnjs.buymeacoffee.com/1.0.0/button.prod.min.js" data-name="bmc-button" data-slug="CJournalist24" data-color="#FFDD00" data-emoji="☕" data-font="Cookie" data-text="Fuel The Docket " data-outline-color="#000000" data-font-color="#000000" data-coffee-color="#FFDD00"></script>
+<script data-name="BMC-Widget" data-cfasync="false" src="https://cdnjs.buymeacoffee.com/1.0.0/widget.prod.min.js" data-id="CJournalist24" data-description="Support me on Buy me a coffee!" data-message="Help keep the docket running. Buy CJ a coffee." data-color="#FFDD00" data-position="Right" data-x_margin="18" data-y_margin="18"></script>
+</body>
+</html>

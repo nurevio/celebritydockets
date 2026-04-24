@@ -1,0 +1,228 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<link rel="icon" type="image/png" href="favicon.png">
+<link rel="apple-touch-icon" href="favicon.png">
+<link rel="icon" type="image/png" href="favicon.png"><link rel="apple-touch-icon" href="favicon.png">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>RECESS — Pop Culture Breakdown | Celebrity Dockets</title>
+<link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&family=IBM+Plex+Sans:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+<style>
+:root{--bg:#0a0a0f;--card:#12121a;--elev:#1a1a26;--red:#E11028;--gold:#F6C340;--blue:#4a90d9;--pink:#ec4899;--orange:#f59e0b;--green:#10b981;--purple:#8b5cf6;--t1:#e8e6e1;--t2:#9a9a9a;--t3:#5a5a6a;--bdr:#2a2a3a;--bdr2:#1e1e2e}
+*{margin:0;padding:0;box-sizing:border-box}
+body{background:var(--bg);color:var(--t1);font-family:'IBM Plex Sans',sans-serif;line-height:1.6}
+.hdr{border-bottom:1px solid var(--bdr);padding:16px 24px;display:flex;align-items:center;justify-content:space-between;background:var(--bg);position:sticky;top:0;z-index:100;backdrop-filter:blur(12px)}
+.logo{font-family:'DM Serif Display',serif;font-size:1.4rem;color:var(--t1);text-decoration:none}.logo span{color:var(--red)}
+.nav{display:flex;gap:24px;font-size:.8rem;text-transform:uppercase;letter-spacing:1.5px;font-weight:600}
+.nav a{color:var(--t2);text-decoration:none;transition:color .2s}.nav a:hover{color:var(--gold)}.nav a.on{color:var(--gold)}
+.hero{position:relative;padding:70px 24px 40px;text-align:center;overflow:hidden}
+.hero::before{content:'';position:absolute;inset:0;background:radial-gradient(ellipse at 25% 40%,rgba(246,195,64,.08) 0%,transparent 55%),radial-gradient(ellipse at 75% 60%,rgba(245,158,11,.05) 0%,transparent 55%);pointer-events:none}
+.ey{font-family:'JetBrains Mono',monospace;font-size:.7rem;text-transform:uppercase;letter-spacing:4px;color:var(--gold);margin-bottom:14px;position:relative}
+.ht{font-family:'DM Serif Display',serif;font-size:3.6rem;line-height:1.1;margin-bottom:16px;position:relative}.ht span{color:var(--gold)}
+.hs{font-size:1.1rem;color:var(--t2);max-width:560px;margin:0 auto;position:relative}
+.cn{max-width:1000px;margin:0 auto;padding:24px 24px 0;display:flex;gap:12px;flex-wrap:wrap;justify-content:center}
+.cp{padding:8px 20px;border-radius:20px;font-size:.75rem;font-weight:700;text-transform:uppercase;letter-spacing:1px;border:1px solid var(--bdr);color:var(--t2);background:var(--card);text-decoration:none;transition:all .2s}
+.cp:hover{border-color:var(--pc);color:var(--pc)}
+.sh{max-width:1000px;margin:0 auto;padding:40px 24px 20px;display:flex;align-items:center;gap:16px}
+.sht{font-family:'DM Serif Display',serif;font-size:1.4rem;color:var(--t1);white-space:nowrap}
+.shl{flex:1;height:1px;background:var(--bdr)}
+.shtg{font-family:'JetBrains Mono',monospace;font-size:.65rem;padding:4px 12px;border-radius:4px;text-transform:uppercase;letter-spacing:1px}
+.cw{max-width:1000px;margin:0 auto;padding:0 24px 48px}
+.sc{background:var(--card);border:1px solid var(--bdr);border-radius:12px;overflow:hidden;margin-bottom:24px;transition:transform .2s}.sc:hover{transform:translateY(-3px)}
+.sch{padding:24px 28px 0;display:flex;justify-content:space-between;align-items:flex-start;flex-wrap:wrap;gap:10px}
+.sbs{display:flex;gap:8px;flex-wrap:wrap}
+.sb{font-size:.6rem;font-weight:700;text-transform:uppercase;letter-spacing:1px;padding:4px 12px;border-radius:4px}
+.sb1{background:rgba(225,16,40,.15);color:var(--red)}.sb2{background:rgba(236,72,153,.12);color:var(--pink)}.sb3{background:rgba(245,158,11,.12);color:var(--orange)}.sb4{background:rgba(255,255,255,.05);color:var(--t3)}
+.scd{font-family:'JetBrains Mono',monospace;font-size:.7rem;color:var(--t3)}
+.scb{padding:18px 28px 28px}
+.sct{font-family:'DM Serif Display',serif;font-size:1.5rem;line-height:1.25;margin-bottom:12px}.sct em{font-style:italic;color:var(--sa)}
+.st{font-size:.9rem;color:var(--t2);line-height:1.8}.st p{margin-bottom:12px}.st strong{color:var(--t1);font-weight:600}
+.qb{padding:14px 18px;border-left:3px solid var(--sa);background:var(--elev);border-radius:0 6px 6px 0;margin:16px 0}
+.qt{font-size:.85rem;color:var(--t2);line-height:1.7;font-style:italic}.qs{font-size:.7rem;color:var(--t3);margin-top:5px;font-style:normal}
+.ss{padding:14px 18px;background:rgba(74,144,217,.08);border:1px solid rgba(74,144,217,.15);border-radius:6px;font-size:.8rem;color:var(--blue);line-height:1.6;margin-top:14px}.ss strong{color:var(--blue)}
+.cg{display:grid;grid-template-columns:1fr 1fr;gap:20px}
+@media(max-width:700px){.cg{grid-template-columns:1fr}.ht{font-size:2.4rem}}
+.cc{background:var(--card);border:1px solid var(--bdr);border-radius:10px;padding:24px;transition:transform .2s;border-top:3px solid var(--ca)}.cc:hover{transform:translateY(-3px)}
+.ccn{font-family:'DM Serif Display',serif;font-size:1.15rem;margin-bottom:4px;color:var(--t1)}.ccn em{color:var(--ca);font-style:italic}
+.cct{font-family:'JetBrains Mono',monospace;font-size:.6rem;text-transform:uppercase;letter-spacing:1.5px;color:var(--ca);margin-bottom:10px}
+.ccd{font-size:.82rem;color:var(--t2);line-height:1.6}
+.ccs{font-size:.7rem;color:var(--t3);margin-top:10px;padding-top:10px;border-top:1px solid var(--bdr2)}
+.ft{border-top:1px solid var(--bdr);padding:40px 24px;text-align:center}
+.ftl{font-family:'DM Serif Display',serif;font-size:1.6rem;color:var(--t1);margin-bottom:8px}.ftl span{color:var(--red)}
+.ftt{font-size:.82rem;color:var(--t3);margin-bottom:20px}
+.ftk{display:flex;gap:24px;justify-content:center;flex-wrap:wrap;margin-bottom:20px}
+.ftk a{font-size:.75rem;text-transform:uppercase;letter-spacing:1.5px;font-weight:600;color:var(--t2);text-decoration:none}.ftk a:hover{color:var(--gold)}
+.ftc{font-size:.7rem;color:var(--t3)}
+@keyframes fu{from{opacity:0;transform:translateY(24px)}to{opacity:1;transform:translateY(0)}}
+.hero{animation:fu .6s ease-out}.sc,.cc{animation:fu .5s ease-out both}
+
+.hamburger{display:none;background:none;border:none;color:var(--t1);cursor:pointer;padding:8px;flex-direction:column;gap:5px}
+.hamburger span{display:block;width:24px;height:2px;background:var(--t1);transition:all .3s}
+@media(max-width:768px){
+  .nav{display:none;position:absolute;top:100%;left:0;right:0;background:var(--bg);flex-direction:column;padding:20px 24px;gap:18px;border-bottom:1px solid var(--bdr);box-shadow:0 4px 20px rgba(0,0,0,.4);z-index:99}
+  .nav.open{display:flex}
+  .hamburger{display:flex}
+  .hamburger.open span:nth-child(1){transform:rotate(45deg) translate(5px,5px)}
+  .hamburger.open span:nth-child(2){opacity:0}
+  .hamburger.open span:nth-child(3){transform:rotate(-45deg) translate(7px,-7px)}
+}
+
+:root[data-theme="light"]{--bg:#f5f2ea;--bg-primary:#f5f2ea;--card:#ffffff;--bg-card:#ffffff;--elev:#fffcf5;--bg-elev:#fffcf5;--bg-elevated:#fffcf5;--red:#9b2226;--accent-red:#9b2226;--gold:#8b6f20;--accent-gold:#8b6f20;--accent:#9b2226;--blue:#1e5091;--cyan:#0891b2;--t1:#1a1a1f;--text-primary:#1a1a1f;--t2:#5a5a5f;--text-secondary:#5a5a5f;--t3:#8a8a8f;--text-muted:#8a8a8f;--bdr:#d4cfc0;--border:#d4cfc0;--bdr2:#e8e3d4;--border-light:#e8e3d4}
+body{transition:background .3s,color .3s}
+.theme-toggle{background:none;border:1px solid currentColor;cursor:pointer;padding:6px 10px;border-radius:4px;font-size:.85rem;font-family:'JetBrains Mono',monospace;opacity:.7;transition:opacity .2s;margin-left:12px}
+.theme-toggle:hover{opacity:1}
+
+</style>
+<script>
+function toggleTheme(){var c=document.documentElement.getAttribute('data-theme')||'dark';var n=c==='dark'?'light':'dark';document.documentElement.setAttribute('data-theme',n);localStorage.setItem('cdTheme',n);var ic=document.getElementById('theme-icon');if(ic)ic.textContent=n==='dark'?'🌙':'☀️';}
+(function(){var s=localStorage.getItem('cdTheme');if(s){document.documentElement.setAttribute('data-theme',s);window.addEventListener('DOMContentLoaded',function(){var ic=document.getElementById('theme-icon');if(ic)ic.textContent=s==='dark'?'🌙':'☀️';});}})();
+</script>
+</head>
+<body>
+<header class="hdr"><a href="index.html" class="logo">Celebrity<span>Dockets</span></a><button class="hamburger" onclick="this.classList.toggle('open');document.querySelector('.nav').classList.toggle('open')"><span></span><span></span><span></span></button><nav class="nav"><a href="index.html">Cases</a><a href="objection-live.html">Objection Live!</a><a href="#" class="on">RECESS</a><a href="star-bar.html">Star Bar</a><a href="courtroom-culture.html">Courtroom Culture</a><a href="about.html">About</a><button class="theme-toggle" onclick="toggleTheme()"><span id="theme-icon">🌙</span></button></nav></header>
+
+<section class="hero">
+<div class="ey">🔔 Court Is in Recess</div>
+<h1 class="ht">REC<span>ESS</span></h1>
+<p class="hs">The pop culture stories everyone is talking about. Music. Movies. Celebrity drama. Court is in recess.</p>
+</section>
+
+<nav class="cn">
+<a href="#clashes" class="cp" style="--pc:#E11028">🔥 Clashes & Callouts</a>
+<a href="#receipts" class="cp" style="--pc:#f59e0b">🧾 The Receipts</a>
+<a href="#soundcheck" class="cp" style="--pc:#3b82f6">🎵 Soundcheck</a>
+<a href="#couples" class="cp" style="--pc:#ec4899">💕 Power Couples & Splitsville</a>
+<a href="#rapsheets" class="cp" style="--pc:#8b5cf6">🚨 Rap Sheets</a>
+<a href="#verdicts" class="cp" style="--pc:#10b981">🎬 Screen Verdicts</a>
+</nav>
+
+<!-- CLASHES -->
+<div class="sh" id="clashes"><h2 class="sht">🔥 Clashes & Callouts</h2><div class="shl"></div><span class="shtg" style="color:var(--red);background:rgba(225,16,40,.1);border:1px solid rgba(225,16,40,.2)">Breaking</span></div>
+<div class="cw">
+<div class="sc" style="--sa:#E11028">
+<div class="sch"><div class="sbs"><span class="sb sb1">Breaking</span><span class="sb sb2">Viral</span><span class="sb sb4">Sexual Assault Allegation</span></div><span class="scd">Apr 13–14, 2026</span></div>
+<div class="scb">
+<h2 class="sct">Ruby Rose Accuses <em>Katy Perry</em> of Sexual Assault — Perry Calls It "Dangerous Lies"</h2>
+<div class="st"><p>Actress <strong>Ruby Rose</strong> publicly accused <strong>Katy Perry</strong> of sexually assaulting her at Melbourne's Spice Market nightclub nearly 20 years ago. The allegation erupted on Threads after a post about Perry at Coachella with partner Justin Trudeau.</p><p>Rose described the alleged incident in graphic detail and said she had previously disguised it as a "funny little drunk story." She claims Perry later helped her get a U.S. visa, keeping her silent. Rose says she has <strong>photos and witnesses</strong> and has now <strong>filed formal police reports</strong>.</p></div>
+<div class="qb" style="--sa:#E11028"><div class="qt">Perry's rep called the allegations "categorically false" and "dangerous reckless lies," citing Rose's "well-documented history of making serious public allegations."</div><div class="qs">— Perry rep to Variety, April 13</div></div>
+<div class="ss"><strong>Status:</strong> Police reports filed. Perry denies all claims. Developing.</div>
+</div></div>
+
+<div class="sc" style="--sa:#f59e0b">
+<div class="sch"><div class="sbs"><span class="sb sb3">Memoir Drop</span><span class="sb sb2">Trending</span><span class="sb sb4">On-Set Behavior</span></div><span class="scd">Apr 14, 2026</span></div>
+<div class="scb">
+<h2 class="sct">Lena Dunham Says <em>Adam Driver</em> Was "Something Feral" on the <em>Girls</em> Set</h2>
+<div class="st"><p>In her memoir <strong>"Famesick"</strong> (out today), <em>Girls</em> creator <strong>Lena Dunham</strong> alleges volatile behavior from <strong>Adam Driver</strong> across six seasons — screaming in her face, <strong>hurling a chair at the wall</strong> next to her, and <strong>punching a hole in his trailer wall</strong> over a haircut. Their first sex scene went off-script when "careful blocking went out the window."</p><p>Dunham says she never confronted him: <em>"I still thought that's what great male geniuses do: eviscerate you."</em> On their last day filming, Driver told her "I'll always love you" — then never spoke to her again.</p></div>
+<div class="qb" style="--sa:#f59e0b"><div class="qt">Dunham frames the revelations as an exploration of being a 25-year-old female boss who didn't yet have the tools to set boundaries — not an indictment of Driver's talent.</div><div class="qs">— Lena Dunham to People / The Guardian</div></div>
+<div class="ss"><strong>Status:</strong> Memoir revelation. No response from Driver.</div>
+</div></div>
+
+<div class="sc" style="--sa:#8b5cf6">
+<div class="sch"><div class="sbs"><span class="sb sb2">Documentary</span><span class="sb sb4">Hip-Hop Beef</span></div><span class="scd">Coming 2026</span></div>
+<div class="scb">
+<h2 class="sct"><em>Public Enemies: Kendrick vs Drake</em> — The Documentary</h2>
+<div class="st"><p>Channel 4 (UK) is producing <strong>Public Enemies: Kendrick vs Drake</strong>, a documentary exploring the most explosive rap feud in history. Produced by Acme Films and GroupM Motion Entertainment — the same team behind 2017's <em>Public Enemies: Jay-Z vs Kanye</em>.</p><p>The doc will use archive footage and interviews with those who know and worked with both rappers, charting their rise from Compton and Toronto to global domination. It will contextualize the 2024 war of words that produced "Not Like Us" (1.8 billion streams, 5 Grammys, Super Bowl halftime), "Family Matters," "Meet the Grahams," and "Euphoria" — and explore how and why the beef consumed the entire culture.</p><p>Drake's <strong>defamation lawsuit against UMG</strong> over "Not Like Us" was dismissed and is now on appeal — making the legal dimension a key thread. No U.S. broadcast plans announced yet.</p></div>
+<div class="ss"><strong>Status:</strong> In production. Channel 4 (UK). <a href="drake-v-umg-appeal.html" style="color:#F6C340;">Drake v. UMG docket →</a></div>
+</div></div>
+
+<div class="sc" style="--sa:#ec4899">
+<div class="sch"><div class="sbs"><span class="sb sb1">Shelved?</span><span class="sb sb2">Netflix</span><span class="sb sb4">One Direction</span></div><span class="scd">Dec 2025 — Present</span></div>
+<div class="scb">
+<h2 class="sct"><em>Zayn Malik</em> & <em>Louis Tomlinson</em> — Netflix Reunion Goes Off the Rails</h2>
+<div class="st"><p>After years of feuding, <strong>Zayn Malik</strong> and <strong>Louis Tomlinson</strong> reunited for a three-part Netflix road trip docuseries — their first project together since One Direction. The multi-million dollar deal had them crossing America, reconnecting as friends and fathers in the wake of <strong>Liam Payne's death</strong> in October 2024.</p><p>Then it allegedly fell apart. According to Star, after a long day of filming, the two went to a bar where a <strong>heated argument turned into a full-scale fistfight</strong>. Tomlinson reportedly <strong>suffered a concussion</strong>. Sources say Tomlinson is now scrambling to obtain the footage through back-channels, believing Netflix cameras may have still been rolling during the incident.</p><p>Marketing for the docuseries is <strong>on hold indefinitely</strong>. Neither is willing to be in the same room for press or promo. Netflix, which invested millions, is sitting on hours of footage for a project that may never drop. Campfire Studios, the production company, previously clarified this is <strong>"not a One Direction show"</strong> — but the drama has made it the most talked-about One Direction story since Payne's passing.</p></div>
+<div class="ss"><strong>Status:</strong> Docuseries shelved indefinitely.</div>
+</div></div>
+
+<div class="sc" style="--sa:#d4a853">
+<div class="sch"><div class="sbs"><span class="sb sb2">Canal+ Docuseries</span><span class="sb sb4">Paris Robbery</span></div><span class="scd">Announced Apr 22, 2026</span></div>
+<div class="scb">
+<h2 class="sct"><em>Kim, The Diamond and the Grandpa Robbers</em> — Paris Robbery Gets 4-Part Docuseries</h2>
+<div class="st"><p>The 2016 Paris Fashion Week robbery of <strong>Kim Kardashian</strong> — in which five masked men posing as police tied her up in her apartment and stole <strong>$6M in jewelry</strong> including the 20-carat diamond ring from Kanye — is getting a four-part docuseries. <strong>Pernel Media</strong> is producing <em>Kim, The Diamond and the Grandpa Robbers</em> for <strong>Canal+</strong>.</p><p>The series promises "rare and exclusive access" to the story, including members of the gang themselves and the lawyers who defended them. In early 2025, <strong>8 of the 12 defendants</strong> were convicted; two were acquitted. Because many of them were elderly, the French press dubbed them the "Grandpa Robbers." Kim herself is <strong>not involved</strong> in the production. International delivery scheduled for early 2027.</p><p>It joins a crowded field. Hulu already ran <em>IMPACT x Nightline: Inside the Kim Kardashian Heist</em> and <em>Kim Kardashian, The Concierge And The $6M Heist</em>. BBC Three produced <em>The Kim Kardashian Diamond Heist</em> from Firecracker Films.</p></div>
+<div class="ss"><strong>Status:</strong> In production · Canal+ · Delivery 2027</div>
+</div></div>
+
+<div class="sc" style="--sa:#8b5cf6">
+<div class="sch"><div class="sbs"><span class="sb sb1">Trial Underway</span><span class="sb sb2">Australia</span><span class="sb sb4">Defamation</span></div><span class="scd">Apr 20 – May 2026</span></div>
+<div class="scb">
+<h2 class="sct"><em>Charlotte MacInnes</em> v. Rebel Wilson — Australian Defamation Trial Underway</h2>
+<div class="st"><p>The <em>Deb</em> defamation trial is now live-streaming on the Federal Court of Australia's YouTube channel. <strong>Charlotte MacInnes</strong>, the lead actress in Rebel Wilson's directorial debut, is suing Wilson, alleging Wilson's Instagram videos damaged her reputation by claiming MacInnes was sexually harassed by producer <strong>Amanda Ghost</strong> and later colluded to cover it up.</p><p>MacInnes gave emotional testimony April 23, with her eyes tearing up on the stand. She described being "very difficult to be around" Rebel. Wilson's barrister Dauid Sibtain produced photos of MacInnes smiling with Wilson — including one backstage at the AACTAs with Cate Blanchett — arguing the relationship wasn't as strained as she claims. MacInnes: "I did what I could to keep it light-hearted... it's very difficult to be around Rebel."</p><p>Affidavits from MacInnes's boyfriend and <em>Deb</em> co-writer Hannah Reilly describe Wilson's alleged conduct as an <strong>"all-consuming nightmarish force"</strong>. MacInnes's $110K Atlantic Records deal (signed via Ghost's connections) is being used by Wilson's team to argue she wasn't harmed by Wilson's posts. Trial expected to run nine days. Justice Elizabeth Raper presiding. The US case continues separately.</p></div>
+<div class="ss"><strong>Status:</strong> Sydney Federal Court · Live on YouTube · <a href="wilson-v-ghost-the-deb.html" style="color:#F6C340;">Ghost v. Wilson docket →</a></div>
+</div></div>
+</div>
+
+<!-- THE RECEIPTS -->
+<div class="sh" id="receipts"><h2 class="sht">🧾 The Receipts</h2><div class="shl"></div><span class="shtg" style="color:var(--orange);background:rgba(245,158,11,.1);border:1px solid rgba(245,158,11,.2)">Docs & Proof</span></div>
+<div class="cw"><div class="cg">
+<div class="cc" style="--ca:#f59e0b"><div class="cct">Coming Soon 📂</div><div class="ccn">The Receipts Are Coming</div><div class="ccd">Documents, screenshots, leaked texts, and the proof behind the stories. This section is being built out — stay tuned.</div><div class="ccs">More receipts dropping soon</div></div>
+</div></div>
+
+<!-- SOUNDCHECK -->
+<div class="sh" id="soundcheck"><h2 class="sht">🎵 Soundcheck</h2><div class="shl"></div><span class="shtg" style="color:#3b82f6;background:rgba(59,130,246,.1);border:1px solid rgba(59,130,246,.2)">Music Moments</span></div>
+<div class="cw">
+<div class="sc" style="--sa:#3b82f6">
+<div class="sch"><div class="sbs"><span class="sb sb1">Historic</span><span class="sb sb2">Coachella 2026</span><span class="sb sb4">Comeback</span></div><span class="scd">Apr 11–18, 2026</span></div>
+<div class="scb">
+<h2 class="sct"><em>Bieberchella</em> — Justin Bieber Breaks Every Coachella Record</h2>
+<div class="st"><p><strong>Justin Bieber</strong> headlined Coachella 2026 on April 11 — his first full concert since canceling his 2022 tour due to Ramsay Hunt syndrome — and broke every record the festival has. <strong>Highest-paid artist in Coachella history</strong> at $10 million. <strong>Highest ticket demand ever.</strong> <strong>Most viewed performance in Coachella history.</strong> <strong>Most Googled performance.</strong></p><p>Then his brand <strong>SKYLRK</strong> shattered the merch record — <strong>$5.04 million in Weekend 1 alone</strong>, nearly tripling the previous record of $1.7 million across BOTH weekends. A 10,000-square-foot SKYLRK Oasis was built on the festival grounds. $140 lime green sweatshirts and $90 tanks sold out. Resale prices on eBay went through the roof.</p><p>The performance itself was lauded as a once-in-a-generation moment — stripped back, genuine, evocative. He wore nothing but blue silk SKYLRK boxers and black socks at the Grammys a month earlier, so the Coachella energy was already at a fever pitch. A brief online theory that he couldn't perform his old songs due to his $200M catalog sale to Hipgnosis was quickly debunked — <strong>zero restrictions on live performance.</strong></p></div>
+<div class="ss"><strong>Status:</strong> Every record broken. Weekend 2 April 18.</div>
+</div></div>
+
+<div class="sc" style="--sa:#E11028">
+<div class="sch"><div class="sbs"><span class="sb sb1">Breaking</span><span class="sb sb2">Class Action</span><span class="sb sb4">Payola Probe</span></div><span class="scd">Apr 23, 2026</span></div>
+<div class="scb">
+<h2 class="sct"><em>Spotify</em> Hit With Payola Class Action — Texas AG Launches Probe</h2>
+<div class="st"><p><strong>Texas AG launched a "bribery" probe</strong> on April 22 into Spotify, Apple Music, and other major streamers, targeting "alleged payola schemes in which they accept bribes to artificially promote certain songs, artists, or content... including record labels or artists paying to be included in certain editorial or algorithmic playlists and song suggestions."</p><p>It follows a November 2025 class action filed in Manhattan federal court by subscriber Genevieve Capolongo alleging Spotify's <strong>Discovery Mode</strong> is "a modern form of payola" — labels trading reduced royalties for algorithmic boost, while users are told recommendations are "neutral" and "personalized." The complaint argues users are "charged for the privilege of being deceived" at $11.99/month.</p><p>Notably, <strong>Drake referenced Discovery Mode</strong> in his defamation lawsuit against UMG over "Not Like Us" — criticizing his label for taking reduced royalties in exchange for increased plays. Spotify has called the lawsuit "nonsense."</p></div>
+<div class="ss"><strong>Status:</strong> Class action pending · TX AG probe open · <a href="capolongo-v-spotify.html" style="color:#F6C340;">Full docket →</a> · <a href="drake-v-umg-appeal.html" style="color:#F6C340;">Drake case →</a></div>
+</div></div>
+
+<div class="sc" style="--sa:#F6C340">
+<div class="sch"><div class="sbs"><span class="sb sb2">Tour Announcement</span><span class="sb sb4">Headlining + Support</span></div><span class="scd">Apr 2026</span></div>
+<div class="scb">
+<h2 class="sct"><em>Dominic Fike</em> — "Comedy Tragedy Parody" Tour + Tame Impala Dates</h2>
+<div class="st"><p><strong>Dominic Fike</strong> announced his 2026 headlining tour <strong>"Comedy Tragedy Parody"</strong> kicking off August 15 in Asheville, NC and wrapping September 30 at The Wiltern in LA. The headline run pairs with a major support slot on <strong>Tame Impala's Deadbeat Tour</strong> across August–September.</p><p>Tickets hit general sale April 24 at 10 AM local. The tour hits Atlanta, Chicago, Seattle, Portland, Dallas, Austin, Sacramento, and more. Following his latest LP <em>Rocket</em> (August 2025) and recent singles "Babydoll" and "White Keys."</p></div>
+<div class="ss"><strong>Status:</strong> Tickets on sale Apr 24 · Tour Aug 15 – Sept 30</div>
+</div></div>
+</div>
+
+<!-- POWER COUPLES -->
+<div class="sh" id="couples"><h2 class="sht">💕 Power Couples & Splitsville</h2><div class="shl"></div><span class="shtg" style="color:var(--pink);background:rgba(236,72,153,.1);border:1px solid rgba(236,72,153,.2)">Who's In, Who's Out</span></div>
+<div class="cw"><div class="cg">
+<div class="cc" style="--ca:#ec4899"><div class="cct">Hard Launch Confirmed 🔥</div><div class="ccn"><em>Kim Kardashian</em> & Lewis Hamilton</div><div class="ccd">Hard-launched April 6. Two-hour Nobu Malibu dinner April 18, then a full PDA-filled beach day April 20 — making out in the Pacific, paddle boarding, and surf lessons. Body language experts called it "mutually clinging." Hamilton's mom reportedly hasn't fully approved. Kim will discuss the relationship on Kardashians S28 but Lewis is staying off-camera.</div><div class="ccs">Hard launch Apr 6, 2026 · Malibu PDA Apr 20</div></div>
+<div class="cc" style="--ca:#2BBFD9"><div class="cct">Showmance? 🎬</div><div class="ccn"><em>Katie Holmes</em> & Joshua Jackson</div><div class="ccd">Joey and Pacey forever? Katie Holmes has been liking Instagram comments suggesting she and Dawson's Creek costar Joshua Jackson "should be a couple." They reunite in her upcoming film <em>Happy Hours</em>, which she wrote and directed — premieres at Tribeca June 6. Both are single. Sources say they find the hype "comical" and they're "just friends"... for now. Fans are feral.</div><div class="ccs">Dated 1998–99 · <em>Happy Hours</em> Tribeca premiere June 6</div></div>
+<div class="cc" style="--ca:#8b5cf6"><div class="cct">Heating Up 🌶️</div><div class="ccn"><em>Shakira</em> & Lucien Laviscount</div><div class="ccd">The Colombian queen and the Emily in Paris heartthrob have been spotted courtside and on vacation since late 2025. Post-Piqué era Shakira is thriving.</div><div class="ccs">Public since late 2025</div></div>
+<div class="cc" style="--ca:#10b981"><div class="cct">On Again? 👀</div><div class="ccn"><em>Jacob Elordi</em> & Kendall Jenner</div><div class="ccd">After split rumors in 2024, the Euphoria star and the supermodel were spotted together at events in early 2026. Both attended Coachella — together or not?</div><div class="ccs">Status: TBD · Both at Coachella 2026</div></div>
+</div></div>
+
+<!-- RAP SHEETS -->
+<div class="sh" id="rapsheets"><h2 class="sht">🚨 Rap Sheets</h2><div class="shl"></div><span class="shtg" style="color:var(--purple);background:rgba(139,92,246,.1);border:1px solid rgba(139,92,246,.2)">Arrests & Charges</span></div>
+<div class="cw"><div class="cg">
+<a href="tiger-woods-dui.html" style="text-decoration:none;color:inherit;"><div class="cc" style="--ca:#E11028"><div class="cct">DUI + Rollover Crash 🏌️</div><div class="ccn"><em>Tiger Woods</em> — DUI Arrest, Jupiter FL</div><div class="ccd">Arrested March 27 after his Range Rover clipped a truck and rolled over near his home. Sweating profusely, hydrocodone pills in pocket, failed field sobriety test. Told cops he was "talking to the president." Breath test showed 0.000 BAC but refused urine test. Second DUI arrest after 2017. Pleaded not guilty. Now in rehab in Switzerland.</div><div class="ccs">Mar 27, 2026 · Next hearing May 5 · Stepped away from golf · <span style="color:var(--gold);">View full docket →</span></div></div></a>
+<a href="britney-spears-dui.html" style="text-decoration:none;color:inherit;"><div class="cc" style="--ca:#ec4899"><div class="cct">DUI + Rehab 🎤</div><div class="ccn"><em>Britney Spears</em> — DUI Arrest, Ventura County</div><div class="ccd">Arrested March 4 after CHP spotted her BMW "driving erratically at high speed" on US-101. Showed signs of impairment. Booked at 3 AM, released by 6 AM. Her rep called it "completely inexcusable." Voluntarily checked into rehab on April 12. Ex-husband Kevin Federline expressed support.</div><div class="ccs">Mar 4, 2026 · Court date May 4 · Now in treatment · <span style="color:var(--gold);">View full docket →</span></div></div></a>
+<a href="barnett-v-labeouf.html" style="text-decoration:none;color:inherit;"><div class="cc" style="--ca:#8b5cf6"><div class="cct">Mardi Gras Mayhem 🎭</div><div class="ccn"><em>Shia LaBeouf</em> — Battery, New Orleans</div><div class="ccd">Arrested multiple times during Mardi Gras for allegedly punching people. Multiple battery charges filed. Ordered into substance abuse treatment with $100K bond. Used homophobic slurs publicly.</div><div class="ccs">Feb 2026 · Criminal proceedings ongoing · <span style="color:var(--gold);">View full docket →</span></div></div></a>
+<div class="cc" style="--ca:#10b981"><div class="cct">Stepping Back 💔</div><div class="ccn"><em>Taylor Frankie Paul</em> — Won't Return to <em>Mormon Wives</em> S5</div><div class="ccd">Charges were declined April 14 after both Paul and ex Dakota Mortensen accused each other of DV. Draper and West Jordan police + Salt Lake County DA all declined to file, citing insufficient evidence. Paul posted on Easter Sunday she's working to "detach" from her Latter-day Saint upbringing. Hulu's <em>Secret Lives of Mormon Wives</em> resumed filming April 21 <strong>without her</strong> — she's stepping back for her mental health and family. Door is open for her to return later. ABC hasn't revived her pulled <em>Bachelorette</em> season.</div><div class="ccs">Charges declined Apr 14 · Filming resumed without her Apr 21 · May return</div></div>
+<div class="cc" style="--ca:#f59e0b"><div class="cct">Prison Stabbing + $100M Suit 🔪</div><div class="ccn"><em>Tory Lanez</em> — Suing California Prison System</div><div class="ccd"><strong>Daystar Peterson</strong> (Tory Lanez) is suing the California Department of Corrections for <strong>$100 million</strong> after being stabbed 14 times by a fellow inmate at CCI Tehachapi in May 2025. Seven wounds to the back, four to the torso, two to the head, one to the face — both lungs collapsed. He's serving a 10-year sentence for shooting Megan Thee Stallion in 2020. His appeal was denied by the California Supreme Court in Feb 2026, but his team claims new evidence from Megan's civil defamation case. Now transferred to California Men's Colony for safety.</div><div class="ccs">Lawsuit filed Apr 2026 · Serving 10 years · Appeal denied · $100M suit pending</div></div>
+</div></div>
+
+<!-- SCREEN VERDICTS -->
+<div class="sh" id="verdicts"><h2 class="sht">🎬 Screen Verdicts</h2><div class="shl"></div><span class="shtg" style="color:var(--green);background:rgba(16,185,129,.1);border:1px solid rgba(16,185,129,.2)">CinemaCon 2026</span></div>
+<div class="cw">
+<div class="sc" style="--sa:#10b981">
+<div class="sch"><div class="sbs"><span class="sb sb1">This Week</span><span class="sb sb2">Las Vegas</span><span class="sb sb4">All Studios</span></div><span class="scd">Apr 13–16, 2026</span></div>
+<div class="scb">
+<h2 class="sct"><em>CinemaCon 2026</em> — The Biggest Reveals from Vegas</h2>
+<div class="st"><p><strong>CinemaCon 2026</strong> wrapped this week at Caesars Palace with 6,000+ industry professionals from 60+ countries getting first looks at everything coming to theaters. Here's what made noise:</p><p><strong>Universal:</strong> Christopher Nolan's <strong>The Odyssey</strong> (Jul 17) showed a Trojan Horse sequence with Matt Damon, Zendaya, and Charlize Theron. Spielberg's <strong>Disclosure Day</strong> teased. <strong>Minions &amp; Monsters</strong> got two extended scenes. Robert Eggers' <strong>Werwulf</strong> is coming.</p><p><strong>Warner Bros.:</strong> <strong>Mortal Kombat II</strong> (May 8) showed Karl Urban as Johnny Cage. Milly Alcock's <strong>Supergirl</strong> (Jun 26) got rave reactions. Andy Serkis' <strong>Hunt for Gollum</strong> confirmed for Dec 2027. James Gunn's <strong>Clayface</strong> debuted a first trailer description.</p><p><strong>Sony:</strong> <strong>Spider-Man: Brand New Day</strong> footage set up Agent Venom. <strong>Paramount:</strong> <strong>Sonic 4</strong>, <strong>Street Fighter</strong> (Oct 16), <strong>The Last Airbender</strong>, and <strong>Scary Movie</strong> all showed footage. <strong>Disney:</strong> Expected to close with <strong>Avengers: Doomsday</strong> (Dec 18), <strong>The Mandalorian &amp; Grogu</strong> (May 22), and <strong>Toy Story 5</strong> (Jun 19) updates.</p><p>The Michael Jackson biopic <strong>Michael</strong> also screened via Universal — releasing April 24 amid the Paris Jackson estate battle.</p></div>
+<div class="ss"><strong>Status:</strong> CinemaCon 2026 concluded April 16.</div>
+</div></div>
+<div class="cg">
+<div class="cc" style="--ca:#10b981"><div class="cct">Franchise Watch 🦸</div><div class="ccn"><em>Marvel</em> — What's Next for the MCU?</div><div class="ccd">From Avengers: Doomsday to the fallout of Secret Wars buzz, the MCU is in its most uncertain era. We break down what's coming, what's delayed, and whether Marvel fatigue is real.</div><div class="ccs">Franchise · Ongoing coverage</div></div>
+<div class="cc" style="--ca:#f59e0b"><div class="cct">Horror Hype 👁️</div><div class="ccn"><em>The Backrooms</em> — From Creepypasta to Cinema</div><div class="ccd">The internet's most unsettling horror concept is getting the big-screen treatment. A24 and the found-footage internet creators are turning liminal space nightmares into your next theater experience.</div><div class="ccs">Film · In development</div></div>
+<div class="cc" style="--ca:#ec4899"><div class="cct">Book-to-Screen 📖</div><div class="ccn"><em>Children of Blood and Bone</em></div><div class="ccd">Tomi Adeyemi's West African mythology-inspired fantasy has been one of the most anticipated adaptations for years. The Paramount film is finally moving — here's everything we know about cast, release, and why fans are cautiously hyped.</div><div class="ccs">Film · Paramount · In production</div></div>
+<div class="cc" style="--ca:#E11028"><div class="cct">Prequel Season 🏹</div><div class="ccn"><em>Hunger Games: Sunrise on the Reaping</em></div><div class="ccd">The next Panem chapter is coming. Set during the 50th Hunger Games with Haymitch's story, the film stars a stacked cast and is generating serious Oscar buzz before a single trailer has dropped.</div><div class="ccs">Film · Lionsgate · Coming 2026</div></div>
+</div></div>
+
+<footer class="ft"><div class="ftl">Celebrity<span>Dockets</span></div><p class="ftt">Tracking celebrity court cases, one docket at a time.</p><div class="ftk"><a href="index.html">Cases</a><a href="objection-live.html">Objection Live!</a><a href="recess.html">RECESS</a><a href="https://www.youtube.com/@CJournalist24" target="_blank">YouTube</a><a href="about.html">About</a></div><div class="ftk" style="margin-top:12px;"><a href="legal.html">Terms &amp; Privacy</a></div><p style="font-size:.65rem;color:#5a5a6a;margin-top:12px;max-width:600px;margin-left:auto;margin-right:auto;line-height:1.5;">Celebrity Dockets is an independent media site. Nothing here is legal advice. All case information is sourced from public court filings and verified reporting.</p><p class="ftc">&copy; 2026 CelebrityDockets.com &middot; All rights reserved.</p></footer>
+<script type="text/javascript" src="https://cdnjs.buymeacoffee.com/1.0.0/button.prod.min.js" data-name="bmc-button" data-slug="CJournalist24" data-color="#FFDD00" data-emoji="☕" data-font="Cookie" data-text="Fuel The Docket " data-outline-color="#000000" data-font-color="#000000" data-coffee-color="#FFDD00"></script>
+<script data-name="BMC-Widget" data-cfasync="false" src="https://cdnjs.buymeacoffee.com/1.0.0/widget.prod.min.js" data-id="CJournalist24" data-description="Support me on Buy me a coffee!" data-message="Help keep the docket running. Buy CJ a coffee." data-color="#FFDD00" data-position="Right" data-x_margin="18" data-y_margin="18"></script>
+</body>
+</html>

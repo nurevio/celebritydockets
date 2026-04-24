@@ -1,0 +1,231 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<link rel="icon" type="image/png" href="favicon.png"><link rel="apple-touch-icon" href="favicon.png">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Courtroom Culture | Celebrity Dockets</title>
+<link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&family=IBM+Plex+Sans:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+<style>
+:root{--bg:#0a0a0f;--card:#12121a;--elev:#1a1a26;--red:#E11028;--gold:#F6C340;--cyan:#2BBFD9;--t1:#e8e6e1;--t2:#9a9a9a;--t3:#5a5a6a;--bdr:#2a2a3a}
+*{margin:0;padding:0;box-sizing:border-box}
+body{background:var(--bg);color:var(--t1);font-family:'IBM Plex Sans',sans-serif;line-height:1.6}
+
+/* Header */
+.hdr{border-bottom:1px solid var(--bdr);padding:16px 24px;display:flex;align-items:center;justify-content:space-between;background:var(--bg);position:sticky;top:0;z-index:100;backdrop-filter:blur(12px)}
+.logo{font-family:'DM Serif Display',serif;font-size:1.4rem;color:var(--t1);text-decoration:none}.logo span{color:var(--red)}
+.nav{display:flex;gap:24px;font-size:.8rem;text-transform:uppercase;letter-spacing:1.5px;font-weight:600}
+.nav a{color:var(--t2);text-decoration:none;transition:color .2s}.nav a:hover{color:var(--gold)}.nav a.on{color:var(--gold)}
+.hamburger{display:none;background:none;border:none;color:var(--t1);cursor:pointer;padding:8px;flex-direction:column;gap:5px}
+.hamburger span{display:block;width:24px;height:2px;background:var(--t1);transition:all .3s}
+
+@media(max-width:768px){
+  .nav{display:none;position:absolute;top:100%;left:0;right:0;background:var(--bg);flex-direction:column;padding:20px 24px;gap:18px;border-bottom:1px solid var(--bdr);box-shadow:0 4px 20px rgba(0,0,0,.4)}
+  .nav.open{display:flex}
+  .hamburger{display:flex}
+  .hamburger.open span:nth-child(1){transform:rotate(45deg) translate(5px,5px)}
+  .hamburger.open span:nth-child(2){opacity:0}
+  .hamburger.open span:nth-child(3){transform:rotate(-45deg) translate(7px,-7px)}
+}
+
+/* Hero */
+.hero{padding:60px 24px 20px;text-align:center}
+.ey{font-family:'JetBrains Mono',monospace;font-size:.7rem;text-transform:uppercase;letter-spacing:4px;color:var(--red);margin-bottom:12px}
+.ht{font-family:'DM Serif Display',serif;font-size:3rem;line-height:1.1;margin-bottom:12px}.ht span{color:var(--red)}
+.hs{font-size:1rem;color:var(--t2);max-width:600px;margin:0 auto}
+
+.content{max-width:1100px;margin:0 auto;padding:40px 24px 60px}
+
+/* Section headers */
+.sh{display:flex;align-items:center;gap:16px;margin:40px 0 20px}
+.sh h2{font-family:'DM Serif Display',serif;font-size:1.5rem;white-space:nowrap}
+.sh .line{flex:1;height:1px;background:var(--bdr)}
+.sh .tag{font-family:'JetBrains Mono',monospace;font-size:.65rem;color:var(--gold);background:rgba(246,195,64,.08);padding:4px 12px;border-radius:4px;border:1px solid rgba(246,195,64,.2);white-space:nowrap}
+
+/* Culture cards */
+.grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(320px,1fr));gap:20px;margin-bottom:40px}
+.ccard{background:var(--card);border:1px solid var(--bdr);border-radius:12px;overflow:hidden;transition:transform .2s,border-color .2s;text-decoration:none;color:inherit;display:block}
+.ccard:hover{transform:translateY(-3px);border-color:var(--gold)}
+.ccard-img{width:100%;aspect-ratio:4/3;background:var(--elev);overflow:hidden;display:flex;align-items:center;justify-content:center;font-size:3rem}
+.ccard-img img{width:100%;height:100%;object-fit:cover}
+.ccard-body{padding:20px 22px}
+.ccard-tag{font-family:'JetBrains Mono',monospace;font-size:.6rem;text-transform:uppercase;letter-spacing:1.5px;color:var(--cyan);margin-bottom:8px}
+.ccard-title{font-family:'DM Serif Display',serif;font-size:1.15rem;margin-bottom:6px;line-height:1.3}
+.ccard-title em{color:var(--red);font-style:italic}
+.ccard-desc{font-size:.82rem;color:var(--t2);line-height:1.6;margin-bottom:10px}
+.ccard-meta{font-family:'JetBrains Mono',monospace;font-size:.65rem;color:var(--t3);padding-top:10px;border-top:1px solid var(--bdr)}
+
+/* Intro box */
+.intro{background:linear-gradient(135deg,rgba(225,16,40,.06),rgba(246,195,64,.04));border:1px solid rgba(246,195,64,.15);border-radius:12px;padding:28px;margin-bottom:40px}
+.intro p{font-size:.95rem;color:var(--t2);line-height:1.8}
+.intro strong{color:var(--t1)}
+
+/* Footer */
+.ft{border-top:1px solid var(--bdr);padding:40px 24px;text-align:center}
+.ftl{font-family:'DM Serif Display',serif;font-size:1.4rem;color:var(--t1);margin-bottom:8px}.ftl span{color:var(--red)}
+.ftt{font-size:.8rem;color:var(--t3);margin-bottom:16px}
+.ftk{display:flex;gap:24px;justify-content:center;flex-wrap:wrap}
+.ftk a{font-size:.7rem;text-transform:uppercase;letter-spacing:1.5px;font-weight:600;color:var(--t2);text-decoration:none}.ftk a:hover{color:var(--gold)}
+.ftd{font-size:.65rem;color:var(--t3);margin-top:12px;max-width:600px;margin-left:auto;margin-right:auto;line-height:1.5}
+.ftc{font-size:.65rem;color:var(--t3);margin-top:8px}
+
+@media(max-width:600px){.ht{font-size:2.2rem}}
+
+:root[data-theme="light"]{--bg:#f5f2ea;--bg-primary:#f5f2ea;--card:#ffffff;--bg-card:#ffffff;--elev:#fffcf5;--bg-elev:#fffcf5;--bg-elevated:#fffcf5;--red:#9b2226;--accent-red:#9b2226;--gold:#8b6f20;--accent-gold:#8b6f20;--accent:#9b2226;--blue:#1e5091;--cyan:#0891b2;--t1:#1a1a1f;--text-primary:#1a1a1f;--t2:#5a5a5f;--text-secondary:#5a5a5f;--t3:#8a8a8f;--text-muted:#8a8a8f;--bdr:#d4cfc0;--border:#d4cfc0;--bdr2:#e8e3d4;--border-light:#e8e3d4}
+body{transition:background .3s,color .3s}
+.theme-toggle{background:none;border:1px solid currentColor;cursor:pointer;padding:6px 10px;border-radius:4px;font-size:.85rem;font-family:'JetBrains Mono',monospace;opacity:.7;transition:opacity .2s;margin-left:12px}
+.theme-toggle:hover{opacity:1}
+
+</style>
+<script>
+function toggleTheme(){var c=document.documentElement.getAttribute('data-theme')||'dark';var n=c==='dark'?'light':'dark';document.documentElement.setAttribute('data-theme',n);localStorage.setItem('cdTheme',n);var ic=document.getElementById('theme-icon');if(ic)ic.textContent=n==='dark'?'🌙':'☀️';}
+(function(){var s=localStorage.getItem('cdTheme');if(s){document.documentElement.setAttribute('data-theme',s);window.addEventListener('DOMContentLoaded',function(){var ic=document.getElementById('theme-icon');if(ic)ic.textContent=s==='dark'?'🌙':'☀️';});}})();
+</script>
+</head>
+<body>
+
+<header class="hdr">
+  <a href="index.html" class="logo">Celebrity<span>Dockets</span></a>
+  <button class="hamburger" onclick="this.classList.toggle('open');document.querySelector('.nav').classList.toggle('open')"><span></span><span></span><span></span></button>
+  <nav class="nav">
+    <a href="index.html">Cases</a>
+    <a href="objection-live.html">Objection Live!</a>
+    <a href="recess.html">RECESS</a>
+    <a href="star-bar.html">Star Bar</a>
+    <a href="#" class="on">Courtroom Culture</a>
+    <a href="about.html">About</a>
+  <button class="theme-toggle" onclick="toggleTheme()"><span id="theme-icon">🌙</span></button></nav>
+</header>
+
+<section class="hero">
+  <div class="ey">✏️ Courtroom Culture</div>
+  <h1 class="ht">Behind the <span>Bench</span></h1>
+  <p class="hs">Courtroom sketches, arraignment fashion, PR strategy, and the theater of celebrity law.</p>
+</section>
+
+<div class="content">
+
+<div class="intro">
+<p>Not every story lives in the filings. <strong>What someone wears to their arraignment</strong> says as much as the plea they enter. <strong>A courtroom sketch</strong> can become the image a case is remembered by. <strong>The PR statement released ten minutes after a verdict</strong> is its own kind of evidence. This is where we track the parts of a celebrity case that don't show up on the docket.</p>
+</div>
+
+<div class="sh"><h2>Courtroom Sketches</h2><div class="line"></div><span class="tag">The Art</span></div>
+
+<div style="max-width:900px;margin:0 auto 28px;padding:22px 26px;background:rgba(246,195,64,.06);border:1px solid rgba(246,195,64,.25);border-radius:10px;display:flex;gap:22px;align-items:flex-start;">
+  <img src="bill-robles-profile.jpg" alt="Bill Robles" style="width:92px;height:92px;border-radius:50%;object-fit:cover;flex-shrink:0;border:2px solid rgba(246,195,64,.3);">
+  <div style="flex:1;">
+    <div style="font-family:'JetBrains Mono',monospace;font-size:.65rem;letter-spacing:2px;text-transform:uppercase;color:var(--gold);margin-bottom:8px;">★ Featured Artist</div>
+    <div style="font-family:'DM Serif Display',serif;font-size:1.5rem;color:var(--t1);margin-bottom:6px;"><a href="https://www.instagram.com/billrobles.art/" target="_blank" rel="noopener" style="color:inherit;text-decoration:none;">Bill Robles</a></div>
+    <div style="font-size:.85rem;color:var(--t2);line-height:1.7;">Emmy-nominated courtroom illustrator with 50+ years at the bench. Covered Charles Manson, O.J. Simpson, Michael Jackson, Ted Kaczynski, Timothy McVeigh, Richard Ramirez, and Rodney King for CBS, NBC News, CNN, the Washington Post, and the LA Times. Library of Congress acquired his original courtroom artwork in 2016. LA Society of Illustrators Lifetime Achievement Award (2003). Follow him on Instagram: <a href="https://www.instagram.com/billrobles.art/" target="_blank" rel="noopener" style="color:var(--gold);text-decoration:none;font-weight:600;">@billrobles.art</a>.</div>
+  </div>
+</div>
+
+<div style="max-width:900px;margin:0 auto 28px;padding:22px 26px;background:rgba(225,16,40,.05);border:1px solid rgba(225,16,40,.22);border-radius:10px;">
+  <div style="font-family:'JetBrains Mono',monospace;font-size:.65rem;letter-spacing:2px;text-transform:uppercase;color:var(--red);margin-bottom:6px;">★ Featured Artists · U.S. v. Combs</div>
+  <div style="font-family:'DM Serif Display',serif;font-size:1.5rem;color:var(--t1);margin-bottom:6px;">The Diddy Trial Trio</div>
+  <div style="font-size:.85rem;color:var(--t2);line-height:1.7;margin-bottom:16px;">Three veteran SDNY sketch artists sat front row for the Sean "Diddy" Combs sex-trafficking trial, using binoculars to catch the witness stand and turning out up to six finished pieces a day. Combs famously complained one of them was making him look "like a koala."</div>
+  <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:14px;">
+    <div style="padding:16px 14px;background:var(--card);border:1px solid var(--bdr);border-radius:8px;text-align:center;">
+      <img src="jane-rosenberg-profile.jpg" alt="Jane Rosenberg" onerror="this.style.display='none'" style="width:70px;height:70px;border-radius:50%;object-fit:cover;object-position:20% 40%;margin:0 auto 10px;display:block;border:2px solid rgba(225,16,40,.25);">
+      <div style="font-family:'DM Serif Display',serif;font-size:1.1rem;color:var(--t1);margin-bottom:4px;"><a href="http://www.janerosenbergart.com/" target="_blank" rel="noopener" style="color:inherit;text-decoration:none;">Jane Rosenberg</a></div>
+      <div style="font-size:.78rem;color:var(--t2);line-height:1.6;text-align:left;">40+ years. Pastel sketches of Trump, Epstein, Weinstein, Cosby, and Combs. Her Trump arraignment sketch went viral and landed on the cover of The New Yorker.</div>
+    </div>
+    <div style="padding:16px 14px;background:var(--card);border:1px solid var(--bdr);border-radius:8px;text-align:center;">
+      <img src="christine-cornell-profile.jpg" alt="Christine Cornell" onerror="this.style.display='none'" style="width:70px;height:70px;border-radius:50%;object-fit:cover;margin:0 auto 10px;display:block;border:2px solid rgba(225,16,40,.25);">
+      <div style="font-family:'DM Serif Display',serif;font-size:1.1rem;color:var(--t1);margin-bottom:4px;"><a href="https://www.instagram.com/christine.cornell/" target="_blank" rel="noopener" style="color:inherit;text-decoration:none;">Christine Cornell</a></div>
+      <div style="font-size:.78rem;color:var(--t2);line-height:1.6;text-align:left;">Veteran New York courtroom illustrator. Covered the Combs trial and Trump's Manhattan hush-money trial for CNN. Four decades of landmark federal and state cases.</div>
+    </div>
+    <div style="padding:16px 14px;background:var(--card);border:1px solid var(--bdr);border-radius:8px;text-align:center;">
+      <img src="elizabeth-williams-profile.jpg" alt="Elizabeth Williams" onerror="this.style.display='none'" style="width:70px;height:70px;border-radius:50%;object-fit:cover;object-position:30% 25%;margin:0 auto 10px;display:block;border:2px solid rgba(225,16,40,.25);">
+      <div style="font-family:'DM Serif Display',serif;font-size:1.1rem;color:var(--t1);margin-bottom:4px;"><a href="https://www.elizabethwilliamstudio.com/" target="_blank" rel="noopener" style="color:inherit;text-decoration:none;">Elizabeth Williams</a></div>
+      <div style="font-size:.78rem;color:var(--t2);line-height:1.6;text-align:left;">Career sketch artist who drew Combs for the Associated Press. Co-author of <em>The Illustrated Courtroom</em> (with Bill Robles). Tracked Combs's reaction when bail was denied.</div>
+    </div>
+  </div>
+</div>
+
+<p style="max-width:700px;margin:0 auto 20px;padding:0 24px;text-align:center;font-size:.85rem;color:var(--t2);line-height:1.7;">For more courtroom art from sketch artists across the country, follow <a href="https://www.instagram.com/courtroom_art/" target="_blank" rel="noopener" style="color:var(--gold);text-decoration:none;font-weight:600;">@courtroom_art</a> on Instagram.</p>
+
+<div class="grid">
+
+<a href="d4vd-grand-jury.html" class="ccard">
+<div class="ccard-img"><img src="d4vd-courtroom-sketch.png" alt="d4vd courtroom sketch"></div>
+<div class="ccard-body">
+<div class="ccard-tag">ARRAIGNMENT · APR 20, 2026</div>
+<div class="ccard-title"><em>People</em> v. d4vd</div>
+<div class="ccard-desc">David Anthony Burke in a county-issued orange jumpsuit. The sketch that will define the early days of this case.</div>
+<div class="ccard-meta">Artist: <a href="https://www.instagram.com/billrobles.art/" target="_blank" rel="noopener" style="color:var(--gold);text-decoration:none;">Bill Robles</a> · Murder prosecution</div>
+</div>
+</a>
+
+<div class="ccard" style="opacity:.6;cursor:default;" onclick="return false;">
+<div class="ccard-img">🎨</div>
+<div class="ccard-body">
+<div class="ccard-tag">COMING SOON</div>
+<div class="ccard-title">Lively v. Wayfarer Trial</div>
+<div class="ccard-desc">SDNY trial sketches, starting May 18. One of the most anticipated celebrity trials of the year.</div>
+<div class="ccard-meta">Sketches pending</div>
+</div>
+</div>
+
+</div>
+
+<div class="sh"><h2>Arraignment Fashion</h2><div class="line"></div><span class="tag">The Look</span></div>
+
+<!-- LIVELY/BALDONI — TWINZIES IN COURT -->
+<div style="max-width:1100px;margin:20px auto 28px;padding:0 24px;">
+  <div style="background:var(--card);border:1px solid var(--bdr);border-radius:10px;padding:26px 28px;">
+    <div style="font-family:'JetBrains Mono',monospace;font-size:.6rem;letter-spacing:2px;text-transform:uppercase;color:var(--gold);margin-bottom:8px;">★ Mediation Matchy-Matchy · SDNY · Apr 2026</div>
+    <div style="font-family:'DM Serif Display',serif;font-size:1.5rem;color:var(--t1);margin-bottom:10px;"><em>Lively</em> v. <em>Baldoni</em> — "Twinzies" in Court</div>
+    <div style="font-size:.9rem;color:var(--t2);line-height:1.7;margin-bottom:22px;">Blake Lively and Justin Baldoni showed up to their court-ordered mediation on the 14th floor of a lower Manhattan courthouse — seated in separate rooms with their legal teams — and the internet immediately clocked that they appeared to be <strong>color-coordinated</strong>. Social media observers dubbed the looks <em>"matchy matchy"</em> and called them <em>"twinzies!"</em> Some theories: <em>"Their stylists are telling them what colors look innocent"</em> · <em>"They asked an AI for fashion advice perhaps."</em> The mediation ended without a settlement. Trial proceeds May 18. <a href="lively-v-baldoni.html" style="color:var(--gold);text-decoration:none;font-weight:600;">Full docket →</a></div>
+    <div style="display:flex;justify-content:center;">
+      <a id='ZA__d3HoS1RtH6k6Q1FYFg' class='gie-slideshow' href='https://www.gettyimages.com/detail/2260584889' target='_blank' style='color:#a7a7a7;text-decoration:none;font-weight:normal !important;border:none;display:inline-block;'>Embed from Getty Images</a><script>window.gie=window.gie||function(c){(gie.q=gie.q||[]).push(c)};gie(function(){gie.widgets.load({id:'ZA__d3HoS1RtH6k6Q1FYFg',sig:'imk06eKOzXfM-S8qt-WLZabWzfNMPg1BHy9SZtOeD0A=',w:'594px',h:'377px',items:'2260584889,2260585012,2260584877,2260744713',caption: true ,tld:'com',is360: false })});</script><script src='//embed-cdn.gettyimages.com/widgets.js' charset='utf-8' async></script>
+    </div>
+    <div style="text-align:center;margin-top:10px;font-family:'JetBrains Mono',monospace;font-size:.62rem;color:var(--t3);letter-spacing:1.5px;text-transform:uppercase;">Getty Images · Click for caption &amp; photographer</div>
+  </div>
+</div>
+
+<p style="max-width:700px;margin:0 auto 28px;padding:0 24px;text-align:center;font-size:.8rem;color:var(--t3);font-family:'JetBrains Mono',monospace;letter-spacing:1.5px;text-transform:uppercase;">More looks stacked as the trial proceeds.</p>
+
+<div class="sh"><h2>PR Playbook</h2><div class="line"></div><span class="tag">The Spin</span></div>
+
+<div class="grid">
+
+<a href="d4vd-grand-jury.html" class="ccard">
+<div class="ccard-img">📣</div>
+<div class="ccard-body">
+<div class="ccard-tag">DEFENSE STATEMENT · APR 2026</div>
+<div class="ccard-title"><em>d4vd</em> Defense Team Statement</div>
+<div class="ccard-desc">Days before charges were filed, the defense trio of Blair Berk, Marilyn Bednarski, and Regina Peter issued one of the most quoted PR statements of the year: <em>"Let us be clear — the actual evidence in this case will show that David Burke did not murder Celeste Rivas Hernandez and he was not the cause of her death."</em> A classic "we will vigorously defend innocence" setup before formal charges land.</div>
+<div class="ccard-meta">Blair Berk, Marilyn Bednarski, Regina Peter</div>
+</div>
+</a>
+
+<a href="lively-v-baldoni.html" class="ccard">
+<div class="ccard-img">📣</div>
+<div class="ccard-body">
+<div class="ccard-tag">DEFENSE STATEMENT · 2025</div>
+<div class="ccard-title"><em>Bryan Freedman</em> for Baldoni / Wayfarer</div>
+<div class="ccard-desc">Freedman's statements in the Lively case are a masterclass in aggressive defense PR. He framed Lively's complaint as a <em>"desperate attempt to 'fix' her negative reputation"</em> and teased the release of Baldoni's own receipts before filing his $400M countersuit. The strategy blurred the line between litigation and media warfare — and it worked enough to get most individual defendants dismissed.</div>
+<div class="ccard-meta">Freedman + Taitelman · Star Bar profile</div>
+</div>
+</a>
+
+<a href="lively-v-baldoni.html" class="ccard">
+<div class="ccard-img">📣</div>
+<div class="ccard-body">
+<div class="ccard-tag">PLAINTIFF STATEMENT · 2024-2026</div>
+<div class="ccard-title"><em>Mike Gottlieb</em> for Blake Lively</div>
+<div class="ccard-desc">Gottlieb's Lively statements have been notably restrained. After the court dismissed 10 of 13 claims but kept the key retaliation claims alive against Wayfarer Studios, Gottlieb reframed the ruling as proof the <em>"core of Blake's case moves forward."</em> Contrast with Freedman's scorched-earth approach: Gottlieb plays the long game for the May 18 trial.</div>
+<div class="ccard-meta">Willkie Farr · Also representing Drake</div>
+</div>
+</a>
+
+</div>
+
+</div>
+
+<footer class="ft"><div class="ftl">Celebrity<span>Dockets</span></div><p class="ftt">Tracking celebrity court cases, one docket at a time.</p><div class="ftk"><a href="index.html">Cases</a><a href="objection-live.html">Objection Live!</a><a href="recess.html">RECESS</a><a href="star-bar.html">Star Bar</a><a href="courtroom-culture.html">Courtroom Culture</a><a href="about.html">About</a></div><div class="ftk" style="margin-top:12px;"><a href="legal.html">Terms &amp; Privacy</a></div><p class="ftd">Celebrity Dockets is an independent media site. Nothing here is legal advice. All case information is sourced from public court filings and verified reporting.</p><p class="ftc">&copy; 2026 CelebrityDockets.com &middot; All rights reserved.</p></footer>
+<script type="text/javascript" src="https://cdnjs.buymeacoffee.com/1.0.0/button.prod.min.js" data-name="bmc-button" data-slug="CJournalist24" data-color="#FFDD00" data-emoji="☕" data-font="Cookie" data-text="Fuel The Docket " data-outline-color="#000000" data-font-color="#000000" data-coffee-color="#FFDD00"></script>
+<script data-name="BMC-Widget" data-cfasync="false" src="https://cdnjs.buymeacoffee.com/1.0.0/widget.prod.min.js" data-id="CJournalist24" data-description="Support me on Buy me a coffee!" data-message="Help keep the docket running. Buy CJ a coffee." data-color="#FFDD00" data-position="Right" data-x_margin="18" data-y_margin="18"></script>
+</body>
+</html>

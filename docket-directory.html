@@ -1,0 +1,318 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<link rel="icon" type="image/png" href="favicon.png">
+<link rel="apple-touch-icon" href="favicon.png">
+<link rel="icon" type="image/png" href="favicon.png"><link rel="apple-touch-icon" href="favicon.png">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Docket Directory | Celebrity Dockets</title>
+<link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&family=IBM+Plex+Sans:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+<style>
+:root{--bg:#0a0a0f;--card:#12121a;--elev:#1a1a26;--red:#E11028;--gold:#F6C340;--blue:#4a90d9;--t1:#e8e6e1;--t2:#9a9a9a;--t3:#5a5a6a;--bdr:#2a2a3a;--bdr2:#1e1e2e}
+*{margin:0;padding:0;box-sizing:border-box}
+body{background:var(--bg);color:var(--t1);font-family:'IBM Plex Sans',sans-serif;line-height:1.6}
+.hdr{border-bottom:1px solid var(--bdr);padding:16px 24px;display:flex;align-items:center;justify-content:space-between;background:var(--bg);position:sticky;top:0;z-index:100;backdrop-filter:blur(12px)}
+.logo{font-family:'DM Serif Display',serif;font-size:1.4rem;color:var(--t1);text-decoration:none}.logo span{color:var(--red)}
+.nav{display:flex;gap:24px;font-size:.8rem;text-transform:uppercase;letter-spacing:1.5px;font-weight:600}
+.nav a{color:var(--t2);text-decoration:none;transition:color .2s}.nav a:hover{color:var(--gold)}.nav a.on{color:var(--gold)}
+.hero{padding:60px 24px 40px;text-align:center}
+.ey{font-family:'JetBrains Mono',monospace;font-size:.7rem;text-transform:uppercase;letter-spacing:4px;color:var(--red);margin-bottom:12px}
+.ht{font-family:'DM Serif Display',serif;font-size:2.8rem;line-height:1.1;margin-bottom:12px}.ht span{color:var(--red)}
+.hs{font-size:1rem;color:var(--t2);max-width:550px;margin:0 auto}
+/* Filter buttons */
+.filters{max-width:900px;margin:0 auto;padding:0 24px 32px;display:flex;flex-wrap:wrap;gap:10px;justify-content:center}
+.fbtn{padding:8px 18px;border-radius:6px;font-size:.75rem;font-weight:600;text-transform:uppercase;letter-spacing:1px;border:1px solid var(--bdr);background:var(--card);color:var(--t2);cursor:pointer;transition:all .2s;text-decoration:none}
+.fbtn:hover,.fbtn.active{background:rgba(246,195,64,.12);color:var(--gold);border-color:rgba(246,195,64,.3)}
+/* Case list */
+.cases{max-width:900px;margin:0 auto;padding:0 24px 60px}
+.cat-header{display:flex;align-items:center;gap:16px;margin:32px 0 16px}
+.cat-header h2{font-family:'DM Serif Display',serif;font-size:1.3rem;white-space:nowrap}
+.cat-header .line{flex:1;height:1px;background:var(--bdr)}
+.cat-header .count{font-family:'JetBrains Mono',monospace;font-size:.65rem;color:var(--t3);background:var(--elev);padding:3px 10px;border-radius:4px}
+.case-row{display:flex;align-items:center;justify-content:space-between;padding:14px 18px;background:var(--card);border:1px solid var(--bdr);border-radius:8px;margin-bottom:8px;text-decoration:none;color:inherit;transition:border-color .2s,transform .2s;gap:12px}
+.case-row:hover{border-color:var(--gold);transform:translateX(4px)}
+.cr-left{flex:1;min-width:0}
+.cr-name{font-family:'DM Serif Display',serif;font-size:1rem;color:var(--t1);margin-bottom:2px}
+.cr-claim{font-size:.8rem;color:var(--t2);white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.cr-right{display:flex;gap:8px;align-items:center;flex-shrink:0}
+.cr-badge{font-size:.6rem;font-weight:700;text-transform:uppercase;letter-spacing:1px;padding:3px 10px;border-radius:3px;background:rgba(246,195,64,.1);color:var(--gold);border:1px solid rgba(246,195,64,.2);white-space:nowrap}
+.cr-docket{font-size:.7rem;color:var(--gold);font-family:'JetBrains Mono',monospace;white-space:nowrap}
+.cr-arrow{color:var(--gold);font-size:.9rem}
+@media(max-width:600px){.cr-right{flex-direction:column;align-items:flex-end}.ht{font-size:2rem}}
+.ft{border-top:1px solid var(--bdr);padding:40px 24px;text-align:center}
+.ftl{font-family:'DM Serif Display',serif;font-size:1.4rem;color:var(--t1);margin-bottom:8px}.ftl span{color:var(--red)}
+.ftt{font-size:.8rem;color:var(--t3);margin-bottom:16px}
+.ftk{display:flex;gap:24px;justify-content:center;flex-wrap:wrap}
+.ftk a{font-size:.7rem;text-transform:uppercase;letter-spacing:1.5px;font-weight:600;color:var(--t2);text-decoration:none}.ftk a:hover{color:var(--gold)}
+
+.hamburger{display:none;background:none;border:none;color:var(--t1);cursor:pointer;padding:8px;flex-direction:column;gap:5px}
+.hamburger span{display:block;width:24px;height:2px;background:var(--t1);transition:all .3s}
+@media(max-width:768px){
+  .nav{display:none;position:absolute;top:100%;left:0;right:0;background:var(--bg);flex-direction:column;padding:20px 24px;gap:18px;border-bottom:1px solid var(--bdr);box-shadow:0 4px 20px rgba(0,0,0,.4);z-index:99}
+  .nav.open{display:flex}
+  .hamburger{display:flex}
+  .hamburger.open span:nth-child(1){transform:rotate(45deg) translate(5px,5px)}
+  .hamburger.open span:nth-child(2){opacity:0}
+  .hamburger.open span:nth-child(3){transform:rotate(-45deg) translate(7px,-7px)}
+}
+
+:root[data-theme="light"]{--bg:#f5f2ea;--bg-primary:#f5f2ea;--card:#ffffff;--bg-card:#ffffff;--elev:#fffcf5;--bg-elev:#fffcf5;--bg-elevated:#fffcf5;--red:#9b2226;--accent-red:#9b2226;--gold:#8b6f20;--accent-gold:#8b6f20;--accent:#9b2226;--blue:#1e5091;--cyan:#0891b2;--t1:#1a1a1f;--text-primary:#1a1a1f;--t2:#5a5a5f;--text-secondary:#5a5a5f;--t3:#8a8a8f;--text-muted:#8a8a8f;--bdr:#d4cfc0;--border:#d4cfc0;--bdr2:#e8e3d4;--border-light:#e8e3d4}
+body{transition:background .3s,color .3s}
+.theme-toggle{background:none;border:1px solid currentColor;cursor:pointer;padding:6px 10px;border-radius:4px;font-size:.85rem;font-family:'JetBrains Mono',monospace;opacity:.7;transition:opacity .2s;margin-left:12px}
+.theme-toggle:hover{opacity:1}
+
+</style>
+<script>
+function toggleTheme(){var c=document.documentElement.getAttribute('data-theme')||'dark';var n=c==='dark'?'light':'dark';document.documentElement.setAttribute('data-theme',n);localStorage.setItem('cdTheme',n);var ic=document.getElementById('theme-icon');if(ic)ic.textContent=n==='dark'?'🌙':'☀️';}
+(function(){var s=localStorage.getItem('cdTheme');if(s){document.documentElement.setAttribute('data-theme',s);window.addEventListener('DOMContentLoaded',function(){var ic=document.getElementById('theme-icon');if(ic)ic.textContent=s==='dark'?'🌙':'☀️';});}})();
+</script>
+</head>
+<body>
+
+<header class="hdr"><a href="index.html" class="logo">Celebrity<span>Dockets</span></a><button class="hamburger" onclick="this.classList.toggle('open');document.querySelector('.nav').classList.toggle('open')"><span></span><span></span><span></span></button><nav class="nav"><a href="index.html">Cases</a><a href="objection-live.html">Objection Live!</a><a href="recess.html">RECESS</a><a href="star-bar.html">Star Bar</a><a href="courtroom-culture.html">Courtroom Culture</a><a href="about.html">About</a><button class="theme-toggle" onclick="toggleTheme()"><span id="theme-icon">🌙</span></button></nav></header>
+
+<section class="hero">
+<div class="ey">Docket Directory</div>
+<h1 class="ht">Cases by <span>Subject</span></h1>
+<p class="hs">Every case. The claims. The filings. Sorted so you can find what you're looking for.</p>
+</section>
+
+<div class="filters">
+<a href="#all" class="fbtn active" onclick="filterCases('all')">All Cases</a>
+<a href="#defamation" class="fbtn" onclick="filterCases('defamation')">Defamation</a>
+<a href="#criminal" class="fbtn" onclick="filterCases('criminal')">Criminal</a>
+<a href="#copyright" class="fbtn" onclick="filterCases('copyright')">Copyright / IP</a>
+<a href="#sexual-assault" class="fbtn" onclick="filterCases('sexual-assault')">SA / Misconduct</a>
+<a href="#workplace" class="fbtn" onclick="filterCases('workplace')">Workplace</a>
+<a href="#appeal" class="fbtn" onclick="filterCases('appeal')">Appeal</a>
+<a href="#battery" class="fbtn" onclick="filterCases('battery')">Battery</a>
+<a href="#antitrust" class="fbtn" onclick="filterCases('antitrust')">Antitrust</a>
+<a href="#property" class="fbtn" onclick="filterCases('property')">Property / Estate</a>
+<a href="#dui" class="fbtn" onclick="filterCases('dui')">DUI</a>
+<a href="#film" class="fbtn" onclick="filterCases('film')">Film / Production</a>
+<a href="#hacking" class="fbtn" onclick="filterCases('hacking')">Phone Hacking</a>
+</div>
+
+<div class="cases">
+
+<!-- DEFAMATION -->
+<div class="cat-header" data-cat="defamation"><h2>Defamation</h2><div class="line"></div><span class="count">6</span></div>
+
+<a href="drake-v-umg-appeal.html" class="case-row" data-cat="defamation appeal">
+<div class="cr-left"><div class="cr-name">Drake v. UMG</div><div class="cr-claim">"Not Like Us" pedophile allegation — appeal pending</div></div>
+<div class="cr-right"><span class="cr-badge">Appeal</span><span class="cr-docket">1:25-cv-00399</span><span class="cr-arrow">→</span></div></a>
+
+<a href="fat-joe-v-dixon.html" class="case-row" data-cat="defamation">
+<div class="cr-left"><div class="cr-name">Cartagena v. Dixon</div><div class="cr-claim">Dueling defamation and extortion suits — RICO claims dropped</div></div>
+<div class="cr-right"><span class="cr-badge">Active</span><span class="cr-docket">1:25-cv-03552</span><span class="cr-arrow">→</span></div></a>
+
+<a href="combs-appeal.html" class="case-row" data-cat="defamation">
+<div class="cr-left"><div class="cr-name">Combs v. NewsNation</div><div class="cr-claim">$100M defamation suit over false claims aired on NewsNation</div></div>
+<div class="cr-right"><span class="cr-badge">Active</span><span class="cr-arrow">→</span></div></a>
+
+<a href="kardashian-v-ray-j.html" class="case-row" data-cat="defamation">
+<div class="cr-left"><div class="cr-name">Kardashian & Jenner v. Ray J</div><div class="cr-claim">$6M sex tape settlement unsealed</div></div>
+<div class="cr-right"><span class="cr-badge">Active</span><span class="cr-arrow">→</span></div></a>
+
+<a href="wilson-v-ghost-the-deb.html" class="case-row" data-cat="defamation">
+<div class="cr-left"><div class="cr-name">Ghost et al. v. Wilson</div><div class="cr-claim">The Deb producers v. Rebel Wilson — anonymous smear websites</div></div>
+<div class="cr-right"><span class="cr-badge">Trial Oct 2026</span><span class="cr-arrow">→</span></div></a>
+
+<a href="prince-harry-uk-cases.html" class="case-row" data-cat="defamation">
+<div class="cr-left"><div class="cr-name">Sentebale v. Prince Harry</div><div class="cr-claim">His own charity suing him for defamation in UK High Court</div></div>
+<div class="cr-right"><span class="cr-badge">UK</span><span class="cr-arrow">→</span></div></a>
+
+<!-- CRIMINAL -->
+<div class="cat-header" data-cat="criminal"><h2>Criminal</h2><div class="line"></div><span class="count">6</span></div>
+
+<a href="d4vd-grand-jury.html" class="case-row" data-cat="criminal">
+<div class="cr-left"><div class="cr-name">People v. d4vd</div><div class="cr-claim">Arrested for murder — teen's remains found in his Tesla</div></div>
+<div class="cr-right"><span class="cr-badge" style="background:rgba(225,16,40,.15);color:#E11028;border-color:rgba(225,16,40,.3)">Arrested</span><span class="cr-arrow">→</span></div></a>
+
+<a href="stefon-diggs-criminal.html" class="case-row" data-cat="criminal">
+<div class="cr-left"><div class="cr-name">Commonwealth v. Diggs</div><div class="cr-claim">Felony strangulation — personal chef alleges choking</div></div>
+<div class="cr-right"><span class="cr-badge">Trial May 4</span><span class="cr-arrow">→</span></div></a>
+
+<a href="chris-brown-uk-trial.html" class="case-row" data-cat="criminal">
+<div class="cr-left"><div class="cr-name">R v. Brown</div><div class="cr-claim">Nightclub bottle attack — GBH, assault, offensive weapon</div></div>
+<div class="cr-right"><span class="cr-badge">UK Trial Oct 26</span><span class="cr-arrow">→</span></div></a>
+
+<a href="russell-brand-uk-trial.html" class="case-row" data-cat="criminal">
+<div class="cr-left"><div class="cr-name">R v. Brand</div><div class="cr-claim">7 charges: rape and sexual assault involving 6 women</div></div>
+<div class="cr-right"><span class="cr-badge">UK Trial Oct 12</span><span class="cr-arrow">→</span></div></a>
+
+<a href="combs-appeal.html" class="case-row" data-cat="criminal appeal">
+<div class="cr-left"><div class="cr-name">U.S. v. Combs</div><div class="cr-claim">50-month sentence appeal — Mann Act conviction</div></div>
+<div class="cr-right"><span class="cr-badge">Appeal</span><span class="cr-arrow">→</span></div></a>
+
+<a href="perry-rose-criminal-probe.html" class="case-row" data-cat="criminal">
+<div class="cr-left"><div class="cr-name">Perry — Ruby Rose Probe</div><div class="cr-claim">Sexual assault allegation — police reports filed in Australia</div></div>
+<div class="cr-right"><span class="cr-badge">Probe</span><span class="cr-arrow">→</span></div></a>
+
+<!-- COPYRIGHT / IP -->
+<div class="cat-header" data-cat="copyright"><h2>Copyright / IP</h2><div class="line"></div><span class="count">4</span></div>
+
+<a href="henson-v-sony.html" class="case-row" data-cat="copyright">
+<div class="cr-left"><div class="cr-name">Henson v. Sony Music</div><div class="cr-claim">"Bye Bye Bye" choreography in Deadpool & Fortnite</div></div>
+<div class="cr-right"><span class="cr-badge">Active</span><span class="cr-arrow">→</span></div></a>
+
+<a href="salt-n-pepa-v-umg.html" class="case-row" data-cat="copyright appeal">
+<div class="cr-left"><div class="cr-name">James v. UMG (Salt-N-Pepa)</div><div class="cr-claim">Masters ownership — "Push It" — termination rights appeal</div></div>
+<div class="cr-right"><span class="cr-badge">Appeal</span><span class="cr-docket">1:25-cv-04182</span><span class="cr-arrow">→</span></div></a>
+
+<a href="wade-v-swift-showgirl.html" class="case-row" data-cat="copyright">
+<div class="cr-left"><div class="cr-name">Wade v. Swift</div><div class="cr-claim">"Life of a Showgirl" trademark conflict</div></div>
+<div class="cr-right"><span class="cr-badge">Active</span><span class="cr-arrow">→</span></div></a>
+
+<a href="bad-bunny-lawsuits.html" class="case-row" data-cat="copyright">
+<div class="cr-left"><div class="cr-name">Bad Bunny Lawsuits</div><div class="cr-claim">La Casita property exploitation + voice theft ($62M)</div></div>
+<div class="cr-right"><span class="cr-badge">Multiple</span><span class="cr-arrow">→</span></div></a>
+
+<!-- SEXUAL ASSAULT / HARASSMENT -->
+<div class="cat-header" data-cat="sexual-assault"><h2>SA / Misconduct</h2><div class="line"></div><span class="count">4</span></div>
+
+<a href="tyler-perry-lawsuits.html" class="case-row" data-cat="sexual-assault">
+<div class="cr-left"><div class="cr-name">Dixon & Rodriguez v. Tyler Perry</div><div class="cr-claim">Two sexual assault suits — $260M + $77M</div></div>
+<div class="cr-right"><span class="cr-badge">2 Active</span><span class="cr-arrow">→</span></div></a>
+
+<a href="barnett-v-labeouf.html" class="case-row" data-cat="sexual-assault">
+<div class="cr-left"><div class="cr-name">Barnett v. LaBeouf</div><div class="cr-claim">FKA twigs challenges NDA from sexual battery settlement</div></div>
+<div class="cr-right"><span class="cr-badge">Active</span><span class="cr-arrow">→</span></div></a>
+
+<a href="kanye-west-employee-lawsuits.html" class="case-row" data-cat="sexual-assault">
+<div class="cr-left"><div class="cr-name">Jane Doe v. Ye (Kanye West)</div><div class="cr-claim">Antisemitic harassment and sexual harassment at Yeezy</div></div>
+<div class="cr-right"><span class="cr-badge">On Hold</span><span class="cr-arrow">→</span></div></a>
+
+<a href="cardi-b-mic-lawsuit.html" class="case-row" data-cat="battery">
+<div class="cr-left"><div class="cr-name">Jane Doe v. Cardi B</div><div class="cr-claim">Battery — mic thrown at fan during Las Vegas concert</div></div>
+<div class="cr-right"><span class="cr-badge">Active</span><span class="cr-arrow">→</span></div></a>
+
+<!-- WORKPLACE / RETALIATION -->
+<div class="cat-header" data-cat="workplace"><h2>Workplace / Retaliation</h2><div class="line"></div><span class="count">3</span></div>
+
+<a href="lively-v-baldoni.html" class="case-row" data-cat="workplace">
+<div class="cr-left"><div class="cr-name">Lively v. Wayfarer / IEWU Movie LLC</div><div class="cr-claim">Retaliation and breach of contract — 10 of 13 claims dismissed</div></div>
+<div class="cr-right"><span class="cr-badge">Trial May 18</span><span class="cr-docket">1:24-cv-10049</span><span class="cr-arrow">→</span></div></a>
+
+<a href="cohen-v-mcsweeney.html" class="case-row" data-cat="workplace">
+<div class="cr-left"><div class="cr-name">McSweeney v. Cohen & Bravo</div><div class="cr-claim">Toxic workplace, cocaine claims — motion to dismiss pending</div></div>
+<div class="cr-right"><span class="cr-badge">MTD Pending</span><span class="cr-arrow">→</span></div></a>
+
+<a href="kanye-west-employee-lawsuits.html" class="case-row" data-cat="workplace">
+<div class="cr-left"><div class="cr-name">Saxon & Monroe v. Ye</div><div class="cr-claim">Unpaid wages and unsafe conditions — $140K jury verdict</div></div>
+<div class="cr-right"><span class="cr-badge">Verdict</span><span class="cr-arrow">→</span></div></a>
+
+<!-- ANTITRUST -->
+<div class="cat-header" data-cat="antitrust"><h2>Antitrust / Consumer Class</h2><div class="line"></div><span class="count">2</span></div>
+
+<a href="live-nation-ticketmaster.html" class="case-row" data-cat="antitrust">
+<div class="cr-left"><div class="cr-name">U.S. v. Live Nation / Ticketmaster</div><div class="cr-claim">Jury found illegal monopoly — $1.72/ticket overcharge — appeal planned</div></div>
+<div class="cr-right"><span class="cr-badge">Verdict</span><span class="cr-arrow">→</span></div></a>
+
+<a href="capolongo-v-spotify.html" class="case-row" data-cat="antitrust">
+<div class="cr-left"><div class="cr-name">Capolongo v. Spotify</div><div class="cr-claim">Discovery Mode payola class action — TX AG probe opened Apr 22, 2026</div></div>
+<div class="cr-right"><span class="cr-badge" style="background:rgba(225,16,40,.15);color:#E11028;border-color:rgba(225,16,40,.3)">New</span><span class="cr-arrow">→</span></div></a>
+
+<!-- PROPERTY / ESTATE -->
+<div class="cat-header" data-cat="property"><h2>Property / Estate</h2><div class="line"></div><span class="count">4</span></div>
+
+<a href="pitt-v-jolie-miraval.html" class="case-row" data-cat="property">
+<div class="cr-left"><div class="cr-name">Pitt v. Jolie</div><div class="cr-claim">$164M Chateau Miraval winery war</div></div>
+<div class="cr-right"><span class="cr-badge">Active</span><span class="cr-arrow">→</span></div></a>
+
+<a href="paris-jackson-v-mj-estate.html" class="case-row" data-cat="property">
+<div class="cr-left"><div class="cr-name">Paris Jackson v. MJ Estate</div><div class="cr-claim">Accuses executors of using dad's fortune to bully her</div></div>
+<div class="cr-right"><span class="cr-badge">Active</span><span class="cr-arrow">→</span></div></a>
+
+<a href="pratt-v-city-of-la.html" class="case-row" data-cat="property">
+<div class="cr-left"><div class="cr-name">Pratt & Montag v. City of LA</div><div class="cr-claim">Palisades Fire negligence — uninsured home lost</div></div>
+<div class="cr-right"><span class="cr-badge">Discovery</span><span class="cr-arrow">→</span></div></a>
+
+<a href="littrell-beach-lawsuit.html" class="case-row" data-cat="property">
+<div class="cr-left"><div class="cr-name">Littrell v. Walton County</div><div class="cr-claim">Beach property trespassers — death threats against family</div></div>
+<div class="cr-right"><span class="cr-badge">Active</span><span class="cr-arrow">→</span></div></a>
+
+<!-- DUI -->
+<div class="cat-header" data-cat="dui"><h2>DUI</h2><div class="line"></div><span class="count">2</span></div>
+
+<a href="tiger-woods-dui.html" class="case-row" data-cat="dui">
+<div class="cr-left"><div class="cr-name">State v. Woods</div><div class="cr-claim">Rollover crash, hydrocodone, fighting prescription subpoena</div></div>
+<div class="cr-right"><span class="cr-badge">Hearing May 5</span><span class="cr-arrow">→</span></div></a>
+
+<a href="britney-spears-dui.html" class="case-row" data-cat="dui">
+<div class="cr-left"><div class="cr-name">People v. Spears</div><div class="cr-claim">DUI arrest March 4 — now in rehab</div></div>
+<div class="cr-right"><span class="cr-badge">Court May 4</span><span class="cr-arrow">→</span></div></a>
+
+<!-- FILM / PRODUCTION -->
+<div class="cat-header" data-cat="film"><h2>Film / Production</h2><div class="line"></div><span class="count">1</span></div>
+
+<a href="costner-horizon-lawsuits.html" class="case-row" data-cat="film">
+<div class="cr-left"><div class="cr-name">The Horizon Lawsuits (Costner)</div><div class="cr-claim">Stunt performer suit, unpaid costumes, New Line financing</div></div>
+<div class="cr-right"><span class="cr-badge">Multiple</span><span class="cr-arrow">→</span></div></a>
+
+<!-- PRISON / CIVIL RIGHTS -->
+<div class="cat-header" data-cat="all"><h2>Prison / Civil Rights</h2><div class="line"></div><span class="count">1</span></div>
+
+<a href="tory-lanez-prison-lawsuit.html" class="case-row" data-cat="all">
+<div class="cr-left"><div class="cr-name">Peterson v. CDCR</div><div class="cr-claim">Tory Lanez sues prison after being stabbed 14 times — both lungs collapsed</div></div>
+<div class="cr-right"><span class="cr-badge" style="background:rgba(225,16,40,.15);color:#E11028;border-color:rgba(225,16,40,.3)">New</span><span class="cr-arrow">→</span></div></a>
+
+<!-- PHONE HACKING -->
+<div class="cat-header" data-cat="hacking"><h2>Phone Hacking / Surveillance</h2><div class="line"></div><span class="count">1</span></div>
+
+<a href="prince-harry-uk-cases.html" class="case-row" data-cat="hacking">
+<div class="cr-left"><div class="cr-name">Harry v. Associated Newspapers</div><div class="cr-claim">Daily Mail phone hacking trial — 30 years of alleged surveillance</div></div>
+<div class="cr-right"><span class="cr-badge">UK Trial</span><span class="cr-arrow">→</span></div></a>
+
+</div>
+
+<footer class="ft"><div class="ftl">Celebrity<span>Dockets</span></div><p class="ftt">Tracking celebrity court cases, one docket at a time.</p><div class="ftk"><a href="index.html">Cases</a><a href="objection-live.html">Objection Live!</a><a href="recess.html">RECESS</a><a href="star-bar.html">Star Bar</a><a href="courtroom-culture.html">Courtroom Culture</a><a href="about.html">About</a></div></footer>
+
+<script>
+function filterCases(cat, btnElement) {
+  document.querySelectorAll('.fbtn').forEach(b => b.classList.remove('active'));
+  if (btnElement) {
+    btnElement.classList.add('active');
+  } else {
+    // Find button by category name
+    document.querySelectorAll('.fbtn').forEach(b => {
+      if (b.getAttribute('href') === '#' + cat) b.classList.add('active');
+    });
+  }
+  document.querySelectorAll('.case-row').forEach(r => {
+    var cats = r.dataset.cat.split(' ');
+    r.style.display = (cat === 'all' || cats.indexOf(cat) !== -1) ? 'flex' : 'none';
+  });
+  document.querySelectorAll('.cat-header').forEach(h => {
+    if (cat === 'all') { h.style.display = 'flex'; return; }
+    var hcats = h.dataset.cat ? h.dataset.cat.split(' ') : [];
+    h.style.display = (hcats.indexOf(cat) !== -1) ? 'flex' : 'none';
+  });
+}
+
+// Update all onclick to pass button reference
+document.querySelectorAll('.fbtn').forEach(function(btn) {
+  btn.onclick = function(e) {
+    var cat = btn.getAttribute('href').replace('#', '');
+    filterCases(cat, btn);
+  };
+});
+
+// Auto-filter on page load based on URL hash
+window.addEventListener('load', function() {
+  var hash = window.location.hash.replace('#', '');
+  if (hash && hash !== 'all') {
+    filterCases(hash);
+  }
+});
+// Also respond to hash changes
+window.addEventListener('hashchange', function() {
+  var hash = window.location.hash.replace('#', '') || 'all';
+  filterCases(hash);
+});
+</script>
+<script type="text/javascript" src="https://cdnjs.buymeacoffee.com/1.0.0/button.prod.min.js" data-name="bmc-button" data-slug="CJournalist24" data-color="#FFDD00" data-emoji="☕" data-font="Cookie" data-text="Fuel The Docket " data-outline-color="#000000" data-font-color="#000000" data-coffee-color="#FFDD00"></script>
+<script data-name="BMC-Widget" data-cfasync="false" src="https://cdnjs.buymeacoffee.com/1.0.0/widget.prod.min.js" data-id="CJournalist24" data-description="Support me on Buy me a coffee!" data-message="Help keep the docket running. Buy CJ a coffee." data-color="#FFDD00" data-position="Right" data-x_margin="18" data-y_margin="18"></script>
+</body>
+</html>

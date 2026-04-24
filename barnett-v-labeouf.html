@@ -1,0 +1,868 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<link rel="icon" type="image/png" href="favicon.png">
+<link rel="apple-touch-icon" href="favicon.png">
+<link rel="icon" type="image/png" href="favicon.png"><link rel="apple-touch-icon" href="favicon.png">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Barnett (FKA twigs) v. LaBeouf | Celebrity Dockets</title>
+<link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display&family=IBM+Plex+Sans:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --bg-primary: #0a0a0f;
+    --bg-card: #12121a;
+    --bg-elevated: #1a1a26;
+    --accent-red: #E11028;
+    --accent-gold: #F6C340;
+    --accent-blue: #4a90d9;
+    --accent-purple: #9b72cf;
+    --text-primary: #e8e6e1;
+    --text-secondary: #9a9a9a;
+    --text-muted: #5a5a6a;
+    --border: #2a2a3a;
+    --border-light: #1e1e2e;
+  }
+
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+
+  body {
+    background: var(--bg-primary);
+    color: var(--text-primary);
+    font-family: 'IBM Plex Sans', sans-serif;
+    line-height: 1.6;
+    min-height: 100vh;
+  }
+
+  .site-header {
+    border-bottom: 1px solid var(--border);
+    padding: 16px 24px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    background: var(--bg-primary);
+    position: sticky;
+    top: 0;
+    z-index: 100;
+    backdrop-filter: blur(12px);
+  }
+
+  .site-logo {
+    font-family: 'DM Serif Display', serif;
+    font-size: 1.2rem;
+    color: var(--text-primary);
+    letter-spacing: 0.5px;
+  }
+
+  .site-logo span { color: var(--accent-red); }
+
+  .site-nav {
+    display: flex;
+    gap: 24px;
+    font-size: 0.8rem;
+    text-transform: uppercase;
+    letter-spacing: 1.5px;
+    font-weight: 600;
+    color: var(--text-secondary);
+  }
+
+  .site-nav a {
+    color: var(--text-secondary);
+    text-decoration: none;
+    transition: color 0.2s;
+  }
+
+  .site-nav a:hover { color: var(--accent-gold); }
+
+  .case-hero {
+    position: relative;
+    padding: 60px 24px 48px;
+    max-width: 900px;
+    margin: 0 auto;
+    overflow: hidden;
+  }
+
+  .case-hero::before {
+    content: '§';
+    position: absolute;
+    top: 20px;
+    right: -20px;
+    font-size: 20rem;
+    font-family: 'DM Serif Display', serif;
+    color: var(--border-light);
+    opacity: 0.3;
+    line-height: 1;
+    pointer-events: none;
+  }
+
+  .case-status-bar {
+    display: flex;
+    gap: 12px;
+    align-items: center;
+    margin-bottom: 20px;
+    flex-wrap: wrap;
+  }
+
+  .status-badge {
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    padding: 5px 14px;
+    border-radius: 4px;
+    font-size: 0.7rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 1.2px;
+  }
+
+  .status-active {
+    background: rgba(225, 16, 40, 0.15);
+    color: var(--accent-red);
+    border: 1px solid rgba(225, 16, 40, 0.3);
+  }
+
+  .status-active::before {
+    content: '';
+    width: 6px;
+    height: 6px;
+    background: var(--accent-red);
+    border-radius: 50%;
+    animation: pulse 2s infinite;
+  }
+
+  @keyframes pulse {
+    0%, 100% { opacity: 1; }
+    50% { opacity: 0.3; }
+  }
+
+  .status-category {
+    background: rgba(155, 114, 207, 0.12);
+    color: var(--accent-purple);
+    border: 1px solid rgba(155, 114, 207, 0.25);
+  }
+
+  .status-nda {
+    background: rgba(246, 195, 64, 0.12);
+    color: var(--accent-gold);
+    border: 1px solid rgba(246, 195, 64, 0.25);
+  }
+
+  .status-dv {
+    background: rgba(225, 16, 40, 0.1);
+    color: #f07682;
+    border: 1px solid rgba(225, 16, 40, 0.2);
+  }
+
+  .case-title {
+    font-family: 'DM Serif Display', serif;
+    font-size: 2.8rem;
+    line-height: 1.15;
+    margin-bottom: 12px;
+    color: var(--text-primary);
+    position: relative;
+  }
+
+  .case-title em {
+    font-style: italic;
+    color: var(--accent-purple);
+  }
+
+  .case-subtitle {
+    font-size: 1.1rem;
+    color: var(--text-secondary);
+    font-weight: 400;
+    margin-bottom: 24px;
+    max-width: 650px;
+  }
+
+  .case-meta-row {
+    display: flex;
+    gap: 28px;
+    flex-wrap: wrap;
+    font-size: 0.82rem;
+    color: var(--text-muted);
+  }
+
+  .meta-item {
+    display: flex;
+    align-items: center;
+    gap: 6px;
+  }
+
+  .meta-label {
+    text-transform: uppercase;
+    font-size: 0.65rem;
+    letter-spacing: 1.2px;
+    font-weight: 700;
+    color: var(--text-muted);
+  }
+
+  .meta-value { color: var(--text-secondary); }
+
+  .section-divider {
+    max-width: 900px;
+    margin: 0 auto;
+    padding: 0 24px;
+  }
+
+  .section-divider hr {
+    border: none;
+    height: 1px;
+    background: linear-gradient(to right, transparent, var(--border), transparent);
+  }
+
+  .case-body {
+    max-width: 900px;
+    margin: 0 auto;
+    padding: 40px 24px 80px;
+    display: grid;
+    grid-template-columns: 1fr 280px;
+    gap: 48px;
+  }
+
+  @media (max-width: 768px) {
+    .case-body { grid-template-columns: 1fr; gap: 32px; }
+    .case-title { font-size: 2rem; }
+    .case-hero::before { display: none; }
+  }
+
+  .parties-block {
+    background: var(--bg-card);
+    border: 1px solid var(--border);
+    border-radius: 8px;
+    padding: 28px;
+    margin-bottom: 32px;
+  }
+
+  .parties-header {
+    font-size: 0.7rem;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    font-weight: 700;
+    color: var(--accent-gold);
+    margin-bottom: 20px;
+  }
+
+  .party-vs {
+    display: grid;
+    grid-template-columns: 1fr auto 1fr;
+    gap: 16px;
+    align-items: center;
+  }
+
+  .party-card { text-align: center; }
+
+  .party-role {
+    font-size: 0.65rem;
+    text-transform: uppercase;
+    letter-spacing: 1.5px;
+    color: var(--text-muted);
+    font-weight: 700;
+    margin-bottom: 6px;
+  }
+
+  .party-name {
+    font-family: 'DM Serif Display', serif;
+    font-size: 1.25rem;
+    color: var(--text-primary);
+    margin-bottom: 4px;
+  }
+
+  .party-aka {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 0.7rem;
+    color: var(--accent-purple);
+    margin-bottom: 4px;
+  }
+
+  .party-desc {
+    font-size: 0.78rem;
+    color: var(--text-secondary);
+  }
+
+  .vs-badge {
+    font-family: 'DM Serif Display', serif;
+    font-size: 1.1rem;
+    color: var(--accent-red);
+    background: rgba(225, 16, 40, 0.1);
+    width: 44px;
+    height: 44px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border: 1px solid rgba(225, 16, 40, 0.2);
+  }
+
+  .attorney-block {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 16px;
+    margin-top: 20px;
+    padding-top: 20px;
+    border-top: 1px solid var(--border);
+  }
+
+  .attorney-card {
+    text-align: center;
+  }
+
+  .attorney-label {
+    font-size: 0.6rem;
+    text-transform: uppercase;
+    letter-spacing: 1.5px;
+    color: var(--text-muted);
+    font-weight: 700;
+    margin-bottom: 4px;
+  }
+
+  .attorney-name {
+    font-size: 0.85rem;
+    color: var(--text-primary);
+    font-weight: 600;
+  }
+
+  .attorney-note {
+    font-size: 0.72rem;
+    color: var(--text-muted);
+    font-style: italic;
+  }
+
+  .narrative-section { margin-bottom: 32px; }
+
+  .section-label {
+    font-size: 0.7rem;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    font-weight: 700;
+    color: var(--accent-gold);
+    margin-bottom: 16px;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+  }
+
+  .section-label::after {
+    content: '';
+    flex: 1;
+    height: 1px;
+    background: var(--border);
+  }
+
+  .narrative-text {
+    font-size: 0.95rem;
+    color: var(--text-secondary);
+    line-height: 1.8;
+  }
+
+  .narrative-text p { margin-bottom: 16px; }
+  .narrative-text strong { color: var(--text-primary); font-weight: 600; }
+
+  .claims-list {
+    list-style: none;
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+    margin-bottom: 32px;
+  }
+
+  .claim-item {
+    padding: 16px 20px;
+    background: var(--bg-card);
+    border-left: 3px solid var(--accent-purple);
+    border-radius: 0 6px 6px 0;
+    font-size: 0.9rem;
+    color: var(--text-secondary);
+    line-height: 1.6;
+    transition: border-color 0.2s, background 0.2s;
+  }
+
+  .claim-item:hover {
+    border-left-color: var(--accent-gold);
+    background: var(--bg-elevated);
+  }
+
+  .claim-number {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 0.7rem;
+    color: var(--accent-purple);
+    font-weight: 700;
+    margin-right: 8px;
+  }
+
+  /* Callout quote block */
+  .callout-block {
+    background: var(--bg-card);
+    border: 1px solid var(--border);
+    border-left: 3px solid var(--accent-gold);
+    border-radius: 0 8px 8px 0;
+    padding: 20px 24px;
+    margin-bottom: 32px;
+    position: relative;
+  }
+
+  .callout-block::before {
+    content: '"';
+    font-family: 'DM Serif Display', serif;
+    font-size: 3rem;
+    color: var(--accent-gold);
+    opacity: 0.3;
+    position: absolute;
+    top: 4px;
+    left: 12px;
+    line-height: 1;
+  }
+
+  .callout-text {
+    font-size: 0.92rem;
+    color: var(--text-secondary);
+    line-height: 1.7;
+    padding-left: 28px;
+    font-style: italic;
+  }
+
+  .callout-source {
+    font-size: 0.75rem;
+    color: var(--text-muted);
+    margin-top: 8px;
+    padding-left: 28px;
+    font-style: normal;
+  }
+
+  .case-sidebar {
+    display: flex;
+    flex-direction: column;
+    gap: 24px;
+  }
+
+  .sidebar-card {
+    background: var(--bg-card);
+    border: 1px solid var(--border);
+    border-radius: 8px;
+    padding: 22px;
+  }
+
+  .sidebar-card-header {
+    font-size: 0.65rem;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    font-weight: 700;
+    color: var(--accent-gold);
+    margin-bottom: 16px;
+    padding-bottom: 10px;
+    border-bottom: 1px solid var(--border);
+  }
+
+  .docket-item {
+    display: flex;
+    gap: 12px;
+    padding: 10px 0;
+    border-bottom: 1px solid var(--border-light);
+    align-items: flex-start;
+  }
+
+  .docket-item:last-child { border-bottom: none; }
+
+  .docket-date {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 0.7rem;
+    color: var(--text-muted);
+    white-space: nowrap;
+    min-width: 70px;
+  }
+
+  .docket-desc {
+    font-size: 0.82rem;
+    color: var(--text-secondary);
+    line-height: 1.5;
+  }
+
+  .relief-item {
+    padding: 8px 0;
+    font-size: 0.82rem;
+    color: var(--text-secondary);
+    border-bottom: 1px solid var(--border-light);
+    display: flex;
+    align-items: baseline;
+    gap: 8px;
+  }
+
+  .relief-item:last-child { border-bottom: none; }
+  .relief-icon { color: var(--accent-gold); font-size: 0.7rem; }
+
+  .law-note {
+    margin-top: 12px;
+    padding: 14px;
+    background: rgba(155, 114, 207, 0.08);
+    border: 1px solid rgba(155, 114, 207, 0.15);
+    border-radius: 6px;
+    font-size: 0.78rem;
+    color: var(--accent-purple);
+    line-height: 1.5;
+  }
+
+  .law-note strong { color: var(--accent-purple); }
+
+  .matters-box {
+    background: linear-gradient(135deg, rgba(155, 114, 207, 0.08), rgba(246, 195, 64, 0.05));
+    border: 1px solid rgba(155, 114, 207, 0.2);
+    border-radius: 8px;
+    padding: 24px;
+    margin-bottom: 32px;
+  }
+
+  .matters-box p {
+    font-size: 0.9rem;
+    color: var(--text-secondary);
+    line-height: 1.7;
+  }
+
+  .related-cases {
+    margin-top: 12px;
+    padding: 14px;
+    background: rgba(74, 144, 217, 0.08);
+    border: 1px solid rgba(74, 144, 217, 0.15);
+    border-radius: 6px;
+  }
+
+  .related-label {
+    font-size: 0.6rem;
+    text-transform: uppercase;
+    letter-spacing: 1.5px;
+    color: var(--accent-blue);
+    font-weight: 700;
+    margin-bottom: 8px;
+  }
+
+  .related-link {
+    font-size: 0.82rem;
+    color: var(--accent-blue);
+    padding: 4px 0;
+    display: block;
+    text-decoration: none;
+    border-bottom: 1px solid rgba(74, 144, 217, 0.1);
+  }
+
+  .related-link:last-child { border-bottom: none; }
+  .related-link:hover { color: var(--accent-gold); }
+
+  .case-footer {
+    border-top: 1px solid var(--border);
+    padding: 24px;
+    text-align: center;
+    font-size: 0.75rem;
+    color: var(--text-muted);
+  }
+
+  .case-footer a {
+    color: var(--accent-gold);
+    text-decoration: none;
+  }
+
+  @keyframes fadeUp {
+    from { opacity: 0; transform: translateY(20px); }
+    to { opacity: 1; transform: translateY(0); }
+  }
+
+  .case-hero, .parties-block, .narrative-section, .claims-list, .sidebar-card, .matters-box, .callout-block {
+    animation: fadeUp 0.6s ease-out both;
+  }
+
+  .parties-block { animation-delay: 0.1s; }
+  .narrative-section { animation-delay: 0.15s; }
+  .callout-block { animation-delay: 0.2s; }
+  .claims-list { animation-delay: 0.25s; }
+  .matters-box { animation-delay: 0.3s; }
+
+  .attorneys-block {
+    background: var(--bg-elevated);
+    border: 1px solid var(--border);
+    border-radius: 8px;
+    padding: 20px 24px;
+    margin-top: 16px;
+  }
+  .attorneys-header {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 0.65rem;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    color: var(--accent);
+    margin-bottom: 12px;
+  }
+  .attorney-row {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 16px;
+  }
+  @media (max-width: 600px) { .attorney-row { grid-template-columns: 1fr; } }
+  .attorney-side {
+    padding: 12px;
+    background: var(--bg-card);
+    border-radius: 6px;
+    border: 1px solid var(--border-light);
+  }
+  .attorney-label {
+    font-size: 0.6rem;
+    text-transform: uppercase;
+    letter-spacing: 1.5px;
+    color: var(--text-muted);
+    margin-bottom: 6px;
+    font-weight: 600;
+  }
+  .attorney-name {
+    font-size: 0.85rem;
+    color: var(--text-primary);
+    line-height: 1.5;
+  }
+
+
+.hamburger{display:none;background:none;border:none;color:var(--text-primary);cursor:pointer;padding:8px;flex-direction:column;gap:5px}
+.hamburger span{display:block;width:24px;height:2px;background:var(--text-primary);transition:all .3s}
+@media(max-width:768px){
+  .site-nav{display:none;position:absolute;top:100%;left:0;right:0;background:var(--bg-primary);flex-direction:column;padding:20px 24px;gap:18px;border-bottom:1px solid var(--border);box-shadow:0 4px 20px rgba(0,0,0,.4);z-index:99}
+  .site-nav.open{display:flex}
+  .hamburger{display:flex}
+  .hamburger.open span:nth-child(1){transform:rotate(45deg) translate(5px,5px)}
+  .hamburger.open span:nth-child(2){opacity:0}
+  .hamburger.open span:nth-child(3){transform:rotate(-45deg) translate(7px,-7px)}
+}
+
+:root[data-theme="light"]{--bg:#f5f2ea;--bg-primary:#f5f2ea;--card:#ffffff;--bg-card:#ffffff;--elev:#fffcf5;--bg-elev:#fffcf5;--bg-elevated:#fffcf5;--red:#9b2226;--accent-red:#9b2226;--gold:#8b6f20;--accent-gold:#8b6f20;--accent:#9b2226;--blue:#1e5091;--cyan:#0891b2;--t1:#1a1a1f;--text-primary:#1a1a1f;--t2:#5a5a5f;--text-secondary:#5a5a5f;--t3:#8a8a8f;--text-muted:#8a8a8f;--bdr:#d4cfc0;--border:#d4cfc0;--bdr2:#e8e3d4;--border-light:#e8e3d4}
+body{transition:background .3s,color .3s}
+.theme-toggle{background:none;border:1px solid currentColor;cursor:pointer;padding:6px 10px;border-radius:4px;font-size:.85rem;font-family:'JetBrains Mono',monospace;opacity:.7;transition:opacity .2s;margin-left:12px}
+.theme-toggle:hover{opacity:1}
+
+</style>
+<script>
+function toggleTheme(){var c=document.documentElement.getAttribute('data-theme')||'dark';var n=c==='dark'?'light':'dark';document.documentElement.setAttribute('data-theme',n);localStorage.setItem('cdTheme',n);var ic=document.getElementById('theme-icon');if(ic)ic.textContent=n==='dark'?'🌙':'☀️';}
+(function(){var s=localStorage.getItem('cdTheme');if(s){document.documentElement.setAttribute('data-theme',s);window.addEventListener('DOMContentLoaded',function(){var ic=document.getElementById('theme-icon');if(ic)ic.textContent=s==='dark'?'🌙':'☀️';});}})();
+</script>
+</head>
+<body>
+
+  <header class="site-header">
+        <a href="index.html" class="site-logo" style="text-decoration:none;color:inherit;">Celebrity<span>Dockets</span></a>
+    <button class="hamburger" onclick="this.classList.toggle('open');document.querySelector('.site-nav').classList.toggle('open')"><span></span><span></span><span></span></button><nav class="site-nav"><a href="index.html">Cases</a><a href="index.html">Objection Live!</a><a href="recess.html">RECESS</a><a href="star-bar.html">Star Bar</a><a href="courtroom-culture.html">Courtroom Culture</a><a href="about.html">About</a><button class="theme-toggle" onclick="toggleTheme()"><span id="theme-icon">🌙</span></button></nav>
+  </header>
+
+  <section class="case-hero">
+    <div class="case-status-bar">
+      <span class="status-badge status-active">Active Case</span>
+      <span class="status-badge status-category">NDA / Settlement</span>
+      <span class="status-badge status-nda">STAND Act</span>
+      <span class="status-badge status-dv">Sexual Battery</span>
+    </div>
+    <h1 class="case-title"><em>Barnett</em> v. LaBeouf</h1>
+    <p class="case-subtitle">FKA twigs files new lawsuit challenging an NDA from her 2025 sexual battery settlement with Shia LaBeouf, arguing it violates California's STAND Act and was used to silence her as a survivor.</p>
+    <div class="case-meta-row">
+      <div class="meta-item">
+        <span class="meta-label">Filed</span>
+        <span class="meta-value">March 25, 2026</span>
+      </div>
+      <div class="meta-item">
+        <span class="meta-label">Court</span>
+        <span class="meta-value">L.A. Superior Court</span>
+      </div>
+      <div class="meta-item">
+        <span class="meta-label">Case Type</span>
+        <span class="meta-value">Declaratory Relief / NDA Enforceability</span>
+      </div>
+    </div>
+  </section>
+
+  <div class="section-divider"><hr></div>
+
+  <main class="case-body">
+    <div class="case-main">
+
+      <div class="parties-block">
+        <div class="parties-header">Parties</div>
+        <div class="party-vs">
+          <div class="party-card">
+            <div class="party-role">Plaintiff</div>
+            <div class="party-name">Tahliah Barnett</div>
+            <div class="party-aka">a.k.a. FKA twigs</div>
+            <div class="party-desc">Grammy-winning singer &amp; artist</div>
+          </div>
+          <div class="vs-badge">v.</div>
+          <div class="party-card">
+            <div class="party-role">Defendant</div>
+            <div class="party-name">Shia LaBeouf</div>
+            <div class="party-desc">Actor · Former partner of Barnett (2018–2019)</div>
+          </div>
+        </div>
+        <div class="attorney-block">
+          <div class="attorney-card">
+            <div class="attorney-label">Plaintiff's Counsel</div>
+            <div class="attorney-name">Mathew Rosengart</div>
+            <div class="attorney-note">Also represented Britney Spears in conservatorship case</div>
+          </div>
+          <div class="attorney-card">
+            <div class="attorney-label">Defendant's Counsel</div>
+            <div class="attorney-name">Shawn Holley</div>
+            <div class="attorney-note"></div>
+          </div>
+        </div>
+      </div>
+
+      <div class="narrative-section">
+        <div class="section-label">Background</div>
+        <div class="narrative-text">
+          <p>In <strong>December 2020</strong>, FKA twigs filed a lawsuit against Shia LaBeouf alleging sexual battery, assault, and infliction of emotional distress during their relationship from 2018 to 2019. She accused him of choking her, slamming her against a car on Valentine's Day 2019, and knowingly exposing her to an STI.</p>
+          <p>The parties reached a <strong>private settlement in July 2025</strong>, and Barnett moved to dismiss the original suit. The settlement included a non-disclosure agreement restricting what she could say publicly about the allegations and, according to her new filing, even restricted how she could donate to charities related to domestic and sexual violence.</p>
+          <p>In <strong>October 2025</strong>, Barnett gave an interview to The Hollywood Reporter in which she was asked if she felt safe now that the lawsuit was behind her. She responded that she did not feel safe but felt passionate about helping survivors through organizations. In <strong>December 2025</strong>, LaBeouf's legal team filed a secret arbitration complaint, claiming her comments breached the NDA and seeking significant financial damages.</p>
+          <p>LaBeouf agreed to <strong>drop the arbitration demand in February 2026</strong>, but Barnett filed this new lawsuit on March 25, 2026, arguing the underlying NDA dispute remains unresolved and requires a judicial ruling.</p>
+        </div>
+      </div>
+
+      <div class="callout-block">
+        <div class="callout-text">Barnett's attorney wrote in the 22-page filing that this case is about justice and law, not money, and that she filed on behalf of other survivors of sexual and domestic violence who lack the resources to speak out.</div>
+        <div class="callout-source">— From the complaint, via Rolling Stone</div>
+      </div>
+
+      <div class="narrative-section">
+        <div class="section-label">Key Claims</div>
+        <ul class="claims-list">
+          <li class="claim-item">
+            <span class="claim-number">01</span>
+            The NDA in the July 2025 settlement is unlawful under California's <strong>STAND Act</strong> (Stand Together Against Non-Disclosure Act), which prohibits confidentiality clauses in settlements involving sexual assault and harassment.
+          </li>
+          <li class="claim-item">
+            <span class="claim-number">02</span>
+            LaBeouf filed a "secret arbitration complaint" in December 2025 seeking large sums of money over Barnett's interview comments — statements her attorneys describe as generic and benign, which did not even mention LaBeouf by name.
+          </li>
+          <li class="claim-item">
+            <span class="claim-number">03</span>
+            The NDA's provisions are "vastly overbroad," attempting to restrict not only discussion of the allegations but also Barnett's ability to donate to domestic violence and sexual abuse charities.
+          </li>
+          <li class="claim-item">
+            <span class="claim-number">04</span>
+            LaBeouf's legal position — that the STAND Act doesn't apply because the original suit alleged sexual "battery" rather than "assault" — is a semantic distinction that defies legal precedent and common sense.
+          </li>
+          <li class="claim-item">
+            <span class="claim-number">05</span>
+            LaBeouf's own conduct, including his recent arrests during Mardi Gras in New Orleans on multiple battery charges, undermines any claim of recoverable "damages" from Barnett's statements.
+          </li>
+        </ul>
+      </div>
+
+      <div class="matters-box">
+        <div class="section-label">Why It Matters</div>
+        <p>This case directly tests the reach of California's STAND Act into private settlements. If the court rules in Barnett's favor, it could significantly limit the use of NDAs to silence survivors of sexual abuse and set precedent for how confidentiality clauses are drafted in high-profile settlements across the entertainment industry. Survivors' advocates are watching closely, arguing that California's post-#MeToo laws were designed precisely to prevent the kind of secrecy Barnett is now challenging. A decision here could reshape how powerful parties use private agreements to bury abuse allegations.</p>
+      </div>
+
+    </div>
+
+    <aside class="case-sidebar">
+
+      <div class="sidebar-card">
+        <div class="sidebar-card-header">Full Timeline</div>
+        <div class="docket-item">
+          <span class="docket-date">2018–19</span>
+          <span class="docket-desc">Barnett and LaBeouf's relationship; alleged abuse occurs</span>
+        </div>
+        <div class="docket-item">
+          <span class="docket-date">Dec 2020</span>
+          <span class="docket-desc">FKA twigs files original lawsuit alleging sexual battery, assault &amp; emotional distress</span>
+        </div>
+        <div class="docket-item">
+          <span class="docket-date">Jul 2025</span>
+          <span class="docket-desc">Parties reach private settlement; suit dismissed; NDA signed</span>
+        </div>
+        <div class="docket-item">
+          <span class="docket-date">Oct 2025</span>
+          <span class="docket-desc">Barnett gives interview to The Hollywood Reporter saying she doesn't "feel safe"</span>
+        </div>
+        <div class="docket-item">
+          <span class="docket-date">Dec 2025</span>
+          <span class="docket-desc">LaBeouf files secret arbitration complaint claiming NDA breach</span>
+        </div>
+        <div class="docket-item">
+          <span class="docket-date">Feb 2026</span>
+          <span class="docket-desc">LaBeouf drops arbitration demand; also arrested multiple times in New Orleans during Mardi Gras</span>
+        </div>
+        <div class="docket-item">
+          <span class="docket-date">Mar 25, 2026</span>
+          <span class="docket-desc" style="color: var(--accent-red); font-weight: 600;">New lawsuit filed in L.A. Superior Court challenging NDA legality</span>
+        </div>
+      </div>
+
+      <div class="sidebar-card">
+        <div class="sidebar-card-header">Relief Sought</div>
+        <div class="relief-item">
+          <span class="relief-icon">◆</span>
+          Declaratory judgment that NDA provisions are illegal and unenforceable under the STAND Act
+        </div>
+        <div class="relief-item">
+          <span class="relief-icon">◆</span>
+          Injunction blocking LaBeouf from enforcing confidentiality terms
+        </div>
+        <div class="relief-item">
+          <span class="relief-icon">◆</span>
+          <strong>Not seeking monetary damages</strong> — case framed as a matter of principle and law
+        </div>
+      </div>
+
+      <div class="sidebar-card">
+        <div class="sidebar-card-header">Key Law at Issue</div>
+        <div class="law-note">
+          <strong>California STAND Act (SB 820, 2018)</strong> — Enacted in response to the #MeToo movement, this statute prohibits NDAs in settlement agreements arising from sexual assault, harassment, and sex-based discrimination claims. The central legal question: does the Act's protection for "sexual assault" cases also cover "sexual battery" claims?
+        </div>
+      </div>
+
+      <div class="sidebar-card">
+        <div class="sidebar-card-header">Also On The Docket</div>
+        <div class="related-cases">
+          <div class="related-label">Related Cases</div>
+          <a href="#" class="related-link">LaBeouf — New Orleans Battery Charges (Feb 2026)</a>
+          <a href="#" class="related-link">Barnett v. LaBeouf — Original Suit (Dec 2020, Settled Jul 2025)</a>
+        </div>
+      </div>
+
+      <div class="sidebar-card">
+        <div class="sidebar-card-header">Court Filings — 2026 STAND Act Case</div>
+        <div style="margin-bottom:12px;padding:12px 16px;background:rgba(246,195,64,.06);border:1px solid rgba(246,195,64,.15);border-radius:8px;text-align:center;"><div style="font-family:'JetBrains Mono',monospace;font-size:.65rem;color:var(--text-muted);">L.A. Superior Court · Filed Mar 2026</div></div>
+        <div style="margin-top:10px;padding:16px 20px;background:rgba(246,195,64,.06);border:1px solid rgba(246,195,64,.15);border-radius:8px;text-align:center;">
+          <a href="https://assets.law360news.com/2457000/2457774/complaint.pdf" target="_blank" style="display:inline-block;background:rgba(246,195,64,.12);color:#F6C340;padding:10px 24px;border-radius:6px;text-decoration:none;font-family:'JetBrains Mono',monospace;font-size:.78rem;font-weight:600;letter-spacing:.5px;border:1px solid rgba(246,195,64,.25);">📄 2026 Original Complaint (PDF) →</a>
+          <div style="font-size:.65rem;color:var(--text-muted);margin-top:8px;">Barnett v. LaBeouf — STAND Act / NDA challenge · via Law360</div>
+        </div>
+        <div style="margin-top:10px;padding:16px 20px;background:rgba(246,195,64,.06);border:1px solid rgba(246,195,64,.15);border-radius:8px;text-align:center;">
+          <a href="https://www.musicbusinessworldwide.com/files/2026/03/FKA-Twigs.pdf" target="_blank" style="display:inline-block;background:rgba(246,195,64,.12);color:#F6C340;padding:10px 24px;border-radius:6px;text-decoration:none;font-family:'JetBrains Mono',monospace;font-size:.78rem;font-weight:600;letter-spacing:.5px;border:1px solid rgba(246,195,64,.25);">📄 STAND Act / NDA Challenge Filing →</a>
+          <div style="font-size:.65rem;color:var(--text-muted);margin-top:8px;">Latest filing (Mar 2026) · via MBW</div>
+        </div>
+        <div style="margin-top:10px;padding:16px 20px;background:rgba(246,195,64,.06);border:1px solid rgba(246,195,64,.15);border-radius:8px;text-align:center;">
+          <a href="https://www.lacourt.ca.gov/pages/lp/access-a-case/tp/find-case-information/cp/os-civil-case-access" target="_blank" style="display:inline-block;background:rgba(246,195,64,.12);color:#F6C340;padding:10px 24px;border-radius:6px;text-decoration:none;font-family:'JetBrains Mono',monospace;font-size:.78rem;font-weight:600;letter-spacing:.5px;border:1px solid rgba(246,195,64,.25);">📄 LA Superior Court Case Search →</a>
+          <div style="font-size:.65rem;color:var(--text-muted);margin-top:8px;">Search 2026 docket on LA Court portal</div>
+        </div>
+      </div>
+      <div class="sidebar-card">
+        <div class="sidebar-card-header">Court Filings — Original 2020 Case</div>
+        <div style="margin-bottom:12px;padding:12px 16px;background:rgba(246,195,64,.06);border:1px solid rgba(246,195,64,.15);border-radius:8px;text-align:center;"><div style="font-family:'JetBrains Mono',monospace;font-size:.65rem;color:var(--text-muted);">L.A. Superior Court · Filed Dec 2020 · Settled Jul 2025</div></div>
+        <div style="margin-top:10px;padding:16px 20px;background:rgba(246,195,64,.06);border:1px solid rgba(246,195,64,.15);border-radius:8px;text-align:center;">
+          <a href="https://int.nyt.com/data/documenttools/lawsuit-fka-twigs-shia-la-beouf/35d97cbb8df917bf/full.pdf" target="_blank" style="display:inline-block;background:rgba(246,195,64,.12);color:#F6C340;padding:10px 24px;border-radius:6px;text-decoration:none;font-family:'JetBrains Mono',monospace;font-size:.78rem;font-weight:600;letter-spacing:.5px;border:1px solid rgba(246,195,64,.25);">📄 Original 2020 Lawsuit (PDF) →</a>
+          <div style="font-size:.65rem;color:var(--text-muted);margin-top:8px;">Barnett v. LaBeouf — sexual battery complaint (Dec 2020) · via NYT</div>
+        </div>
+        <div style="margin-top:10px;padding:16px 20px;background:rgba(246,195,64,.06);border:1px solid rgba(246,195,64,.15);border-radius:8px;text-align:center;">
+          <a href="https://www.lacourt.ca.gov/pages/lp/access-a-case/tp/find-case-information/cp/os-civil-case-access" target="_blank" style="display:inline-block;background:rgba(246,195,64,.12);color:#F6C340;padding:10px 24px;border-radius:6px;text-decoration:none;font-family:'JetBrains Mono',monospace;font-size:.78rem;font-weight:600;letter-spacing:.5px;border:1px solid rgba(246,195,64,.25);">📄 LA Superior Court Case Search →</a>
+          <div style="font-size:.65rem;color:var(--text-muted);margin-top:8px;">Search original 2020 docket on LA Court portal</div>
+        </div>
+      </div>
+      <div class="sidebar-card">
+        <div class="sidebar-card-header">Related: "The Twigs" Trademark</div>
+        <div style="margin-top:10px;padding:16px 20px;background:rgba(246,195,64,.06);border:1px solid rgba(246,195,64,.15);border-radius:8px;text-align:center;">
+          <a href="https://www.scribd.com/document/255042892/Good-v-Barnett-FKA-Twigs-trademark-complaint-Apr-2014-pdf" target="_blank" style="display:inline-block;background:rgba(246,195,64,.12);color:#F6C340;padding:10px 24px;border-radius:6px;text-decoration:none;font-family:'JetBrains Mono',monospace;font-size:.78rem;font-weight:600;letter-spacing:.5px;border:1px solid rgba(246,195,64,.25);">📄 "The Twigs" Trademark Complaint →</a>
+          <div style="font-size:.65rem;color:var(--text-muted);margin-top:8px;">Good v. Barnett — FKA Twigs OH trademark dispute (2014) · via Scribd</div>
+        </div>
+      </div>
+    </aside>
+  </main>
+
+    <footer class="case-footer">
+    <a href="index.html">celebritydockets.com</a> &middot; Tracking celebrity court cases, one docket at a time.<br>
+    Coverage by <a href="objection-live.html" style="color:var(--accent-gold);text-decoration:none;"><strong>Objection Live!</strong></a> &middot; <a href="recess.html" style="color: var(--accent-gold); text-decoration: none;"><em>RECESS</em></a>
+  <div style="text-align:center;margin-top:16px;font-size:.6rem;color:#5a5a6a;line-height:1.5;"><a href="legal.html" style="color:#5a5a6a;">Terms &amp; Privacy</a><br>Celebrity Dockets is an independent media site. Nothing here is legal advice.</div></footer>
+
+<script type="text/javascript" src="https://cdnjs.buymeacoffee.com/1.0.0/button.prod.min.js" data-name="bmc-button" data-slug="CJournalist24" data-color="#FFDD00" data-emoji="☕" data-font="Cookie" data-text="Fuel The Docket " data-outline-color="#000000" data-font-color="#000000" data-coffee-color="#FFDD00"></script>
+<script data-name="BMC-Widget" data-cfasync="false" src="https://cdnjs.buymeacoffee.com/1.0.0/widget.prod.min.js" data-id="CJournalist24" data-description="Support me on Buy me a coffee!" data-message="Help keep the docket running. Buy CJ a coffee." data-color="#FFDD00" data-position="Right" data-x_margin="18" data-y_margin="18"></script>
+</body>
+</html>

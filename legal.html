@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<link rel="icon" type="image/png" href="favicon.png"><link rel="apple-touch-icon" href="favicon.png">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Terms & Privacy | Celebrity Dockets</title>
+<link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&family=IBM+Plex+Sans:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+<style>
+:root{--bg:#0a0a0f;--card:#12121a;--elev:#1a1a26;--red:#E11028;--gold:#F6C340;--t1:#e8e6e1;--t2:#9a9a9a;--t3:#5a5a6a;--bdr:#2a2a3a}
+*{margin:0;padding:0;box-sizing:border-box}
+body{background:var(--bg);color:var(--t1);font-family:'IBM Plex Sans',sans-serif;line-height:1.7}
+.hdr{border-bottom:1px solid var(--bdr);padding:16px 24px;display:flex;align-items:center;justify-content:space-between;background:var(--bg);position:sticky;top:0;z-index:100;backdrop-filter:blur(12px)}
+.logo{font-family:'DM Serif Display',serif;font-size:1.4rem;color:var(--t1);text-decoration:none}.logo span{color:var(--red)}
+.nav{display:flex;gap:24px;font-size:.8rem;text-transform:uppercase;letter-spacing:1.5px;font-weight:600}
+.nav a{color:var(--t2);text-decoration:none;transition:color .2s}.nav a:hover{color:var(--gold)}
+.content{max-width:700px;margin:0 auto;padding:60px 24px 80px}
+.content h1{font-family:'DM Serif Display',serif;font-size:2.4rem;margin-bottom:8px}
+.content .updated{font-family:'JetBrains Mono',monospace;font-size:.7rem;color:var(--t3);margin-bottom:40px}
+.content h2{font-family:'DM Serif Display',serif;font-size:1.6rem;color:var(--gold);margin:48px 0 16px;padding-bottom:10px;border-bottom:1px solid var(--bdr)}
+.content h3{font-family:'DM Serif Display',serif;font-size:1.15rem;color:var(--gold);margin:28px 0 10px}
+.content p{font-size:.9rem;color:var(--t2);margin-bottom:14px}
+.content strong{color:var(--t1)}
+.content a{color:var(--gold);text-decoration:none}
+.disclaimer{background:var(--card);border:1px solid var(--bdr);border-radius:8px;padding:20px;margin-bottom:32px;font-size:.8rem;color:var(--t3);line-height:1.6}
+.ft{border-top:1px solid var(--bdr);padding:40px 24px;text-align:center}
+.ftl{font-family:'DM Serif Display',serif;font-size:1.4rem;color:var(--t1);margin-bottom:8px}.ftl span{color:var(--red)}
+.ftt{font-size:.8rem;color:var(--t3);margin-bottom:16px}
+.ftk{display:flex;gap:24px;justify-content:center;flex-wrap:wrap}
+.ftk a{font-size:.7rem;text-transform:uppercase;letter-spacing:1.5px;font-weight:600;color:var(--t2);text-decoration:none}.ftk a:hover{color:var(--gold)}
+.ftd{font-size:.65rem;color:var(--t3);margin-top:12px;max-width:600px;margin-left:auto;margin-right:auto;line-height:1.5}
+.ftc{font-size:.65rem;color:var(--t3);margin-top:8px}
+
+.hamburger{display:none;background:none;border:none;color:var(--t1);cursor:pointer;padding:8px;flex-direction:column;gap:5px}
+.hamburger span{display:block;width:24px;height:2px;background:var(--t1);transition:all .3s}
+@media(max-width:768px){
+  .nav{display:none;position:absolute;top:100%;left:0;right:0;background:var(--bg);flex-direction:column;padding:20px 24px;gap:18px;border-bottom:1px solid var(--bdr);box-shadow:0 4px 20px rgba(0,0,0,.4);z-index:99}
+  .nav.open{display:flex}
+  .hamburger{display:flex}
+  .hamburger.open span:nth-child(1){transform:rotate(45deg) translate(5px,5px)}
+  .hamburger.open span:nth-child(2){opacity:0}
+  .hamburger.open span:nth-child(3){transform:rotate(-45deg) translate(7px,-7px)}
+}
+
+:root[data-theme="light"]{--bg:#f5f2ea;--bg-primary:#f5f2ea;--card:#ffffff;--bg-card:#ffffff;--elev:#fffcf5;--bg-elev:#fffcf5;--bg-elevated:#fffcf5;--red:#9b2226;--accent-red:#9b2226;--gold:#8b6f20;--accent-gold:#8b6f20;--accent:#9b2226;--blue:#1e5091;--cyan:#0891b2;--t1:#1a1a1f;--text-primary:#1a1a1f;--t2:#5a5a5f;--text-secondary:#5a5a5f;--t3:#8a8a8f;--text-muted:#8a8a8f;--bdr:#d4cfc0;--border:#d4cfc0;--bdr2:#e8e3d4;--border-light:#e8e3d4}
+body{transition:background .3s,color .3s}
+.theme-toggle{background:none;border:1px solid currentColor;cursor:pointer;padding:6px 10px;border-radius:4px;font-size:.85rem;font-family:'JetBrains Mono',monospace;opacity:.7;transition:opacity .2s;margin-left:12px}
+.theme-toggle:hover{opacity:1}
+
+</style>
+<script>
+function toggleTheme(){var c=document.documentElement.getAttribute('data-theme')||'dark';var n=c==='dark'?'light':'dark';document.documentElement.setAttribute('data-theme',n);localStorage.setItem('cdTheme',n);var ic=document.getElementById('theme-icon');if(ic)ic.textContent=n==='dark'?'🌙':'☀️';}
+(function(){var s=localStorage.getItem('cdTheme');if(s){document.documentElement.setAttribute('data-theme',s);window.addEventListener('DOMContentLoaded',function(){var ic=document.getElementById('theme-icon');if(ic)ic.textContent=s==='dark'?'🌙':'☀️';});}})();
+</script>
+</head>
+<body>
+<header class="hdr"><a href="index.html" class="logo">Celebrity<span>Dockets</span></a><button class="hamburger" onclick="this.classList.toggle('open');document.querySelector('.nav').classList.toggle('open')"><span></span><span></span><span></span></button><nav class="nav"><a href="index.html">Cases</a><a href="objection-live.html">Objection Live!</a><a href="recess.html">RECESS</a><a href="star-bar.html">Star Bar</a><a href="courtroom-culture.html">Courtroom Culture</a><a href="about.html">About</a><button class="theme-toggle" onclick="toggleTheme()"><span id="theme-icon">🌙</span></button></nav></header>
+
+<div class="content">
+<h1>Terms &amp; Privacy</h1>
+<div class="updated">Last updated: April 18, 2026</div>
+
+<div class="disclaimer">This policy was written by the site operator, not an attorney. It is provided in good faith to set expectations for visitors. It is not a substitute for professional legal counsel.</div>
+
+<p><strong>CelebrityDockets.com</strong> is an independent media and commentary site that covers celebrity court cases. We summarize public court filings, track docket activity, and provide commentary on legal proceedings involving public figures. This site is operated by CJ.</p>
+
+<h2>Terms of Use</h2>
+
+<h3>Not Legal Advice</h3>
+<p>Nothing on this site constitutes legal advice. CJ is not a lawyer. The content on Celebrity Dockets is journalism and commentary based on publicly available court records. If you need legal advice, consult a licensed attorney in your jurisdiction.</p>
+
+<h3>Accuracy and Sources</h3>
+<p>All case information is sourced from public court filings, legal databases (including PACER, CourtListener, USPTO, and state court portals), and verified news reporting. We make every effort to be accurate, but court cases move fast. Filings get amended. Rulings change. We update pages as new information becomes available, but we cannot guarantee that every detail is current at the moment you read it.</p>
+
+<h3>Fair Use and Copyright</h3>
+<p>Court filings are public records. Our summaries, commentary, and analysis constitute original editorial work. Where we link to or reference third-party documents, we do so for educational and informational purposes. If you believe any content on this site infringes your copyright, contact us and we will address it promptly.</p>
+
+<h3>External Links</h3>
+<p>This site links to external resources including CourtListener, PACER, DocumentCloud, Scribd, USPTO, news outlets, and YouTube. We are not responsible for the content, availability, or accuracy of those external sites. Links are provided as a convenience for readers who want to access original filings and source material.</p>
+
+<h3>No Scraping or Republishing</h3>
+<p>You may not scrape, copy, or republish the content of this site without permission. Sharing links to our pages is encouraged. Copying our case summaries, commentary, or original reporting is not.</p>
+
+<h3>Donations</h3>
+<p>Celebrity Dockets accepts voluntary support through Buy Me a Coffee. Donations are non-refundable and do not entitle supporters to any specific content, access, or services beyond what is publicly available on the site.</p>
+
+<h2>Privacy Policy</h2>
+
+<h3>What We Collect</h3>
+<p>Celebrity Dockets is a static website. We do not require user accounts, logins, or registrations. We do not directly collect personal information from visitors. However, third-party services integrated into this site may collect data:</p>
+<p><strong>Buy Me a Coffee:</strong> If you support us through Buy Me a Coffee, that platform collects payment information (name, email, payment details) according to their own privacy policy. We receive your name (or alias), donation amount, and any message you include. We do not have access to your payment card details.</p>
+<p><strong>Web Hosting:</strong> Our hosting provider may collect standard server logs including IP addresses, browser type, pages visited, and timestamps. This data is used for site performance and security only.</p>
+<p><strong>YouTube Embeds:</strong> Pages that embed YouTube content may allow Google to set cookies and collect data according to Google's privacy policy.</p>
+
+<h3>How We Use Information</h3>
+<p>We do not sell, rent, or share any visitor data with third parties. Any information collected through third-party integrations is governed by those services' respective privacy policies. We use donation information solely to process and acknowledge support.</p>
+
+<h3>Cookies</h3>
+<p>Celebrity Dockets itself does not set cookies. Embedded third-party services (Buy Me a Coffee widget, YouTube embeds) may set their own cookies. You can manage cookies through your browser settings.</p>
+
+<h3>Children's Privacy</h3>
+<p>This site is not directed at children under 13. We do not knowingly collect personal information from children. If you believe a child has provided us with personal information, please contact us and we will take steps to remove it.</p>
+
+<h3>Your Rights</h3>
+<p>If you have made a donation and want to know what information we hold, or if you want us to delete it, contact us and we will respond promptly. If you are in the EU, California, or another jurisdiction with specific data rights, we will make reasonable efforts to comply with applicable law.</p>
+
+<h2>Changes &amp; Contact</h2>
+
+<p>We may update this page as the site evolves. Continued use of the site after changes are posted constitutes acceptance of the updated terms. The "last updated" date at the top reflects the most recent revision.</p>
+
+<p>For questions, reach out through our YouTube channel <a href="https://www.youtube.com/@CJournalist24" target="_blank">@CJournalist24</a> or Buy Me a Coffee page.</p>
+
+</div>
+
+<footer class="ft"><div class="ftl">Celebrity<span>Dockets</span></div><p class="ftt">Tracking celebrity court cases, one docket at a time.</p><div class="ftk"><a href="index.html">Cases</a><a href="objection-live.html">Objection Live!</a><a href="recess.html">RECESS</a><a href="star-bar.html">Star Bar</a><a href="courtroom-culture.html">Courtroom Culture</a><a href="about.html">About</a></div><div class="ftk" style="margin-top:12px;"><a href="legal.html">Terms &amp; Privacy</a></div><p class="ftd">Celebrity Dockets is an independent media site. Nothing here is legal advice. All case information is sourced from public court filings and verified reporting.</p><p class="ftc">&copy; 2026 CelebrityDockets.com &middot; All rights reserved.</p></footer>
+<script type="text/javascript" src="https://cdnjs.buymeacoffee.com/1.0.0/button.prod.min.js" data-name="bmc-button" data-slug="CJournalist24" data-color="#FFDD00" data-emoji="☕" data-font="Cookie" data-text="Fuel The Docket " data-outline-color="#000000" data-font-color="#000000" data-coffee-color="#FFDD00"></script>
+<script data-name="BMC-Widget" data-cfasync="false" src="https://cdnjs.buymeacoffee.com/1.0.0/widget.prod.min.js" data-id="CJournalist24" data-description="Support me on Buy me a coffee!" data-message="Help keep the docket running. Buy CJ a coffee." data-color="#FFDD00" data-position="Right" data-x_margin="18" data-y_margin="18"></script>
+</body>
+</html>
