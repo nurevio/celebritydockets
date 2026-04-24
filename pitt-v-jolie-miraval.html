@@ -153,13 +153,13 @@ body{transition:background .3s,color .3s}
 </style>
 <script>
 function toggleTheme(){var c=document.documentElement.getAttribute('data-theme')||'dark';var n=c==='dark'?'light':'dark';document.documentElement.setAttribute('data-theme',n);localStorage.setItem('cdTheme',n);var ic=document.getElementById('theme-icon');if(ic)ic.textContent=n==='dark'?'🌙':'☀️';}
-(function(){var s=localStorage.getItem('cdTheme');if(s){document.documentElement.setAttribute('data-theme',s);window.addEventListener('DOMContentLoaded',function(){var ic=document.getElementById('theme-icon');if(ic)ic.textContent=s==='dark'?'🌙':'☀️';});}})();
+(function(){var s=localStorage.getItem('cdTheme')||'light';document.documentElement.setAttribute('data-theme',s);window.addEventListener('DOMContentLoaded',function(){var ic=document.getElementById('theme-icon');if(ic)ic.textContent=s==='dark'?'🌙':'☀️';});})();
 </script>
 </head>
 <body>
   <header class="site-header">
         <a href="index.html" class="site-logo" style="text-decoration:none;color:inherit;">Celebrity<span>Dockets</span></a>
-    <button class="hamburger" onclick="this.classList.toggle('open');document.querySelector('.site-nav').classList.toggle('open')"><span></span><span></span><span></span></button><nav class="site-nav"><a href="index.html">Cases</a><a href="index.html">Objection Live!</a><a href="recess.html">RECESS</a><a href="star-bar.html">Star Bar</a><a href="courtroom-culture.html">Courtroom Culture</a><a href="about.html">About</a><button class="theme-toggle" onclick="toggleTheme()"><span id="theme-icon">🌙</span></button></nav>
+    <button class="hamburger" onclick="this.classList.toggle('open');document.querySelector('.site-nav').classList.toggle('open')"><span></span><span></span><span></span></button><nav class="site-nav"><a href="index.html">Cases</a><a href="index.html">Objection Live!</a><a href="recess.html">RECESS</a><a href="star-bar.html">Star Bar</a><a href="courtroom-culture.html">Courtroom Culture</a><a href="about.html">About</a><button class="theme-toggle" onclick="toggleTheme()"><span id="theme-icon">☀️</span></button></nav>
   </header>
   <section class="case-hero">
     <div class="case-status-bar"><span class="status-badge status-active">Active Case</span><span class="status-badge status-cat">Breach of Contract</span><span class="status-badge status-cat2">Winery / $164M Dispute</span></div>
