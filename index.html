@@ -50,12 +50,16 @@ body{background:var(--bg);color:var(--t1);font-family:'IBM Plex Sans',sans-serif
 .shtg{font-family:'JetBrains Mono',monospace;font-size:.7rem;color:var(--gold);background:rgba(246,195,64,.1);padding:4px 12px;border-radius:4px;border:1px solid rgba(246,195,64,.2)}
 /* Grid */
 .grid{max-width:1100px;margin:0 auto;padding:0 24px 60px;display:grid;grid-template-columns:repeat(auto-fill,minmax(310px,1fr));gap:20px}
+.spot-card.v2{grid-template-columns:minmax(280px,1fr) 594px;grid-template-areas:'text slideshow' 'sketch stats';gap:28px 32px;align-items:start}
+.spot-card.v2>.c-text{grid-area:text;min-width:0}
+.spot-card.v2>.c-slideshow{grid-area:slideshow;display:flex;flex-direction:column;align-items:center;min-width:0;max-width:100%}
+.spot-card.v2>.c-sketch{grid-area:sketch;min-width:0}
+.spot-card.v2>.c-stats{grid-area:stats;display:grid;grid-template-columns:1fr 1fr;gap:14px;align-content:start;min-width:0}
+.spot-card.v2 .c-slideshow .getty,.spot-card.v2 .c-slideshow .gie-slideshow,.spot-card.v2 .c-slideshow>div{max-width:100%}
 @media(max-width:720px){.grid{grid-template-columns:1fr}.ht{font-size:2.6rem}.spot-card{grid-template-columns:1fr}}
 @media(max-width:980px){
-  .spot-card{grid-template-columns:1fr !important;grid-template-areas:'text' 'slideshow' 'sketch' 'stats' !important;padding:24px !important;gap:24px !important}
-  .spot-card > div{max-width:100%;min-width:0}
-  .spot-card > div[style*="grid-area:slideshow"]{overflow-x:auto;width:100%}
-  .spot-card img{max-width:100%;height:auto}
+  .spot-card.v2{grid-template-columns:1fr;grid-template-areas:'text' 'slideshow' 'sketch' 'stats';padding:24px;gap:24px}
+  .spot-card.v2 img{max-width:100%;height:auto}
 }
 .sfbtn{padding:6px 14px;border-radius:5px;font-size:.7rem;font-weight:600;text-transform:uppercase;letter-spacing:.8px;border:1px solid var(--bdr);background:var(--card);color:var(--t2);cursor:pointer;transition:all .2s;font-family:'JetBrains Mono',monospace}
 .sfbtn:hover,.sfbtn.active{background:rgba(246,195,64,.12);color:var(--gold);border-color:rgba(246,195,64,.3)}
@@ -118,10 +122,10 @@ function toggleTheme(){var c=document.documentElement.getAttribute('data-theme')
 <!-- SPOTLIGHT: D4VD CHARGED -->
 <div class="sh"><h2 class="sht">Breaking</h2><div class="shl"></div><span class="shtg">CHARGED APRIL 20</span></div>
 <div class="spot">
-<div class="spot-card" style="grid-template-columns:minmax(280px,1fr) 594px;grid-template-areas:'text slideshow' 'sketch stats';gap:28px 32px;align-items:start;">
+<div class="spot-card v2">
 
 <!-- TOP-LEFT: Text -->
-<div style="grid-area:text;">
+<div class="c-text">
 <div class="spot-ey">🚨 Charges Filed · April 20, 2026</div>
 <div class="spot-t"><em>People</em> v. David Burke (d4vd) · First-Degree Murder</div>
 <p class="spot-d">LA County DA Nathan Hochman formally charged d4vd with first-degree murder, continuous sexual abuse of a child under 14, and mutilation of human remains. Three special circumstance allegations make the case death-penalty eligible. Pleaded not guilty. Held without bail at Twin Towers. Prosecutors disclosed 40TB of evidence including CSAM on his phone. Preliminary hearing May 1.</p>
@@ -129,19 +133,19 @@ function toggleTheme(){var c=document.documentElement.getAttribute('data-theme')
 </div>
 
 <!-- TOP-RIGHT: Getty Slideshow -->
-<div style="grid-area:slideshow;display:flex;flex-direction:column;align-items:center;">
+<div class="c-slideshow">
 <a id='Fw1FDbfkQQNP6A4cNza9fQ' class='gie-slideshow' href='https://www.gettyimages.com/detail/2271757635' target='_blank' style='color:#a7a7a7;text-decoration:none;font-weight:normal !important;border:none;display:inline-block;'>Embed from Getty Images</a><script>window.gie=window.gie||function(c){(gie.q=gie.q||[]).push(c)};gie(function(){gie.widgets.load({id:'Fw1FDbfkQQNP6A4cNza9fQ',sig:'-9y-TLaPNyjR-N5cfttAV9XiJ2mXRmmTD8eYQdpDZ-c=',w:'594px',h:'396px',items:'2271757635,2271757301,2271757555,2271757655,2271757363',caption: true ,tld:'com',is360: false })});</script><script src='//embed-cdn.gettyimages.com/widgets.js' charset='utf-8' async></script>
 <div style="font-family:'JetBrains Mono',monospace;font-size:.6rem;letter-spacing:1.5px;text-transform:uppercase;color:var(--t3);margin-top:8px;text-align:center;">Getty Images · Click for caption &amp; photographer</div>
 </div>
 
 <!-- BOTTOM-LEFT: Sketch -->
-<div style="grid-area:sketch;">
+<div class="c-sketch">
 <img src="d4vd-courtroom-sketch.png" alt="Courtroom sketch of d4vd at preliminary hearing by Bill Robles" style="width:100%;border-radius:8px;display:block;">
 <div style="font-family:'JetBrains Mono',monospace;font-size:.6rem;letter-spacing:1.5px;text-transform:uppercase;color:var(--t3);text-align:center;margin-top:8px;line-height:1.7;">Courtroom sketch · d4vd at preliminary hearing<br>Art by Bill Robles</div>
 </div>
 
 <!-- BOTTOM-RIGHT: Stats -->
-<div style="grid-area:stats;display:grid;grid-template-columns:1fr 1fr;gap:14px;align-content:start;">
+<div class="c-stats">
 <div class="ss"><div class="ssn">No Bail</div><div class="ssl">Held at Twin Towers</div></div>
 <div class="ss"><div class="ssn">3</div><div class="ssl">Special Circumstances</div></div>
 <div class="ss"><div class="ssn">40 TB</div><div class="ssl">Evidence Disclosed</div></div>
