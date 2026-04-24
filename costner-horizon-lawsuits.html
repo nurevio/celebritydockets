@@ -32,7 +32,7 @@
   .site-nav a { color: var(--text-secondary); text-decoration: none; transition: color 0.2s; }
   .site-nav a:hover { color: var(--accent-gold); }
   .case-hero { position: relative; padding: 60px 24px 48px; max-width: 900px; margin: 0 auto; overflow: hidden; }
-  .case-hero::before { content: '§'; position: absolute; top: 20px; right: -20px; font-size: 20rem; font-family: 'DM Serif Display', serif; color: var(--border-light); opacity: 0.3; line-height: 1; pointer-events: none; }
+  .case-hero::before { display: none; }
   .case-status-bar { display: flex; gap: 12px; align-items: center; margin-bottom: 20px; flex-wrap: wrap; }
   .status-badge { display: inline-flex; align-items: center; gap: 6px; padding: 5px 14px; border-radius: 4px; font-size: 0.7rem; font-weight: 700; text-transform: uppercase; letter-spacing: 1.2px; }
   .status-active { background: rgba(225, 16, 40, 0.15); color: var(--accent-red); border: 1px solid rgba(225, 16, 40, 0.3); }
