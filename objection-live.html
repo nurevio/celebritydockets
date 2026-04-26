@@ -19,14 +19,46 @@ body{background:var(--bg);color:var(--t1);font-family:'IBM Plex Sans',sans-serif
 .nav a{color:var(--t2);text-decoration:none;transition:color .2s}.nav a:hover{color:var(--gold)}.nav a.on{color:var(--red)}
 
 /* Hero */
-.hero{padding:80px 24px 50px;text-align:center;position:relative;overflow:hidden}
+.hero{padding:48px 24px 24px;text-align:center;position:relative;overflow:hidden}
 .hero::before{content:'';position:absolute;top:0;left:0;right:0;bottom:0;background:radial-gradient(ellipse at top,rgba(225,16,40,.08) 0%,transparent 60%)}
-.hero-icon{font-size:4rem;margin-bottom:16px;display:block}
-.hero h1{font-family:'DM Serif Display',serif;font-size:3.2rem;line-height:1.05;margin-bottom:8px}
+.hero-icon{font-size:2.4rem;margin-bottom:8px;display:block}
+.hero h1{font-family:'DM Serif Display',serif;font-size:2.8rem;line-height:1.05;margin-bottom:8px}
 .hero h1 span{color:var(--red)}
-.hero-sub{font-size:1.1rem;color:var(--t2);max-width:600px;margin:0 auto 24px}
-.live-badge{display:inline-block;font-family:'JetBrains Mono',monospace;font-size:.7rem;text-transform:uppercase;letter-spacing:2px;color:var(--red);background:rgba(225,16,40,.1);padding:6px 18px;border-radius:4px;border:1px solid rgba(225,16,40,.25);margin-bottom:20px}
-.hero-schedule{font-family:'JetBrains Mono',monospace;font-size:.8rem;color:var(--gold);margin-bottom:32px}
+.hero-sub{font-size:1rem;color:var(--t2);max-width:560px;margin:0 auto 16px}
+.live-badge{display:inline-flex;align-items:center;gap:8px;font-family:'JetBrains Mono',monospace;font-size:.7rem;text-transform:uppercase;letter-spacing:2px;color:var(--red);background:rgba(225,16,40,.1);padding:6px 18px;border-radius:4px;border:1px solid rgba(225,16,40,.25);margin-bottom:14px}
+.live-badge::before{content:'';width:7px;height:7px;background:var(--red);border-radius:50%;animation:livepulse 2s infinite}
+@keyframes livepulse{0%,100%{opacity:1}50%{opacity:.3}}
+.hero-schedule{font-family:'JetBrains Mono',monospace;font-size:.78rem;color:var(--gold)}
+
+/* Next Live + Docket Preview */
+.next-live{max-width:800px;margin:0 auto 40px;padding:0 24px;display:grid;grid-template-columns:1fr 1.3fr;gap:18px}
+@media(max-width:720px){.next-live{grid-template-columns:1fr}}
+.nl-card{background:var(--card);border:1px solid var(--bdr);border-radius:10px;padding:20px}
+.nl-label{font-family:'JetBrains Mono',monospace;font-size:.6rem;text-transform:uppercase;letter-spacing:2px;color:var(--red);margin-bottom:10px;font-weight:700}
+.nl-title{font-family:'DM Serif Display',serif;font-size:1.15rem;color:var(--t1);margin-bottom:6px}
+.nl-countdown{font-family:'JetBrains Mono',monospace;font-size:1.4rem;color:var(--gold);margin-top:8px}
+.nl-bullets{list-style:none;padding:0;margin:0}
+.nl-bullets li{font-size:.85rem;color:var(--t2);line-height:1.6;padding:8px 0;border-top:1px solid var(--bdr);display:flex;gap:10px;align-items:flex-start}
+.nl-bullets li:first-child{border-top:none;padding-top:4px}
+.nl-bullets li::before{content:'▸';color:var(--red);flex-shrink:0;font-size:.7rem;margin-top:3px}
+.nl-bullets a{color:var(--t1);text-decoration:none;font-weight:600}
+.nl-bullets a:hover{color:var(--gold)}
+
+/* Recent Episodes */
+.episodes{max-width:1100px;margin:0 auto;padding:0 24px 40px}
+.ep-header{display:flex;align-items:center;gap:16px;margin-bottom:24px}
+.ep-header h2{font-family:'DM Serif Display',serif;font-size:1.4rem;white-space:nowrap}
+.ep-header .line{flex:1;height:1px;background:var(--bdr)}
+.ep-header .tag{font-family:'JetBrains Mono',monospace;font-size:.65rem;color:var(--gold);background:rgba(246,195,64,.08);padding:4px 12px;border-radius:4px;border:1px solid rgba(246,195,64,.2)}
+.ep-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:16px}
+.ep-card{background:var(--card);border:1px solid var(--bdr);border-radius:10px;padding:18px;text-decoration:none;color:inherit;transition:transform .2s,border-color .2s;display:flex;flex-direction:column;gap:8px;border-top:3px solid var(--ca)}
+.ep-card:hover{transform:translateY(-3px);border-color:var(--ca)}
+.ep-meta{display:flex;gap:8px;font-family:'JetBrains Mono',monospace;font-size:.6rem;text-transform:uppercase;letter-spacing:1.2px;color:var(--t3)}
+.ep-meta .pill{background:rgba(225,16,40,.12);color:var(--red);padding:3px 9px;border-radius:3px;font-weight:700}
+.ep-title{font-family:'DM Serif Display',serif;font-size:1.05rem;color:var(--t1);line-height:1.3}
+.ep-title em{color:var(--ca);font-style:italic}
+.ep-blurb{font-size:.78rem;color:var(--t2);line-height:1.5}
+.ep-foot{font-family:'JetBrains Mono',monospace;font-size:.62rem;color:var(--gold);text-transform:uppercase;letter-spacing:1.2px;margin-top:auto;padding-top:8px}
 
 /* About Section */
 .about{max-width:700px;margin:0 auto;padding:0 24px 50px}
@@ -113,11 +145,82 @@ function toggleTheme(){var c=document.documentElement.getAttribute('data-theme')
 
 <section class="hero">
 <span class="hero-icon">⚖️</span>
-<div class="live-badge">Live on YouTube</div>
 <h1>Objection <span>Live!</span></h1>
 <p class="hero-sub">Celebrity court cases. Broken down live. Every filing, every ruling, every twist - as it happens.</p>
-<div class="hero-schedule">Mondays · 9 AM EST · @CJournalist24</div>
+<div class="live-badge">Live · Mondays 9 AM EST</div>
+<div class="hero-schedule">@CJournalist24 on YouTube</div>
 </section>
+
+<!-- Latest episode embed (was buried at the bottom) -->
+<div class="video-section">
+<div class="video-header"><h2>Latest Episode</h2><div class="line"></div><span class="tag">YouTube</span></div>
+<div class="video-wrap">
+<iframe src="https://www.youtube.com/embed/XAWD3l_zHJ0?rel=0&modestbranding=1&playsinline=1&iv_load_policy=3" title="Objection Live! - latest live stream" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+</div>
+<div style="text-align:center;margin-top:16px;">
+<a href="https://www.youtube.com/@CJournalist24/streams" target="_blank" style="color:var(--gold);font-family:'JetBrains Mono',monospace;font-size:.78rem;text-decoration:none;font-weight:600;">Watch all live streams on YouTube →</a>
+</div>
+</div>
+
+<!-- Next live + Monday docket -->
+<div class="next-live">
+<div class="nl-card">
+<div class="nl-label">★ Next Live</div>
+<div class="nl-title">Monday, 9 AM EST</div>
+<div class="nl-countdown" id="countdown">--d --h --m</div>
+<div style="font-family:'JetBrains Mono',monospace;font-size:.6rem;color:var(--t3);text-transform:uppercase;letter-spacing:1.5px;margin-top:6px;">until next stream</div>
+</div>
+<div class="nl-card">
+<div class="nl-label">★ On the Docket Monday</div>
+<ul class="nl-bullets">
+<li><a href="d4vd-grand-jury.html"><em>People</em> v. d4vd</a> - prelim hearing recap (May 1)</li>
+<li><a href="lively-v-baldoni.html"><em>Lively</em> v. Wayfarer</a> - trial prep, May 18 countdown</li>
+<li><a href="wilson-v-ghost-the-deb.html">MacInnes v. <em>Wilson</em></a> - Sydney trial mid-run</li>
+</ul>
+</div>
+</div>
+
+<!-- Recent episodes -->
+<div class="episodes">
+<div class="ep-header"><h2>Recent Episodes</h2><div class="line"></div><span class="tag">Last 3 streams</span></div>
+<div class="ep-grid">
+<a href="https://www.youtube.com/@CJournalist24/streams" target="_blank" rel="noopener" class="ep-card" style="--ca:#c0392b">
+<div class="ep-meta"><span class="pill">Apr 21</span><span>Murder · LASC</span></div>
+<div class="ep-title"><em>People</em> v. d4vd - Charges Filed Breakdown</div>
+<div class="ep-blurb">Hochman's complaint, three special circumstance allegations, what the prelim looks like.</div>
+<div class="ep-foot">Watch on YouTube →</div>
+</a>
+<a href="https://www.youtube.com/@CJournalist24/streams" target="_blank" rel="noopener" class="ep-card" style="--ca:#9b59b6">
+<div class="ep-meta"><span class="pill">Apr 14</span><span>Appeal · 2nd Cir</span></div>
+<div class="ep-title"><em>Combs</em> Appeal - Oral Args Recap</div>
+<div class="ep-blurb">The Mann Act questions, Mitchell's 75-day suspension fallout, what's next.</div>
+<div class="ep-foot">Watch on YouTube →</div>
+</a>
+<a href="https://www.youtube.com/@CJournalist24/streams" target="_blank" rel="noopener" class="ep-card" style="--ca:#3498db">
+<div class="ep-meta"><span class="pill">Apr 7</span><span>Defamation · 9th Cir</span></div>
+<div class="ep-title"><em>Drake</em> v. UMG - Appeal Brief Drop</div>
+<div class="ep-blurb">"Sore loser" reply, Discovery Mode angle, why this isn't really about Kendrick.</div>
+<div class="ep-foot">Watch on YouTube →</div>
+</a>
+</div>
+</div>
+
+<!-- CTA -->
+<div class="cta">
+<div class="cta-buttons">
+<a href="https://www.youtube.com/@CJournalist24" target="_blank" class="cta-btn cta-primary">Subscribe on YouTube</a>
+<a href="https://www.buymeacoffee.com/CJournalist24" target="_blank" class="cta-btn" style="background:#FFDD00;color:#000;border:1px solid #FFDD00;">☕ Fuel The Docket</a>
+<a href="index.html" class="cta-btn cta-secondary">Browse All Cases →</a>
+</div>
+</div>
+
+<!-- About + Host + Covers (demoted from top) -->
+<div class="about">
+<div class="about-label">The Show</div>
+<p><strong>Objection Live!</strong> is where CJ goes live every Monday and pulls apart the biggest celebrity court cases in real time. New filings, new rulings, new drama - all of it gets broken down so you don't need a law degree to follow what's happening.</p>
+<p>Everything comes from the actual filings. PACER, CourtListener, state court records, public documents. If it's in the docket, it's on the show.</p>
+<p>Think of it as your front row seat to the cases everyone is talking about.</p>
+</div>
 
 <div class="host">
 <div class="host-card">
@@ -126,13 +229,6 @@ function toggleTheme(){var c=document.documentElement.getAttribute('data-theme')
 <div class="host-title">Host</div>
 <div class="host-bio">Former websleuth turned celebrity legal correspondent. CJ digs through court filings, tracks dockets, and breaks down the cases everyone is talking about. From the Lively trial to Diddy's appeal to Drake's defamation fight, if there's a docket, CJ is on it.</div>
 </div>
-</div>
-
-<div class="about">
-<div class="about-label">The Show</div>
-<p><strong>Objection Live!</strong> is where CJ goes live every Monday and pulls apart the biggest celebrity court cases in real time. New filings, new rulings, new drama - all of it gets broken down so you don't need a law degree to follow what's happening.</p>
-<p>Everything comes from the actual filings. PACER, CourtListener, state court records, public documents. If it's in the docket, it's on the show.</p>
-<p>Think of it as your front row seat to the cases everyone is talking about.</p>
 </div>
 
 <div class="covers">
@@ -147,30 +243,36 @@ function toggleTheme(){var c=document.documentElement.getAttribute('data-theme')
 </div>
 </div>
 
-<div class="video-section">
-<div class="video-header"><h2>Latest Live Stream</h2><div class="line"></div><span class="tag">YouTube</span></div>
-<div class="video-wrap">
-<iframe src="https://www.youtube.com/embed/XAWD3l_zHJ0?rel=0&modestbranding=1&playsinline=1&iv_load_policy=3" title="Objection Live! - latest live stream" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
-</div>
-<div style="text-align:center;margin-top:16px;">
-<a href="https://www.youtube.com/@CJournalist24/streams" target="_blank" style="color:var(--gold);font-family:'JetBrains Mono',monospace;font-size:.78rem;text-decoration:none;font-weight:600;">Watch all live streams on YouTube →</a>
-</div>
-</div>
-
-<div class="cta">
-<div class="cta-buttons">
-<a href="https://www.youtube.com/@CJournalist24" target="_blank" class="cta-btn cta-primary">Subscribe on YouTube</a>
-<a href="https://www.buymeacoffee.com/CJournalist24" target="_blank" class="cta-btn" style="background:#FFDD00;color:#000;border:1px solid #FFDD00;">☕ Fuel The Docket</a>
-<a href="index.html" class="cta-btn cta-secondary">Browse All Cases →</a>
-</div>
-</div>
-
 <div style="max-width:800px;margin:0 auto 40px;padding:20px 28px;background:var(--card,#12121a);border:1px solid var(--bdr,#2a2a3a);border-radius:8px;font-size:.78rem;color:var(--t3,#8a8a8f);line-height:1.7;">
   <strong style="color:var(--t2,#9a9a9a);">About the show:</strong> Objection Live! is CJ's YouTube show, published and distributed by YouTube. Opinions and commentary expressed on the channel are the host's own - journalism and commentary on matters of public concern, based on publicly available court filings. Charges and civil allegations discussed are unproven until a court rules. For the site's full disclaimer and corrections policy, see <a href="legal.html" style="color:var(--gold,#F6C340);text-decoration:none;">Terms &amp; Privacy</a>.
 </div>
 
 <footer class="ft"><div class="ftl">Celebrity<span>Dockets</span></div><p class="ftt">Tracking celebrity court cases, one docket at a time.</p><div class="ftk"><a href="index.html">Cases</a><a href="objection-live.html">Objection Live!</a><a href="recess.html">RECESS</a><a href="star-bar.html">Star Bar</a><a href="courtroom-culture.html">Courtroom Culture</a><a href="about.html">About</a></div></footer>
 
+<script>
+// Next Live countdown - Monday 9 AM Eastern (handles EDT/EST automatically via toLocaleString)
+function updateCountdown(){
+  var el = document.getElementById('countdown');
+  if (!el) return;
+  var now = new Date();
+  // Find next Monday in Eastern time
+  var nowEastern = new Date(now.toLocaleString('en-US', {timeZone: 'America/New_York'}));
+  var dayOfWeek = nowEastern.getDay(); // 0=Sun, 1=Mon
+  var daysUntilMon = (1 - dayOfWeek + 7) % 7;
+  if (daysUntilMon === 0 && nowEastern.getHours() >= 9) daysUntilMon = 7;
+  var nextMonEastern = new Date(nowEastern);
+  nextMonEastern.setDate(nowEastern.getDate() + daysUntilMon);
+  nextMonEastern.setHours(9, 0, 0, 0);
+  var diffMs = nextMonEastern - nowEastern;
+  if (diffMs < 0) { el.textContent = 'Live Now!'; return; }
+  var days = Math.floor(diffMs / 86400000);
+  var hours = Math.floor((diffMs % 86400000) / 3600000);
+  var mins = Math.floor((diffMs % 3600000) / 60000);
+  el.textContent = days + 'd ' + hours + 'h ' + mins + 'm';
+}
+updateCountdown();
+setInterval(updateCountdown, 60000);
+</script>
 <script type="text/javascript" src="https://cdnjs.buymeacoffee.com/1.0.0/button.prod.min.js" data-name="bmc-button" data-slug="CJournalist24" data-color="#FFDD00" data-emoji="☕" data-font="Cookie" data-text="Fuel The Docket " data-outline-color="#000000" data-font-color="#000000" data-coffee-color="#FFDD00"></script>
 <script data-name="BMC-Widget" data-cfasync="false" src="https://cdnjs.buymeacoffee.com/1.0.0/widget.prod.min.js" data-id="CJournalist24" data-description="Support me on Buy me a coffee!" data-message="Help keep the docket running. Buy CJ a coffee." data-color="#FFDD00" data-position="Right" data-x_margin="18" data-y_margin="18"></script>
 </body>
