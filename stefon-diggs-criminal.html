@@ -172,7 +172,7 @@ function toggleTheme(){var c=document.documentElement.getAttribute('data-theme')
   </header>
   <section class="case-hero">
     <img src="stefon-diggs-hero.jpg" alt="Pop-art illustration for stefon diggs criminal" style="width:100%;height:auto;border-radius:10px;margin-bottom:24px;display:block;border:1px solid var(--border);">
-    <div class="case-status-bar"><span class="status-badge status-active">Trial May 4, 2026</span><span class="status-badge status-cat">Felony Strangulation</span><span class="status-badge status-cat2">Assault &amp; Battery</span></div>
+    <div class="case-status-bar"><span class="status-badge status-active">Trial May 4, 2026</span><span class="status-badge status-cat">Felony Strangulation</span><span class="status-badge status-cat2">Assault &amp; Battery</span><span class="status-badge" style="background:rgba(74,144,217,.12);color:var(--accent-blue);border:1px solid rgba(74,144,217,.25);">Also Active: 2 Civil Suits</span></div>
     <h1 class="case-title"><em>Commonwealth</em> v. Diggs</h1>
     <p class="case-subtitle">Patriots WR Stefon Diggs faces felony strangulation and assault charges after his personal chef alleges he smacked her and tried to choke her during a dispute over unpaid wages. Trial set for May 4.</p>
     <div class="case-meta-row"><div class="meta-item"><span class="meta-label">Charges</span><span class="meta-value">Felony Strangulation + Misdemeanor A&B</span></div><div class="meta-item"><span class="meta-label">Court</span><span class="meta-value">Dedham District Court, MA</span></div><div class="meta-item"><span class="meta-label">Trial</span><span class="meta-value">May 4, 2026</span></div></div>
@@ -210,12 +210,34 @@ function toggleTheme(){var c=document.documentElement.getAttribute('data-theme')
       </div>
 
       <div class="narrative-section">
-        <div class="section-label">Related Litigation - Diggs v. Griffith (Defamation / Sexual Battery)</div>
-        <div class="narrative-text">
-          <p>Beyond the Massachusetts criminal case, Diggs is also engaged in <strong>parallel civil litigation</strong> with influencer <strong>Christopher Blake Griffith</strong>, who publicly accused Diggs of having <em>"drugged and sexually assaulted"</em> him on <strong>May 22, 2023</strong> at Diggs' Maryland home. Griffith broadcast the allegations to tens of thousands of social-media followers, deliberately tagging the NFL, the New England Patriots, and brand sponsors including UGG.</p>
-          <p>In <strong>October 2025</strong>, Diggs filed a <strong>defamation suit</strong> against Griffith in federal court, alleging the statements were fabricated for attention and that Griffith further claimed Diggs had "conspired" to have him killed to suppress alleged sexual-orientation secrets. Griffith has since filed counter-claims framing his original statements as protected truthful speech and pursuing his own sexual-battery claims against Diggs.</p>
-          <p>As of <strong>April 2026</strong>, the case is in discovery. Griffith has moved to compel Diggs to produce financial records (to establish defamation damages causation) and security-camera footage and access logs from Diggs' Maryland home covering <strong>May 20–22, 2023</strong>. A pretrial hearing is set for <strong>July 2026</strong>.</p>
-          <p>A separate civil suit - over an alleged <strong>Miami nightclub attack and Ferrari theft claims</strong> seeking $100K+ - was also filed in early 2026 days before Super Bowl LX. That matter is procedurally distinct from both the chef criminal case and the Griffith litigation.</p>
+        <div class="section-label">Active Civil Litigation</div>
+        <p style="font-size:.88rem;color:var(--text-secondary);line-height:1.7;margin-bottom:18px;">In addition to the Massachusetts criminal case, Diggs is litigating two parallel civil matters in different jurisdictions.</p>
+
+        <!-- Sub-card 1: Diggs v. Griffith -->
+        <div style="background:var(--bg-card);border:1px solid var(--border);border-radius:8px;padding:22px 26px;margin-bottom:16px;border-left:3px solid var(--accent);">
+          <div style="display:flex;justify-content:space-between;align-items:flex-start;flex-wrap:wrap;gap:8px;margin-bottom:10px;">
+            <div>
+              <div style="font-family:'JetBrains Mono',monospace;font-size:.62rem;text-transform:uppercase;letter-spacing:1.5px;color:var(--accent);font-weight:700;margin-bottom:4px;">Defamation / Sexual Battery Counter-Claims</div>
+              <div style="font-family:'DM Serif Display',serif;font-size:1.2rem;color:var(--text-primary);"><em>Diggs</em> v. Griffith</div>
+            </div>
+            <span style="font-size:.62rem;font-weight:700;text-transform:uppercase;letter-spacing:1px;padding:4px 10px;border-radius:3px;background:rgba(225,16,40,.15);color:var(--accent-red);white-space:nowrap;">In Discovery</span>
+          </div>
+          <p style="font-size:.85rem;color:var(--text-secondary);line-height:1.7;margin-bottom:10px;">Influencer <strong style="color:var(--text-primary);">Christopher Blake Griffith</strong> publicly accused Diggs of drugging and sexually assaulting him on <strong style="color:var(--text-primary);">May 22, 2023</strong> at Diggs's Maryland home, broadcasting the allegations to tens of thousands of followers and tagging the NFL, the Patriots, and brand sponsors. In <strong style="color:var(--text-primary);">October 2025</strong>, Diggs filed a federal defamation suit alleging the statements were fabricated for attention. Griffith has filed counter-claims framing his statements as protected speech and pursuing sexual-battery claims of his own.</p>
+          <p style="font-size:.85rem;color:var(--text-secondary);line-height:1.7;margin-bottom:0;">As of April 2026 the case is in discovery. Griffith has moved to compel production of financial records and security-camera footage from Diggs's Maryland home for May 20-22, 2023. <strong style="color:var(--text-primary);">Pretrial hearing: July 2026.</strong></p>
+          <div style="font-family:'JetBrains Mono',monospace;font-size:.65rem;color:var(--text-muted);margin-top:14px;padding-top:12px;border-top:1px solid var(--border-light);">Federal Court · Filed Oct 2025 · Docket pending upload</div>
+        </div>
+
+        <!-- Sub-card 2: Miami Nightclub / Ferrari -->
+        <div style="background:var(--bg-card);border:1px solid var(--border);border-radius:8px;padding:22px 26px;margin-bottom:16px;border-left:3px solid var(--accent);">
+          <div style="display:flex;justify-content:space-between;align-items:flex-start;flex-wrap:wrap;gap:8px;margin-bottom:10px;">
+            <div>
+              <div style="font-family:'JetBrains Mono',monospace;font-size:.62rem;text-transform:uppercase;letter-spacing:1.5px;color:var(--accent);font-weight:700;margin-bottom:4px;">Civil Battery / Property Claim</div>
+              <div style="font-family:'DM Serif Display',serif;font-size:1.2rem;color:var(--text-primary);">Miami Nightclub &amp; Ferrari Suit</div>
+            </div>
+            <span style="font-size:.62rem;font-weight:700;text-transform:uppercase;letter-spacing:1px;padding:4px 10px;border-radius:3px;background:rgba(225,16,40,.15);color:var(--accent-red);white-space:nowrap;">Active</span>
+          </div>
+          <p style="font-size:.85rem;color:var(--text-secondary);line-height:1.7;margin-bottom:0;">A separate civil suit was filed in <strong style="color:var(--text-primary);">early 2026</strong>, days before Super Bowl LX, alleging an attack at a Miami nightclub and Ferrari theft claims seeking $100K+. The matter is procedurally distinct from both the Massachusetts criminal case and the Griffith federal litigation.</p>
+          <div style="font-family:'JetBrains Mono',monospace;font-size:.65rem;color:var(--text-muted);margin-top:14px;padding-top:12px;border-top:1px solid var(--border-light);">Florida State Court · Filed early 2026 · Docket pending upload</div>
         </div>
       </div>
     </div>
