@@ -22,7 +22,8 @@ body{background:var(--bg);color:var(--t1);font-family:'IBM Plex Sans',sans-serif
 /* Lawyer cards */
 .lc{background:var(--card);border:1px solid var(--bdr);border-radius:12px;padding:28px;margin-bottom:16px;transition:border-color .2s}
 .lc:hover{border-color:var(--gold)}
-.lc-top{display:flex;justify-content:space-between;align-items:flex-start;gap:16px;margin-bottom:12px;flex-wrap:wrap}
+.lc-top{display:flex;justify-content:space-between;align-items:center;gap:16px;margin-bottom:12px;flex-wrap:wrap}
+.lc-avatar{width:64px;height:64px;border-radius:50%;object-fit:cover;flex-shrink:0;border:2px solid var(--bdr)}
 .lc-name{font-family:'DM Serif Display',serif;font-size:1.4rem;color:var(--t1)}
 .lc-nick{font-family:'JetBrains Mono',monospace;font-size:.7rem;color:var(--red);background:rgba(225,16,40,.1);padding:4px 12px;border-radius:4px;border:1px solid rgba(225,16,40,.2);white-space:nowrap}
 .lc-firm{font-family:'JetBrains Mono',monospace;font-size:.7rem;color:var(--t3);margin-bottom:12px}
@@ -91,7 +92,7 @@ function toggleTheme(){var c=document.documentElement.getAttribute('data-theme')
 <div class="sh"><h2>The Heavyweights</h2><div class="line"></div><span class="tag">Top Tier</span></div>
 
 <div class="lc">
-<div class="lc-top"><div class="lc-name">Alex Spiro</div><div class="lc-nick">"The Fixer"</div></div>
+<div class="lc-top"><img class="lc-avatar" src="alex-spiro-profile.jpg" alt="Alex Spiro" loading="lazy"><div style="flex:1;display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:10px;"><div class="lc-name">Alex Spiro</div><div class="lc-nick">"The Fixer"</div></div></div>
 <div class="lc-firm">Quinn Emanuel Urquhart & Sullivan · New York</div>
 <div class="lc-bio">The most in-demand celebrity lawyer alive. Harvard Law grad and former Manhattan prosecutor who convicted the "Dating Game" serial killer. Charges $3,000 per hour. Hasn't lost a case in over a decade. Has publicly said he only sleeps around four hours a night due to insomnia, which he credits with giving him a competitive edge. If you're famous and in trouble, Spiro's phone rings first. Tried over 50 cases to verdict. Got Alec Baldwin's manslaughter charge dismissed. Got Eric Adams' federal corruption case dismissed with prejudice. Defended Jay-Z against sexual assault allegations where the plaintiff eventually dropped the suit. Represented Elon Musk in multiple cases including the Twitter acquisition fight.</div>
 <div class="lc-label">Notable Clients</div>
@@ -106,7 +107,7 @@ function toggleTheme(){var c=document.documentElement.getAttribute('data-theme')
 </div>
 
 <div class="lc">
-<div class="lc-top"><div class="lc-name">Bryan Freedman</div><div class="lc-nick">"The Terminator"</div></div>
+<div class="lc-top"><img class="lc-avatar" src="bryan-freedman-profile.jpg" alt="Bryan Freedman" loading="lazy"><div style="flex:1;display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:10px;"><div class="lc-name">Bryan Freedman</div><div class="lc-nick">"The Terminator"</div></div></div>
 <div class="lc-firm">Freedman + Taitelman · Los Angeles</div>
 <div class="lc-bio">One of Hollywood's most respected and fiercely passionate litigators. Freedman fights for his clients with unmatched intensity, which is exactly why the biggest names in entertainment call him when the stakes are highest. Nicknamed "The Terminator" for his relentless pursuit of favorable outcomes, he represents production companies, executives, and talent in the industry's most high-profile disputes. Currently leading the defense of Justin Baldoni and Wayfarer Studios in the Blake Lively case, where his strategic approach has already secured dismissal of most claims against individual defendants.</div>
 <div class="lc-label">On Celebrity Dockets</div>
@@ -116,8 +117,8 @@ function toggleTheme(){var c=document.documentElement.getAttribute('data-theme')
 </div>
 
 <div class="lc">
-<div class="lc-top"><div class="lc-name">Marty Singer</div><div class="lc-nick">"The Bulldozer"</div></div>
-<div class="lc-firm">Lavely & Singer · Los Angeles</div>
+<div class="lc-top"><img class="lc-avatar" src="marty-singer-profile.jpg" alt="Marty Singer" loading="lazy"><div style="flex:1;display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:10px;"><div class="lc-name">Marty Singer</div><div class="lc-nick">"Mad Dog"</div></div></div>
+<div class="lc-firm">Singer Weinsten Wolf & Jonelis LLP · Los Angeles</div>
 <div class="lc-bio">The original celebrity fixer. Has been protecting A-list reputations for decades. His threatening pre-litigation letters are legendary in Hollywood. Studios and tabloids know that when a Marty Singer letter lands, a lawsuit is right behind it. He called the Costner/Horizon stunt performer suit a "shakedown" before it even got to discovery. Clients have included everyone from Arnold Schwarzenegger to Charlie Sheen to John Travolta.</div>
 <div class="lc-label">Notable Clients</div>
 <div class="lc-cases">
@@ -130,7 +131,7 @@ function toggleTheme(){var c=document.documentElement.getAttribute('data-theme')
 </div>
 
 <div class="lc">
-<div class="lc-top"><div class="lc-name">Camille Vasquez</div></div>
+<div class="lc-top"><img class="lc-avatar" src="camille-vasquez-profile.jpg" alt="Camille Vasquez" loading="lazy"><div style="flex:1;display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:10px;"><div class="lc-name">Camille Vasquez</div></div></div>
 <div class="lc-firm">Brown Rudnick · Los Angeles</div>
 <div class="lc-bio">Became a household name during the Johnny Depp v. Amber Heard defamation trial in 2022. Her cross-examination of Heard went viral and turned her into the most famous trial lawyer of her generation overnight. Promoted to partner at Brown Rudnick during the trial. Now represents production companies and entertainment clients in high-profile disputes.</div>
 <div class="lc-label">Notable Clients</div>
