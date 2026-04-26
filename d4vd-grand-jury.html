@@ -32,7 +32,7 @@
   .site-nav a { color: var(--text-secondary); text-decoration: none; transition: color 0.2s; }
   .site-nav a:hover { color: var(--accent-gold); }
   .case-hero { position: relative; padding: 60px 24px 48px; max-width: 900px; margin: 0 auto; overflow: hidden; }
-  .case-hero::before { content: '§'; position: absolute; top: 20px; right: -20px; font-size: 20rem; font-family: 'DM Serif Display', serif; color: var(--border-light); opacity: 0.3; line-height: 1; pointer-events: none; }
+  .case-hero::before { display: none; }
   .case-status-bar { display: flex; gap: 12px; align-items: center; margin-bottom: 20px; flex-wrap: wrap; }
   .status-badge { display: inline-flex; align-items: center; gap: 6px; padding: 5px 14px; border-radius: 4px; font-size: 0.7rem; font-weight: 700; text-transform: uppercase; letter-spacing: 1.2px; }
   .status-active { background: rgba(225, 16, 40, 0.15); color: var(--accent-red); border: 1px solid rgba(225, 16, 40, 0.3); }
@@ -171,6 +171,7 @@ function toggleTheme(){var c=document.documentElement.getAttribute('data-theme')
     <button class="hamburger" onclick="this.classList.toggle('open');document.querySelector('.site-nav').classList.toggle('open')"><span></span><span></span><span></span></button><nav class="site-nav"><a href="index.html">Cases</a><a href="objection-live.html">Objection Live!</a><a href="recess.html">RECESS</a><a href="star-bar.html">Star Bar</a><a href="courtroom-culture.html">Courtroom Culture</a><a href="about.html">About</a><button class="theme-toggle" onclick="toggleTheme()"><span id="theme-icon">☀️</span></button></nav>
   </header>
   <section class="case-hero">
+    <img src="d4vd-hero.jpg" alt="Pop-art illustration for d4vd grand jury" style="width:100%;height:auto;border-radius:10px;margin-bottom:24px;display:block;border:1px solid var(--border);">
     <div class="case-status-bar"><span class="status-badge status-active" style="background:rgba(225,16,40,.25);color:#ff4757;">🚨 CHARGED APR 20</span><span class="status-badge status-cat">First-Degree Murder</span><span class="status-badge status-cat2">Possible Death Penalty</span></div>
     <h1 class="case-title"><em>People</em> v. David Anthony Burke (d4vd)</h1>
     <p class="case-subtitle">BREAKING: LA County DA Nathan Hochman formally charged 21-year-old d4vd with first-degree murder, continuous sexual abuse of a child under 14, and mutilation of human remains. Three special circumstance allegations could trigger the death penalty. Pleaded not guilty. Held without bail at Twin Towers. Preliminary hearing May 1.</p>

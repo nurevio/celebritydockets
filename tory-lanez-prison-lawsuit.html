@@ -32,7 +32,7 @@
   .site-nav a { color: var(--text-secondary); text-decoration: none; transition: color 0.2s; }
   .site-nav a:hover { color: var(--accent-gold); }
   .case-hero { position: relative; padding: 60px 24px 48px; max-width: 900px; margin: 0 auto; overflow: hidden; }
-  .case-hero::before { content: '§'; position: absolute; top: 20px; right: -20px; font-size: 20rem; font-family: 'DM Serif Display', serif; color: var(--border-light); opacity: 0.3; line-height: 1; pointer-events: none; }
+  .case-hero::before { display: none; }
   .case-status-bar { display: flex; gap: 12px; align-items: center; margin-bottom: 20px; flex-wrap: wrap; }
   .status-badge { display: inline-flex; align-items: center; gap: 6px; padding: 5px 14px; border-radius: 4px; font-size: 0.7rem; font-weight: 700; text-transform: uppercase; letter-spacing: 1.2px; }
   .status-active { background: rgba(225, 16, 40, 0.15); color: var(--accent-red); border: 1px solid rgba(225, 16, 40, 0.3); }
@@ -171,6 +171,7 @@ function toggleTheme(){var c=document.documentElement.getAttribute('data-theme')
     <button class="hamburger" onclick="this.classList.toggle('open');document.querySelector('.site-nav').classList.toggle('open')"><span></span><span></span><span></span></button><nav class="site-nav"><a href="index.html">Cases</a><a href="index.html">Objection Live!</a><a href="recess.html">RECESS</a><a href="star-bar.html">Star Bar</a><a href="courtroom-culture.html">Courtroom Culture</a><a href="about.html">About</a><button class="theme-toggle" onclick="toggleTheme()"><span id="theme-icon">☀️</span></button></nav>
   </header>
   <section class="case-hero">
+    <img src="tory-lanez-hero.jpg" alt="Pop-art illustration for tory lanez prison lawsuit" style="width:100%;height:auto;border-radius:10px;margin-bottom:24px;display:block;border:1px solid var(--border);">
     <div class="case-status-bar"><span class="status-badge status-active">New Filing</span><span class="status-badge status-cat">Civil Rights / Negligence</span><span class="status-badge status-cat2">Prison Conditions</span></div>
     <h1 class="case-title">Daystar Peterson (<em>Tory Lanez</em>) v. CDCR</h1>
     <p class="case-subtitle">Rapper Tory Lanez sues California's prison system after being stabbed 14 times behind bars - both lungs collapsed, stabbed in the back, torso, and head.</p>
