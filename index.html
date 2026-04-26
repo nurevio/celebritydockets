@@ -139,6 +139,33 @@ function toggleTheme(){var c=document.documentElement.getAttribute('data-theme')
 </div>
 </section>
 
+<!-- TRIAL WATCH STRIP -->
+<a href="d4vd-grand-jury.html" style="display:flex;max-width:1100px;margin:0 auto 24px;padding:14px 24px;background:linear-gradient(90deg,rgba(225,16,40,.12),rgba(246,195,64,.06));border:1px solid rgba(225,16,40,.25);border-radius:10px;align-items:center;gap:18px;flex-wrap:wrap;text-decoration:none;color:inherit;transition:transform .2s,border-color .2s;">
+<div style="font-family:'JetBrains Mono',monospace;font-size:.62rem;text-transform:uppercase;letter-spacing:2.5px;color:var(--red);font-weight:700;display:inline-flex;align-items:center;gap:8px;flex-shrink:0;">
+<span style="width:7px;height:7px;background:var(--red);border-radius:50%;display:inline-block;animation:p 2s infinite"></span>
+Trial Watch
+</div>
+<div style="flex:1;min-width:200px;font-family:'DM Serif Display',serif;font-size:1.05rem;color:var(--t1);"><em style="color:var(--red);font-style:italic;">People</em> v. d4vd · Preliminary Hearing</div>
+<div style="font-family:'JetBrains Mono',monospace;font-size:.85rem;color:var(--gold);font-weight:700;" id="trialCountdown">May 1, 2026</div>
+<div style="font-family:'JetBrains Mono',monospace;font-size:.65rem;color:var(--t3);text-transform:uppercase;letter-spacing:1.5px;">Read docket →</div>
+</a>
+<script>
+(function(){
+  var target = new Date('2026-05-01T08:00:00-07:00');
+  function tick(){
+    var el = document.getElementById('trialCountdown');
+    if (!el) return;
+    var diff = target - new Date();
+    if (diff < 0) { el.textContent = 'In Session'; return; }
+    var days = Math.floor(diff/86400000);
+    var hours = Math.floor((diff%86400000)/3600000);
+    el.textContent = days + 'd ' + hours + 'h · May 1';
+  }
+  tick();
+  setInterval(tick, 60000);
+})();
+</script>
+
 <!-- SPOTLIGHT: D4VD CHARGED -->
 <div class="sh"><h2 class="sht">Breaking</h2><div class="shl"></div><span class="shtg">CHARGED APRIL 20</span></div>
 <div class="spot">
