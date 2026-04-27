@@ -98,6 +98,33 @@ function toggleTheme(){var c=document.documentElement.getAttribute('data-theme')
 <p class="hs">Every case. The claims. The filings. Sorted so you can find what you're looking for.</p>
 </section>
 
+<div style="max-width:560px;margin:0 auto 20px;padding:0 24px;text-align:center;">
+<input type="text" id="docketSearch" placeholder="Search by name, case, lawyer, or claim..." oninput="searchDocket()" style="width:100%;padding:11px 18px;background:var(--card);border:1px solid var(--bdr);border-radius:6px;color:var(--t1);font-family:'IBM Plex Sans',sans-serif;font-size:.9rem;outline:none;transition:border-color .2s;" onfocus="this.style.borderColor='var(--gold)'" onblur="this.style.borderColor='var(--bdr)'">
+</div>
+<script>
+function searchDocket(){
+  var q=(document.getElementById('docketSearch').value||'').trim().toLowerCase();
+  var rows=document.querySelectorAll('.case-row');
+  var anyVisible={};
+  rows.forEach(function(r){
+    var text=(r.textContent+' '+(r.dataset.cat||'')+' '+(r.dataset.search||'')).toLowerCase();
+    var match=q===''||text.indexOf(q)!==-1;
+    r.style.display=match?'':'none';
+    if(match){var cats=(r.dataset.cat||'').split(/\s+/);cats.forEach(function(c){anyVisible[c]=true;});}
+  });
+  // Hide category headers whose rows are all hidden
+  document.querySelectorAll('.cat-header').forEach(function(h){
+    var c=h.dataset.cat;
+    h.style.display=(q===''||anyVisible[c])?'':'none';
+  });
+  // If user typed something, deactivate filter buttons (we're searching across all)
+  if(q!==''){
+    document.querySelectorAll('.fbtn').forEach(function(b){b.classList.remove('active');});
+    document.querySelector('.fbtn[href="#all"]').classList.add('active');
+  }
+}
+</script>
+
 <div class="filters">
 <a href="#all" class="fbtn active" onclick="filterCases('all')">All Cases</a>
 <a href="#defamation" class="fbtn" onclick="filterCases('defamation')">Defamation</a>
