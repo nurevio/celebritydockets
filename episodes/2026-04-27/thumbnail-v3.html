@@ -1,0 +1,237 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>Thumbnail V3 · Pop-Art Collage</title>
+<link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display&family=IBM+Plex+Sans:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  html, body { background: #1a1a1a; }
+  body { display: flex; align-items: center; justify-content: center; min-height: 100vh; padding: 20px; font-family: 'IBM Plex Sans', sans-serif; }
+
+  .thumb {
+    width: 1280px;
+    height: 720px;
+    position: relative;
+    overflow: hidden;
+    background: #1a1a1a;
+    box-shadow: 0 30px 80px rgba(0,0,0,0.6);
+  }
+
+  /* 4-cell Warhol-style pop-art grid */
+  .pop-grid {
+    position: absolute;
+    inset: 0;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    grid-template-rows: 1fr 1fr;
+    gap: 0;
+  }
+  .cell {
+    overflow: hidden;
+    position: relative;
+    border: 4px solid #1a1a1a;
+  }
+  .cell img {
+    width: 100%; height: 100%;
+    object-fit: cover;
+    display: block;
+    filter: contrast(1.1) saturate(1.3);
+  }
+  .cell.blake img { object-position: 8% 25%; }
+  .cell.d4vd img { object-position: 28% 45%; }
+
+  /* Split cells (right column: 2 sub-panels each) */
+  .cell.split { padding: 0; display: grid; grid-template-columns: 1fr 1fr; gap: 0; overflow: hidden; }
+  .cell.split .sub { position: relative; overflow: hidden; }
+  .cell.split .sub img { width: 100%; height: 100%; object-fit: cover; display: block; filter: contrast(1.1) saturate(1.3); }
+  .sub.drake img { object-position: 12% 30%; }
+  .sub.diddy img { object-position: 30% 30%; }
+  .sub.wilson img { object-position: 18% 28%; }
+  .sub.kimk img { object-position: 90% 25%; }
+
+  .cell .case-tag {
+    position: absolute;
+    bottom: 12px;
+    left: 12px;
+    background: #1a1a1a;
+    color: #fff8d6;
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 11px;
+    letter-spacing: 1.5px;
+    text-transform: uppercase;
+    font-weight: 700;
+    padding: 5px 9px;
+    border: 2px solid #fff8d6;
+  }
+
+  /* Big CELEBRITY DOCKETS text overlay (center) */
+  .brand-overlay {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%) rotate(-2deg);
+    text-align: center;
+    z-index: 10;
+    pointer-events: none;
+  }
+  .brand-celeb {
+    font-family: 'DM Serif Display', serif;
+    font-size: 138px;
+    color: #fff8d6;
+    line-height: 0.85;
+    letter-spacing: -3px;
+    text-shadow: 6px 6px 0 #1a1a1a, 12px 12px 0 #E11028;
+  }
+  .brand-dockets {
+    display: inline-block;
+    font-family: 'DM Serif Display', serif;
+    font-size: 138px;
+    color: #F6C340;
+    line-height: 0.85;
+    letter-spacing: -3px;
+    background: #1a1a1a;
+    padding: 6px 28px 12px;
+    margin-top: 4px;
+    border: 4px solid #fff8d6;
+    box-shadow: 8px 8px 0 #E11028;
+  }
+
+  /* Top banner */
+  .top-banner {
+    position: absolute;
+    top: 24px;
+    left: 24px;
+    right: 24px;
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    z-index: 20;
+    pointer-events: none;
+  }
+  .breaking {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    background: #E11028;
+    color: #fff8d6;
+    padding: 8px 14px;
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 14px;
+    font-weight: 800;
+    letter-spacing: 2.5px;
+    text-transform: uppercase;
+    border: 3px solid #fff8d6;
+    box-shadow: 4px 4px 0 #1a1a1a;
+  }
+  .breaking::before {
+    content: '';
+    width: 9px; height: 9px;
+    background: #fff8d6;
+    border-radius: 50%;
+  }
+  .premiere-stamp {
+    background: #F6C340;
+    color: #1a1a1a;
+    padding: 8px 14px;
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 13px;
+    font-weight: 800;
+    letter-spacing: 2.5px;
+    text-transform: uppercase;
+    text-align: center;
+    line-height: 1.1;
+    transform: rotate(4deg);
+    border: 3px solid #1a1a1a;
+    box-shadow: 4px 4px 0 #fff8d6;
+  }
+  .premiere-stamp .small { font-size: 10px; opacity: 0.85; display: block; }
+
+  /* Bottom strip - tagline + brand info */
+  .bottom-strip {
+    position: absolute;
+    bottom: 24px;
+    left: 24px;
+    right: 24px;
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-end;
+    z-index: 20;
+    pointer-events: none;
+  }
+  .bottom-tag {
+    background: #fff8d6;
+    color: #1a1a1a;
+    padding: 10px 16px;
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 12px;
+    font-weight: 700;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    border: 3px solid #1a1a1a;
+    box-shadow: 4px 4px 0 #E11028;
+  }
+  .bottom-tag b { color: #E11028; }
+  .bottom-host {
+    background: #1a1a1a;
+    color: #fff8d6;
+    padding: 10px 16px;
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 12px;
+    font-weight: 700;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    border: 3px solid #fff8d6;
+    box-shadow: 4px 4px 0 #F6C340;
+  }
+  .bottom-host b { color: #F6C340; }
+</style>
+</head>
+<body>
+
+<div class="thumb">
+
+  <!-- Background: 4-cell pop-art grid -->
+  <div class="pop-grid">
+    <div class="cell blake">
+      <img src="blake-thumb.jpg" alt="Blake Lively">
+      <div class="case-tag">Lively v. Wayfarer</div>
+    </div>
+    <div class="cell split">
+      <div class="sub drake"><img src="drake-thumb.jpg" alt="Drake"></div>
+      <div class="sub diddy"><img src="diddy-thumb.jpg" alt="Diddy"></div>
+      <div class="case-tag" style="position:absolute;left:12px;bottom:12px;z-index:5;">Drake · Combs</div>
+    </div>
+    <div class="cell d4vd">
+      <img src="d4vd-thumb.jpg" alt="d4vd">
+      <div class="case-tag">People v. d4vd</div>
+    </div>
+    <div class="cell split">
+      <div class="sub wilson"><img src="wilson-thumb.jpg" alt="Rebel Wilson"></div>
+      <div class="sub kimk"><img src="kimk-thumb.jpg" alt="Kim Kardashian"></div>
+      <div class="case-tag" style="position:absolute;left:12px;bottom:12px;z-index:5;">Wilson · Kim K</div>
+    </div>
+  </div>
+
+  <!-- CELEBRITY DOCKETS giant text overlay -->
+  <div class="brand-overlay">
+    <div class="brand-celeb">CELEBRITY</div>
+    <div class="brand-dockets">DOCKETS</div>
+  </div>
+
+  <!-- Top banner: BREAKING + PREMIERE -->
+  <div class="top-banner">
+    <div class="breaking">Breaking · Apr 27</div>
+    <div class="premiere-stamp">Premiere<span class="small">EP. 001</span></div>
+  </div>
+
+  <!-- Bottom strip: tagline + host -->
+  <div class="bottom-strip">
+    <div class="bottom-tag">FKA <b>@CJournalist24</b></div>
+    <div class="bottom-host">Hosted by <b>CJ</b> · Mondays 9 AM EST</div>
+  </div>
+
+</div>
+
+</body>
+</html>

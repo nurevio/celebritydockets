@@ -122,7 +122,7 @@ body{background:var(--bg);color:var(--t1);font-family:'IBM Plex Sans',sans-serif
 </head>
 <body>
 
-<header class="hdr"><a href="index.html" class="logo">Celebrity<span>Dockets</span></a><button class="hamburger" onclick="this.classList.toggle('open');document.querySelector('.nav').classList.toggle('open')"><span></span><span></span><span></span></button><nav class="nav"><a href="#" class="on">Cases</a><a href="objection-live.html">Objection Live!</a><a href="recess.html">RECESS</a><a href="star-bar.html">Star Bar</a><a href="courtroom-culture.html">Courtroom Culture</a><a href="about.html">About</a><a href="https://www.buymeacoffee.com/CJournalist24" target="_blank" rel="noopener" style="color:#FFDD00;">☕ Fuel</a></nav><button class="theme-toggle" onclick="toggleTheme()" title="Toggle theme"><span id="theme-icon">☀️</span></button></header>
+<header class="hdr"><a href="index.html" class="logo">Celebrity<span>Dockets</span></a><button class="hamburger" onclick="this.classList.toggle('open');document.querySelector('.nav').classList.toggle('open')"><span></span><span></span><span></span></button><nav class="nav"><a href="#" class="on">Cases</a><a href="objection-live.html">Objection Live!</a><a href="recess.html">RECESS</a><a href="star-bar.html">Star Bar</a><a href="courtroom-culture.html">Courtroom Culture</a><a href="about.html">About</a><a href="https://www.buymeacoffee.com/celebritydockets" target="_blank" rel="noopener" style="color:#FFDD00;">☕ Fuel</a></nav><button class="theme-toggle" onclick="toggleTheme()" title="Toggle theme"><span id="theme-icon">☀️</span></button></header>
 <script>
 function toggleTheme(){var c=document.documentElement.getAttribute('data-theme')||'dark';var n=c==='dark'?'light':'dark';document.documentElement.setAttribute('data-theme',n);localStorage.setItem('cdTheme',n);document.getElementById('theme-icon').textContent=n==='dark'?'🌙':'☀️';}
 (function(){var s=localStorage.getItem('cdTheme')||'light';document.documentElement.setAttribute('data-theme',s);window.addEventListener('DOMContentLoaded',function(){var ic=document.getElementById('theme-icon');if(ic)ic.textContent=s==='dark'?'🌙':'☀️';});})();
@@ -361,6 +361,6 @@ function filterSubject(subject){
   });
 }
 </script>
-<script data-name="BMC-Widget" data-cfasync="false" src="https://cdnjs.buymeacoffee.com/1.0.0/widget.prod.min.js" data-id="CJournalist24" data-description="Support CJ on Buy Me a Coffee" data-message="Help keep the docket running. Buy CJ a coffee." data-color="#FFDD00" data-position="Right" data-x_margin="18" data-y_margin="18"></script>
+<script data-name="BMC-Widget" data-cfasync="false" src="https://cdnjs.buymeacoffee.com/1.0.0/widget.prod.min.js" data-id="celebritydockets" data-description="Support CJ on Buy Me a Coffee" data-message="Help keep the docket running. Buy CJ a coffee." data-color="#FFDD00" data-position="Right" data-x_margin="18" data-y_margin="18"></script>
 </body>
 </html>
