@@ -1,0 +1,244 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>Thumbnail V4 · Face-Forward</title>
+<link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display&family=IBM+Plex+Sans:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  html, body { background: #1a1a1a; }
+  body { display: flex; align-items: center; justify-content: center; min-height: 100vh; padding: 20px; font-family: 'IBM Plex Sans', sans-serif; }
+
+  .thumb {
+    width: 1280px;
+    height: 720px;
+    position: relative;
+    overflow: hidden;
+    background: #1a1a1a;
+    box-shadow: 0 30px 80px rgba(0,0,0,0.6);
+    display: grid;
+    grid-template-columns: 1.35fr 1fr;
+  }
+
+  /* LEFT — CJ face, huge, Warhol-yellow */
+  .cj-side {
+    background: #F6C340;
+    position: relative;
+    overflow: hidden;
+  }
+  .cj-side img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: center 22%;
+    display: block;
+    filter: contrast(1.25) saturate(1.5);
+    mix-blend-mode: multiply;
+  }
+  .cj-side::after {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(180deg, transparent 65%, rgba(246,195,64,0.5) 100%);
+    pointer-events: none;
+  }
+  .cj-tag {
+    position: absolute;
+    bottom: 22px;
+    left: 22px;
+    background: #1a1a1a;
+    color: #F6C340;
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 13px;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    font-weight: 800;
+    padding: 8px 14px;
+    border: 3px solid #fff8d6;
+    box-shadow: 4px 4px 0 #E11028;
+  }
+
+  /* RIGHT — black panel with hook + insets */
+  .right-side {
+    background: #1a1a1a;
+    padding: 28px 30px;
+    display: flex;
+    flex-direction: column;
+    gap: 14px;
+    position: relative;
+  }
+
+  .breaking {
+    align-self: flex-start;
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    background: #E11028;
+    color: #fff8d6;
+    padding: 8px 14px;
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 13px;
+    font-weight: 800;
+    letter-spacing: 2.5px;
+    text-transform: uppercase;
+    border: 3px solid #fff8d6;
+    box-shadow: 4px 4px 0 #F6C340;
+  }
+  .breaking::before {
+    content: '';
+    width: 9px; height: 9px;
+    background: #fff8d6;
+    border-radius: 50%;
+  }
+
+  .hook {
+    font-family: 'DM Serif Display', serif;
+    color: #fff8d6;
+    line-height: 0.95;
+    letter-spacing: -1.5px;
+  }
+  .hook .l1 {
+    font-size: 78px;
+    display: block;
+  }
+  .hook .l2 {
+    display: inline-block;
+    background: #fff8d6;
+    color: #E11028;
+    font-style: italic;
+    font-size: 78px;
+    padding: 4px 16px 8px;
+    margin-top: 6px;
+    border: 3px solid #1a1a1a;
+    box-shadow: 5px 5px 0 #F6C340;
+  }
+
+  .sub-hook {
+    font-family: 'IBM Plex Sans', sans-serif;
+    color: #fff8d6;
+    font-size: 18px;
+    font-weight: 600;
+    line-height: 1.3;
+    margin-top: 4px;
+  }
+  .sub-hook .hl {
+    background: #F6C340;
+    color: #1a1a1a;
+    padding: 1px 8px;
+    font-weight: 800;
+  }
+
+  /* Insets row at the bottom */
+  .insets {
+    display: flex;
+    gap: 10px;
+    margin-top: auto;
+  }
+  .inset {
+    flex: 1;
+    aspect-ratio: 1;
+    border: 3px solid #fff8d6;
+    overflow: hidden;
+    box-shadow: 3px 3px 0 #E11028;
+    position: relative;
+  }
+  .inset img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+    filter: contrast(1.1) saturate(1.3);
+  }
+  .inset.blake img { object-position: 12% 30%; }
+  .inset.d4vd img { object-position: 32% 45%; }
+  .inset .label {
+    position: absolute;
+    bottom: 4px;
+    left: 4px;
+    right: 4px;
+    background: #1a1a1a;
+    color: #fff8d6;
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 9px;
+    letter-spacing: 0.8px;
+    text-transform: uppercase;
+    font-weight: 700;
+    padding: 3px 5px;
+    text-align: center;
+  }
+
+  /* Brand mark at bottom-right */
+  .brand-mark {
+    position: absolute;
+    bottom: 16px;
+    right: 22px;
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 11px;
+    color: #6a6a6a;
+    letter-spacing: 1.5px;
+    text-transform: uppercase;
+    text-align: right;
+    line-height: 1.3;
+  }
+  .brand-mark b { color: #F6C340; }
+
+  /* Premiere stamp top-right */
+  .premiere {
+    position: absolute;
+    top: 18px;
+    right: 22px;
+    background: #F6C340;
+    color: #1a1a1a;
+    padding: 6px 12px;
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 11px;
+    font-weight: 800;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    transform: rotate(4deg);
+    border: 2px solid #1a1a1a;
+    box-shadow: 3px 3px 0 #fff8d6;
+    z-index: 10;
+  }
+</style>
+</head>
+<body>
+
+<div class="thumb">
+
+  <!-- LEFT: CJ face huge -->
+  <div class="cj-side">
+    <img src="cj-thumb.jpg" alt="CJ — host">
+    <div class="cj-tag">YOUR HOST · CJ</div>
+  </div>
+
+  <!-- RIGHT: BREAKING + Hook + Insets -->
+  <div class="right-side">
+    <div class="premiere">EP.001</div>
+    <div class="breaking">Breaking · Apr 27</div>
+
+    <div class="hook">
+      <span class="l1">Is Blake</span>
+      <span class="l2">in trouble?</span>
+    </div>
+
+    <div class="sub-hook">Trial in <span class="hl">21 days</span> · 10 claims dismissed</div>
+
+    <div class="insets">
+      <div class="inset blake">
+        <img src="blake-thumb.jpg" alt="Blake Lively">
+        <div class="label">Lively v. Wayfarer</div>
+      </div>
+      <div class="inset d4vd">
+        <img src="d4vd-thumb.jpg" alt="d4vd">
+        <div class="label">People v. d4vd</div>
+      </div>
+    </div>
+
+    <div class="brand-mark"><b>CELEBRITY DOCKETS</b><br>FKA @CJournalist24</div>
+  </div>
+
+</div>
+
+</body>
+</html>
