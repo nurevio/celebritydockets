@@ -4,6 +4,12 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Monday Show · Objection Live!</title>
+<script>
+  // Force scroll to top on every load — disable browser scroll restoration
+  if ('scrollRestoration' in history) { history.scrollRestoration = 'manual'; }
+  window.addEventListener('load', function(){ window.scrollTo(0, 0); });
+  window.addEventListener('DOMContentLoaded', function(){ window.scrollTo(0, 0); });
+</script>
 <link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display&family=IBM+Plex+Sans:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet">
 <style>
   :root {
