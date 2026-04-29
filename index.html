@@ -12,7 +12,7 @@
 :root,:root[data-theme="dark"]{--bg:#0a0a0f;--card:#12121a;--elev:#1a1a26;--red:#E11028;--gold:#F6C340;--blue:#4a90d9;--t1:#e8e6e1;--t2:#9a9a9a;--t3:#5a5a6a;--bdr:#2a2a3a;--bdr2:#1e1e2e}
 :root[data-theme="light"]{--bg:#f5f2ea;--card:#ffffff;--elev:#fffcf5;--red:#E11028;--gold:#8b6f20;--blue:#1e5091;--t1:#1a1a1f;--t2:#5a5a5f;--t3:#8a8a8f;--bdr:#d4cfc0;--bdr2:#e8e3d4}
 *{margin:0;padding:0;box-sizing:border-box}
-body{background:var(--bg);color:var(--t1);font-family:'IBM Plex Sans',sans-serif;line-height:1.6;transition:background .3s,color .3s}
+html{scroll-behavior:smooth}body{background:var(--bg);color:var(--t1);font-family:'IBM Plex Sans',sans-serif;line-height:1.6;transition:background .3s,color .3s}
 .theme-toggle{background:none;border:1px solid var(--bdr);color:var(--t2);cursor:pointer;padding:6px 10px;border-radius:4px;font-size:.75rem;font-family:'JetBrains Mono',monospace;text-transform:uppercase;letter-spacing:1px;transition:all .2s;display:flex;align-items:center;gap:6px}
 .theme-toggle:hover{border-color:var(--gold);color:var(--gold)}
 .hdr{border-bottom:1px solid var(--bdr);padding:16px 24px;display:flex;align-items:center;justify-content:space-between;background:var(--bg);position:sticky;top:0;z-index:100;backdrop-filter:blur(12px)}
@@ -288,9 +288,9 @@ Trial Watch
 <script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>
 
 <!-- ALL CASES -->
-<div id="cases" class="sh" style="scroll-margin-top:80px;"><h2 class="sht">U.S. Cases</h2><div class="shl"></div><span class="shtg">U.S.</span></div>
+<div class="sh" style="scroll-margin-top:120px;"><h2 class="sht">U.S. Cases</h2><div class="shl"></div><span class="shtg">U.S.</span></div>
 
-<div style="max-width:500px;margin:0 auto 24px;padding:0;text-align:center;">
+<div id="cases" style="max-width:500px;margin:0 auto 24px;padding:0;text-align:center;scroll-margin-top:120px;">
 <input type="text" id="caseSearch" placeholder="Search cases..." oninput="searchCases()" style="width:100%;padding:10px 18px;background:var(--card);border:1px solid var(--bdr);border-radius:6px;color:var(--t1);font-family:'IBM Plex Sans',sans-serif;font-size:.85rem;outline:none;transition:border-color .2s;" onfocus="this.style.borderColor='var(--gold)'" onblur="this.style.borderColor='var(--bdr)'">
 <div id="subjectFilters" style="display:flex;flex-wrap:wrap;gap:6px;margin-top:10px;justify-content:center;">
 <button class="sfbtn active" onclick="filterSubject('all')">All</button>
