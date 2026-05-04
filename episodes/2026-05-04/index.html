@@ -221,6 +221,56 @@
   .outro-btn:hover { transform: translateY(-2px); border-color: var(--accent-gold); }
   .outro-btn.primary { background: var(--accent-red); color: white; border-color: var(--accent-red); }
   .outro-btn.coffee { background: #FFDD00; color: #111; border-color: #FFDD00; }
+
+  /* TIKTOK LAZY-LOAD PLACEHOLDER */
+  .tiktok-lazy {
+    position: relative;
+    aspect-ratio: 9 / 16;
+    width: 100%;
+    max-width: 340px;
+    margin: 0 auto;
+    background: linear-gradient(135deg, #25F4EE 0%, #000 35%, #FE2C55 100%);
+    border-radius: 12px;
+    overflow: hidden;
+    cursor: pointer;
+    border: 1px solid var(--border);
+    transition: transform 0.15s ease;
+  }
+  .tiktok-lazy.wide { max-width: 560px; aspect-ratio: 16 / 9; }
+  .tiktok-lazy:hover { transform: translateY(-2px); }
+  .tiktok-poster {
+    position: absolute; inset: 0;
+    display: flex; flex-direction: column;
+    align-items: center; justify-content: center;
+    text-align: center; padding: 24px;
+    background: rgba(0,0,0,0.55);
+  }
+  .tiktok-icon {
+    width: 64px; height: 64px;
+    border-radius: 50%;
+    background: rgba(255,255,255,0.15);
+    border: 2px solid rgba(255,255,255,0.85);
+    display: flex; align-items: center; justify-content: center;
+    color: white; font-size: 1.5rem;
+    margin-bottom: 14px;
+    backdrop-filter: blur(6px);
+  }
+  .tiktok-handle {
+    color: white;
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 0.85rem;
+    font-weight: 700;
+    letter-spacing: 0.5px;
+    margin-bottom: 6px;
+  }
+  .tiktok-cta {
+    color: rgba(255,255,255,0.75);
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 0.65rem;
+    letter-spacing: 1.5px;
+    text-transform: uppercase;
+  }
+  .tiktok-lazy.loaded .tiktok-poster { display: none; }
 </style>
 <!-- Microsoft Clarity --><script type="text/javascript">(function(c,l,a,r,i,t,y){c[a]=c[a]||function(){(c[a].q=c[a].q||[]).push(arguments)};t=l.createElement(r);t.async=1;t.src="https://www.clarity.ms/tag/"+i;y=l.getElementsByTagName(r)[0];y.parentNode.insertBefore(t,y);})(window, document, "clarity", "script", "wj08elhbdz");</script>
 </head>
@@ -238,7 +288,7 @@
     <h3 class="embed-slide-title"><em>Set the scene.</em></h3>
     <p style="color:var(--text-secondary);font-size:1rem;line-height:1.65;max-width:640px;margin:0 auto 28px;">Ivonne Cruz with the cold open — exactly the energy we're walking into this week with. Press play, then we get to the docket.</p>
     <div style="max-width:340px;margin:0 auto;border-radius:14px;overflow:hidden;border:1px solid var(--border);background:#000;">
-      <blockquote class="tiktok-embed" cite="https://www.tiktok.com/@ivonnecruz2525/video/7631632766316104974" data-video-id="7631632766316104974" style="max-width:340px;min-width:300px;margin:0;"><section><a target="_blank" title="@ivonnecruz2525" href="https://www.tiktok.com/@ivonnecruz2525">@ivonnecruz2525</a></section></blockquote>
+      <div class="tiktok-lazy" data-video-id="7631632766316104974" data-username="ivonnecruz2525"><div class="tiktok-poster"><div class="tiktok-icon">▶</div><p class="tiktok-handle">@ivonnecruz2525</p><p class="tiktok-cta">Tap to load TikTok</p></div></div>
     </div>
     <p style="margin-top:16px;color:var(--text-muted);font-family:'JetBrains Mono',monospace;font-size:.65rem;letter-spacing:1.5px;text-transform:uppercase;">tap to play · @ivonnecruz2525</p>
   </div>
@@ -250,9 +300,9 @@
     <div class="cold-eyebrow">Monday · May 4 · 9 AM ET</div>
     <h1 class="cold-title">The <em>Great Unsealing 2.0</em><br><span style="font-size:.65em;color:var(--text-secondary);font-style:italic;">Everybody Lies.</span><br>A Tale of <em>3 Trials</em>.</h1>
     <p class="cold-tag">Lively · Wilson · d4vd. Three courtrooms. One morning.</p>
-    <figure style="margin:32px auto 28px;max-width:520px;">
-      <a href="https://imgflip.com/i/aquj78" target="_blank" rel="noopener"><img src="https://i.imgflip.com/aquj78.jpg" alt="Episode meme · The Great Unsealing 2.0 · Everybody Lies" title="made at imgflip.com" style="width:100%;border-radius:10px;border:1px solid var(--border);display:block;"></a>
-      <figcaption style="font-family:'JetBrains Mono',monospace;font-size:.6rem;letter-spacing:1.2px;text-transform:uppercase;color:var(--text-muted);text-align:center;margin-top:10px;">made at <a href="https://imgflip.com/memegenerator" target="_blank" rel="noopener" style="color:var(--accent-gold);">imgflip meme generator</a></figcaption>
+    <figure style="margin:32px auto 28px;max-width:760px;">
+      <img src="episode-2-key-art.jpg" alt="Celebrity Dockets · Episode 002 · LIVE · The Great Unsealing 2.0 · Everybody Lies · A Tale of Three Trials & Docket Rundown · Maury 'The evidence determined that is a lie!' · with d4vd, Blake Lively, Rebel Wilson" style="width:100%;border-radius:12px;border:1px solid var(--border);display:block;">
+      <figcaption style="font-family:'JetBrains Mono',monospace;font-size:.6rem;letter-spacing:1.2px;text-transform:uppercase;color:var(--text-muted);text-align:center;margin-top:10px;">★ Episode 002 key art · "the evidence determined that is a lie"</figcaption>
     </figure>
     <a href="https://celebritydockets.com" class="cold-url">celebritydockets.com</a>
   </div>
@@ -285,25 +335,11 @@
         <div class="docket-desc">Week 2 from the Federal Court of Australia · Rebel back on the stand, the greens go global.</div>
       </div>
 
-      <div class="docket-row">
-        <span class="docket-arrow">→</span>
-        <div class="docket-name"><em>California</em> v. Spears</div>
-        <span class="docket-dash">·</span>
-        <div class="docket-desc"><strong>Charges filed Apr 30:</strong> VC 23152(g) — a "wet" DUI of alcohol &amp; drug. Arraignment 9 AM today · Dept. 10. Spears not appearing.</div>
-      </div>
-
-      <div class="docket-row">
-        <span class="docket-arrow">→</span>
-        <div class="docket-name"><em>Kardashian</em> v. Ray J</div>
-        <span class="docket-dash">·</span>
-        <div class="docket-desc">Split ruling · Kim/Kris's $7M defamation gets a <strong>March 2028 trial date</strong>. Ray J's countersuit kicked to <strong>private arbitration</strong>.</div>
-      </div>
-
       <div class="docket-row hero">
         <span class="docket-arrow">→</span>
         <div class="docket-name">The <em>Docket Rundown</em></div>
         <span class="docket-dash">·</span>
-        <div class="docket-desc">Britney's IG comeback · Diggs criminal trial today · new Kanye lawsuit · <strong>Spencer Pratt</strong> fire suit + mayor's race · two Kylie housekeeper suits · 50 Cent · Drake media strategy · Spotify case <strong>closed</strong> · Recess May slate.</div>
+        <div class="docket-desc"><strong>Britney</strong> wet-DUI arraignment 9 AM today · IG teacups comeback · <strong>Kim/Kris</strong> $7M defamation gets March 2028 trial date · Ray J kicked to arbitration · <strong>Diggs</strong> criminal trial opens today · new Kanye lawsuit · <strong>Spencer Pratt</strong> fire suit + mayor's race · two Kylie housekeeper suits · 50 Cent · Drake media strategy · Spotify case <strong>dismissed</strong> · Recess May slate.</div>
       </div>
     </div>
   </div>
@@ -313,9 +349,9 @@
 <section class="slide slide-story">
   <div class="slide-inner" style="text-align:center;">
     <div class="story-num">Story 01 · The Lead</div>
-    <span class="story-tag">SDNY · Final Pre-Trial · Apr 28, 2026</span>
+    <span class="story-tag">SDNY · Pre-Trial Drama · The Great Unsealing</span>
     <h2 class="story-title"><em>Lively</em> v. Wayfarer</h2>
-    <p class="story-blurb">Blake and Wayfarer were in a Manhattan courtroom for the final pre-trial conference. We walk through what each side wanted in, what they wanted out, and the rulings that will shape the May 18 trial.</p>
+    <p class="story-blurb"><em>Pre-trial drama</em> &amp; <em>the Great Unsealing.</em> Their lawyers were in a Manhattan courtroom Apr 28 for the final pre-trial conference — and the docket has been on fire ever since. We walk through what each side argued, what's now public, and what shapes the May 18 trial.</p>
   </div>
 </section>
 
@@ -331,33 +367,28 @@
   </div>
 </section>
 
-<!-- 05 — LIVELY: THE DAMAGES FIGHT -->
+<!-- 05B — LIVELY: BRYAN FREEDMAN SUMS IT UP (MK True Crime, produced by Phill Holloway) -->
 <section class="slide">
-  <div class="slide-inner">
-    <div class="embed-slide-eyebrow" style="text-align:center;">★ apr 28 · the damages fight</div>
-    <h3 class="embed-slide-title" style="text-align:center;"><em>$230 million</em>. Or, per Wayfarer, &ldquo;pie in the sky.&rdquo;</h3>
-    <div style="max-width:760px;margin:0 auto;background:linear-gradient(90deg,rgba(225,16,40,.10),rgba(246,195,64,.04));border:1px solid rgba(225,16,40,.35);border-left:4px solid var(--accent-red);border-radius:10px;padding:24px 28px;">
-      <div style="font-family:'JetBrains Mono',monospace;font-size:.65rem;letter-spacing:2px;color:var(--accent-red);font-weight:700;text-transform:uppercase;margin-bottom:14px;">★ Apr 28 pre-trial · Judge Liman · S.D.N.Y.</div>
-      <ul style="list-style:none;padding:0;margin:0;font-size:.95rem;color:var(--text-secondary);line-height:1.7;">
-        <li style="padding:6px 0;"><strong style="color:var(--accent-red);">Lively's expert valuation:</strong> <strong style="color:var(--text-primary);">$230M</strong> in lost earnings &amp; profits from the alleged smear campaign + at least <strong style="color:var(--text-primary);">$40M</strong> in reputational harm.</li>
-        <li style="padding:6px 0;"><strong style="color:var(--accent-red);">Wayfarer's response:</strong> Defense lawyer Fabien Thayamballi called the figures <em>&ldquo;pie-in-the-sky&rdquo;</em> — argued they didn't reflect Lively's actual past earnings.</li>
-        <li style="padding:6px 0;"><strong style="color:var(--accent-red);">What was on the table:</strong> Admissibility of the damages expert report. The fight centered on whether the jury hears those numbers at all, and what the comparator earnings baseline should be.</li>
-        <li style="padding:6px 0;"><strong style="color:var(--accent-red);">Surviving claims for trial:</strong> retaliation, breach of contract, and aiding/abetting retaliation against Wayfarer Studios, IEWU Movie LLC, and TAG PR. Baldoni personally is no longer a defendant.</li>
-      </ul>
+  <div class="slide-inner" style="text-align:center;">
+    <div class="embed-slide-eyebrow" style="color:var(--accent-gold);">★ shoutout · MK True Crime · produced by Phill Holloway</div>
+    <h3 class="embed-slide-title"><em>Bryan Freedman</em> sums up the trial.</h3>
+    <p style="color:var(--text-secondary);font-size:.95rem;line-height:1.6;max-width:680px;margin:0 auto 28px;">All the tea on the Blake trial straight from the Wayfarer attorney himself. The show is <strong style="color:var(--accent-gold);">@mktruecrime</strong>, produced by our new favorite legal voice <strong style="color:var(--accent-gold);">Phill Holloway</strong>. Clip below — long-form breakdown on the next slide.</p>
+    <div style="max-width:560px;margin:0 auto;">
+      <div class="tiktok-lazy" data-video-id="7635031702104001823" data-username="mktruecrime"><div class="tiktok-poster"><div class="tiktok-icon">▶</div><p class="tiktok-handle">@mktruecrime</p><p class="tiktok-cta">Tap to load TikTok</p></div></div>
     </div>
-    <p style="text-align:center;margin-top:18px;color:var(--text-muted);font-family:'JetBrains Mono',monospace;font-size:.7rem;letter-spacing:1.5px;">Source: U.S. News &amp; World Report (Reuters wire) · Apr 28, 2026</p>
   </div>
 </section>
 
-<!-- 05B — LIVELY: BRYAN FREEDMAN SUMS IT UP -->
+<!-- 05B2 — LIVELY: PHILL HOLLOWAY FULL BREAKDOWN (moved from D4VD; multi-case but Blake leads) -->
 <section class="slide">
   <div class="slide-inner" style="text-align:center;">
-    <div class="embed-slide-eyebrow" style="color:var(--accent-gold);">★ shoutout · MK True Crime + Phill Holloway</div>
-    <h3 class="embed-slide-title"><em>Bryan Freedman</em> sums up the trial.</h3>
-    <p style="color:var(--text-secondary);font-size:.95rem;line-height:1.6;max-width:680px;margin:0 auto 28px;">All the tea on the Blake trial straight from the Wayfarer attorney himself. Shoutout to <strong style="color:var(--accent-gold);">@mktruecrime</strong> and our new favorite channel <strong style="color:var(--accent-gold);">Phill Holloway</strong> on YouTube. Full breakdown below.</p>
-    <div style="max-width:560px;margin:0 auto;">
-      <blockquote class="tiktok-embed" cite="https://www.tiktok.com/@mktruecrime/video/7635031702104001823" data-video-id="7635031702104001823" style="max-width:560px;min-width:300px;margin:0;"><section><a target="_blank" title="@mktruecrime" href="https://www.tiktok.com/@mktruecrime">@mktruecrime</a></section></blockquote>
+    <div class="embed-slide-eyebrow" style="color:var(--accent-gold);">★ phill holloway · the long-form sit-down</div>
+    <h3 class="embed-slide-title">Phill Holloway walks the <em>full case</em>.</h3>
+    <p style="color:var(--text-secondary);font-size:.95rem;line-height:1.6;max-width:720px;margin:0 auto 24px;">Phill — who produces <strong style="color:var(--accent-gold);">MK True Crime</strong> — sits down with Bryan Freedman to walk Blake's INSANE damages claim, then runs straight into d4vd's Amazon order and the &ldquo;No Body&rdquo; yacht murders. One sit-down · three trials.</p>
+    <div style="position:relative;width:100%;max-width:760px;margin:0 auto;padding-bottom:42.75%;border-radius:12px;overflow:hidden;border:1px solid var(--border);background:#000;">
+      <iframe src="https://www.youtube.com/embed/2pnlW2Lts4o?rel=0&modestbranding=1&playsinline=1&iv_load_policy=3" title="Phill Holloway · Blake Lively's INSANE Damages Claim with Baldoni Lawyer Bryan Freedman · plus d4vd + No Body Yacht Murders" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen style="position:absolute;top:0;left:0;width:100%;height:100%;border:0;"></iframe>
     </div>
+    <p style="margin-top:14px;color:var(--text-muted);font-family:'JetBrains Mono',monospace;font-size:.65rem;letter-spacing:1.5px;text-transform:uppercase;">via @PhillHolloway · YouTube · "Blake Lively's INSANE Damages Claim, w/ Bryan Freedman"</p>
   </div>
 </section>
 
@@ -405,7 +436,7 @@
     <h3 class="embed-slide-title"><em>Blake Brown Beauty</em> tanks.</h3>
     <p style="color:var(--text-secondary);font-size:.95rem;line-height:1.6;max-width:680px;margin:0 auto 28px;">Sales numbers don't lie. Cashmere Chronicles broke the deep dive · industry watchers caught the same trend on the same weekend.</p>
     <div style="max-width:560px;margin:0 auto 22px;">
-      <blockquote class="tiktok-embed" cite="https://www.tiktok.com/@cashmerechronicles/video/7635062727756483853" data-video-id="7635062727756483853" style="max-width:560px;min-width:300px;margin:0;"><section><a target="_blank" title="@cashmerechronicles" href="https://www.tiktok.com/@cashmerechronicles">@cashmerechronicles</a></section></blockquote>
+      <div class="tiktok-lazy" data-video-id="7635062727756483853" data-username="cashmerechronicles"><div class="tiktok-poster"><div class="tiktok-icon">▶</div><p class="tiktok-handle">@cashmerechronicles</p><p class="tiktok-cta">Tap to load TikTok</p></div></div>
     </div>
     <div style="display:grid;grid-template-columns:1fr 1fr;gap:18px;max-width:780px;margin:0 auto;">
       <div style="background:var(--bg-card);border:1px solid var(--border);border-radius:10px;padding:14px;">
@@ -530,11 +561,11 @@
     <div style="display:grid;grid-template-columns:1fr 1fr;gap:18px;max-width:780px;margin:0 auto;">
       <div style="background:var(--bg-card);border:1px solid var(--border);border-radius:10px;padding:14px;text-align:center;">
         <div style="font-family:'JetBrains Mono',monospace;font-size:.6rem;letter-spacing:1.5px;color:var(--accent-red);font-weight:700;text-transform:uppercase;margin-bottom:10px;">★ dailies &amp; deposition</div>
-        <blockquote class="tiktok-embed" cite="https://www.tiktok.com/@megannicolle87/video/7635461314155973901" data-video-id="7635461314155973901" style="max-width:340px;min-width:280px;margin:0 auto;"><section><a target="_blank" title="@megannicolle87" href="https://www.tiktok.com/@megannicolle87">@megannicolle87</a></section></blockquote>
+        <div class="tiktok-lazy" data-video-id="7635461314155973901" data-username="megannicolle87"><div class="tiktok-poster"><div class="tiktok-icon">▶</div><p class="tiktok-handle">@megannicolle87</p><p class="tiktok-cta">Tap to load TikTok</p></div></div>
       </div>
       <div style="background:var(--bg-card);border:1px solid var(--border);border-radius:10px;padding:14px;text-align:center;">
         <div style="font-family:'JetBrains Mono',monospace;font-size:.6rem;letter-spacing:1.5px;color:var(--accent-red);font-weight:700;text-transform:uppercase;margin-bottom:10px;">★ lawyer comms timeline</div>
-        <blockquote class="tiktok-embed" cite="https://www.tiktok.com/@boccegohawks/video/7635745402649627935" data-video-id="7635745402649627935" style="max-width:340px;min-width:280px;margin:0 auto;"><section><a target="_blank" title="@boccegohawks" href="https://www.tiktok.com/@boccegohawks">@boccegohawks</a></section></blockquote>
+        <div class="tiktok-lazy" data-video-id="7635745402649627935" data-username="boccegohawks"><div class="tiktok-poster"><div class="tiktok-icon">▶</div><p class="tiktok-handle">@boccegohawks</p><p class="tiktok-cta">Tap to load TikTok</p></div></div>
       </div>
     </div>
   </div>
@@ -633,19 +664,6 @@
         <figcaption style="font-family:'JetBrains Mono',monospace;font-size:.65rem;letter-spacing:1.2px;text-transform:uppercase;color:var(--text-muted);text-align:center;margin-top:10px;line-height:1.7;">👔 Civilian Attire Motion · <span style="color:var(--accent-red);">DENIED</span><br>Apr 27 · via @SF_investigates</figcaption>
       </figure>
     </div>
-  </div>
-</section>
-
-<!-- 9B2 — D4VD: PHILL HOLLOWAY YOUTUBE BREAKDOWN -->
-<section class="slide">
-  <div class="slide-inner" style="text-align:center;">
-    <div class="embed-slide-eyebrow" style="color:var(--accent-gold);">★ phill holloway · the breakdown</div>
-    <h3 class="embed-slide-title">Phill Holloway walks the <em>full case</em>.</h3>
-    <p style="color:var(--text-secondary);font-size:.95rem;line-height:1.6;max-width:680px;margin:0 auto 24px;">Our new favorite legal channel. Every charge, every theory, every bit of physical evidence — laid out in one sit-down.</p>
-    <div style="position:relative;width:100%;max-width:760px;margin:0 auto;padding-bottom:42.75%;border-radius:12px;overflow:hidden;border:1px solid var(--border);background:#000;">
-      <iframe src="https://www.youtube.com/embed/2pnlW2Lts4o?rel=0&modestbranding=1&playsinline=1&iv_load_policy=3" title="Phill Holloway · D4VD Case Breakdown" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen style="position:absolute;top:0;left:0;width:100%;height:100%;border:0;"></iframe>
-    </div>
-    <p style="margin-top:14px;color:var(--text-muted);font-family:'JetBrains Mono',monospace;font-size:.65rem;letter-spacing:1.5px;text-transform:uppercase;">via @PhillHolloway · YouTube</p>
   </div>
 </section>
 
@@ -1439,9 +1457,55 @@
 </section>
 
 <script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>
-<script async src="https://www.tiktok.com/embed.js"></script>
 <script async src="//www.instagram.com/embed.js"></script>
 <script async src="https://embed.reddit.com/widgets.js" charset="UTF-8"></script>
+
+<script>
+  // TikTok lazy-load: only inject embed when placeholder enters viewport (or on click)
+  (function(){
+    let tiktokScriptInjected = false;
+    function injectTiktokScript(){
+      if (tiktokScriptInjected) {
+        if (window.tiktokEmbed && window.tiktokEmbed.lib && window.tiktokEmbed.lib.render) {
+          window.tiktokEmbed.lib.render();
+        }
+        return;
+      }
+      const s = document.createElement('script');
+      s.src = 'https://www.tiktok.com/embed.js';
+      s.async = true;
+      document.body.appendChild(s);
+      tiktokScriptInjected = true;
+    }
+    function loadTiktok(el){
+      if (el.classList.contains('loaded')) return;
+      const id = el.dataset.videoId;
+      const user = el.dataset.username;
+      const bq = document.createElement('blockquote');
+      bq.className = 'tiktok-embed';
+      bq.setAttribute('cite', `https://www.tiktok.com/@${user}/video/${id}`);
+      bq.setAttribute('data-video-id', id);
+      bq.style.cssText = 'max-width:560px;min-width:280px;margin:0 auto;';
+      bq.innerHTML = `<section><a target="_blank" title="@${user}" href="https://www.tiktok.com/@${user}">@${user}</a></section>`;
+      el.replaceWith(bq);
+      injectTiktokScript();
+    }
+    const obs = new IntersectionObserver(function(entries){
+      entries.forEach(function(entry){
+        if (entry.isIntersecting) {
+          loadTiktok(entry.target);
+          obs.unobserve(entry.target);
+        }
+      });
+    }, { rootMargin: '600px 0px' });
+    document.addEventListener('DOMContentLoaded', function(){
+      document.querySelectorAll('.tiktok-lazy').forEach(function(el){
+        obs.observe(el);
+        el.addEventListener('click', function(){ loadTiktok(el); });
+      });
+    });
+  })();
+</script>
 
 <script>
   // Update progress chrome as user scrolls through slides
