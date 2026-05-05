@@ -37,6 +37,9 @@ body{background:var(--bg);color:var(--t1);font-family:'IBM Plex Sans',sans-serif
 .cr-claim{font-size:.8rem;color:var(--t2);white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
 .cr-right{display:flex;gap:8px;align-items:center;flex-shrink:0}
 .cr-badge{font-size:.6rem;font-weight:700;text-transform:uppercase;letter-spacing:1px;padding:3px 10px;border-radius:3px;background:rgba(246,195,64,.1);color:var(--gold);border:1px solid rgba(246,195,64,.2);white-space:nowrap}
+.cr-badge.done{background:rgba(39,174,96,.18);color:#27ae60;border:1px solid rgba(39,174,96,.4)}
+.case-row.resolved{background:linear-gradient(90deg,rgba(39,174,96,.06),rgba(39,174,96,.02));border-color:rgba(39,174,96,.30)}
+.case-row.resolved:hover{border-color:#27ae60}
 .cr-docket{font-size:.7rem;color:var(--gold);font-family:'JetBrains Mono',monospace;white-space:nowrap}
 .cr-arrow{color:var(--gold);font-size:.9rem}
 @media(max-width:600px){.cr-right{flex-direction:column;align-items:flex-end}.ht{font-size:2rem}}
@@ -239,9 +242,9 @@ function searchDocket(){
 <!-- WORKPLACE / RETALIATION -->
 <div class="cat-header" id="workplace" data-cat="workplace"><h2>Workplace / Retaliation</h2><div class="line"></div><span class="count">3</span></div>
 
-<a href="lively-v-baldoni.html" class="case-row" data-cat="workplace">
-<div class="cr-left"><div class="cr-name">Lively v. Wayfarer / IEWU Movie LLC</div><div class="cr-claim">Retaliation and breach of contract - 10 of 13 claims dismissed</div></div>
-<div class="cr-right"><span class="cr-badge">Trial May 18</span><span class="cr-docket">1:24-cv-10049</span><span class="cr-arrow">→</span></div></a>
+<a href="lively-v-baldoni.html" class="case-row resolved" data-cat="workplace">
+<div class="cr-left"><div class="cr-name">Lively v. Wayfarer / IEWU Movie LLC</div><div class="cr-claim">✅ <strong style="color:#27ae60;">SETTLED May 4, 2026</strong> — two weeks before trial · terms not disclosed</div></div>
+<div class="cr-right"><span class="cr-badge done">✅ Settled</span><span class="cr-docket">1:24-cv-10049</span><span class="cr-arrow">→</span></div></a>
 
 <a href="cohen-v-mcsweeney.html" class="case-row" data-cat="workplace">
 <div class="cr-left"><div class="cr-name">McSweeney v. Cohen & Bravo</div><div class="cr-claim">Toxic workplace, cocaine claims - motion to dismiss pending</div></div>
@@ -292,9 +295,9 @@ function searchDocket(){
 <div class="cr-left"><div class="cr-name">State v. Woods</div><div class="cr-claim">Rollover crash, hydrocodone, fighting prescription subpoena</div></div>
 <div class="cr-right"><span class="cr-badge">Hearing May 5</span><span class="cr-arrow">→</span></div></a>
 
-<a href="britney-spears-dui.html" class="case-row" data-cat="dui">
-<div class="cr-left"><div class="cr-name">People v. Spears</div><div class="cr-claim">DUI arrest March 4 - now in rehab</div></div>
-<div class="cr-right"><span class="cr-badge">Court May 4</span><span class="cr-arrow">→</span></div></a>
+<a href="britney-spears-dui.html" class="case-row resolved" data-cat="dui">
+<div class="cr-left"><div class="cr-name">People v. Spears</div><div class="cr-claim">✅ <strong style="color:#27ae60;">RESOLVED May 4, 2026</strong> — wet-reckless plea, 1 year summary probation</div></div>
+<div class="cr-right"><span class="cr-badge done">✅ Resolved</span><span class="cr-arrow">→</span></div></a>
 
 <!-- FILM / PRODUCTION -->
 <div class="cat-header" id="film" data-cat="film"><h2>Film / Production</h2><div class="line"></div><span class="count">1</span></div>
