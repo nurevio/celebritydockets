@@ -40,6 +40,9 @@ body{background:var(--bg);color:var(--t1);font-family:'IBM Plex Sans',sans-serif
 .cr-badge.done{background:rgba(39,174,96,.18);color:#27ae60;border:1px solid rgba(39,174,96,.4)}
 .case-row.resolved{background:linear-gradient(90deg,rgba(39,174,96,.06),rgba(39,174,96,.02));border-color:rgba(39,174,96,.30)}
 .case-row.resolved:hover{border-color:#27ae60}
+.cr-badge.hold{background:rgba(246,195,64,.18);color:#f6c340;border:1px solid rgba(246,195,64,.4)}
+.case-row.hold{background:linear-gradient(90deg,rgba(246,195,64,.06),rgba(246,195,64,.02));border-color:rgba(246,195,64,.30)}
+.case-row.hold:hover{border-color:#f6c340}
 .cr-docket{font-size:.7rem;color:var(--gold);font-family:'JetBrains Mono',monospace;white-space:nowrap}
 .cr-arrow{color:var(--gold);font-size:.9rem}
 @media(max-width:600px){.cr-right{flex-direction:column;align-items:flex-end}.ht{font-size:2rem}}
@@ -162,9 +165,9 @@ function searchDocket(){
 <div class="cr-left"><div class="cr-name">Combs v. NewsNation</div><div class="cr-claim">$100M defamation suit over false claims aired on NewsNation</div></div>
 <div class="cr-right"><span class="cr-badge">Active</span><span class="cr-arrow">→</span></div></a>
 
-<a href="kardashian-v-ray-j.html" class="case-row" data-cat="defamation">
-<div class="cr-left"><div class="cr-name">Kardashian & Jenner v. Ray J</div><div class="cr-claim">$6M sex tape settlement unsealed</div></div>
-<div class="cr-right"><span class="cr-badge">Active</span><span class="cr-arrow">→</span></div></a>
+<a href="kardashian-v-ray-j.html" class="case-row hold" data-cat="defamation">
+<div class="cr-left"><div class="cr-name">Kardashian & Jenner v. Ray J</div><div class="cr-claim">⏳ <strong style="color:#f6c340;">SPLIT</strong> — Ray J countersuit to arbitration · status conference Feb 9, 2027 · trial Mar 6, 2028</div></div>
+<div class="cr-right"><span class="cr-badge hold">⏳ Split</span><span class="cr-arrow">→</span></div></a>
 
 <a href="wilson-v-ghost-the-deb.html" class="case-row" data-cat="defamation">
 <div class="cr-left"><div class="cr-name">Ghost et al. v. Wilson</div><div class="cr-claim">The Deb producers v. Rebel Wilson - anonymous smear websites</div></div>
