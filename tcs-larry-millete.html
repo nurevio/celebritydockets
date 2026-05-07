@@ -1,0 +1,260 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<link rel="icon" type="image/png" href="favicon.png">
+<link rel="apple-touch-icon" href="favicon.png">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>FILE · 001 · People v. Larry Millete · TCS · Celebrity Dockets</title>
+<link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&family=IBM+Plex+Sans:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500;600&family=Special+Elite&family=Permanent+Marker&display=swap" rel="stylesheet">
+<style>
+:root,:root[data-theme="dark"]{--bg:#0a0a0f;--card:#12121a;--red:#E11028;--gold:#F6C340;--blue:#4a90d9;--green:#27ae60;--t1:#e8e6e1;--t2:#9a9a9a;--t3:#5a5a6a;--bdr:#2a2a3a;--cork:#3d2817;--paper:#f4ede0;--paper-yellow:#fff8c5;--string:#d63333;--pin:#dc2626}
+:root[data-theme="light"]{--bg:#f5f2ea;--card:#ffffff;--red:#E11028;--gold:#8b6f20;--blue:#1e5091;--green:#27ae60;--t1:#1a1a1f;--t2:#5a5a5f;--t3:#8a8a8f;--bdr:#d4cfc0;--cork:#a87b4e;--paper:#ffffff;--paper-yellow:#fff8c5;--string:#c41e1e;--pin:#dc2626}
+*{margin:0;padding:0;box-sizing:border-box}
+html{scroll-behavior:smooth}body{background:var(--bg);color:var(--t1);font-family:'IBM Plex Sans',sans-serif;line-height:1.6;transition:background .3s,color .3s}
+.hdr{border-bottom:1px solid var(--bdr);padding:16px 24px;display:flex;align-items:center;justify-content:space-between;background:var(--bg);position:sticky;top:0;z-index:100;backdrop-filter:blur(12px)}
+.logo{font-family:'DM Serif Display',serif;font-size:1.4rem;color:var(--t1);text-decoration:none}.logo span{color:var(--red)}
+.nav{display:flex;gap:24px;font-size:.8rem;text-transform:uppercase;letter-spacing:1.5px;font-weight:600}
+.nav a{color:var(--t2);text-decoration:none;transition:color .2s}.nav a:hover{color:var(--gold)}.nav a.on{color:var(--gold)}
+.nav a.tcs{color:var(--red);display:inline-flex;align-items:center;gap:6px}.nav a.tcs.on{color:var(--gold)}
+.theme-toggle{background:none;border:1px solid var(--bdr);color:var(--t2);cursor:pointer;padding:6px 10px;border-radius:4px;font-size:.75rem;font-family:'JetBrains Mono',monospace;text-transform:uppercase}
+.hamburger{display:none;background:none;border:none;color:var(--t1);cursor:pointer;padding:8px;flex-direction:column;gap:5px}.hamburger span{display:block;width:24px;height:2px;background:var(--t1);transition:all .3s}
+@media(max-width:768px){.nav{display:none;position:absolute;top:100%;left:0;right:0;background:var(--bg);flex-direction:column;padding:20px 24px;gap:18px;border-bottom:1px solid var(--bdr);z-index:99}.nav.open{display:flex}.hamburger{display:flex}}
+
+/* CORKBOARD HERO */
+.cork-hero{position:relative;background:linear-gradient(135deg,#2a1810 0%,#3d2817 35%,#5c3b1f 70%,#3d2817 100%);padding:48px 24px 64px;overflow:hidden;border-bottom:1px solid var(--bdr)}
+.cork-hero::before{content:'';position:absolute;inset:0;background-image:radial-gradient(circle at 12% 18%,rgba(0,0,0,.15) 1px,transparent 2px),radial-gradient(circle at 38% 67%,rgba(0,0,0,.18) 1.5px,transparent 2.5px),radial-gradient(circle at 73% 31%,rgba(255,255,255,.05) 1px,transparent 2px),radial-gradient(circle at 88% 78%,rgba(0,0,0,.12) 1px,transparent 2px),radial-gradient(circle at 21% 92%,rgba(0,0,0,.16) 1.5px,transparent 2.5px);background-size:140px 140px,180px 180px,160px 160px,200px 200px,170px 170px;pointer-events:none}
+.cork-inner{position:relative;max-width:1100px;margin:0 auto}
+.crumb{font-family:'JetBrains Mono',monospace;font-size:.7rem;letter-spacing:2px;text-transform:uppercase;color:#fff8c5;margin-bottom:12px;display:inline-flex;align-items:center;gap:8px}
+.crumb a{color:var(--gold);text-decoration:none}.crumb a:hover{color:#fff8d6}
+.case-badge-row{display:flex;gap:10px;flex-wrap:wrap;margin-bottom:18px}
+.case-badge{font-family:'JetBrains Mono',monospace;font-size:.62rem;letter-spacing:2px;text-transform:uppercase;font-weight:700;padding:5px 12px;background:#fff8c5;color:#1a0d05;transform:rotate(-1deg);box-shadow:2px 2px 0 rgba(0,0,0,.5)}
+.case-badge.red{background:#a01818;color:#fff8d6}
+.case-badge.gold{background:#b8941f;color:#fff8d6}
+.case-name{font-family:'Permanent Marker',cursive;font-size:clamp(2.4rem,6vw,4.2rem);line-height:1;color:#fff8d6;text-shadow:3px 3px 0 #1a0d05,5px 5px 0 rgba(0,0,0,.4);margin-bottom:14px;transform:rotate(-1deg)}
+.case-sub{font-family:'Special Elite',monospace;font-size:clamp(.95rem,1.8vw,1.15rem);color:#fff8d6;max-width:780px;line-height:1.6}
+
+/* DISCLAIMER */
+.disclaim{background:#fff8c5;color:#1a0d05;padding:14px 24px;text-align:center;font-family:'Special Elite',monospace;font-size:.82rem;line-height:1.5;border-top:2px dashed #a01818;border-bottom:2px dashed #a01818}
+.disclaim strong{color:#a01818}
+
+/* WALL CONTENT */
+.wall{position:relative;background:linear-gradient(135deg,#3d2817 0%,#5c3b1f 50%,#3d2817 100%);padding:50px 24px 70px;min-height:60vh}
+.wall::before{content:'';position:absolute;inset:0;background-image:radial-gradient(circle at 17% 23%,rgba(0,0,0,.18) 1.5px,transparent 2.5px),radial-gradient(circle at 43% 71%,rgba(0,0,0,.14) 1px,transparent 2px),radial-gradient(circle at 68% 35%,rgba(0,0,0,.16) 1.5px,transparent 2.5px),radial-gradient(circle at 89% 82%,rgba(0,0,0,.12) 1px,transparent 2px);background-size:120px 120px,160px 160px,140px 140px,180px 180px;pointer-events:none}
+.wall-inner{position:relative;max-width:1100px;margin:0 auto;z-index:2}
+
+.sh{display:flex;align-items:center;gap:16px;margin:48px 0 24px;position:relative;z-index:2}
+.sh:first-child{margin-top:0}
+.sht{font-family:'Permanent Marker',cursive;font-size:1.5rem;color:#fff8d6;white-space:nowrap;text-shadow:2px 2px 0 rgba(0,0,0,.5)}
+.shl{flex:1;height:2px;background:repeating-linear-gradient(90deg,#fff8d6 0 8px,transparent 8px 14px);opacity:.55}
+
+/* PAPER PANEL · for content blocks */
+.panel{background:var(--paper);color:#1a1a1f;padding:24px 26px 26px;border-radius:2px;box-shadow:6px 8px 18px rgba(0,0,0,.55),0 2px 4px rgba(0,0,0,.3);position:relative;font-family:'IBM Plex Sans',sans-serif;margin-bottom:32px}
+.panel::before{content:'';position:absolute;top:-12px;left:50%;transform:translateX(-50%);width:22px;height:22px;border-radius:50%;background:radial-gradient(circle at 35% 30%,#ff5050 0%,#a01010 55%,#400505 100%);box-shadow:0 3px 5px rgba(0,0,0,.7),inset -3px -3px 6px rgba(0,0,0,.45),inset 3px 3px 6px rgba(255,255,255,.4);z-index:3}
+.panel.tilt-l{transform:rotate(-.4deg)}
+.panel.tilt-r{transform:rotate(.5deg)}
+.panel-tab{font-family:'Special Elite',monospace;font-size:.6rem;letter-spacing:3px;text-transform:uppercase;font-weight:700;color:#fff;background:#1a1a1f;display:inline-block;padding:4px 12px;margin:-32px 0 14px -8px;transform:rotate(-2deg);box-shadow:2px 2px 0 rgba(0,0,0,.5)}
+.panel-tab.red{background:#a01818;color:#fff8d6}
+.panel-tab.gold{background:#b8941f;color:#fff8d6}
+.panel h3{font-family:'DM Serif Display',serif;font-size:1.4rem;color:#1a1a1f;margin-bottom:10px}
+.panel p{font-family:'Special Elite',monospace;font-size:.9rem;line-height:1.65;color:#2a2a2f;margin-bottom:12px}
+.panel p:last-child{margin-bottom:0}
+.panel strong{color:#1a1a1f;font-weight:700}
+.panel em{color:#a01818;font-style:italic}
+
+/* TIMELINE · index-card stack */
+.timeline{display:flex;flex-direction:column;gap:14px}
+.tl-card{background:var(--paper);color:#1a1a1f;padding:14px 18px;display:grid;grid-template-columns:130px 1fr;gap:18px;align-items:start;box-shadow:3px 4px 8px rgba(0,0,0,.4);position:relative;border-left:4px solid #a01818}
+.tl-card.green{border-left-color:#27ae60}
+.tl-card.gold{border-left-color:#b8941f}
+.tl-card .tl-date{font-family:'JetBrains Mono',monospace;font-size:.7rem;font-weight:700;color:#a01818;letter-spacing:1.2px;text-transform:uppercase;padding-top:2px}
+.tl-card.green .tl-date{color:#27ae60}
+.tl-card.gold .tl-date{color:#8b6f20}
+.tl-card .tl-body{font-family:'Special Elite',monospace;font-size:.86rem;line-height:1.55;color:#2a2a2f}
+.tl-card .tl-body strong{color:#1a1a1f}
+@media(max-width:600px){.tl-card{grid-template-columns:1fr;gap:6px}}
+
+/* KEY PLAYERS · polaroid grid */
+.players{display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:24px;margin:8px 0}
+.player{background:#fff;padding:10px 10px 28px;box-shadow:3px 4px 8px rgba(0,0,0,.4);position:relative}
+.player::before{content:'';position:absolute;top:-8px;left:50%;transform:translateX(-50%);width:16px;height:16px;border-radius:50%;background:radial-gradient(circle at 35% 30%,#ff5050,#a01010 60%);box-shadow:0 2px 3px rgba(0,0,0,.6);z-index:2}
+.player.tilt-1{transform:rotate(-1.2deg)}.player.tilt-2{transform:rotate(.8deg)}.player.tilt-3{transform:rotate(-.6deg)}.player.tilt-4{transform:rotate(1.4deg)}
+.player img{display:block;width:100%;aspect-ratio:1/1.05;object-fit:cover;background:#888;filter:contrast(1.05) saturate(.85)}
+.player-cap{position:absolute;left:0;right:0;bottom:6px;text-align:center;font-family:'Permanent Marker',cursive;font-size:.78rem;color:#1a1a1f;line-height:1.1}
+.player-role{display:block;font-family:'JetBrains Mono',monospace;font-size:.55rem;letter-spacing:1.5px;text-transform:uppercase;color:#a01818;margin-top:2px;font-weight:700}
+
+/* STICKY NOTE for theories */
+.theories{display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:22px;margin:10px 0}
+.sticky{font-family:'Permanent Marker',cursive;font-size:.95rem;line-height:1.35;background:#fff8c5;color:#1a1a1f;padding:18px 20px 22px;box-shadow:3px 4px 8px rgba(0,0,0,.4);position:relative;min-height:130px}
+.sticky::before{content:'';position:absolute;top:-7px;left:50%;transform:translateX(-50%);width:14px;height:14px;border-radius:50%;background:radial-gradient(circle at 35% 30%,#ffe060,#b09020 70%);box-shadow:0 1px 2px rgba(0,0,0,.4)}
+.sticky.tilt-1{transform:rotate(-1.5deg)}.sticky.tilt-2{transform:rotate(1.2deg)}.sticky.tilt-3{transform:rotate(-.8deg)}
+.sticky-label{display:block;font-family:'JetBrains Mono',monospace;font-size:.55rem;letter-spacing:1.5px;text-transform:uppercase;color:#a01818;font-weight:700;margin-bottom:8px}
+
+/* STAMP */
+.stamp{font-family:'Permanent Marker',cursive;font-size:1.1rem;letter-spacing:3px;text-transform:uppercase;color:#a01818;border:4px solid #a01818;padding:8px 18px;display:inline-block;transform:rotate(-6deg);opacity:.85;margin:8px 0}
+.stamp.green{color:#27ae60;border-color:#27ae60}
+.stamp.gold{color:#8b6f20;border-color:#8b6f20}
+
+/* SOURCES */
+.sources{display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:12px;margin-top:8px}
+.source{background:var(--paper);padding:12px 14px;font-family:'Special Elite',monospace;font-size:.78rem;color:#1a1a1f;text-decoration:none;border-left:3px solid #a01818;display:block;box-shadow:2px 2px 5px rgba(0,0,0,.3)}
+.source:hover{border-left-color:#27ae60}
+.source strong{display:block;color:#a01818;font-size:.65rem;letter-spacing:1.5px;text-transform:uppercase;margin-bottom:4px}
+
+/* FOOTER */
+.ft{border-top:1px solid var(--bdr);padding:40px 24px;text-align:center;background:var(--bg);color:var(--t1)}
+.ftl{font-family:'DM Serif Display',serif;font-size:1.6rem;color:var(--t1);margin-bottom:8px}.ftl span{color:var(--red)}
+.ftt{font-size:.82rem;color:var(--t3);margin-bottom:20px}
+.ftk{display:flex;gap:24px;justify-content:center;flex-wrap:wrap;margin-bottom:20px}
+.ftk a{font-size:.75rem;text-transform:uppercase;letter-spacing:1.5px;font-weight:600;color:var(--t2);text-decoration:none}.ftk a:hover{color:var(--gold)}
+.ftc{font-size:.7rem;color:var(--t3)}
+</style>
+</head>
+<body>
+
+<header class="hdr">
+  <a href="index.html" class="logo">Celebrity<span>Dockets</span></a>
+  <button class="hamburger" onclick="this.classList.toggle('open');document.querySelector('.nav').classList.toggle('open')"><span></span><span></span><span></span></button>
+  <nav class="nav">
+    <a href="index.html#cases">Cases</a>
+    <a href="latest.html">Latest</a>
+    <a href="objection-live.html">All Rise</a>
+    <a href="recess.html">RECESS</a>
+    <a href="star-bar.html">Star Bar</a>
+    <a href="courtroom-culture.html">Courtroom Culture</a>
+    <a href="tcs.html" class="tcs on">⚖️ TCS</a>
+    <a href="about.html">About</a>
+    <a href="https://www.buymeacoffee.com/celebritydockets" target="_blank" rel="noopener" style="color:#FFDD00;">☕ Fuel</a>
+  </nav>
+  <button class="theme-toggle" onclick="toggleTheme()" title="Toggle theme"><span id="theme-icon">☀️</span></button>
+</header>
+
+<script>
+function toggleTheme(){var c=document.documentElement.getAttribute('data-theme')||'dark';var n=c==='dark'?'light':'dark';document.documentElement.setAttribute('data-theme',n);localStorage.setItem('cdTheme',n);document.getElementById('theme-icon').textContent=n==='dark'?'🌙':'☀️';}
+(function(){var s=localStorage.getItem('cdTheme')||'dark';document.documentElement.setAttribute('data-theme',s);window.addEventListener('DOMContentLoaded',function(){var ic=document.getElementById('theme-icon');if(ic)ic.textContent=s==='dark'?'🌙':'☀️';});})();
+</script>
+
+<!-- HERO -->
+<section class="cork-hero">
+  <div class="cork-inner">
+    <div class="crumb">← <a href="tcs.html">TCS · The Wall</a> · FILE 001</div>
+    <div class="case-badge-row">
+      <span class="case-badge red">Open File · Active</span>
+      <span class="case-badge">Murder · No Body</span>
+      <span class="case-badge gold">Hung Jury · Retrial Track</span>
+    </div>
+    <h1 class="case-name"><em>People</em> v.<br>Larry Millete</h1>
+    <p class="case-sub">May "Maya" Millete vanished from her Chula Vista home on <strong>Jan 7, 2021</strong>. Her body has never been found. Her husband Larry was charged with first-degree murder ten months later. The first jury hung. The case is back on the retrial track.</p>
+  </div>
+</section>
+
+<div class="disclaim">
+  <strong>★ Citizens-only opinion.</strong> Everything here reflects publicly available evidence, court filings, and citizen analysis. Larry Millete is presumed innocent. Nothing on this page is a legal finding, court verdict, or determination of guilt.
+</div>
+
+<section class="wall">
+  <div class="wall-inner">
+
+    <!-- CASE OVERVIEW -->
+    <div class="sh"><h2 class="sht">★ Case Overview</h2><div class="shl"></div></div>
+    <div class="panel tilt-l">
+      <span class="panel-tab red">Background</span>
+      <h3>Three children. One mother. Zero body.</h3>
+      <p><strong>May "Maya" Millete</strong> &mdash; 39, mother of three &mdash; was last seen alive on <strong>January 7, 2021</strong> at the Millete family home in Chula Vista, California. Her sister reported her missing two days later. The marriage was strained: Maya had told friends and family she was planning to file for divorce.</p>
+      <p>San Diego County prosecutors charged <strong>Larry Millete</strong> with first-degree murder + a deadly-weapon enhancement on <strong>October 19, 2021</strong>. Maya's remains have never been recovered. The case is built almost entirely on circumstantial evidence: text messages, online "spell-caster" purchases, and behavioral inconsistencies in the days before and after she disappeared.</p>
+      <p>The first jury trial ended in a <strong>hung jury</strong>. The retrial is now on track. Larry remains in custody.</p>
+    </div>
+
+    <!-- TIMELINE -->
+    <div class="sh"><h2 class="sht">★ Timeline</h2><div class="shl"></div></div>
+    <div class="timeline">
+      <div class="tl-card"><div class="tl-date">Jan 7, 2021</div><div class="tl-body"><strong>Maya last seen alive</strong> at the Chula Vista family home. No verified contact with anyone after this date.</div></div>
+      <div class="tl-card"><div class="tl-date">Jan 9, 2021</div><div class="tl-body">Maya's sister reports her missing to Chula Vista PD. Family search begins.</div></div>
+      <div class="tl-card"><div class="tl-date">Jan-Sep 2021</div><div class="tl-body">CVPD investigation: searches of the home, surrounding land, family vehicles. <strong>"Spell caster" online purchase records</strong> recovered from Larry's accounts &mdash; allegedly hired remote ritualists to "keep Maya from leaving."</div></div>
+      <div class="tl-card gold"><div class="tl-date">Oct 19, 2021</div><div class="tl-body"><strong>Larry Millete charged</strong> with first-degree murder + gun enhancement. Held without bail.</div></div>
+      <div class="tl-card"><div class="tl-date">2022-2023</div><div class="tl-body">Preliminary hearings; defense motions to dismiss for lack of corpus delicti denied. Case bound over for trial.</div></div>
+      <div class="tl-card"><div class="tl-date">2024</div><div class="tl-body"><strong>First jury trial.</strong> Prosecution presents the spell-caster evidence, the texts, the firearm purchases. Defense argues no body, no DNA, no scene &mdash; reasonable doubt.</div></div>
+      <div class="tl-card gold"><div class="tl-date">2024</div><div class="tl-body" style="color:#8b6f20;font-weight:700;">★ HUNG JURY · mistrial declared. Retrial calendar set.</div></div>
+      <div class="tl-card"><div class="tl-date">2025-2026</div><div class="tl-body">Retrial preparation. New defense team. Citizen coverage continues to dig into the spell-caster receipts and the firearm timeline.</div></div>
+    </div>
+
+    <!-- KEY PLAYERS -->
+    <div class="sh"><h2 class="sht">★ Key Players</h2><div class="shl"></div></div>
+    <div class="players">
+      <div class="player tilt-1">
+        <img src="https://via.placeholder.com/240x252/3a2a2a/fff?text=MAYA" alt="Maya Millete · placeholder">
+        <div class="player-cap">May "Maya" Millete<span class="player-role">Victim · age 39</span></div>
+      </div>
+      <div class="player tilt-2">
+        <img src="https://via.placeholder.com/240x252/2a2a2a/fff?text=LARRY" alt="Larry Millete · placeholder">
+        <div class="player-cap">Larry Millete<span class="player-role">Defendant · husband</span></div>
+      </div>
+      <div class="player tilt-3">
+        <img src="https://via.placeholder.com/240x252/3a3a4a/fff?text=DA" alt="San Diego DA · placeholder">
+        <div class="player-cap">San Diego County DA<span class="player-role">Prosecution</span></div>
+      </div>
+      <div class="player tilt-4">
+        <img src="https://via.placeholder.com/240x252/2a2a3a/fff?text=DEFENSE" alt="Defense team · placeholder">
+        <div class="player-cap">Defense Team<span class="player-role">For Larry</span></div>
+      </div>
+    </div>
+
+    <!-- EVIDENCE -->
+    <div class="sh"><h2 class="sht">★ Evidence on the Table</h2><div class="shl"></div></div>
+    <div class="panel tilt-r">
+      <span class="panel-tab gold">Prosecution's Case</span>
+      <h3>The receipts the state is leaning on.</h3>
+      <p>→ <strong>Spell-caster purchases.</strong> Larry allegedly paid online ritualists to "bind" Maya to him or to "make her leave the family alone." Receipts, emails, and account logs were recovered.</p>
+      <p>→ <strong>Firearm timeline.</strong> Texts and purchase records around handguns Larry acquired in the months before Maya vanished.</p>
+      <p>→ <strong>Behavior on Jan 7-8.</strong> What Larry did, who he called, what he searched on his phone in the hours after Maya was last seen.</p>
+      <p>→ <strong>The marriage's last weeks.</strong> Texts between Maya and her sisters and friends about leaving Larry. Plans for a divorce attorney consult that never happened.</p>
+    </div>
+
+    <!-- CITIZEN THEORIES -->
+    <div class="sh"><h2 class="sht">★ Citizen Theories on the Wall</h2><div class="shl"></div></div>
+    <div class="theories">
+      <div class="sticky tilt-1">
+        <span class="sticky-label">Theory · 01</span>
+        Spell-caster receipts are <em>the</em> case. Premeditation. Modern-day stalker pattern with a paper trail.
+      </div>
+      <div class="sticky tilt-2">
+        <span class="sticky-label">Theory · 02</span>
+        The green Lexus. Where it went on Jan 7-8 — who saw it, who didn't, the gas-station footage gap.
+      </div>
+      <div class="sticky tilt-3">
+        <span class="sticky-label">Theory · 03</span>
+        No body, no problem? CA precedent: Scott Peterson, Bruce Beresford-Redman. Convictions on circumstantial evidence happen.
+      </div>
+    </div>
+
+    <!-- VERDICT WATCH -->
+    <div class="sh"><h2 class="sht">★ Verdict Watch</h2><div class="shl"></div></div>
+    <div class="panel tilt-l">
+      <span class="panel-tab red">Status · Retrial</span>
+      <h3>Round Two.</h3>
+      <p>The first jury hung. The DA refiled. Larry remains in custody. Retrial calendar firming up &mdash; we'll pin every motion, every ruling, every witness disclosure here as it lands.</p>
+      <p>The big open question for round two: <strong>does the prosecution lean harder into the spell-caster evidence, or pivot to the firearm timeline?</strong> First-trial jurors who spoke publicly told reporters the supernatural-purchase angle felt sensational without enough hard tie to a body. Round two has to address that.</p>
+      <span class="stamp">Open File · Pinned</span>
+    </div>
+
+    <!-- SOURCES -->
+    <div class="sh"><h2 class="sht">★ Sources &amp; Coverage</h2><div class="shl"></div></div>
+    <div class="sources">
+      <a class="source" href="#" onclick="alert('Source links coming as coverage continues.');return false;"><strong>Court Filings</strong>San Diego Superior Court · case docket index</a>
+      <a class="source" href="#" onclick="alert('Source links coming as coverage continues.');return false;"><strong>Press Coverage</strong>NBC 7 San Diego · KPBS · LA Times trial coverage</a>
+      <a class="source" href="#" onclick="alert('Source links coming as coverage continues.');return false;"><strong>CJ's Coverage</strong>YouTube show notes · live trial reactions</a>
+    </div>
+
+  </div>
+</section>
+
+<footer class="ft">
+  <div class="ftl">Celebrity<span>Dockets</span> · TCS</div>
+  <p class="ftt">Coverage by CJ &middot; Pinned to the Wall.</p>
+  <div class="ftk"><a href="index.html#cases">Cases</a><a href="latest.html">Latest</a><a href="objection-live.html">All Rise</a><a href="tcs.html">TCS</a><a href="about.html">About</a></div>
+  <p style="font-size:.65rem;color:#5a5a6a;max-width:600px;margin:0 auto;line-height:1.5;">Citizen-opinion content based on publicly available filings and reporting. Not legal advice.</p>
+  <p class="ftc">&copy; 2026 CelebrityDockets.com</p>
+</footer>
+
+</body>
+</html>
