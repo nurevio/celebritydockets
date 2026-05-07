@@ -1,0 +1,242 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<link rel="icon" type="image/png" href="favicon.png">
+<link rel="apple-touch-icon" href="favicon.png">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Kilcher v. Cameron · Avatar Likeness Lawsuit | Celebrity Dockets</title>
+<link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&family=IBM+Plex+Sans:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --bg-primary: #0a0a0f;
+    --bg-card: #12121a;
+    --bg-elevated: #1a1a26;
+    --accent: #1e64b4;
+    --accent-red: #E11028;
+    --accent-gold: #F6C340;
+    --accent-blue: #4a90d9;
+    --text-primary: #e8e6e1;
+    --text-secondary: #9a9a9a;
+    --text-muted: #5a5a6a;
+    --border: #2a2a3a;
+    --border-light: #1e1e2e;
+  }
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  body { background: var(--bg-primary); color: var(--text-primary); font-family: 'IBM Plex Sans', sans-serif; line-height: 1.6; min-height: 100vh; }
+  .site-header { border-bottom: 1px solid var(--border); padding: 16px 24px; display: flex; align-items: center; justify-content: space-between; background: var(--bg-primary); position: sticky; top: 0; z-index: 100; backdrop-filter: blur(12px); }
+  .site-logo { font-family: 'DM Serif Display', serif; font-size: 1.2rem; color: var(--text-primary); letter-spacing: 0.5px; }
+  .site-logo span { color: var(--accent-red); }
+  .site-nav { display: flex; gap: 24px; font-size: 0.8rem; text-transform: uppercase; letter-spacing: 1.5px; font-weight: 600; color: var(--text-secondary); }
+  .site-nav a { color: var(--text-secondary); text-decoration: none; transition: color 0.2s; }
+  .site-nav a:hover { color: var(--accent-gold); }
+  .case-hero { position: relative; padding: 60px 24px 48px; max-width: 900px; margin: 0 auto; overflow: hidden; }
+  .case-status-bar { display: flex; gap: 12px; align-items: center; margin-bottom: 20px; flex-wrap: wrap; }
+  .status-badge { display: inline-flex; align-items: center; gap: 6px; padding: 5px 14px; border-radius: 4px; font-size: 0.7rem; font-weight: 700; text-transform: uppercase; letter-spacing: 1.2px; }
+  .status-active { background: rgba(225, 16, 40, 0.15); color: var(--accent-red); border: 1px solid rgba(225, 16, 40, 0.3); }
+  .status-active::before { content: ''; width: 6px; height: 6px; background: var(--accent-red); border-radius: 50%; animation: pulse 2s infinite; }
+  .status-cat { background: rgba(30, 100, 180, 0.15); color: var(--accent); border: 1px solid rgba(30, 100, 180, 0.32); }
+  .status-cat2 { background: rgba(246, 195, 64, 0.12); color: var(--accent-gold); border: 1px solid rgba(246, 195, 64, 0.25); }
+  @keyframes pulse { 0%, 100% { opacity: 1; } 50% { opacity: 0.3; } }
+  .case-title { font-family: 'DM Serif Display', serif; font-size: 2.8rem; line-height: 1.15; margin-bottom: 12px; color: var(--text-primary); position: relative; }
+  .case-title em { font-style: italic; color: var(--accent); }
+  .case-subtitle { font-size: 1.1rem; color: var(--text-secondary); font-weight: 400; margin-bottom: 24px; max-width: 720px; }
+  .case-meta-row { display: flex; gap: 28px; flex-wrap: wrap; font-size: 0.82rem; color: var(--text-muted); }
+  .meta-item { display: flex; align-items: center; gap: 6px; }
+  .meta-label { text-transform: uppercase; font-size: 0.65rem; letter-spacing: 1.2px; font-weight: 700; color: var(--text-muted); }
+  .meta-value { color: var(--text-secondary); }
+  .section-divider { max-width: 900px; margin: 0 auto; padding: 0 24px; }
+  .section-divider hr { border: none; height: 1px; background: linear-gradient(to right, transparent, var(--border), transparent); }
+  .case-body { max-width: 900px; margin: 0 auto; padding: 40px 24px 80px; display: grid; grid-template-columns: 1fr 280px; gap: 48px; }
+  @media (max-width: 768px) { .case-body { grid-template-columns: 1fr; gap: 32px; } .case-title { font-size: 2rem; } }
+  .parties-block { background: var(--bg-card); border: 1px solid var(--border); border-radius: 8px; padding: 28px; margin-bottom: 32px; }
+  .parties-header { font-size: 0.7rem; text-transform: uppercase; letter-spacing: 2px; font-weight: 700; color: var(--accent-gold); margin-bottom: 20px; }
+  .party-vs { display: grid; grid-template-columns: 1fr auto 1fr; gap: 16px; align-items: center; }
+  .party-card { text-align: center; }
+  .party-role { font-size: 0.65rem; text-transform: uppercase; letter-spacing: 1.5px; color: var(--text-muted); font-weight: 700; margin-bottom: 6px; }
+  .party-name { font-family: 'DM Serif Display', serif; font-size: 1.25rem; color: var(--text-primary); margin-bottom: 4px; }
+  .party-desc { font-size: 0.78rem; color: var(--text-secondary); }
+  .vs-badge { font-family: 'DM Serif Display', serif; font-size: 1.1rem; color: var(--accent-red); background: rgba(225, 16, 40, 0.1); width: 44px; height: 44px; border-radius: 50%; display: flex; align-items: center; justify-content: center; border: 1px solid rgba(225, 16, 40, 0.2); }
+  .narrative-section { margin-bottom: 32px; }
+  .section-label { font-size: 0.7rem; text-transform: uppercase; letter-spacing: 2px; font-weight: 700; color: var(--accent-gold); margin-bottom: 16px; display: flex; align-items: center; gap: 8px; }
+  .section-label::after { content: ''; flex: 1; height: 1px; background: var(--border); }
+  .narrative-text { font-size: 0.95rem; color: var(--text-secondary); line-height: 1.8; }
+  .narrative-text p { margin-bottom: 16px; }
+  .narrative-text strong { color: var(--text-primary); font-weight: 600; }
+  .claims-list { list-style: none; display: flex; flex-direction: column; gap: 12px; margin-bottom: 32px; }
+  .claim-item { padding: 16px 20px; background: var(--bg-card); border-left: 3px solid var(--accent); border-radius: 0 6px 6px 0; font-size: 0.9rem; color: var(--text-secondary); line-height: 1.6; }
+  .claim-item:hover { border-left-color: var(--accent-gold); background: var(--bg-elevated); }
+  .claim-number { font-family: 'JetBrains Mono', monospace; font-size: 0.7rem; color: var(--accent); font-weight: 700; margin-right: 8px; }
+  .case-sidebar { display: flex; flex-direction: column; gap: 24px; }
+  .sidebar-card { background: var(--bg-card); border: 1px solid var(--border); border-radius: 8px; padding: 22px; }
+  .sidebar-card-header { font-size: 0.65rem; text-transform: uppercase; letter-spacing: 2px; font-weight: 700; color: var(--accent-gold); margin-bottom: 16px; padding-bottom: 10px; border-bottom: 1px solid var(--border); }
+  .docket-item { display: flex; gap: 12px; padding: 10px 0; border-bottom: 1px solid var(--border-light); align-items: flex-start; }
+  .docket-item:last-child { border-bottom: none; }
+  .docket-date { font-family: 'JetBrains Mono', monospace; font-size: 0.7rem; color: var(--text-muted); white-space: nowrap; min-width: 70px; }
+  .docket-desc { font-size: 0.82rem; color: var(--text-secondary); line-height: 1.5; }
+  .relief-item { padding: 8px 0; font-size: 0.82rem; color: var(--text-secondary); border-bottom: 1px solid var(--border-light); display: flex; align-items: baseline; gap: 8px; }
+  .relief-item:last-child { border-bottom: none; }
+  .relief-icon { color: var(--accent-gold); font-size: 0.7rem; }
+  .matters-box { background: linear-gradient(135deg, rgba(30, 100, 180, 0.10), rgba(246, 195, 64, 0.05)); border: 1px solid rgba(30, 100, 180, 0.25); border-radius: 8px; padding: 24px; margin-bottom: 32px; }
+  .matters-box p { font-size: 0.9rem; color: var(--text-secondary); line-height: 1.7; margin-bottom: 12px; }
+  .matters-box p:last-child { margin-bottom: 0; }
+  .case-footer { border-top: 1px solid var(--border); padding: 24px; text-align: center; font-size: 0.75rem; color: var(--text-muted); }
+  .case-footer a { color: var(--accent-gold); text-decoration: none; }
+  @keyframes fadeUp { from { opacity: 0; transform: translateY(20px); } to { opacity: 1; transform: translateY(0); } }
+  .case-hero, .parties-block, .narrative-section, .claims-list, .sidebar-card, .matters-box { animation: fadeUp 0.6s ease-out both; }
+  .hamburger{display:none;background:none;border:none;color:var(--text-primary);cursor:pointer;padding:8px;flex-direction:column;gap:5px}
+  .hamburger span{display:block;width:24px;height:2px;background:var(--text-primary);transition:all .3s}
+  @media(max-width:768px){
+    .site-nav{display:none;position:absolute;top:100%;left:0;right:0;background:var(--bg-primary);flex-direction:column;padding:20px 24px;gap:18px;border-bottom:1px solid var(--border);box-shadow:0 4px 20px rgba(0,0,0,.4);z-index:99}
+    .site-nav.open{display:flex}
+    .hamburger{display:flex}
+  }
+</style>
+<meta property="og:title" content="Kilcher v. Cameron · Avatar Likeness Lawsuit | Celebrity Legal Cases">
+<meta property="og:description" content="Q'orianka Kilcher (Yellowstone, The New World) sues James Cameron + Disney in C.D. Cal. — alleges Cameron extracted her facial features at age 14 from a still in The New World and used them as the foundation for Neytiri in Avatar. Right of publicity + California deepfake statute. Disgorgement of Avatar profits sought.">
+<meta name="description" content="Kilcher v. Cameron — Q'orianka Kilcher sues James Cameron and The Walt Disney Co. in the U.S. District Court for the Central District of California (No. 2:26-cv-04832). Filed May 5, 2026. Alleges right-of-publicity theft and California deepfake-statute violations. Avatar earned ~$3B; complaint seeks disgorgement.">
+<meta name="keywords" content="Kilcher v Cameron, Q'orianka Kilcher, James Cameron, Avatar lawsuit, Neytiri, Walt Disney, right of publicity, California deepfake statute, AI likeness, celebrity legal cases, celebrity lawsuits, Yellowstone, The New World, Pocahontas, Lightstorm Entertainment">
+</head>
+<body>
+  <header class="site-header">
+    <a href="index.html" class="site-logo" style="text-decoration:none;color:inherit;">Celebrity<span>Dockets</span></a>
+    <button class="hamburger" onclick="this.classList.toggle('open');document.querySelector('.site-nav').classList.toggle('open')"><span></span><span></span><span></span></button>
+    <nav class="site-nav">
+      <a href="index.html#cases">Cases</a>
+      <a href="latest.html">Latest</a>
+      <a href="index.html">All Rise</a>
+      <a href="recess.html">RECESS</a>
+      <a href="star-bar.html">Star Bar</a>
+      <a href="courtroom-culture.html">Courtroom Culture</a>
+      <a href="about.html">About</a>
+      <a href="https://www.buymeacoffee.com/celebritydockets" target="_blank" rel="noopener" style="color:#FFDD00;">☕ Fuel</a>
+    </nav>
+  </header>
+
+  <section class="case-hero">
+    <img src="kilcher-cameron-warhol-hero.jpg" alt="Andy Warhol pop-art treatment of Kilcher v. Cameron Avatar likeness case — Neytiri / Na'vi face vs. James Cameron" style="width:100%;height:auto;border-radius:10px;margin-bottom:24px;display:block;border:1px solid var(--border);">
+    <div class="case-status-bar">
+      <span class="status-badge status-active">New Filing · May 5</span>
+      <span class="status-badge status-cat">Right of Publicity</span>
+      <span class="status-badge status-cat2">CA Deepfake Statute</span>
+    </div>
+    <h1 class="case-title"><em>Kilcher</em> v. <em>Cameron</em></h1>
+    <p class="case-subtitle"><strong>Q'orianka Kilcher</strong> (<em>Yellowstone</em>, <em>The Alienist</em>, <em>The New World</em>) sues filmmaker <strong>James Cameron</strong> and <strong>The Walt Disney Co.</strong> in the U.S. District Court for the Central District of California, alleging Cameron <strong>extracted her facial features at age 14</strong> from a still of her playing Pocahontas in Terrence Malick's <em>The New World</em> and used them as the foundation for <strong>Neytiri</strong> in the <em>Avatar</em> franchise.</p>
+    <div class="case-meta-row">
+      <div class="meta-item"><span class="meta-label">Case No.</span><span class="meta-value">2:26-cv-04832</span></div>
+      <div class="meta-item"><span class="meta-label">Court</span><span class="meta-value">U.S. District Court · C.D. Cal.</span></div>
+      <div class="meta-item"><span class="meta-label">Filed</span><span class="meta-value">May 5, 2026</span></div>
+      <div class="meta-item"><span class="meta-label">Avatar gross</span><span class="meta-value">~$3B (subject to disgorgement)</span></div>
+    </div>
+  </section>
+
+  <div class="section-divider"><hr></div>
+
+  <main class="case-body">
+    <div class="case-main">
+      <div class="parties-block">
+        <div class="parties-header">Parties</div>
+        <div class="party-vs">
+          <div class="party-card">
+            <div class="party-role">Plaintiff</div>
+            <div class="party-name">Q'orianka Kilcher</div>
+            <div class="party-desc">Indigenous actor · played Pocahontas in <em>The New World</em> (2005, age 14) · later <em>Yellowstone</em>, <em>The Alienist</em></div>
+          </div>
+          <div class="vs-badge">v.</div>
+          <div class="party-card">
+            <div class="party-role">Defendants</div>
+            <div class="party-name">James Cameron · The Walt Disney Co.</div>
+            <div class="party-desc">Director / producer of the Avatar franchise · and the Disney parent that now owns it (post-Fox merger)</div>
+          </div>
+        </div>
+      </div>
+
+      <div class="narrative-section">
+        <div class="section-label">Background</div>
+        <div class="narrative-text">
+          <p>In 2005, <strong>Q'orianka Kilcher</strong>, then <strong>14 years old</strong>, played Pocahontas in Terrence Malick's <em>The New World</em>. The performance launched her career and produced widely-circulated promotional photography of her as the historical Algonquian princess.</p>
+          <p>According to the federal complaint filed <strong>May 5, 2026</strong> in the <strong>Central District of California</strong>, that was the same year James Cameron's design team began work on <em>Avatar</em>. The lawsuit alleges Cameron <strong>"extracted her facial features"</strong> from a published still of her in <em>The New World</em> and <strong>"directed his design team to use it as the foundation for the character of Neytiri."</strong></p>
+          <p>The complaint walks through what it claims is a <strong>full pipeline</strong> of unauthorized use:</p>
+          <ul style="list-style:none;padding:0;margin:0 0 14px;">
+            <li style="padding:5px 0;border-left:3px solid var(--accent);padding-left:14px;margin-bottom:6px;">Production sketches and concept art derived from Kilcher's face</li>
+            <li style="padding:5px 0;border-left:3px solid var(--accent);padding-left:14px;margin-bottom:6px;">Sculpted three-dimensional <strong>maquettes</strong> built from those sketches</li>
+            <li style="padding:5px 0;border-left:3px solid var(--accent);padding-left:14px;margin-bottom:6px;"><strong>Laser-scanned</strong> high-resolution digital models of those maquettes</li>
+            <li style="padding:5px 0;border-left:3px solid var(--accent);padding-left:14px;">Distribution of the digital model to <strong>multiple visual-effects vendors</strong> who rendered Neytiri's final on-screen appearance, on movie posters, and on global merchandise</li>
+          </ul>
+          <p>The complaint allegedly includes excerpts from interviews between Cameron and his production team that <strong>mention Kilcher by name</strong> and describe how her likeness was used as inspiration for the character ultimately performed on-screen by <strong>Zoe Saldaña</strong>.</p>
+          <p style="background:rgba(30,100,180,.07);border-left:3px solid var(--accent);padding:14px 18px;border-radius:0 6px 6px 0;"><strong style="color:var(--accent);">The deepfake-statute angle.</strong> Beyond classic right-of-publicity theory, the complaint alleges the use violated <strong>California's recently enacted deepfake statute</strong> &mdash; specifically because a <strong>minor's likeness</strong> (Kilcher was 14) was used to build a digital model that was later rendered into <strong>intimate / romantic on-screen scenes</strong> as the adult character Neytiri. That's a novel application of a statute originally drafted with deepfake pornography and AI-generated political content in mind.</p>
+        </div>
+      </div>
+
+      <div class="narrative-section">
+        <div class="section-label">Causes of Action</div>
+        <ul class="claims-list">
+          <li class="claim-item"><span class="claim-number">01</span><strong>Right of publicity</strong> &mdash; California common-law and statutory (Cal. Civ. Code §3344) misappropriation of name, image, likeness for commercial use without consent.</li>
+          <li class="claim-item"><span class="claim-number">02</span><strong>California deepfake-statute violation</strong> &mdash; minor's likeness used in digital pipeline ultimately rendered into adult romantic/intimate scenes.</li>
+          <li class="claim-item"><span class="claim-number">03</span><strong>Unfair competition</strong> &mdash; UCL §17200 / Lanham Act false-association theory.</li>
+          <li class="claim-item"><span class="claim-number">04</span><strong>Unjust enrichment</strong> &mdash; defendants reaped roughly $3B in worldwide grosses from a likeness pipeline they never licensed.</li>
+        </ul>
+      </div>
+
+      <div class="matters-box">
+        <div class="section-label" style="color:var(--accent);">Why It Matters</div>
+        <p>This case is a <strong>landmark test</strong> for digital-likeness rights in the AI era. The Avatar franchise has earned <strong>nearly $3 billion worldwide</strong>; if Kilcher prevails on disgorgement, the math is unprecedented for a right-of-publicity case.</p>
+        <p>The deepfake-statute claim is the part to watch most closely. Right-of-publicity law has always covered photographs, voice and obvious imitations. But CGI characters built from a minor's facial scan &mdash; rendered into adult, intimate scenes &mdash; sit at exactly the intersection the deepfake statute was written to address, even though Avatar predates it. If the court accepts that the statute reaches conduct from the original 2009 production pipeline because the work is still being commercially exploited today, it opens up <strong>massive backward-looking liability</strong> for any film, game, or media that built characters from real people's biometric data.</p>
+        <p>And the human-rights through-line: an Indigenous actor alleging that an Indigenous-coded character (Neytiri, the Na'vi) was built from a teenage Indigenous face <em>without consent</em> &mdash; that frame travels far beyond the courtroom.</p>
+      </div>
+    </div>
+
+    <aside class="case-sidebar">
+      <div class="sidebar-card">
+        <div class="sidebar-card-header">Timeline</div>
+        <div class="docket-item"><span class="docket-date">2005</span><span class="docket-desc">Kilcher (age 14) plays Pocahontas in <em>The New World</em></span></div>
+        <div class="docket-item"><span class="docket-date">2005-2009</span><span class="docket-desc" style="color:var(--accent);font-weight:600;">Alleged extraction of Kilcher's facial features → maquettes → laser scans → VFX pipeline for Neytiri</span></div>
+        <div class="docket-item"><span class="docket-date">Dec 2009</span><span class="docket-desc"><em>Avatar</em> released · grosses $2.9B worldwide</span></div>
+        <div class="docket-item"><span class="docket-date">Dec 2022</span><span class="docket-desc"><em>Avatar: The Way of Water</em> · same Neytiri model</span></div>
+        <div class="docket-item"><span class="docket-date">May 5, 2026</span><span class="docket-desc" style="color:var(--accent-red);font-weight:700;"><strong>COMPLAINT FILED</strong> · C.D. Cal. · 2:26-cv-04832</span></div>
+      </div>
+
+      <div class="sidebar-card">
+        <div class="sidebar-card-header">Relief Sought</div>
+        <div class="relief-item"><span class="relief-icon">&#9670;</span>Compensatory damages</div>
+        <div class="relief-item"><span class="relief-icon">&#9670;</span>Punitive damages</div>
+        <div class="relief-item"><span class="relief-icon">&#9670;</span><strong>Disgorgement</strong> of profits attributable to Kilcher's likeness (Avatar grosses ~$3B)</div>
+        <div class="relief-item"><span class="relief-icon">&#9670;</span>Injunctive relief on continued exploitation</div>
+        <div class="relief-item"><span class="relief-icon">&#9670;</span><strong>Corrective public disclosure</strong></div>
+      </div>
+
+      <div class="sidebar-card">
+        <div class="sidebar-card-header">How We Got The Doc</div>
+        <div style="padding:14px 16px;background:rgba(225,16,40,.06);border:1px solid rgba(225,16,40,.20);border-radius:8px;">
+          <div style="font-family:'JetBrains Mono',monospace;font-size:.62rem;letter-spacing:1.5px;text-transform:uppercase;color:var(--accent-red);font-weight:700;margin-bottom:8px;">★ credit</div>
+          <p style="font-size:.82rem;color:var(--text-secondary);line-height:1.65;margin:0 0 10px;">Full complaint surfaced by <strong style="color:var(--text-primary);">@DONTFCKWJUSTICE</strong> on YouTube — same channel that produced our Episode 2 outro parody song.</p>
+          <a href="https://www.youtube.com/@DONTFCKWJUSTICE" target="_blank" rel="noopener" style="display:inline-block;background:#FF0000;color:#fff;padding:8px 14px;border-radius:6px;text-decoration:none;font-family:'JetBrains Mono',monospace;font-size:.72rem;font-weight:700;letter-spacing:.5px;">▶ @DONTFCKWJUSTICE on YouTube</a>
+        </div>
+      </div>
+
+      <div class="sidebar-card">
+        <div class="sidebar-card-header">Court Lookup</div>
+        <a href="https://www.courtlistener.com/docket/?q=kilcher+cameron&type=r&order_by=score+desc" target="_blank" rel="noopener" style="display:block;background:var(--accent-blue);color:#fff;border-radius:6px;padding:12px 14px;margin-bottom:8px;text-decoration:none;font-size:.78rem;">
+          <div style="font-weight:700;margin-bottom:2px;">📂 CourtListener Search</div>
+          <div style="font-family:'JetBrains Mono',monospace;font-size:.65rem;color:rgba(255,255,255,.85);">C.D. Cal. · 2:26-cv-04832</div>
+        </a>
+        <a href="https://ew.com/yellowstone-star-accuses-james-cameron-of-using-her-likeness-in-avatar-11969005" target="_blank" rel="noopener" style="display:block;padding:12px 14px;background:rgba(246,195,64,.06);border:1px solid rgba(246,195,64,.20);border-radius:6px;text-decoration:none;color:var(--text-primary);font-size:.78rem;margin-bottom:8px;">
+          <div style="font-weight:700;margin-bottom:2px;color:var(--accent-gold);">📰 Entertainment Weekly</div>
+          <div style="font-family:'JetBrains Mono',monospace;font-size:.65rem;color:var(--text-muted);">Yellowstone star accuses Cameron of using her likeness in Avatar</div>
+        </a>
+        <a href="https://variety.com/2026/film/news/james-cameron-sued-avatar-qorianka-kilcher-1236740068/" target="_blank" rel="noopener" style="display:block;padding:12px 14px;background:rgba(155,89,182,.06);border:1px solid rgba(155,89,182,.20);border-radius:6px;text-decoration:none;color:var(--text-primary);font-size:.78rem;">
+          <div style="font-weight:700;margin-bottom:2px;color:var(--accent);">📰 Variety</div>
+          <div style="font-family:'JetBrains Mono',monospace;font-size:.65rem;color:var(--text-muted);">Cameron sued over unauthorized use of actress's likeness</div>
+        </a>
+      </div>
+    </aside>
+  </main>
+
+  <footer class="case-footer">
+    <a href="index.html">celebritydockets.com</a> &middot; Tracking celebrity court cases, one docket at a time.<br>
+    Coverage by <a href="objection-live.html" style="color:var(--accent-gold);text-decoration:none;"><strong>Celebrity Dockets</strong></a> &middot; <a href="recess.html" style="color: var(--accent-gold); text-decoration: none;"><em>RECESS</em></a>
+    <div style="text-align:center;margin-top:16px;font-size:.6rem;color:#5a5a6a;line-height:1.5;"><a href="legal.html" style="color:#5a5a6a;">Terms &amp; Privacy</a> &middot; <a href="legal.html#dmca" style="color:#5a5a6a;">DMCA</a><br>Celebrity Dockets is an independent media site. Nothing here is legal advice.</div>
+  </footer>
+<script data-name="BMC-Widget" data-cfasync="false" src="https://cdnjs.buymeacoffee.com/1.0.0/widget.prod.min.js" data-id="celebritydockets" data-description="Support CJ on Buy Me a Coffee" data-message="Help keep the docket running. Buy CJ a coffee." data-color="#FFDD00" data-position="Right" data-x_margin="18" data-y_margin="18"></script>
+</body>
+</html>
