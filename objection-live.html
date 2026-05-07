@@ -33,6 +33,11 @@ body{background:var(--bg);color:var(--t1);font-family:'IBM Plex Sans',sans-serif
 /* Next Live + Docket Preview */
 .next-live{max-width:800px;margin:0 auto 40px;padding:0 24px;display:grid;grid-template-columns:1fr 1.3fr;gap:18px}
 @media(max-width:720px){.next-live{grid-template-columns:1fr}}
+
+/* Past episode cards - responsive */
+.ep-past{display:grid;grid-template-columns:200px 1fr;gap:18px;background:var(--card);border:1px solid var(--bdr);border-radius:10px;padding:14px;text-decoration:none;color:inherit;transition:transform .2s,border-color .2s;align-items:center;margin-bottom:14px}
+.ep-past:hover{transform:translateY(-2px);border-color:var(--red)}
+@media(max-width:600px){.ep-past{grid-template-columns:1fr;gap:12px}.ep-past .ep-thumb{max-width:280px;margin:0 auto}}
 .nl-card{background:var(--card);border:1px solid var(--bdr);border-radius:10px;padding:20px}
 .nl-label{font-family:'JetBrains Mono',monospace;font-size:.6rem;text-transform:uppercase;letter-spacing:2px;color:var(--red);margin-bottom:10px;font-weight:700}
 .nl-title{font-family:'DM Serif Display',serif;font-size:1.15rem;color:var(--t1);margin-bottom:6px}
@@ -218,8 +223,8 @@ function toggleTheme(){var c=document.documentElement.getAttribute('data-theme')
   <div style="flex:1;height:1px;background:var(--bdr);"></div>
 </div>
 
-<a href="episodes/2026-05-04/" target="_blank" style="display:grid;grid-template-columns:200px 1fr;gap:18px;background:var(--card);border:1px solid var(--bdr);border-radius:10px;padding:14px;text-decoration:none;color:inherit;transition:transform .2s,border-color .2s;align-items:center;margin-bottom:14px;">
-  <div style="border-radius:6px;overflow:hidden;border:1px solid var(--bdr);">
+<a href="episodes/2026-05-04/" target="_blank" class="ep-past">
+  <div class="ep-thumb" style="border-radius:6px;overflow:hidden;border:1px solid var(--bdr);">
     <img src="episodes/2026-05-04/episode-2-key-art.jpg" alt="Celebrity Dockets · Episode 002 · The Great Unsealing 2.0 · Everybody Lies · A Tale of Three Trials · May 4 2026" style="width:100%;height:auto;display:block;">
   </div>
   <div>
@@ -230,8 +235,8 @@ function toggleTheme(){var c=document.documentElement.getAttribute('data-theme')
   </div>
 </a>
 
-<a href="episodes/2026-04-27/" target="_blank" style="display:grid;grid-template-columns:200px 1fr;gap:18px;background:var(--card);border:1px solid var(--bdr);border-radius:10px;padding:14px;text-decoration:none;color:inherit;transition:transform .2s,border-color .2s;align-items:center;">
-  <div style="border-radius:6px;overflow:hidden;border:1px solid var(--bdr);">
+<a href="episodes/2026-04-27/" target="_blank" class="ep-past">
+  <div class="ep-thumb" style="border-radius:6px;overflow:hidden;border:1px solid var(--bdr);">
     <img src="episodes/2026-04-27/thumbnail.png" alt="Celebrity Dockets · Episode 001 · Rebrand Debut · Apr 27 2026" style="width:100%;height:auto;display:block;">
   </div>
   <div>

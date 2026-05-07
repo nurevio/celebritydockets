@@ -2,7 +2,12 @@
 tcs.html
 tcs-*.html
 tcs-logo.png
+larry-millete-photo.jpg
+shanna-gardner-photo.jpg
 
 # Hero source images (Warhol originals stay local)
 *-source.png
 *-source.jpg
+
+# Local agent state
+.claude/
