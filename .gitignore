@@ -1,4 +1,7 @@
-.DS_Store
-.claude/
-*.log
-node_modules/
+# TCS files — held local-only per CJ's directive
+tcs.html
+tcs-*.html
+
+# Hero source images (Warhol originals stay local)
+*-source.png
+*-source.jpg
