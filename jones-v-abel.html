@@ -1,0 +1,232 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<link rel="icon" type="image/png" href="favicon.png">
+<link rel="apple-touch-icon" href="favicon.png">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Jones v. Abel & Wayfarer | Celebrity Dockets</title>
+<link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display&family=IBM+Plex+Sans:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --bg-primary: #0a0a0f;
+    --bg-card: #12121a;
+    --bg-elevated: #1a1a26;
+    --accent: #b59478;
+    --accent-red: #E11028;
+    --accent-gold: #F6C340;
+    --accent-blue: #4a90d9;
+    --text-primary: #e8e6e1;
+    --text-secondary: #9a9a9a;
+    --text-muted: #5a5a6a;
+    --border: #2a2a3a;
+    --border-light: #1e1e2e;
+  }
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  body { background: var(--bg-primary); color: var(--text-primary); font-family: 'IBM Plex Sans', sans-serif; line-height: 1.6; min-height: 100vh; }
+  .site-header { border-bottom: 1px solid var(--border); padding: 16px 24px; display: flex; align-items: center; justify-content: space-between; background: var(--bg-primary); position: sticky; top: 0; z-index: 100; backdrop-filter: blur(12px); }
+  .site-logo { font-family: 'DM Serif Display', serif; font-size: 1.2rem; color: var(--text-primary); letter-spacing: 0.5px; }
+  .site-logo span { color: var(--accent-red); }
+  .site-nav { display: flex; gap: 24px; font-size: 0.8rem; text-transform: uppercase; letter-spacing: 1.5px; font-weight: 600; color: var(--text-secondary); }
+  .site-nav a { color: var(--text-secondary); text-decoration: none; transition: color 0.2s; }
+  .site-nav a:hover { color: var(--accent-gold); }
+  .case-hero { position: relative; padding: 60px 24px 48px; max-width: 900px; margin: 0 auto; overflow: hidden; }
+  .case-status-bar { display: flex; gap: 12px; align-items: center; margin-bottom: 20px; flex-wrap: wrap; }
+  .status-badge { display: inline-flex; align-items: center; gap: 6px; padding: 5px 14px; border-radius: 4px; font-size: 0.7rem; font-weight: 700; text-transform: uppercase; letter-spacing: 1.2px; }
+  .status-active { background: rgba(225, 16, 40, 0.15); color: var(--accent-red); border: 1px solid rgba(225, 16, 40, 0.3); }
+  .status-active::before { content: ''; width: 6px; height: 6px; background: var(--accent-red); border-radius: 50%; animation: pulse 2s infinite; }
+  .status-cat { background: rgba(181, 148, 120, 0.14); color: var(--accent); border: 1px solid rgba(181, 148, 120, 0.30); }
+  .status-cat2 { background: rgba(246, 195, 64, 0.12); color: var(--accent-gold); border: 1px solid rgba(246, 195, 64, 0.25); }
+  @keyframes pulse { 0%, 100% { opacity: 1; } 50% { opacity: 0.3; } }
+  .case-title { font-family: 'DM Serif Display', serif; font-size: 2.8rem; line-height: 1.15; margin-bottom: 12px; color: var(--text-primary); position: relative; }
+  .case-title em { font-style: italic; color: var(--accent); }
+  .case-subtitle { font-size: 1.1rem; color: var(--text-secondary); font-weight: 400; margin-bottom: 24px; max-width: 650px; }
+  .case-meta-row { display: flex; gap: 28px; flex-wrap: wrap; font-size: 0.82rem; color: var(--text-muted); }
+  .meta-item { display: flex; align-items: center; gap: 6px; }
+  .meta-label { text-transform: uppercase; font-size: 0.65rem; letter-spacing: 1.2px; font-weight: 700; color: var(--text-muted); }
+  .meta-value { color: var(--text-secondary); }
+  .section-divider { max-width: 900px; margin: 0 auto; padding: 0 24px; }
+  .section-divider hr { border: none; height: 1px; background: linear-gradient(to right, transparent, var(--border), transparent); }
+  .case-body { max-width: 900px; margin: 0 auto; padding: 40px 24px 80px; display: grid; grid-template-columns: 1fr 280px; gap: 48px; }
+  @media (max-width: 768px) { .case-body { grid-template-columns: 1fr; gap: 32px; } .case-title { font-size: 2rem; } }
+  .parties-block { background: var(--bg-card); border: 1px solid var(--border); border-radius: 8px; padding: 28px; margin-bottom: 32px; }
+  .parties-header { font-size: 0.7rem; text-transform: uppercase; letter-spacing: 2px; font-weight: 700; color: var(--accent-gold); margin-bottom: 20px; }
+  .party-vs { display: grid; grid-template-columns: 1fr auto 1fr; gap: 16px; align-items: center; }
+  .party-card { text-align: center; }
+  .party-role { font-size: 0.65rem; text-transform: uppercase; letter-spacing: 1.5px; color: var(--text-muted); font-weight: 700; margin-bottom: 6px; }
+  .party-name { font-family: 'DM Serif Display', serif; font-size: 1.25rem; color: var(--text-primary); margin-bottom: 4px; }
+  .party-desc { font-size: 0.78rem; color: var(--text-secondary); }
+  .vs-badge { font-family: 'DM Serif Display', serif; font-size: 1.1rem; color: var(--accent-red); background: rgba(225, 16, 40, 0.1); width: 44px; height: 44px; border-radius: 50%; display: flex; align-items: center; justify-content: center; border: 1px solid rgba(225, 16, 40, 0.2); }
+  .narrative-section { margin-bottom: 32px; }
+  .section-label { font-size: 0.7rem; text-transform: uppercase; letter-spacing: 2px; font-weight: 700; color: var(--accent-gold); margin-bottom: 16px; display: flex; align-items: center; gap: 8px; }
+  .section-label::after { content: ''; flex: 1; height: 1px; background: var(--border); }
+  .narrative-text { font-size: 0.95rem; color: var(--text-secondary); line-height: 1.8; }
+  .narrative-text p { margin-bottom: 16px; }
+  .narrative-text strong { color: var(--text-primary); font-weight: 600; }
+  .claims-list { list-style: none; display: flex; flex-direction: column; gap: 12px; margin-bottom: 32px; }
+  .claim-item { padding: 16px 20px; background: var(--bg-card); border-left: 3px solid var(--accent); border-radius: 0 6px 6px 0; font-size: 0.9rem; color: var(--text-secondary); line-height: 1.6; transition: border-color 0.2s, background 0.2s; }
+  .claim-item:hover { border-left-color: var(--accent-gold); background: var(--bg-elevated); }
+  .claim-number { font-family: 'JetBrains Mono', monospace; font-size: 0.7rem; color: var(--accent); font-weight: 700; margin-right: 8px; }
+  .case-sidebar { display: flex; flex-direction: column; gap: 24px; }
+  .sidebar-card { background: var(--bg-card); border: 1px solid var(--border); border-radius: 8px; padding: 22px; }
+  .sidebar-card-header { font-size: 0.65rem; text-transform: uppercase; letter-spacing: 2px; font-weight: 700; color: var(--accent-gold); margin-bottom: 16px; padding-bottom: 10px; border-bottom: 1px solid var(--border); }
+  .docket-item { display: flex; gap: 12px; padding: 10px 0; border-bottom: 1px solid var(--border-light); align-items: flex-start; }
+  .docket-item:last-child { border-bottom: none; }
+  .docket-date { font-family: 'JetBrains Mono', monospace; font-size: 0.7rem; color: var(--text-muted); white-space: nowrap; min-width: 70px; }
+  .docket-desc { font-size: 0.82rem; color: var(--text-secondary); line-height: 1.5; }
+  .relief-item { padding: 8px 0; font-size: 0.82rem; color: var(--text-secondary); border-bottom: 1px solid var(--border-light); display: flex; align-items: baseline; gap: 8px; }
+  .relief-item:last-child { border-bottom: none; }
+  .relief-icon { color: var(--accent-gold); font-size: 0.7rem; }
+  .matters-box { background: linear-gradient(135deg, rgba(181, 148, 120, 0.10), rgba(246, 195, 64, 0.05)); border: 1px solid rgba(181, 148, 120, 0.25); border-radius: 8px; padding: 24px; margin-bottom: 32px; }
+  .matters-box p { font-size: 0.9rem; color: var(--text-secondary); line-height: 1.7; }
+  .case-footer { border-top: 1px solid var(--border); padding: 24px; text-align: center; font-size: 0.75rem; color: var(--text-muted); }
+  .case-footer a { color: var(--accent-gold); text-decoration: none; }
+  @keyframes fadeUp { from { opacity: 0; transform: translateY(20px); } to { opacity: 1; transform: translateY(0); } }
+  .case-hero, .parties-block, .narrative-section, .claims-list, .sidebar-card, .matters-box { animation: fadeUp 0.6s ease-out both; }
+  .hamburger{display:none;background:none;border:none;color:var(--text-primary);cursor:pointer;padding:8px;flex-direction:column;gap:5px}
+  .hamburger span{display:block;width:24px;height:2px;background:var(--text-primary);transition:all .3s}
+  @media(max-width:768px){
+    .site-nav{display:none;position:absolute;top:100%;left:0;right:0;background:var(--bg-primary);flex-direction:column;padding:20px 24px;gap:18px;border-bottom:1px solid var(--border);box-shadow:0 4px 20px rgba(0,0,0,.4);z-index:99}
+    .site-nav.open{display:flex}
+    .hamburger{display:flex}
+  }
+  .theme-toggle{background:none;border:1px solid var(--border);color:var(--text-primary);cursor:pointer;padding:6px 10px;border-radius:6px;font-size:.85rem;}
+</style>
+<meta property="og:title" content="Jones v. Abel & Wayfarer | Industry PR">
+<meta property="og:description" content="Stephanie Jones, founder of Jonesworks, sues her former protégé Jennifer Abel, Melissa Nathan, Justin Baldoni and Wayfarer in SDNY — defamation, breach, and the fight that pulled the curtain back on the Lively case's PR underbelly.">
+<meta property="og:type" content="article">
+<meta property="og:url" content="https://celebritydockets.com/jones-v-abel.html">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Jones v. Abel & Wayfarer | Industry PR">
+<meta name="twitter:description" content="The Wayfarer-orbit lawsuit you missed: Stephanie Jones v. Jennifer Abel + Melissa Nathan + Baldoni + Wayfarer — SDNY defamation. Filed Christmas Eve 2024. Liman lets the core claims survive.">
+<meta name="description" content="Stephanie Jones, founder of Jonesworks, sues her former protégé Jennifer Abel, Melissa Nathan, Justin Baldoni and Wayfarer in SDNY — defamation, breach, and the fight that pulled the curtain back on the Lively case's PR underbelly.">
+</head>
+<body>
+  <header class="site-header">
+    <a href="index.html" class="site-logo" style="text-decoration:none;color:inherit;">Celebrity<span>Dockets</span></a>
+    <button class="hamburger" onclick="this.classList.toggle('open');document.querySelector('.site-nav').classList.toggle('open')"><span></span><span></span><span></span></button>
+    <nav class="site-nav">
+      <a href="index.html#cases">Cases</a>
+      <a href="latest.html">Latest</a>
+      <a href="index.html">All Rise</a>
+      <a href="recess.html">RECESS</a>
+      <a href="star-bar.html">Star Bar</a>
+      <a href="courtroom-culture.html">Courtroom Culture</a>
+      <a href="about.html">About</a>
+      <a href="https://www.buymeacoffee.com/celebritydockets" target="_blank" rel="noopener" style="color:#FFDD00;">☕ Fuel</a>
+    </nav>
+  </header>
+
+  <section class="case-hero">
+    <div class="case-status-bar">
+      <span class="status-badge status-active">Active</span>
+      <span class="status-badge status-cat">Industry PR</span>
+      <span class="status-badge status-cat2">Defamation · Breach · Conversion</span>
+    </div>
+    <h1 class="case-title"><em>Jones</em> v. <em>Abel</em> &amp; Wayfarer</h1>
+    <p class="case-subtitle">Stephanie Jones — founder of <strong>Jonesworks</strong> — sues her former protégé <strong>Jennifer Abel</strong>, crisis publicist <strong>Melissa Nathan</strong>, <strong>Justin Baldoni</strong> and <strong>Wayfarer Studios</strong> in SDNY. Filed <strong>Christmas Eve 2024</strong>. Judge Liman let the core defamation and conversion claims survive in October 2025. The other Wayfarer-orbit lawsuit nobody talked about — until now.</p>
+    <div class="case-meta-row">
+      <div class="meta-item"><span class="meta-label">Case No.</span><span class="meta-value">1:25-cv-00779 (SDNY)</span></div>
+      <div class="meta-item"><span class="meta-label">Judge</span><span class="meta-value">Hon. Lewis J. Liman</span></div>
+      <div class="meta-item"><span class="meta-label">Filed</span><span class="meta-value">Dec 24, 2024</span></div>
+      <div class="meta-item"><span class="meta-label">Status</span><span class="meta-value">Active · Counterclaims pending</span></div>
+    </div>
+  </section>
+
+  <div class="section-divider"><hr></div>
+
+  <main class="case-body">
+    <div class="case-main">
+      <div class="parties-block">
+        <div class="parties-header">Parties</div>
+        <div class="party-vs">
+          <div class="party-card">
+            <div class="party-role">Plaintiff</div>
+            <div class="party-name">Stephanie Jones</div>
+            <div class="party-desc">Founder &amp; CEO · Jonesworks (PR)</div>
+          </div>
+          <div class="vs-badge">v.</div>
+          <div class="party-card">
+            <div class="party-role">Defendants</div>
+            <div class="party-name">Abel · Nathan · Baldoni · Wayfarer</div>
+            <div class="party-desc">Jennifer Abel · Melissa Nathan (TAG PR) · Justin Baldoni · Wayfarer Studios</div>
+          </div>
+        </div>
+      </div>
+
+      <div class="narrative-section">
+        <div class="section-label">Background</div>
+        <div class="narrative-text">
+          <p>Long before <em>Lively v. Wayfarer</em> exploded into headlines, the people behind the curtain had their own lawsuit. <strong>Stephanie Jones</strong> ran <strong>Jonesworks</strong>, the PR shop where <strong>Jennifer Abel</strong> rose through the ranks before leaving in <strong>August 2024</strong> to launch her own firm — <strong>RWA Communications</strong> — and take Wayfarer's account with her.</p>
+          <p>On <strong>December 24, 2024</strong>, Jones filed in SDNY against Abel, freelance crisis publicist <strong>Melissa Nathan</strong> (of <strong>The Agency Group "TAG"</strong>), Justin Baldoni and Wayfarer Studios. The complaint paints the picture of a <strong>coordinated exit</strong>: Abel allegedly siphoning client files, contacts, and a phone full of internal communications on her way out — then collaborating with Nathan and the Wayfarer principals on the alleged smear campaign against Blake Lively that would later become the centerpiece of <em>Lively v. Wayfarer</em>.</p>
+          <p>Jones says when she pushed back, the same machine turned on <em>her</em> — leaking, defaming, and trying to push her out of her own industry.</p>
+          <p>In <strong>March 2025</strong>, Baldoni and Abel <strong>countersued</strong> Jones, arguing the original complaint itself was retaliatory. In <strong>October 2025</strong>, <strong>Judge Lewis J. Liman</strong> issued a key ruling on motions to dismiss — letting <strong>Jones's core defamation and conversion claims survive</strong> while paring back some peripheral counts. Discovery is ongoing.</p>
+        </div>
+      </div>
+
+      <div class="narrative-section">
+        <div class="section-label">Key Claims</div>
+        <ul class="claims-list">
+          <li class="claim-item"><span class="claim-number">01</span><strong>Defamation</strong> — Jones alleges Abel, Nathan, Baldoni and Wayfarer made false and damaging statements about her to industry contacts and the press.</li>
+          <li class="claim-item"><span class="claim-number">02</span><strong>Breach of Fiduciary Duty / Breach of Contract</strong> — against Abel, for allegedly violating her duties to Jonesworks while still employed and on her way out.</li>
+          <li class="claim-item"><span class="claim-number">03</span><strong>Conversion</strong> — Jones alleges Abel took company property, including a work phone with internal Jonesworks communications, on her exit.</li>
+          <li class="claim-item"><span class="claim-number">04</span><strong>Tortious Interference</strong> — that the defendants worked together to interfere with Jonesworks's existing client relationships and prospective business.</li>
+          <li class="claim-item"><span class="claim-number">05</span><strong>Civil Conspiracy</strong> — that the smear campaign against Lively and the parallel campaign against Jones were part of a coordinated effort.</li>
+        </ul>
+      </div>
+
+      <div class="matters-box">
+        <div class="section-label" style="color:var(--accent);">Why It Matters</div>
+        <p>This is the <strong>case behind the case</strong>. The text messages, the "social manipulation" decks, the publicist talking points that powered the Lively v. Wayfarer storyline — they ran through the same orbit that <em>Jones v. Abel</em> is about. Liman's October 2025 ruling that the defamation and conversion claims could survive a motion to dismiss is what kept the underlying record alive long enough to inform the Lively litigation. With Lively v. Wayfarer now <strong>settled</strong> as of May 2026, this docket is where the PR-side accountability fight is still very much alive.</p>
+      </div>
+    </div>
+
+    <aside class="case-sidebar">
+      <div class="sidebar-card">
+        <div class="sidebar-card-header">Timeline</div>
+        <div class="docket-item"><span class="docket-date">Aug 2024</span><span class="docket-desc">Jennifer Abel exits Jonesworks · launches RWA Communications · takes Wayfarer account</span></div>
+        <div class="docket-item"><span class="docket-date">Fall 2024</span><span class="docket-desc">Alleged coordinated PR campaign against Blake Lively kicks off</span></div>
+        <div class="docket-item"><span class="docket-date">Dec 24, 2024</span><span class="docket-desc" style="color:var(--accent-red);font-weight:700;"><strong>JONES FILES SDNY COMPLAINT</strong> · 1:25-cv-00779 · against Abel, Nathan, Baldoni, Wayfarer</span></div>
+        <div class="docket-item"><span class="docket-date">Dec 31, 2024</span><span class="docket-desc">Lively files her CRD complaint against Baldoni / Wayfarer</span></div>
+        <div class="docket-item"><span class="docket-date">Mar 2025</span><span class="docket-desc">Baldoni &amp; Abel <strong>countersue</strong> Jones — retaliation theory</span></div>
+        <div class="docket-item"><span class="docket-date">Oct 2025</span><span class="docket-desc" style="color:var(--accent);font-weight:700;"><strong>LIMAN'S MTD RULING</strong> · core defamation + conversion claims survive · case proceeds to discovery</span></div>
+        <div class="docket-item"><span class="docket-date">May 2026</span><span class="docket-desc"><em>Lively v. Wayfarer</em> settles — Jones v. Abel becomes the live PR-side docket still working through discovery</span></div>
+      </div>
+
+      <div class="sidebar-card">
+        <div class="sidebar-card-header">Court Lookup</div>
+        <a href="https://www.courtlistener.com/docket/?q=jones+abel+wayfarer&type=r&order_by=score+desc" target="_blank" rel="noopener" style="display:block;background:var(--accent-blue);color:#fff;border-radius:6px;padding:12px 14px;margin-bottom:8px;text-decoration:none;font-size:.78rem;">
+          <div style="font-weight:700;margin-bottom:2px;">📂 CourtListener Search → Jones v. Abel</div>
+          <div style="font-family:'JetBrains Mono',monospace;font-size:.65rem;color:rgba(255,255,255,.85);">SDNY · 1:25-cv-00779 · live filings</div>
+        </a>
+        <div style="padding:10px 14px;background:rgba(181,148,120,.08);border:1px solid rgba(181,148,120,.20);border-radius:6px;font-size:.72rem;color:var(--text-muted);line-height:1.5;">
+          Reddit thread/discussion that surfaced this case to the show: <a href="https://www.reddit.com/r/Fauxmoi/" target="_blank" rel="noopener" style="color:var(--accent-gold);text-decoration:none;font-weight:600;">r/Fauxmoi</a>
+        </div>
+      </div>
+
+      <div class="sidebar-card">
+        <div class="sidebar-card-header">Related Dockets</div>
+        <a href="lively-v-baldoni.html" style="display:block;padding:10px 12px;border-radius:6px;background:rgba(74,144,217,.06);border:1px solid rgba(74,144,217,.18);color:var(--text-primary);text-decoration:none;font-size:.82rem;margin-bottom:8px;">
+          <strong>Lively v. Wayfarer</strong>
+          <div style="font-size:.7rem;color:var(--text-muted);margin-top:2px;">SETTLED · May 2026 · the headline case</div>
+        </a>
+        <a href="cohen-v-mcsweeney.html" style="display:block;padding:10px 12px;border-radius:6px;background:rgba(230,126,34,.06);border:1px solid rgba(230,126,34,.18);color:var(--text-primary);text-decoration:none;font-size:.82rem;margin-bottom:8px;">
+          <strong>McSweeney v. Cohen</strong>
+          <div style="font-size:.7rem;color:var(--text-muted);margin-top:2px;">Liman · settlement conference letters · Apr 2026</div>
+        </a>
+        <a href="wilson-v-ghost-the-deb.html" style="display:block;padding:10px 12px;border-radius:6px;background:rgba(246,195,64,.06);border:1px solid rgba(246,195,64,.18);color:var(--text-primary);text-decoration:none;font-size:.82rem;">
+          <strong>Wilson v. Ghost &amp; The Deb</strong>
+          <div style="font-size:.7rem;color:var(--text-muted);margin-top:2px;">FCA copyright trial · live now</div>
+        </a>
+      </div>
+    </aside>
+  </main>
+
+  <footer class="case-footer">
+    <a href="index.html">celebritydockets.com</a> &middot; Tracking celebrity court cases, one docket at a time.<br>
+    Coverage by <a href="objection-live.html" style="color:var(--accent-gold);text-decoration:none;"><strong>Celebrity Dockets</strong></a> &middot; <a href="recess.html" style="color: var(--accent-gold); text-decoration: none;"><em>RECESS</em></a>
+    <div style="text-align:center;margin-top:16px;font-size:.6rem;color:#5a5a6a;line-height:1.5;"><a href="legal.html" style="color:#5a5a6a;">Terms &amp; Privacy</a> &middot; <a href="legal.html#dmca" style="color:#5a5a6a;">DMCA</a><br>Celebrity Dockets is an independent media site. Nothing here is legal advice.</div>
+  </footer>
+<script data-name="BMC-Widget" data-cfasync="false" src="https://cdnjs.buymeacoffee.com/1.0.0/widget.prod.min.js" data-id="celebritydockets" data-description="Support CJ on Buy Me a Coffee" data-message="Help keep the docket running. Buy CJ a coffee." data-color="#FFDD00" data-position="Right" data-x_margin="18" data-y_margin="18"></script>
+</body>
+</html>
