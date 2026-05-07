@@ -1,6 +1,7 @@
 # TCS files — held local-only per CJ's directive
 tcs.html
 tcs-*.html
+tcs-logo.png
 
 # Hero source images (Warhol originals stay local)
 *-source.png
