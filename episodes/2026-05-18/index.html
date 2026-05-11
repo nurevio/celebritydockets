@@ -1,0 +1,358 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="robots" content="noindex,nofollow">
+<title>Episode 4 · Monday May 18 · Celebrity Dockets</title>
+<script>
+  if ('scrollRestoration' in history) { history.scrollRestoration = 'manual'; }
+  window.addEventListener('load', function(){ window.scrollTo(0, 0); });
+  window.addEventListener('DOMContentLoaded', function(){ window.scrollTo(0, 0); });
+</script>
+<link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display&family=IBM+Plex+Sans:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --bg-primary: #0a0a0f;
+    --bg-card: #12121a;
+    --bg-elevated: #1a1a26;
+    --accent: #e67e22;
+    --accent-red: #E11028;
+    --accent-gold: #F6C340;
+    --accent-blue: #4a90d9;
+    --text-primary: #e8e6e1;
+    --text-secondary: #b8b8b8;
+    --text-muted: #6a6a7a;
+    --border: #2a2a3a;
+  }
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  html { scroll-behavior: smooth; }
+  body {
+    background: var(--bg-primary);
+    color: var(--text-primary);
+    font-family: 'IBM Plex Sans', sans-serif;
+    line-height: 1.55;
+    overflow-x: hidden;
+  }
+  .chrome-top {
+    position: fixed; top: 0; left: 0; right: 0;
+    padding: 12px 24px;
+    background: rgba(10,10,15,0.85);
+    backdrop-filter: blur(12px);
+    border-bottom: 1px solid var(--border);
+    display: flex; align-items: center; justify-content: space-between;
+    z-index: 1000;
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 0.7rem; letter-spacing: 1.5px; text-transform: uppercase;
+  }
+  .chrome-brand { color: var(--accent-red); font-weight: 700; }
+  .chrome-brand::before { content: '● '; animation: pulse 2s infinite; }
+  .chrome-progress { color: var(--text-muted); }
+  .chrome-progress span { color: var(--accent-gold); }
+  @keyframes pulse { 0%, 100% { opacity: 1; } 50% { opacity: 0.4; } }
+
+  .slide {
+    min-height: 100vh;
+    display: flex; flex-direction: column;
+    justify-content: center; align-items: center;
+    padding: 80px 32px 64px;
+    position: relative;
+    border-bottom: 1px solid var(--border);
+  }
+  .slide-inner { max-width: 1100px; width: 100%; margin: 0 auto; }
+
+  /* COLD OPEN */
+  .slide-cold {
+    background:
+      radial-gradient(ellipse at top, rgba(225,16,40,0.10), transparent 60%),
+      radial-gradient(ellipse at bottom, rgba(246,195,64,0.05), transparent 60%);
+    text-align: center;
+  }
+  .cold-eyebrow {
+    font-family: 'JetBrains Mono', monospace;
+    color: var(--accent-gold);
+    font-size: 0.85rem; letter-spacing: 5px; text-transform: uppercase;
+    margin-bottom: 24px;
+  }
+  .cold-eyebrow::before { content: '★  '; }
+  .cold-eyebrow::after { content: '  ★'; }
+  .cold-title {
+    font-family: 'DM Serif Display', serif;
+    font-size: clamp(3rem, 8vw, 6rem); line-height: 1.0;
+    margin-bottom: 24px;
+  }
+  .cold-title em { color: var(--accent-gold); font-style: italic; }
+  .cold-tag {
+    font-family: 'DM Serif Display', serif; font-style: italic;
+    font-size: clamp(1.4rem, 3vw, 2rem);
+    color: var(--text-secondary); margin-bottom: 40px;
+  }
+  .cold-url {
+    display: inline-block;
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 1.1rem; color: var(--accent-red);
+    border: 1px solid var(--accent-red);
+    padding: 14px 28px; border-radius: 4px; letter-spacing: 1.5px;
+  }
+
+  /* THIS MORNING'S DOCKET */
+  .docket-table { width: 100%; max-width: 880px; margin: 0 auto; }
+  .docket-eyebrow {
+    color: var(--accent-red);
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 0.95rem; letter-spacing: 4px; text-transform: uppercase;
+    font-weight: 700; margin-bottom: 36px; text-align: left;
+  }
+  .docket-eyebrow::before { content: '★ '; }
+  .docket-row {
+    display: flex; align-items: baseline;
+    padding: 22px 0; border-top: 1px solid var(--border); gap: 18px;
+  }
+  .docket-row:last-of-type { border-bottom: 1px solid var(--border); }
+  .docket-arrow { color: var(--accent-red); font-size: 1.1rem; line-height: 1; }
+  .docket-row.hero .docket-arrow { color: var(--accent-gold); }
+  .docket-name {
+    font-family: 'DM Serif Display', serif;
+    font-size: clamp(1.6rem, 3vw, 2.2rem);
+    color: var(--text-primary); flex-shrink: 0;
+  }
+  .docket-name em { color: var(--accent); font-style: italic; }
+  .docket-row.hero .docket-name { color: var(--accent-gold); }
+  .docket-row.hero .docket-name::before { content: '★ '; color: var(--accent-gold); }
+  .docket-dash { color: var(--text-muted); flex-shrink: 0; }
+  .docket-desc {
+    color: var(--text-secondary);
+    font-size: clamp(1rem, 1.6vw, 1.2rem); flex: 1;
+  }
+  @media (max-width: 700px) {
+    .docket-row { flex-direction: column; align-items: flex-start; gap: 4px; padding: 16px 0; }
+    .docket-dash { display: none; }
+  }
+
+  /* STORY TITLE SLIDES */
+  .slide-story {
+    background: linear-gradient(180deg, transparent, rgba(225,16,40,0.04));
+  }
+  .story-num {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 0.95rem; color: var(--accent-red);
+    letter-spacing: 5px; text-transform: uppercase; font-weight: 700;
+    margin-bottom: 24px;
+  }
+  .story-tag {
+    font-family: 'JetBrains Mono', monospace;
+    color: var(--accent-gold);
+    font-size: 0.7rem; letter-spacing: 2.5px; text-transform: uppercase;
+    font-weight: 700; margin-bottom: 18px;
+    padding: 6px 12px;
+    background: rgba(246,195,64,0.1);
+    border: 1px solid rgba(246,195,64,0.25);
+    border-radius: 4px; display: inline-block;
+  }
+  .story-title {
+    font-family: 'DM Serif Display', serif;
+    font-size: clamp(3rem, 7vw, 5.5rem); line-height: 1.0;
+    margin-bottom: 28px;
+  }
+  .story-title em { color: var(--accent); font-style: italic; }
+  .story-blurb {
+    font-size: clamp(1.15rem, 2vw, 1.4rem);
+    color: var(--text-secondary);
+    max-width: 760px; line-height: 1.5;
+    margin: 0 auto;
+    text-align: center;
+  }
+
+  /* EMBED SLIDES */
+  .embed-slide-eyebrow {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 0.75rem; color: var(--accent-red);
+    letter-spacing: 3px; text-transform: uppercase;
+    font-weight: 700; margin-bottom: 14px;
+  }
+  .embed-slide-title {
+    font-family: 'DM Serif Display', serif;
+    font-size: clamp(2rem, 4vw, 3rem); line-height: 1.1;
+    margin-bottom: 32px;
+  }
+  .embed-slide-title em { color: var(--accent-gold); font-style: italic; }
+
+  /* PLACEHOLDER blocks */
+  .placeholder {
+    width: 100%; max-width: 720px; margin: 0 auto;
+    border: 2px dashed var(--accent-gold);
+    border-radius: 12px;
+    padding: 36px 32px;
+    text-align: center;
+  }
+  .placeholder-eyebrow {
+    font-family: 'JetBrains Mono', monospace;
+    color: var(--accent-gold);
+    font-size: 0.7rem; letter-spacing: 3px;
+    text-transform: uppercase; font-weight: 700;
+    margin-bottom: 14px;
+  }
+  .placeholder-text {
+    color: var(--text-secondary);
+    font-size: 1rem; line-height: 1.65;
+  }
+  .placeholder-text strong { color: var(--accent-gold); }
+
+  /* OUTRO */
+  .slide-outro {
+    background: radial-gradient(ellipse at center, rgba(225,16,40,0.06), transparent 60%);
+    text-align: center;
+  }
+  .outro-words {
+    font-family: 'DM Serif Display', serif;
+    font-size: clamp(2.4rem, 5vw, 4rem); line-height: 1.2;
+    margin-bottom: 36px;
+  }
+  .outro-words em { color: var(--accent-gold); font-style: italic; }
+  .outro-cta {
+    display: inline-flex; flex-wrap: wrap; gap: 14px; justify-content: center;
+  }
+  .outro-btn {
+    display: inline-flex; align-items: center; gap: 8px;
+    padding: 14px 28px; border-radius: 6px;
+    text-decoration: none; font-weight: 600; font-size: 0.95rem;
+    border: 1px solid var(--border);
+    background: var(--bg-card); color: var(--text-primary);
+    transition: transform 0.15s, border-color 0.15s;
+  }
+  .outro-btn:hover { transform: translateY(-2px); border-color: var(--accent-gold); }
+  .outro-btn.primary { background: var(--accent-red); color: white; border-color: var(--accent-red); }
+  .outro-btn.coffee { background: #FFDD00; color: #111; border-color: #FFDD00; }
+</style>
+<!-- Microsoft Clarity --><script type="text/javascript">(function(c,l,a,r,i,t,y){c[a]=c[a]||function(){(c[a].q=c[a].q||[]).push(arguments)};t=l.createElement(r);t.async=1;t.src="https://www.clarity.ms/tag/"+i;y=l.getElementsByTagName(r)[0];y.parentNode.insertBefore(t,y);})(window, document, "clarity", "script", "wj08elhbdz");</script>
+</head>
+<body>
+
+<div class="chrome-top">
+  <div class="chrome-brand">Celebrity Dockets · Episode 4</div>
+  <div class="chrome-progress">Monday · May 18 · 9 AM ET · <span>scroll →</span></div>
+</div>
+
+<!-- 00 — LEAD VIDEO (cold cold open placeholder) -->
+<section class="slide">
+  <div class="slide-inner" style="text-align:center;">
+    <div class="embed-slide-eyebrow" style="color:var(--accent-gold);">★ before the docket · roll tape</div>
+    <h3 class="embed-slide-title"><em>Set the scene.</em></h3>
+    <div class="placeholder">
+      <div class="placeholder-eyebrow">★ Lead video · pending</div>
+      <div class="placeholder-text">Drop the cold-open TikTok / IG / YouTube short here when ready. <br><strong>Slot ready</strong> — same lazy-load pattern as Ep 3.</div>
+    </div>
+  </div>
+</section>
+
+<!-- 01 — COLD OPEN -->
+<section class="slide slide-cold">
+  <div class="slide-inner">
+    <div class="cold-eyebrow">Monday · May 18 · 9 AM ET</div>
+    <h1 class="cold-title">Episode <em>004</em>.</h1>
+    <p class="cold-tag">Fresh cards. New filings. Same room.</p>
+    <a target="_blank" rel="noopener" href="https://celebritydockets.com" class="cold-url">celebritydockets.com</a>
+  </div>
+</section>
+
+<!-- 02 — THIS MORNING'S DOCKET (preview) -->
+<section class="slide">
+  <div class="slide-inner">
+    <div class="docket-eyebrow">This Morning's Docket</div>
+    <div class="docket-table">
+      <div class="docket-row hero">
+        <span class="docket-arrow">▸</span>
+        <div class="docket-name"><em>Lively</em> v. Wayfarer</div>
+        <span class="docket-dash">—</span>
+        <div class="docket-desc"><strong style="color:var(--accent-red);">§ 47.1 watch</strong> · what new antics + PR stunts get pulled while we wait for Liman</div>
+      </div>
+      <div class="docket-row">
+        <span class="docket-arrow">▸</span>
+        <div class="docket-name"><em>People</em> v. d4vd</div>
+        <span class="docket-dash">—</span>
+        <div class="docket-desc">Pre-preliminary conference update ahead of the May 26 prelim</div>
+      </div>
+      <div class="docket-row">
+        <span class="docket-arrow">▸</span>
+        <div class="docket-name"><em>Smith</em> &amp; <em>Santana</em> v. Falco / Artists Equity</div>
+        <span class="docket-dash">—</span>
+        <div class="docket-desc">New defamation suit · <strong style="color:var(--text-primary);">Matt Damon &amp; Ben Affleck</strong> sued over <em>The Rip</em> · filed May 6 in S.D. Fla.</div>
+      </div>
+      <div class="docket-row">
+        <span class="docket-arrow">▸</span>
+        <div class="docket-name">Docket Rundown</div>
+        <span class="docket-dash">—</span>
+        <div class="docket-desc">Everything else still moving across the calendar</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- 03 — STORY 1 TITLE -->
+<section class="slide slide-story">
+  <div class="slide-inner" style="text-align:center;">
+    <div class="story-num">Story 01</div>
+    <span class="story-tag">Story 01 · TBD</span>
+    <h2 class="story-title">Story <em>01</em>.</h2>
+    <p class="story-blurb">Lead beat for the week. Drop the title block + sub-slides as content lands.</p>
+  </div>
+</section>
+
+<!-- 04 — STORY 2 TITLE -->
+<section class="slide slide-story">
+  <div class="slide-inner" style="text-align:center;">
+    <div class="story-num">Story 02</div>
+    <span class="story-tag">Story 02 · TBD</span>
+    <h2 class="story-title">Story <em>02</em>.</h2>
+    <p class="story-blurb">Second story slot.</p>
+  </div>
+</section>
+
+<!-- 05 — STORY 3 TITLE -->
+<section class="slide slide-story">
+  <div class="slide-inner" style="text-align:center;">
+    <div class="story-num">Story 03</div>
+    <span class="story-tag">Story 03 · TBD</span>
+    <h2 class="story-title">Story <em>03</em>.</h2>
+    <p class="story-blurb">Third story slot.</p>
+  </div>
+</section>
+
+<!-- 06 — DOCKET RUNDOWN TITLE -->
+<section class="slide slide-story">
+  <div class="slide-inner" style="text-align:center;">
+    <div class="story-num">Docket Rundown</div>
+    <span class="story-tag">The Rundown · TBD</span>
+    <h2 class="story-title">Get the <em>tea</em>.</h2>
+    <p class="story-blurb">Rundown cards build out through the week. Drop in as filings drop.</p>
+  </div>
+</section>
+
+<!-- 07 — RECESS -->
+<section class="slide">
+  <div class="slide-inner" style="text-align:center;">
+    <div class="embed-slide-eyebrow" style="color:var(--accent-gold);">★ recess · what's opening this week</div>
+    <h3 class="embed-slide-title">When court takes <em>recess</em>.</h3>
+    <p style="color:var(--text-secondary);font-size:.95rem;line-height:1.6;max-width:720px;margin:0 auto 28px;">Full preview live on the Recess page.</p>
+    <a target="_blank" rel="noopener" href="https://celebritydockets.com/recess.html" style="display:inline-block;color:#fff;background:var(--accent-gold);font-family:'JetBrains Mono',monospace;font-size:.85rem;text-transform:uppercase;letter-spacing:1.8px;font-weight:700;text-decoration:none;padding:14px 28px;border-radius:6px;">▶ Open Recess →</a>
+  </div>
+</section>
+
+<!-- 08 — OUTRO · STARBUCKS THANKS FOR THE SUPPORT -->
+<section class="slide slide-outro">
+  <div class="slide-inner" style="text-align:center;">
+    <div class="embed-slide-eyebrow" style="color:var(--accent-gold);">★ thanks for the support · the room runs on fuel</div>
+    <p class="outro-words" style="margin-bottom:18px;">Thanks for <em>fueling</em><br>the <em>docket</em>. ☕</p>
+    <p style="color:var(--text-secondary);font-size:1rem;line-height:1.6;max-width:680px;margin:0 auto 28px;">Every chai latte. Every cold brew. Every "buy CJ a coffee." That's what keeps this show pulling filings, citing receipts, and giving citizen sleuths their flowers — week after week. 🌸</p>
+    <div class="outro-cta">
+      <a href="https://www.buymeacoffee.com/celebritydockets" target="_blank" rel="noopener" class="outro-btn coffee primary">☕ Fuel the Docket</a>
+      <a target="_blank" rel="noopener" href="https://celebritydockets.com" class="outro-btn">celebritydockets.com →</a>
+    </div>
+  </div>
+</section>
+
+<script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>
+<script async src="https://www.tiktok.com/embed.js"></script>
+<script async src="https://embed.reddit.com/widgets.js" charset="UTF-8"></script>
+</body>
+</html>
