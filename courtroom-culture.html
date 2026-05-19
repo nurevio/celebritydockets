@@ -72,6 +72,16 @@ body{background:var(--bg);color:var(--t1);font-family:'IBM Plex Sans',sans-serif
 .ccstrip-sub{max-width:1100px;margin:0 auto;padding:0 24px 8px;font-size:.85rem;color:var(--t2)}
 .ccstrip-sub b{color:var(--gold);font-weight:700}
 
+/* Inner photo scroll inside Couture cards */
+.couture-photos{display:flex;gap:14px;overflow-x:auto;-webkit-overflow-scrolling:touch;scroll-snap-type:x mandatory;padding-bottom:10px}
+.couture-photos::-webkit-scrollbar{height:6px}
+.couture-photos::-webkit-scrollbar-track{background:rgba(0,0,0,.08);border-radius:3px}
+.couture-photos::-webkit-scrollbar-thumb{background:var(--gold);border-radius:3px}
+.couture-photos figure{flex:0 0 270px;scroll-snap-align:start;margin:0}
+.couture-photos figure img{width:100%;height:360px;object-fit:cover;border-radius:8px;display:block;border:1px solid var(--bdr)}
+.couture-photos figcaption{font-family:'JetBrains Mono',monospace;font-size:.58rem;letter-spacing:1.2px;text-transform:uppercase;color:var(--t3);text-align:center;margin-top:8px;line-height:1.6}
+@media(max-width:680px){.couture-photos figure{flex:0 0 240px}.couture-photos figure img{height:300px}}
+
 /* Footer */
 .ft{border-top:1px solid var(--bdr);padding:40px 24px;text-align:center}
 .ftl{font-family:'DM Serif Display',serif;font-size:1.4rem;color:var(--t1);margin-bottom:8px}.ftl span{color:var(--red)}
@@ -271,18 +281,15 @@ function toggleTheme(){var c=document.documentElement.getAttribute('data-theme')
     <div style="font-family:'JetBrains Mono',monospace;font-size:.6rem;letter-spacing:2px;text-transform:uppercase;color:var(--gold);margin-bottom:8px;">★ Charcoal &amp; Sheen · Copyright Trial · May 6, 2026</div>
     <div style="font-family:'DM Serif Display',serif;font-size:1.5rem;color:var(--t1);margin-bottom:10px;"><em>Ye</em> at the Courthouse - Charcoal Suit, Sheen Shirt, Heavy Boots</div>
     <div style="font-size:.9rem;color:var(--t2);line-height:1.7;margin-bottom:22px;"><strong>Ye</strong> turned up to his ongoing copyright trial on <strong>May 6</strong> in a slate-grey linen-blend suit, the jacket cut clean and single-button, paired with a <strong>satin-sheen collared shirt</strong> in a deep brown tone. Bottom line: chunky <strong>black leather work boots</strong> instead of dress shoes - the off-pairing that turns a normal trial fit into a deliberate one. Captured by <strong>BACKGRID</strong>, surfaced via <a href="https://x.com/whatisyewearing/status/2052342223274954814" target="_blank" rel="noopener" style="color:var(--gold);text-decoration:none;font-weight:600;">@whatisyewearing</a>.</div>
-    <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:18px;">
-
-      <figure style="margin:0;">
-        <img src="ye-courtroom-may6-1.jpg" alt="Ye walking from a glass-fronted courthouse on May 6 2026 in a charcoal linen-blend suit, brown sheen collared shirt, and chunky black leather boots" style="width:100%;border-radius:8px;display:block;border:1px solid var(--bdr);">
-        <figcaption style="font-family:'JetBrains Mono',monospace;font-size:.6rem;letter-spacing:1.2px;text-transform:uppercase;color:var(--t3);text-align:center;margin-top:8px;line-height:1.7;">Ye · arriving · charcoal suit + chunky boots<br>Photo: BACKGRID · via @whatisyewearing</figcaption>
+    <div class="couture-photos">
+      <figure>
+        <img src="ye-courtroom-may6-1.jpg" alt="Ye walking from a glass-fronted courthouse on May 6 2026 in a charcoal linen-blend suit, brown sheen collared shirt, and chunky black leather boots">
+        <figcaption>Ye · arriving · charcoal suit + chunky boots<br>Photo: BACKGRID · via @whatisyewearing</figcaption>
       </figure>
-
-      <figure style="margin:0;">
-        <img src="ye-courtroom-may6-2.jpg" alt="Ye on the courthouse steps May 6 2026, half-buttoned charcoal blazer revealing satin-sheen brown collared shirt, holding phone" style="width:100%;border-radius:8px;display:block;border:1px solid var(--bdr);">
-        <figcaption style="font-family:'JetBrains Mono',monospace;font-size:.6rem;letter-spacing:1.2px;text-transform:uppercase;color:var(--t3);text-align:center;margin-top:8px;line-height:1.7;">Ye · on the steps · sheen shirt detail<br>Photo: BACKGRID · via @whatisyewearing</figcaption>
+      <figure>
+        <img src="ye-courtroom-may6-2.jpg" alt="Ye on the courthouse steps May 6 2026, half-buttoned charcoal blazer revealing satin-sheen brown collared shirt, holding phone">
+        <figcaption>Ye · on the steps · sheen shirt detail<br>Photo: BACKGRID · via @whatisyewearing</figcaption>
       </figure>
-
     </div>
   </div>
 </div>
@@ -293,23 +300,19 @@ function toggleTheme(){var c=document.documentElement.getAttribute('data-theme')
     <div style="font-family:'JetBrains Mono',monospace;font-size:.6rem;letter-spacing:2px;text-transform:uppercase;color:var(--gold);margin-bottom:8px;">★ Greens &amp; Olives · Federal Court of Australia · Apr 2026</div>
     <div style="font-family:'DM Serif Display',serif;font-size:1.5rem;color:var(--t1);margin-bottom:10px;">Across the Pond - <em>Wilson</em> and <em>Ghost</em> Both Pick Green</div>
     <div style="font-size:.9rem;color:var(--t2);line-height:1.7;margin-bottom:22px;">At the <strong>Federal Court of Australia</strong> in Sydney, courtroom couture took an unexpected turn during the second week of trial. <strong>Rebel Wilson</strong> entered court in a vivid spring-green blazer over a crisp white shirt; UK producer <strong>Amanda Ghost</strong> - one of the producers Wilson called out, and who gave evidence the prior week - arrived in a structured olive utility jacket. Day two brought a costume change: Wilson swapped the loose blowout for a slicked-back low ponytail, paired with a white knit. Whether it's stylist coincidence or quietly emerging courtwear theory, <em>green is having a moment on the 2026 defamation circuit</em>. <a href="wilson-v-ghost-the-deb.html" style="color:var(--gold);text-decoration:none;font-weight:600;">Full docket →</a></div>
-    <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:18px;">
-
-      <figure style="margin:0;">
-        <img src="rebel-wilson-green-jacket.png" alt="Rebel Wilson in a bright green blazer entering Federal Court of Australia, smiling and waving" style="width:100%;border-radius:8px;display:block;border:1px solid var(--bdr);">
-        <figcaption style="font-family:'JetBrains Mono',monospace;font-size:.6rem;letter-spacing:1.2px;text-transform:uppercase;color:var(--t3);text-align:center;margin-top:8px;line-height:1.7;">Rebel Wilson · day one · spring-green blazer<br>Photo: Bianca de Marchi / AAP · via The Guardian</figcaption>
+    <div class="couture-photos">
+      <figure>
+        <img src="rebel-wilson-green-jacket.png" alt="Rebel Wilson in a bright green blazer entering Federal Court of Australia, smiling and waving">
+        <figcaption>Rebel Wilson · day one · spring-green blazer<br>Photo: Bianca de Marchi / AAP · via The Guardian</figcaption>
       </figure>
-
-      <figure style="margin:0;">
-        <img src="amanda-ghost-green-jacket.png" alt="Amanda Ghost, UK producer on Wilson's film, outside the Federal Court of Australia in an olive utility jacket" style="width:100%;border-radius:8px;display:block;border:1px solid var(--bdr);">
-        <figcaption style="font-family:'JetBrains Mono',monospace;font-size:.6rem;letter-spacing:1.2px;text-transform:uppercase;color:var(--t3);text-align:center;margin-top:8px;line-height:1.7;">Amanda Ghost · gave evidence prior week · olive utility<br>Photo: EPA · via BBC</figcaption>
+      <figure>
+        <img src="amanda-ghost-green-jacket.png" alt="Amanda Ghost, UK producer on Wilson's film, outside the Federal Court of Australia in an olive utility jacket">
+        <figcaption>Amanda Ghost · gave evidence prior week · olive utility<br>Photo: EPA · via BBC</figcaption>
       </figure>
-
-      <figure style="margin:0;">
-        <img src="rebel-wilson-ponytail.png" alt="Rebel Wilson outside the Sydney courthouse on April 28, 2026, hair pulled back in a low ponytail, white knit top" style="width:100%;border-radius:8px;display:block;border:1px solid var(--bdr);">
-        <figcaption style="font-family:'JetBrains Mono',monospace;font-size:.6rem;letter-spacing:1.2px;text-transform:uppercase;color:var(--t3);text-align:center;margin-top:8px;line-height:1.7;">Rebel Wilson · day two · slicked-back ponytail<br>Photo: Don Arnold / Getty · via People</figcaption>
+      <figure>
+        <img src="rebel-wilson-ponytail.png" alt="Rebel Wilson outside the Sydney courthouse on April 28, 2026, hair pulled back in a low ponytail, white knit top">
+        <figcaption>Rebel Wilson · day two · slicked-back ponytail<br>Photo: Don Arnold / Getty · via People</figcaption>
       </figure>
-
     </div>
   </div>
 </div>
@@ -320,23 +323,19 @@ function toggleTheme(){var c=document.documentElement.getAttribute('data-theme')
     <div style="font-family:'JetBrains Mono',monospace;font-size:.6rem;letter-spacing:2px;text-transform:uppercase;color:var(--gold);margin-bottom:8px;">★ Navys &amp; Whites · Federal Court of Australia · Week 2 · Apr-May 2026</div>
     <div style="font-family:'DM Serif Display',serif;font-size:1.5rem;color:var(--t1);margin-bottom:10px;">Navys &amp; Whites Make an Appearance &mdash; <em>MacInnes</em> v. <em>Wilson</em>, Week 2</div>
     <div style="font-size:.9rem;color:var(--t2);line-height:1.7;margin-bottom:22px;">After Week 1's spring-green moment, Week 2 of MacInnes v. Wilson at the Federal Court of Australia traded the chlorophyll for a sharper palette: <strong>navy &amp; white</strong>, across all three principals. <strong>Rebel Wilson</strong> walked in smiling in a tailored navy blazer over a clean white tee, hair up &mdash; she'd later tell the court she's a <em>"truth teller."</em> <strong>Charlotte MacInnes</strong> arrived in a deep-navy V-neck with a cream shoulder bag &mdash; understated witness energy. UK producer <strong>Amanda Ghost</strong> &mdash; who flew from London to give evidence &mdash; rotated white ruffled blouse / red bag for arrival, then printed top + wide-leg navy trousers for testimony day. Three women, one color story. <a href="wilson-v-ghost-the-deb.html" style="color:var(--gold);text-decoration:none;font-weight:600;">Full docket →</a></div>
-    <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:18px;">
-
-      <figure style="margin:0;">
-        <img src="wilson-week2-rebel-navy.jpg" alt="Rebel Wilson outside Federal Court of Australia, hair up, smiling, in navy blazer over white crew tee · Week 2 of MacInnes v. Wilson trial" style="width:100%;border-radius:8px;display:block;border:1px solid var(--bdr);">
-        <figcaption style="font-family:'JetBrains Mono',monospace;font-size:.6rem;letter-spacing:1.2px;text-transform:uppercase;color:var(--t3);text-align:center;margin-top:8px;line-height:1.7;">Rebel Wilson · "truth teller" day · navy + white<br>Photo: NewsWire / John Appleyard</figcaption>
+    <div class="couture-photos">
+      <figure>
+        <img src="wilson-week2-rebel-navy.jpg" alt="Rebel Wilson outside Federal Court of Australia, hair up, smiling, in navy blazer over white crew tee · Week 2 of MacInnes v. Wilson trial">
+        <figcaption>Rebel Wilson · "truth teller" day · navy + white<br>Photo: NewsWire / John Appleyard</figcaption>
       </figure>
-
-      <figure style="margin:0;">
-        <img src="wilson-week2-macinnes-navy.jpg" alt="Charlotte MacInnes in deep navy V-neck top with cream shoulder bag, arriving at Federal Court of Australia · Week 2 trial" style="width:100%;border-radius:8px;display:block;border:1px solid var(--bdr);">
-        <figcaption style="font-family:'JetBrains Mono',monospace;font-size:.6rem;letter-spacing:1.2px;text-transform:uppercase;color:var(--t3);text-align:center;margin-top:8px;line-height:1.7;">Charlotte MacInnes · navy V-neck · plaintiff<br>Photo: NewsWire / Nikki Short</figcaption>
+      <figure>
+        <img src="wilson-week2-macinnes-navy.jpg" alt="Charlotte MacInnes in deep navy V-neck top with cream shoulder bag, arriving at Federal Court of Australia · Week 2 trial">
+        <figcaption>Charlotte MacInnes · navy V-neck · plaintiff<br>Photo: NewsWire / Nikki Short</figcaption>
       </figure>
-
-      <figure style="margin:0;">
-        <img src="wilson-week2-amanda-ghost.png" alt="Two-photo composite of Amanda Ghost outside Federal Court of Australia · top photo white ruffled blouse with red bag · bottom photo printed top with navy wide-leg pants" style="width:100%;border-radius:8px;display:block;border:1px solid var(--bdr);background:#fff;">
-        <figcaption style="font-family:'JetBrains Mono',monospace;font-size:.6rem;letter-spacing:1.2px;text-transform:uppercase;color:var(--t3);text-align:center;margin-top:8px;line-height:1.7;">Amanda Ghost · UK arrival → testimony day · whites &amp; navys<br>Photo: NewsWire / Nikki Short · via news.com.au</figcaption>
+      <figure>
+        <img src="wilson-week2-amanda-ghost.png" alt="Two-photo composite of Amanda Ghost outside Federal Court of Australia · top photo white ruffled blouse with red bag · bottom photo printed top with navy wide-leg pants" style="background:#fff;">
+        <figcaption>Amanda Ghost · UK arrival → testimony day · whites &amp; navys<br>Photo: NewsWire / Nikki Short · via news.com.au</figcaption>
       </figure>
-
     </div>
   </div>
 </div>
