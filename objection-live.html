@@ -155,7 +155,7 @@ function toggleTheme(){var c=document.documentElement.getAttribute('data-theme')
 <span class="hero-icon">⚖️</span>
 <h1>All <span>Rise</span></h1>
 <p class="hero-sub">Celebrity court cases. Broken down live. Every filing, every ruling, every twist - as it happens.</p>
-<div class="live-badge" style="background:rgba(246,195,64,.12);color:var(--gold);border-color:rgba(246,195,64,.3);">★ Moving to Primetime · Sunday May 25 · 9 PM EST</div>
+<div class="live-badge" style="background:rgba(246,195,64,.12);color:var(--gold);border-color:rgba(246,195,64,.3);">★ Moving to Primetime · Monday May 25 · 9 PM EST</div>
 <div class="hero-schedule">@celebritydockets on YouTube</div>
 </section>
 
@@ -163,7 +163,7 @@ function toggleTheme(){var c=document.documentElement.getAttribute('data-theme')
 <div class="next-live">
 <div class="nl-card" style="border-color:rgba(246,195,64,.4);background:linear-gradient(180deg,rgba(246,195,64,.06),var(--card) 60%);">
 <div class="nl-label" style="color:var(--gold);">★ Next Live · Primetime Debut</div>
-<div class="nl-title">Sunday, May 25 · 9 PM EST</div>
+<div class="nl-title">Monday, May 25 · 9 PM EST</div>
 <div style="display:inline-block;font-family:'JetBrains Mono',monospace;font-size:.62rem;font-weight:700;text-transform:uppercase;letter-spacing:2px;color:var(--red);background:rgba(225,16,40,.12);padding:4px 12px;border-radius:4px;border:1px solid rgba(225,16,40,.3);margin-top:8px;">★ Moving to Primetime</div>
 <div class="nl-countdown" id="countdown">--d --h --m</div>
 <div style="font-family:'JetBrains Mono',monospace;font-size:.6rem;color:var(--t3);text-transform:uppercase;letter-spacing:1.5px;margin-top:6px;">until primetime debut</div>
@@ -171,7 +171,7 @@ function toggleTheme(){var c=document.documentElement.getAttribute('data-theme')
 <div class="nl-card">
 <div class="nl-label">★ What's New</div>
 <ul class="nl-bullets">
-<li><strong>Celebrity Dockets is moving to primetime.</strong> No more Monday mornings — Sunday nights, 9 PM EST, live on YouTube.</li>
+<li><strong>Celebrity Dockets is moving to primetime.</strong> No more Monday mornings — Monday nights, 9 PM EST, live on YouTube.</li>
 <li><strong>No show this week (May 11 wrap, no May 18 episode).</strong> We're saving everything for the primetime debut.</li>
 <li><em>Lively</em> v. Wayfarer · <strong>§ 47.1 watch</strong> still rolling · what new antics &amp; PR stunts get pulled while we wait for Liman</li>
 <li><em>People</em> v. d4vd · pre-preliminary conference update</li>
@@ -191,7 +191,7 @@ function toggleTheme(){var c=document.documentElement.getAttribute('data-theme')
   <div style="flex:1;height:1px;background:var(--bdr);"></div>
 </div>
 
-<a href="episodes/2026-05-11/" target="_blank" class="ep-past">
+<div class="ep-past" onclick="if(!event.target.closest('a'))window.open('episodes/2026-05-11/','_blank')" style="cursor:pointer">
   <div class="ep-thumb" style="border-radius:6px;overflow:hidden;border:1px solid var(--bdr);display:flex;align-items:center;justify-content:center;background:linear-gradient(135deg,rgba(225,16,40,.12),rgba(246,195,64,.08));min-height:120px;">
     <div style="font-family:'DM Serif Display',serif;font-size:1.6rem;color:var(--gold);text-align:center;padding:20px;">★ Ep 003</div>
   </div>
@@ -201,9 +201,9 @@ function toggleTheme(){var c=document.documentElement.getAttribute('data-theme')
     <p style="font-size:.82rem;color:var(--t2);line-height:1.55;">Lively settled · Diggs walked · Pratt won the debate · plus a 14-card Docket Rundown.</p>
     <div style="margin-top:8px;"><a href="https://www.youtube.com/live/Eu2Ub0uVDKI" target="_blank" rel="noopener" style="font-family:'JetBrains Mono',monospace;font-size:.65rem;color:var(--red);text-decoration:none;font-weight:700;letter-spacing:1.2px;text-transform:uppercase;">▶ Watch on YouTube</a></div>
   </div>
-</a>
+</div>
 
-<a href="episodes/2026-05-04/" target="_blank" class="ep-past">
+<div class="ep-past" onclick="if(!event.target.closest('a'))window.open('episodes/2026-05-04/','_blank')" style="cursor:pointer">
   <div class="ep-thumb" style="border-radius:6px;overflow:hidden;border:1px solid var(--bdr);">
     <img src="episodes/2026-05-04/episode-2-key-art.jpg" alt="Celebrity Dockets · Episode 002 · The Great Unsealing 2.0 · Everybody Lies · A Tale of Three Trials · May 4 2026" style="width:100%;height:auto;display:block;">
   </div>
@@ -213,7 +213,7 @@ function toggleTheme(){var c=document.documentElement.getAttribute('data-theme')
     <p style="font-size:.82rem;color:var(--t2);line-height:1.55;">Lively v. Wayfarer Daubert · Wilson trial testimony ends · d4vd prelim moved · Britney arraignment · KimK/RayJ split ruling · Docket Rundown.</p>
     <div style="margin-top:8px;"><a href="https://www.youtube.com/live/lR2huiBQZ6k" target="_blank" rel="noopener" style="font-family:'JetBrains Mono',monospace;font-size:.65rem;color:var(--red);text-decoration:none;font-weight:700;letter-spacing:1.2px;text-transform:uppercase;">▶ Watch on YouTube</a></div>
   </div>
-</a>
+</div>
 
 <a href="episodes/2026-04-27/" target="_blank" class="ep-past">
   <div class="ep-thumb" style="border-radius:6px;overflow:hidden;border:1px solid var(--bdr);">
@@ -276,7 +276,7 @@ function toggleTheme(){var c=document.documentElement.getAttribute('data-theme')
 </div><div class="ftk"><a href="index.html#cases">Cases</a><a href="latest.html">Latest</a><a href="objection-live.html">All Rise</a><a href="recess.html">RECESS</a><a href="star-bar.html">Star Bar</a><a href="courtroom-culture.html">Courtroom Culture</a><a href="about.html">About</a></div></footer>
 
 <script>
-// Primetime debut countdown - Sunday May 25, 2026 · 9 PM Eastern
+// Primetime debut countdown - Monday May 25, 2026 · 9 PM Eastern
 function updateCountdown(){
   var el = document.getElementById('countdown');
   if (!el) return;
