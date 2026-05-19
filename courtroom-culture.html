@@ -67,9 +67,8 @@ body{background:var(--bg);color:var(--t1);font-family:'IBM Plex Sans',sans-serif
 .ccstrip::-webkit-scrollbar-track{background:rgba(0,0,0,.10);border-radius:4px}
 .ccstrip::-webkit-scrollbar-thumb{background:var(--gold);border-radius:4px;opacity:.6}
 .ccstrip::-webkit-scrollbar-thumb:hover{background:var(--red)}
-.ccstrip-row > *{flex:0 0 640px !important;scroll-snap-align:start;max-width:640px !important;margin:0 !important;max-height:560px;overflow:hidden;position:relative}
-.ccstrip-row > *::after{content:'';position:absolute;left:0;right:0;bottom:0;height:60px;background:linear-gradient(transparent,var(--card));pointer-events:none}
-@media(max-width:680px){.ccstrip-row > *{flex:0 0 88vw !important;max-width:88vw !important;max-height:520px}}
+.ccstrip-row > *{flex:0 0 640px !important;scroll-snap-align:start;max-width:640px !important;margin:0 !important}
+@media(max-width:680px){.ccstrip-row > *{flex:0 0 88vw !important;max-width:88vw !important}}
 .ccstrip-sub{max-width:1100px;margin:0 auto;padding:0 24px 8px;font-size:.85rem;color:var(--t2)}
 .ccstrip-sub b{color:var(--gold);font-weight:700}
 
