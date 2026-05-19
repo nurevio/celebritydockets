@@ -60,6 +60,19 @@ body{background:var(--bg);color:var(--t1);font-family:'IBM Plex Sans',sans-serif
 .intro p{font-size:.95rem;color:var(--t2);line-height:1.8}
 .intro strong{color:var(--t1)}
 
+/* Horizontal-scroll filmstrip for Courtroom Couture + PR Statements (matches the Latest weekly-strip pattern) */
+.ccstrip{max-width:100%;overflow-x:auto;overflow-y:visible;-webkit-overflow-scrolling:touch;padding:6px 24px 24px;margin:0 0 24px;scroll-snap-type:x mandatory}
+.ccstrip-row{display:flex;gap:18px;min-width:max-content;align-items:flex-start}
+.ccstrip::-webkit-scrollbar{height:8px}
+.ccstrip::-webkit-scrollbar-track{background:rgba(0,0,0,.10);border-radius:4px}
+.ccstrip::-webkit-scrollbar-thumb{background:var(--gold);border-radius:4px;opacity:.6}
+.ccstrip::-webkit-scrollbar-thumb:hover{background:var(--red)}
+.ccstrip-row > *{flex:0 0 640px !important;scroll-snap-align:start;max-width:640px !important;margin:0 !important;max-height:560px;overflow:hidden;position:relative}
+.ccstrip-row > *::after{content:'';position:absolute;left:0;right:0;bottom:0;height:60px;background:linear-gradient(transparent,var(--card));pointer-events:none}
+@media(max-width:680px){.ccstrip-row > *{flex:0 0 88vw !important;max-width:88vw !important;max-height:520px}}
+.ccstrip-sub{max-width:1100px;margin:0 auto;padding:0 24px 8px;font-size:.85rem;color:var(--t2)}
+.ccstrip-sub b{color:var(--gold);font-weight:700}
+
 /* Footer */
 .ft{border-top:1px solid var(--bdr);padding:40px 24px;text-align:center}
 .ftl{font-family:'DM Serif Display',serif;font-size:1.4rem;color:var(--t1);margin-bottom:8px}.ftl span{color:var(--red)}
@@ -184,28 +197,28 @@ function toggleTheme(){var c=document.documentElement.getAttribute('data-theme')
   </div>
 </div>
 
-<!-- Mona Shafer Edwards · May 19 d4vd status hearing · TWO NEW SKETCHES -->
+<!-- Mona Shafer Edwards · May 12 d4vd status hearing · TWO NEW SKETCHES -->
 <div class="sketch-feat" style="max-width:1100px;margin:0 auto 18px;padding:0 24px;display:grid;grid-template-columns:1fr 1fr;gap:24px;align-items:start;">
 
 <a href="d4vd-grand-jury.html" class="ccard" style="display:block;">
-<div class="ccard-img" style="display:block;width:100%;"><img src="d4vd-sketch-may-19-full.jpg" alt="d4vd in orange county jumpsuit, handcuffed, full-body courtroom sketch by Mona Shafer Edwards · May 19 2026 status hearing" style="display:block;width:100%;height:100%;object-fit:cover;"></div>
+<div class="ccard-img" style="display:block;width:100%;"><img src="d4vd-sketch-may-19-full.jpg" alt="d4vd in orange county jumpsuit, handcuffed, full-body courtroom sketch by Mona Shafer Edwards · May 12 2026 status hearing" style="display:block;width:100%;height:100%;object-fit:cover;"></div>
 <div class="ccard-body" style="display:block;">
 <div style="font-family:'JetBrains Mono',monospace;font-size:.62rem;text-transform:uppercase;letter-spacing:1.5px;color:var(--gold);margin-bottom:10px;">By Mona Shafer Edwards</div>
-<div class="ccard-tag">STATUS HEARING · MAY 19, 2026</div>
+<div class="ccard-tag">STATUS HEARING · MAY 12, 2026</div>
 <div class="ccard-title"><em>People</em> v. d4vd · full-body</div>
-<div class="ccard-desc">Burke in the orange county jumpsuit, handcuffed at the wrists. Hair grown out from earlier hearings. The May 19 status hearing where prelim got pushed to June 29 and the DNA discovery dispute became the center of gravity. Signed lower-left.</div>
-<div class="ccard-meta">Sketch by Mona Shafer Edwards · ABC News pool · May 19, 2026</div>
+<div class="ccard-desc">Burke in the orange county jumpsuit, handcuffed at the wrists. Hair grown out from earlier hearings. The May 12 status hearing where prelim got pushed to June 29 and the DNA discovery dispute became the center of gravity. Signed lower-left.</div>
+<div class="ccard-meta">Sketch by Mona Shafer Edwards · ABC News pool · May 12, 2026</div>
 </div>
 </a>
 
 <a href="d4vd-grand-jury.html" class="ccard" style="display:block;">
-<div class="ccard-img" style="display:block;width:100%;"><img src="d4vd-sketch-may-19-bench.png" alt="d4vd courtroom sketch · seated at counsel table, May 19 2026 status hearing, by Mona Shafer Edwards · via Court TV" style="display:block;width:100%;height:100%;object-fit:cover;"></div>
+<div class="ccard-img" style="display:block;width:100%;"><img src="d4vd-sketch-may-19-bench.png" alt="d4vd courtroom sketch · seated at counsel table, May 12 2026 status hearing, by Mona Shafer Edwards · via Court TV" style="display:block;width:100%;height:100%;object-fit:cover;"></div>
 <div class="ccard-body" style="display:block;">
 <div style="font-family:'JetBrains Mono',monospace;font-size:.62rem;text-transform:uppercase;letter-spacing:1.5px;color:var(--gold);margin-bottom:10px;">By Mona Shafer Edwards · Court TV</div>
-<div class="ccard-tag">STATUS HEARING · MAY 19, 2026</div>
+<div class="ccard-tag">STATUS HEARING · MAY 12, 2026</div>
 <div class="ccard-title"><em>People</em> v. d4vd · seated</div>
-<div class="ccard-desc">The companion piece &mdash; Burke seated at the counsel table during the May 19 status hearing. Procedural posture: prelim continued to June 29; prosecutor Beth Silverman confirms 10 of ~40 TB turned over to defense.</div>
-<div class="ccard-meta">Sketch by Mona Shafer Edwards · via Court TV · May 19, 2026</div>
+<div class="ccard-desc">The companion piece &mdash; Burke seated at the counsel table during the May 12 status hearing. Procedural posture: prelim continued to June 29; prosecutor Beth Silverman confirms 10 of ~40 TB turned over to defense.</div>
+<div class="ccard-meta">Sketch by Mona Shafer Edwards · via Court TV · May 12, 2026</div>
 </div>
 </a>
 
@@ -248,6 +261,10 @@ function toggleTheme(){var c=document.documentElement.getAttribute('data-theme')
 <p style="max-width:700px;margin:0 auto 20px;padding:0 24px;text-align:center;font-size:.85rem;color:var(--t2);line-height:1.7;">For more courtroom art from sketch artists across the country, follow <a href="https://www.instagram.com/courtroom_art/" target="_blank" rel="noopener" style="color:var(--gold);text-decoration:none;font-weight:600;">@courtroom_art</a> on Instagram.</p>
 
 <div class="sh"><h2>Courtroom Couture</h2><div class="line"></div><span class="tag">The Look</span></div>
+<div class="ccstrip-sub"><b>→ Scroll sideways</b> &middot; courtwear stories, one card at a time.</div>
+
+<div class="ccstrip">
+<div class="ccstrip-row">
 
 <!-- YE - GREY SUIT AT COPYRIGHT TRIAL · MAY 6 2026 -->
 <div style="max-width:1100px;margin:20px auto 28px;padding:0 24px;">
@@ -338,11 +355,16 @@ function toggleTheme(){var c=document.documentElement.getAttribute('data-theme')
   </div>
 </div>
 
+</div>
+</div>
+
 <p style="max-width:700px;margin:0 auto 28px;padding:0 24px;text-align:center;font-size:.8rem;color:var(--t3);font-family:'JetBrains Mono',monospace;letter-spacing:1.5px;text-transform:uppercase;">More looks stacked as the trial proceeds.</p>
 
 <div class="sh"><h2>PR Statements</h2><div class="line"></div><span class="tag">On the Record</span></div>
+<div class="ccstrip-sub"><b>→ Scroll sideways</b> &middot; the statements that hit before the rulings.</div>
 
-<div class="grid">
+<div class="ccstrip">
+<div class="ccstrip-row">
 
 <!-- PEOPLE v. d4vd: Family + Defense Team (combined wide card) -->
 <div class="ccard pr-war" style="grid-column:1/-1;">
@@ -426,6 +448,7 @@ Images: editorial use · news media · attorney profile photos · <a href="legal
 }
 </style>
 
+</div>
 </div>
 
 </div>
