@@ -82,6 +82,21 @@ body{background:var(--bg);color:var(--t1);font-family:'IBM Plex Sans',sans-serif
 .couture-photos figcaption{font-family:'JetBrains Mono',monospace;font-size:.58rem;letter-spacing:1.2px;text-transform:uppercase;color:var(--t3);text-align:center;margin-top:8px;line-height:1.6}
 @media(max-width:680px){.couture-photos figure{flex:0 0 240px}.couture-photos figure img{height:300px}}
 
+/* Sketch horizontal scroll */
+.sketch-scroll{display:flex;gap:18px;overflow-x:auto;-webkit-overflow-scrolling:touch;scroll-snap-type:x mandatory;padding:6px 24px 16px;max-width:100%}
+.sketch-scroll::-webkit-scrollbar{height:6px}
+.sketch-scroll::-webkit-scrollbar-track{background:rgba(0,0,0,.08);border-radius:3px}
+.sketch-scroll::-webkit-scrollbar-thumb{background:var(--gold);border-radius:3px}
+.sketch-scroll .scard{flex:0 0 380px;scroll-snap-align:start;background:var(--card);border:1px solid var(--bdr);border-radius:12px;overflow:hidden;text-decoration:none;color:inherit;display:block;transition:transform .15s,border-color .15s}
+.sketch-scroll .scard:hover{transform:translateY(-2px);border-color:var(--gold)}
+.sketch-scroll .scard img{width:100%;height:280px;object-fit:cover;display:block}
+.sketch-scroll .scard-body{padding:14px 18px}
+.sketch-scroll .scard-tag{font-family:'JetBrains Mono',monospace;font-size:.58rem;letter-spacing:1.8px;text-transform:uppercase;color:var(--gold);margin-bottom:6px}
+.sketch-scroll .scard-title{font-family:'DM Serif Display',serif;font-size:1.1rem;color:var(--t1);margin-bottom:6px;line-height:1.25}
+.sketch-scroll .scard-desc{font-size:.78rem;color:var(--t2);line-height:1.55;margin-bottom:8px}
+.sketch-scroll .scard-meta{font-family:'JetBrains Mono',monospace;font-size:.55rem;letter-spacing:1.2px;text-transform:uppercase;color:var(--t3)}
+@media(max-width:680px){.sketch-scroll .scard{flex:0 0 300px}.sketch-scroll .scard img{height:220px}}
+
 /* Footer */
 .ft{border-top:1px solid var(--bdr);padding:40px 24px;text-align:center}
 .ftl{font-family:'DM Serif Display',serif;font-size:1.4rem;color:var(--t1);margin-bottom:8px}.ftl span{color:var(--red)}
@@ -169,65 +184,57 @@ function toggleTheme(){var c=document.documentElement.getAttribute('data-theme')
 
 </div>
 
-<!-- Mona Shafer Edwards · Apr 29 d4vd status conference -->
-<div class="sketch-feat" style="max-width:1100px;margin:0 auto 18px;padding:0 24px;display:grid;grid-template-columns:1.4fr 1fr;gap:24px;align-items:start;">
-
-<a href="d4vd-grand-jury.html" class="ccard" style="display:block;">
-<div class="ccard-img" style="display:block;width:100%;"><img src="d4vd-courtroom-sketch-apr29.webp" alt="d4vd in orange county jumpsuit at the Apr 29 status conference, Judge Olmedo at the bench, courtroom sketch by Mona Shafer Edwards" style="display:block;width:100%;height:100%;object-fit:cover;"></div>
-<div class="ccard-body" style="display:block;">
-<div style="font-family:'JetBrains Mono',monospace;font-size:.62rem;text-transform:uppercase;letter-spacing:1.5px;color:var(--gold);margin-bottom:10px;">By Mona Shafer Edwards</div>
-<div class="ccard-tag">STATUS CONFERENCE · APR 29, 2026</div>
-<div class="ccard-title"><em>People</em> v. d4vd</div>
-<div class="ccard-desc">Burke in the orange county jumpsuit at the Apr 29 status conference, Judge Olmedo at the bench. The hearing where prelim got postponed to May 26 and the seal motion was denied. Different artist, different hearing — two LA legends covering the case at different stages.</div>
-<div class="ccard-meta">Sketch by Mona Shafer Edwards · ABC News pool · Apr 29, 2026</div>
-</div>
-</a>
-
-<div style="background:rgba(246,195,64,.06);border:1px solid rgba(246,195,64,.25);border-radius:12px;padding:24px 22px;">
+<!-- Mona Shafer Edwards · bio + all sketches in one horizontal scroll -->
+<div style="max-width:1100px;margin:0 auto 18px;padding:0 24px;display:flex;gap:20px;align-items:start;flex-wrap:wrap;">
+<div style="flex:1;min-width:280px;background:rgba(246,195,64,.06);border:1px solid rgba(246,195,64,.25);border-radius:12px;padding:24px 22px;">
 <img src="mona-shafer-edwards-profile.jpg" alt="Mona Shafer Edwards" style="width:84px;height:84px;border-radius:50%;object-fit:cover;border:2px solid rgba(246,195,64,.3);margin-bottom:14px;display:block;">
 <div style="font-family:'JetBrains Mono',monospace;font-size:.62rem;letter-spacing:2px;text-transform:uppercase;color:var(--gold);margin-bottom:6px;">★ Featured Artist</div>
 <div style="font-family:'DM Serif Display',serif;font-size:1.4rem;color:var(--t1);margin-bottom:10px;"><a href="https://www.monashaferedwards.com/" target="_blank" rel="noopener" style="color:inherit;text-decoration:none;">Mona Shafer Edwards</a></div>
-<div style="font-size:.82rem;color:var(--t2);line-height:1.7;">LA's other living courtroom sketch legend. Drew O.J. Simpson, the Menendez brothers, Michael Jackson (2005 trial &amp; the 2011 Conrad Murray manslaughter case), Phil Spector, Robert Blake, Heidi Fleiss, Britney Spears's conservatorship, Lori Loughlin (Varsity Blues), Lindsay Lohan, and Charlie Sheen — for ABC News since the 1980s. Author of <em>Sketches From the Trial</em>. Also a working fashion illustrator (LA Times, Saks). <a href="https://www.monashaferedwards.com/" target="_blank" rel="noopener" style="color:var(--gold);text-decoration:none;font-weight:600;">monashaferedwards.com</a></div>
+<div style="font-size:.82rem;color:var(--t2);line-height:1.7;">LA's other living courtroom sketch legend. Drew O.J. Simpson, the Menendez brothers, Michael Jackson (2005 trial &amp; the 2011 Conrad Murray manslaughter case), Phil Spector, Robert Blake, Heidi Fleiss, Britney Spears's conservatorship, Lori Loughlin (Varsity Blues), Lindsay Lohan, and Charlie Sheen &mdash; for ABC News since the 1980s. Author of <em>Sketches From the Trial</em>. Also a working fashion illustrator (LA Times, Saks). <a href="https://www.monashaferedwards.com/" target="_blank" rel="noopener" style="color:var(--gold);text-decoration:none;font-weight:600;">monashaferedwards.com</a></div>
+</div>
 </div>
 
-</div>
+<div style="max-width:1100px;margin:0 auto 6px;padding:0 24px;font-size:.85rem;color:var(--t2);"><b style="color:var(--gold);">→ Scroll sideways</b> &middot; 4 sketches from two hearings, one artist.</div>
 
-<!-- Mona second sketch — wide courtroom view -->
-<div style="max-width:1100px;margin:0 auto 28px;padding:0 24px;">
-  <div style="background:var(--card);border:1px solid var(--bdr);border-radius:12px;overflow:hidden;">
-    <div style="padding:14px 22px;border-bottom:1px solid var(--bdr);font-family:'JetBrains Mono',monospace;font-size:.62rem;text-transform:uppercase;letter-spacing:1.5px;color:var(--gold);display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:8px;">
-      <span>By Mona Shafer Edwards · Apr 29, 2026 · ABC News pool</span>
-      <span style="color:var(--t3);">Status conf · Dept. 105 · LASC</span>
-    </div>
-    <img src="d4vd-courtroom-sketch-apr29-wide.jpg" alt="Wide courtroom view: d4vd at the defense table flanked by attorneys, deputies in the background, sketched by Mona Shafer Edwards" style="display:block;width:100%;height:auto;">
-    <div style="padding:18px 22px;font-size:.85rem;color:var(--t2);line-height:1.65;">
-      The wider scene from the same hearing — <strong style="color:var(--t1);">Burke at the defense table</strong>, attorneys (Berk &amp; co-counsel) seated alongside, deputies posted at the back. Mona signed lower-right. The two-sketch sequence captures both the close-up of the defendant and the institutional staging of the courtroom around him.
-    </div>
-  </div>
-</div>
+<div class="sketch-scroll">
 
-<!-- Mona Shafer Edwards · May 12 d4vd status hearing · TWO NEW SKETCHES -->
-<div class="sketch-feat" style="max-width:1100px;margin:0 auto 18px;padding:0 24px;display:grid;grid-template-columns:1fr 1fr;gap:24px;align-items:start;">
-
-<a href="d4vd-grand-jury.html" class="ccard" style="display:block;">
-<div class="ccard-img" style="display:block;width:100%;"><img src="d4vd-sketch-may-19-full.jpg" alt="d4vd in orange county jumpsuit, handcuffed, full-body courtroom sketch by Mona Shafer Edwards · May 12 2026 status hearing" style="display:block;width:100%;height:100%;object-fit:cover;"></div>
-<div class="ccard-body" style="display:block;">
-<div style="font-family:'JetBrains Mono',monospace;font-size:.62rem;text-transform:uppercase;letter-spacing:1.5px;color:var(--gold);margin-bottom:10px;">By Mona Shafer Edwards</div>
-<div class="ccard-tag">STATUS HEARING · MAY 12, 2026</div>
-<div class="ccard-title"><em>People</em> v. d4vd · full-body</div>
-<div class="ccard-desc">Burke in the orange county jumpsuit, handcuffed at the wrists. Hair grown out from earlier hearings. The May 12 status hearing where prelim got pushed to June 29 and the DNA discovery dispute became the center of gravity. Signed lower-left.</div>
-<div class="ccard-meta">Sketch by Mona Shafer Edwards · ABC News pool · May 12, 2026</div>
+<a href="d4vd-grand-jury.html" class="scard">
+<img src="d4vd-courtroom-sketch-apr29.webp" alt="d4vd in orange county jumpsuit at the Apr 29 status conference, Judge Olmedo at the bench, courtroom sketch by Mona Shafer Edwards">
+<div class="scard-body">
+<div class="scard-tag">Status conference · Apr 29, 2026</div>
+<div class="scard-title"><em>People</em> v. d4vd · close-up</div>
+<div class="scard-desc">Burke in the orange county jumpsuit, Judge Olmedo at the bench. Prelim postponed, seal motion denied. Two LA legends covering the case at different stages.</div>
+<div class="scard-meta">Mona Shafer Edwards · ABC News pool</div>
 </div>
 </a>
 
-<a href="d4vd-grand-jury.html" class="ccard" style="display:block;">
-<div class="ccard-img" style="display:block;width:100%;"><img src="d4vd-sketch-may-19-bench.png" alt="d4vd courtroom sketch · seated at counsel table, May 12 2026 status hearing, by Mona Shafer Edwards · via Court TV" style="display:block;width:100%;height:100%;object-fit:cover;"></div>
-<div class="ccard-body" style="display:block;">
-<div style="font-family:'JetBrains Mono',monospace;font-size:.62rem;text-transform:uppercase;letter-spacing:1.5px;color:var(--gold);margin-bottom:10px;">By Mona Shafer Edwards · Court TV</div>
-<div class="ccard-tag">STATUS HEARING · MAY 12, 2026</div>
-<div class="ccard-title"><em>People</em> v. d4vd · seated</div>
-<div class="ccard-desc">The companion piece &mdash; Burke seated at the counsel table during the May 12 status hearing. Procedural posture: prelim continued to June 29; prosecutor Beth Silverman confirms 10 of ~40 TB turned over to defense.</div>
-<div class="ccard-meta">Sketch by Mona Shafer Edwards · via Court TV · May 12, 2026</div>
+<a href="d4vd-grand-jury.html" class="scard">
+<img src="d4vd-courtroom-sketch-apr29-wide.jpg" alt="Wide courtroom view: d4vd at the defense table flanked by attorneys, deputies in the background, sketched by Mona Shafer Edwards">
+<div class="scard-body">
+<div class="scard-tag">Status conference · Apr 29, 2026</div>
+<div class="scard-title"><em>People</em> v. d4vd · wide courtroom</div>
+<div class="scard-desc">Burke at the defense table, attorneys (Berk &amp; co-counsel) alongside, deputies posted at the back. The companion piece to the close-up. Mona signed lower-right.</div>
+<div class="scard-meta">Mona Shafer Edwards · ABC News pool</div>
+</div>
+</a>
+
+<a href="d4vd-grand-jury.html" class="scard">
+<img src="d4vd-sketch-may-19-full.jpg" alt="d4vd in orange county jumpsuit, handcuffed, full-body courtroom sketch by Mona Shafer Edwards · May 12 2026 status hearing">
+<div class="scard-body">
+<div class="scard-tag">Status hearing · May 12, 2026</div>
+<div class="scard-title"><em>People</em> v. d4vd · full-body</div>
+<div class="scard-desc">Burke handcuffed at the wrists, hair grown out. The May 12 hearing where prelim got pushed to June 29 and the DNA discovery dispute became center of gravity.</div>
+<div class="scard-meta">Mona Shafer Edwards · ABC News pool</div>
+</div>
+</a>
+
+<a href="d4vd-grand-jury.html" class="scard">
+<img src="d4vd-sketch-may-19-bench.png" alt="d4vd courtroom sketch · seated at counsel table, May 12 2026 status hearing, by Mona Shafer Edwards · via Court TV">
+<div class="scard-body">
+<div class="scard-tag">Status hearing · May 12, 2026</div>
+<div class="scard-title"><em>People</em> v. d4vd · seated</div>
+<div class="scard-desc">Burke seated at the counsel table. Prelim continued to June 29; prosecutor Silverman confirms 10 of ~40 TB turned over to defense.</div>
+<div class="scard-meta">Mona Shafer Edwards · via Court TV</div>
 </div>
 </a>
 
