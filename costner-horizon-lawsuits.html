@@ -214,7 +214,7 @@ function toggleTheme(){var c=document.documentElement.getAttribute('data-theme')
 <section style="max-width:900px;margin:0 auto;padding:24px 24px 0;">
   <div style="background:linear-gradient(135deg,rgba(74,144,217,.10),rgba(246,195,64,.05));border:1px solid rgba(74,144,217,.30);border-left:4px solid var(--accent-blue);border-radius:10px;padding:22px 24px;">
     <div style="font-family:'JetBrains Mono',monospace;font-size:.62rem;letter-spacing:2px;text-transform:uppercase;color:var(--accent-blue);font-weight:700;margin-bottom:14px;">★ Docket · Primary Sources</div>
-    <div style="font-family:'JetBrains Mono',monospace;font-size:.95rem;color:var(--text-primary);letter-spacing:.5px;margin-bottom:14px;font-weight:700;">Case No. <span style="color:var(--accent-blue);">Multiple</span></div>
+    <div style="font-family:'JetBrains Mono',monospace;font-size:.95rem;color:var(--text-primary);letter-spacing:.5px;margin-bottom:14px;font-weight:700;">LaBella Case No. <span style="color:var(--accent-blue);">25STCV15235</span></div>
     <div style="display:flex;flex-wrap:wrap;gap:10px;">
       <a href="https://www.lacourt.ca.gov/pages/lp/access-a-case/tp/find-case-information/cp/os-civil-case-access" target="_blank" rel="noopener" style="display:inline-flex;align-items:center;gap:8px;font-family:'JetBrains Mono',monospace;font-size:.75rem;font-weight:700;text-transform:uppercase;letter-spacing:1.2px;text-decoration:none;padding:10px 16px;border-radius:6px;background:var(--accent-blue);color:#fff;">📂 LASC Portal →</a>
     </div>
@@ -237,17 +237,19 @@ function toggleTheme(){var c=document.documentElement.getAttribute('data-theme')
       <div class="lawsuit-card">
         <div class="lawsuit-card-header">
           <span class="lawsuit-label">Lawsuit #1</span>
-          <span class="lawsuit-status ls-active">Active - Proceeding</span>
+          <span class="lawsuit-status ls-arbitration">Stayed · Appeal Pending</span>
         </div>
-        <div class="lawsuit-title">LaBella v. Costner &amp; Horizon Series</div>
+        <div class="lawsuit-title">LaBella v. Costner &amp; Horizon Series <span style="font-family:'JetBrains Mono',monospace;font-size:.7rem;color:var(--accent-gold);font-weight:400;">25STCV15235</span></div>
         <div class="lawsuit-body">
           <p>Stunt performer <strong>Devyn LaBella</strong>, lead stunt double for actress Ella Hunt, sued Costner in <strong>May 2025</strong> alleging she was forced to perform an <strong>unscripted rape scene</strong> on the set of Horizon 2 without advance warning, consent, choreography, or an intimacy coordinator present - in violation of SAG-AFTRA protocols.</p>
           <p>According to the complaint, Hunt refused to perform the scene and LaBella was brought in as a stand-in. She alleges a male actor was directed to <strong>pin her down, straddle her, and violently rake up her skirt</strong> on an open set. The film's own intimacy coordinator later documented violations of union rules.</p>
-          <p>Costner's attorney Marty Singer called the claims "absolutely false" and labeled LaBella a "serial accuser," producing a post-shoot text in which she thanked the stunt coordinator. In <strong>October 2025</strong>, Judge Jon Takasugi <strong>denied Costner's anti-SLAPP motion</strong> to dismiss, finding the claims have sufficient merit to proceed. The judge acknowledged that a reasonable person in the same position could find the experience constituted a hostile work environment. Two of ten claims were dismissed; eight survive including sexual discrimination, harassment, and failure to prevent.</p>
+          <p>Costner's attorney Marty Singer called the claims "absolutely false" and labeled LaBella a "serial accuser," producing a post-shoot text in which she thanked the stunt coordinator. In <strong>October 2025</strong>, Judge Jon R. Takasugi (Dept. 17) <strong>partially granted Costner's anti-SLAPP motion</strong> — striking the 4th and 7th causes of action but denying the motion as to all remaining claims. Two weeks later, on <strong>October 30, 2025</strong>, Costner's team <strong>filed a Notice of Appeal</strong> challenging the denial. The parties then jointly stipulated to <strong>stay all proceedings</strong> pending the appeal — which is why the docket has been quiet since late 2025.</p>
         </div>
         <div class="lawsuit-meta">
-          <span><strong>Filed:</strong> May 2025</span>
-          <span><strong>Court:</strong> L.A. Superior Court</span>
+          <span><strong>Case:</strong> 25STCV15235</span>
+          <span><strong>Filed:</strong> May 27, 2025</span>
+          <span><strong>Court:</strong> L.A. Superior · Dept. 17 · Judge Takasugi</span>
+          <span><strong>Status:</strong> Stayed pending appeal</span>
           <span><strong>Claims:</strong> Sexual harassment, hostile workplace, discrimination, retaliation</span>
         </div>
       </div>
@@ -314,7 +316,7 @@ function toggleTheme(){var c=document.documentElement.getAttribute('data-theme')
       <div class="sidebar-card">
         <div class="sidebar-card-header">Court Filings - LaBella v. Costner</div>
         <div style="margin-bottom:12px;padding:12px 16px;background:rgba(246,195,64,.06);border:1px solid rgba(246,195,64,.15);border-radius:8px;text-align:center;">
-          <div style="font-family:'JetBrains Mono',monospace;font-size:.65rem;color:var(--text-muted);margin-bottom:6px;">LA Superior Court · Filed May 27, 2025<br>LaBella v. Costner / Horizon Series Inc / Territory Pictures</div>
+          <div style="font-family:'JetBrains Mono',monospace;font-size:.65rem;color:var(--text-muted);margin-bottom:6px;">LA Superior Court · <strong style="color:var(--accent-gold);">25STCV15235</strong> · Filed May 27, 2025<br>LaBella v. Costner / Horizon Series Inc / Territory Pictures<br><span style="color:var(--accent-gold);">⏳ Stayed pending Costner's anti-SLAPP appeal</span></div>
         </div>
 
       <div class="sidebar-card">
@@ -366,8 +368,16 @@ function toggleTheme(){var c=document.documentElement.getAttribute('data-theme')
           <span class="docket-desc">New Line Cinema files arbitration crossclaim over co-financing</span>
         </div>
         <div class="docket-item">
-          <span class="docket-date">Oct 2025</span>
-          <span class="docket-desc" style="color: var(--accent-red); font-weight: 600;">Judge denies Costner's motion to dismiss LaBella suit</span>
+          <span class="docket-date">Oct 16, 2025</span>
+          <span class="docket-desc" style="color: var(--accent-red); font-weight: 600;">Judge Takasugi partially grants anti-SLAPP — strikes 2 of 10 claims, denies as to remaining 8</span>
+        </div>
+        <div class="docket-item">
+          <span class="docket-date">Oct 30, 2025</span>
+          <span class="docket-desc"><strong style="color:var(--text-primary);">Costner files Notice of Appeal</strong> of anti-SLAPP denial</span>
+        </div>
+        <div class="docket-item">
+          <span class="docket-date">Late 2025</span>
+          <span class="docket-desc" style="color:var(--accent-gold);font-weight:600;">Joint Stipulation to Stay — all proceedings paused pending appeal</span>
         </div>
         <div class="docket-item">
           <span class="docket-date">Dec 2025</span>
