@@ -38,9 +38,9 @@
   .status-cat { background: rgba(236, 64, 122, 0.15); color: var(--accent); border: 1px solid rgba(236, 64, 122, 0.32); }
   .status-cat2 { background: rgba(246, 195, 64, 0.12); color: var(--accent-gold); border: 1px solid rgba(246, 195, 64, 0.25); }
   @keyframes pulse { 0%, 100% { opacity: 1; } 50% { opacity: 0.3; } }
-  .case-title { font-family: 'DM Serif Display', serif; font-size: 2.6rem; line-height: 1.15; margin-bottom: 12px; color: var(--text-primary); position: relative; }
+  .case-title { font-family: 'DM Serif Display', serif; font-size: 2.8rem; line-height: 1.15; margin-bottom: 12px; color: var(--text-primary); position: relative; }
   .case-title em { font-style: italic; color: var(--accent); }
-  .case-subtitle { font-size: 1.05rem; color: var(--text-secondary); font-weight: 400; margin-bottom: 24px; max-width: 760px; }
+  .case-subtitle { font-size: 1.1rem; color: var(--text-secondary); font-weight: 400; margin-bottom: 24px; max-width: 650px; }
   .case-meta-row { display: flex; gap: 28px; flex-wrap: wrap; font-size: 0.82rem; color: var(--text-muted); }
   .meta-item { display: flex; align-items: center; gap: 6px; }
   .meta-label { text-transform: uppercase; font-size: 0.65rem; letter-spacing: 1.2px; font-weight: 700; color: var(--text-muted); }
@@ -57,15 +57,6 @@
   .party-name { font-family: 'DM Serif Display', serif; font-size: 1.2rem; color: var(--text-primary); margin-bottom: 4px; line-height: 1.2; }
   .party-desc { font-size: 0.78rem; color: var(--text-secondary); }
   .vs-badge { font-family: 'DM Serif Display', serif; font-size: 1.1rem; color: var(--accent-red); background: rgba(225, 16, 40, 0.1); width: 44px; height: 44px; border-radius: 50%; display: flex; align-items: center; justify-content: center; border: 1px solid rgba(225, 16, 40, 0.2); }
-  /* Docket-at-top card · sits right after parties */
-  .docket-top { background: linear-gradient(135deg, rgba(74,144,217,.10), rgba(236,64,122,.05)); border: 1px solid rgba(74,144,217,.30); border-left: 4px solid var(--accent-blue); border-radius: 10px; padding: 22px 24px; margin-bottom: 32px; }
-  .docket-top-label { font-family: 'JetBrains Mono', monospace; font-size: 0.62rem; letter-spacing: 2px; text-transform: uppercase; color: var(--accent-blue); font-weight: 700; margin-bottom: 14px; }
-  .docket-top-row { display: flex; flex-wrap: wrap; gap: 10px; }
-  .docket-top-row a { display: inline-flex; align-items: center; gap: 8px; font-family: 'JetBrains Mono', monospace; font-size: 0.75rem; font-weight: 700; text-transform: uppercase; letter-spacing: 1.2px; text-decoration: none; padding: 10px 16px; border-radius: 6px; transition: transform .15s, background .15s; }
-  .docket-top-row a:hover { transform: translateY(-1px); }
-  .dt-primary { background: var(--accent-blue); color: #fff; }
-  .dt-pdf { background: rgba(225,16,40,.12); color: var(--accent-red); border: 1px solid rgba(225,16,40,.4); }
-  .docket-top-meta { font-family: 'JetBrains Mono', monospace; font-size: 0.7rem; color: var(--text-muted); margin-top: 12px; line-height: 1.55; }
   .narrative-section { margin-bottom: 32px; }
   .section-label { font-size: 0.7rem; text-transform: uppercase; letter-spacing: 2px; font-weight: 700; color: var(--accent-gold); margin-bottom: 16px; display: flex; align-items: center; gap: 8px; }
   .section-label::after { content: ''; flex: 1; height: 1px; background: var(--border); }
@@ -92,7 +83,7 @@
   .case-footer { border-top: 1px solid var(--border); padding: 24px; text-align: center; font-size: 0.75rem; color: var(--text-muted); }
   .case-footer a { color: var(--accent-gold); text-decoration: none; }
   @keyframes fadeUp { from { opacity: 0; transform: translateY(20px); } to { opacity: 1; transform: translateY(0); } }
-  .case-hero, .parties-block, .docket-top, .narrative-section, .claims-list, .sidebar-card, .matters-box { animation: fadeUp 0.6s ease-out both; }
+  .case-hero, .parties-block, .narrative-section, .claims-list, .sidebar-card, .matters-box { animation: fadeUp 0.6s ease-out both; }
   .hamburger{display:none;background:none;border:none;color:var(--text-primary);cursor:pointer;padding:8px;flex-direction:column;gap:5px}
   .hamburger span{display:block;width:24px;height:2px;background:var(--text-primary);transition:all .3s}
   @media(max-width:768px){
@@ -156,6 +147,21 @@
 
   <div class="section-divider"><hr></div>
 
+<!-- DOCKET AT TOP · primary-source links land right after hero (new editorial standard) -->
+<section style="max-width:900px;margin:0 auto;padding:24px 24px 0;">
+  <div style="background:linear-gradient(135deg,rgba(74,144,217,.10),rgba(236,64,122,.05));border:1px solid rgba(74,144,217,.30);border-left:4px solid var(--accent-blue);border-radius:10px;padding:22px 24px;">
+    <div style="font-family:'JetBrains Mono',monospace;font-size:.62rem;letter-spacing:2px;text-transform:uppercase;color:var(--accent-blue);font-weight:700;margin-bottom:14px;">★ Docket · Primary Sources</div>
+    <div style="font-family:'JetBrains Mono',monospace;font-size:.95rem;color:var(--text-primary);letter-spacing:.5px;margin-bottom:14px;font-weight:700;">Case No. <span style="color:var(--accent-blue);">1:26-cv-23213-CMA</span> · S.D. Fla.</div>
+    <div style="display:flex;flex-wrap:wrap;gap:10px;">
+      <a href="https://www.courtlistener.com/docket/73306020/smith-v-falco-pictures-llc/" target="_blank" rel="noopener" style="display:inline-flex;align-items:center;gap:8px;font-family:'JetBrains Mono',monospace;font-size:.75rem;font-weight:700;text-transform:uppercase;letter-spacing:1.2px;text-decoration:none;padding:10px 16px;border-radius:6px;background:var(--accent-blue);color:#fff;">📂 CourtListener Docket →</a>
+      <a href="https://storage.courtlistener.com/recap/gov.uscourts.flsd.713704/gov.uscourts.flsd.713704.1.0.pdf" target="_blank" rel="noopener" style="display:inline-flex;align-items:center;gap:8px;font-family:'JetBrains Mono',monospace;font-size:.75rem;font-weight:700;text-transform:uppercase;letter-spacing:1.2px;text-decoration:none;padding:10px 16px;border-radius:6px;background:rgba(225,16,40,.12);color:var(--accent-red);border:1px solid rgba(225,16,40,.4);">📄 Complaint (Dkt. 1) →</a>
+      <a href="https://storage.courtlistener.com/recap/gov.uscourts.flsd.713704/gov.uscourts.flsd.713704.8.0.pdf" target="_blank" rel="noopener" style="display:inline-flex;align-items:center;gap:8px;font-family:'JetBrains Mono',monospace;font-size:.75rem;font-weight:700;text-transform:uppercase;letter-spacing:1.2px;text-decoration:none;padding:10px 16px;border-radius:6px;background:rgba(246,195,64,.14);color:var(--accent-gold);border:1px solid rgba(246,195,64,.55);">⚖️ Sua Sponte Order (Dkt. 8) →</a>
+      <a href="https://drive.google.com/drive/folders/1pBP6wMlFRm5XyJIZGkbq9HaGduB3nrK7" target="_blank" rel="noopener" style="display:inline-flex;align-items:center;gap:8px;font-family:'JetBrains Mono',monospace;font-size:.75rem;font-weight:700;text-transform:uppercase;letter-spacing:1.2px;text-decoration:none;padding:10px 16px;border-radius:6px;background:rgba(74,144,217,.14);color:var(--accent-blue);border:1px solid rgba(74,144,217,.45);">📁 Complaint + Exhibits →</a>
+    </div>
+    <div style="font-size:.62rem;color:var(--text-muted);margin-top:8px;">Hon. Cecilia M. Altonaga · 39-page verified complaint · filed May 6, 2026 · Exhibits via <a href="https://x.com/kattnotwilliams" target="_blank" rel="noopener" style="color:var(--accent-gold);text-decoration:underline;text-underline-offset:2px;font-weight:700;">@kattnotwilliams</a></div>
+  </div>
+</section>
+
   <main class="case-body">
     <div class="case-main">
       <div class="parties-block">
@@ -173,18 +179,6 @@
             <div class="party-desc">Producers of <em>The Rip</em> · Damon + Affleck founded Artists Equity</div>
           </div>
         </div>
-      </div>
-
-      <!-- DOCKET AT TOP · new editorial standard: primary-source links land right after parties -->
-      <div class="docket-top">
-        <div class="docket-top-label">★ Docket · Primary Sources</div>
-        <div class="docket-top-row">
-          <a href="https://www.courtlistener.com/docket/73306020/smith-v-falco-pictures-llc/" target="_blank" rel="noopener" class="dt-primary">📂 CourtListener Docket →</a>
-          <a href="https://storage.courtlistener.com/recap/gov.uscourts.flsd.713704/gov.uscourts.flsd.713704.1.0.pdf" target="_blank" rel="noopener" class="dt-pdf">📄 Read the Complaint (Dkt. 1) →</a>
-          <a href="https://storage.courtlistener.com/recap/gov.uscourts.flsd.713704/gov.uscourts.flsd.713704.8.0.pdf" target="_blank" rel="noopener" class="dt-pdf" style="background:rgba(246,195,64,.14);color:var(--accent-gold);border:1px solid rgba(246,195,64,.55);">⚖️ Read the Order (Dkt. 8) →</a>
-          <a href="https://drive.google.com/drive/folders/1pBP6wMlFRm5XyJIZGkbq9HaGduB3nrK7" target="_blank" rel="noopener" class="dt-pdf" style="background:rgba(74,144,217,.14);color:var(--accent-blue);border:1px solid rgba(74,144,217,.45);">📁 Verified Complaint + 2 Exhibits (via @kattnotwilliams) →</a>
-        </div>
-        <div class="docket-top-meta">S.D. Fla. · 1:26-cv-23213-CMA · Hon. Cecilia M. Altonaga &middot; 39-page verified complaint &middot; filed via ECF May 6, 2026</div>
       </div>
 
       <!-- ⚠️ MAY 12 DEADLINE · sua sponte order from Judge Altonaga -->
