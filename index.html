@@ -152,36 +152,31 @@ function toggleTheme(){var c=document.documentElement.getAttribute('data-theme')
 (function(){var s=localStorage.getItem('cdTheme')||'light';document.documentElement.setAttribute('data-theme',s);window.addEventListener('DOMContentLoaded',function(){var ic=document.getElementById('theme-icon');if(ic)ic.textContent=s==='dark'?'🌙':'☀️';});})();
 </script>
 
-<!-- NEWS TICKER -->
+<!-- NEWS TICKER · TRIAL WATCH -->
 <div class="ticker-wrap">
-  <div class="ticker-label">★ Live</div>
+  <div class="ticker-label">★ Trial Watch</div>
   <div class="ticker-track">
     <div class="ticker-content" id="tickerContent">
-      <a href="lively-v-baldoni.html" class="ticker-item"><span class="ti-badge ti-settled">Settled</span> Lively v. Wayfarer — § 47.1 attorneys' fees ruling pending · Judge Liman on the record</a>
-      <a href="kanye-west-employee-lawsuits.html" class="ticker-item"><span class="ti-badge ti-verdict">Verdict</span> Kanye West — ~$438K "Hurricane" copyright infringement · 8-juror federal jury</a>
-      <a href="stefon-diggs-criminal.html" class="ticker-item"><span class="ti-badge ti-verdict">Not Guilty</span> Stefon Diggs — Acquitted on all charges · &lt; 2hr deliberation</a>
-      <a href="dua-lipa-samsung.html" class="ticker-item"><span class="ti-badge ti-new">New</span> Dua Lipa v. Samsung — $15M copyright + right of publicity · photo on TV packaging</a>
-      <a href="mondream-entertainment-lawsuits.html" class="ticker-item"><span class="ti-badge ti-new">Filed</span> Moon Dream v. Saweetie &amp; Derulo — Afro Jam Festival breach · $700K+ damages</a>
-      <a href="avila-v-chris-brown.html" class="ticker-item"><span class="ti-badge ti-trial">Trial Jun 15</span> Avila v. Chris Brown — $90M dog attack · Rihanna evidence fight</a>
+      <a href="lively-v-baldoni.html" class="ticker-item"><span class="ti-badge ti-trial">Pending</span> Lively v. Wayfarer — § 47.1 attorneys' fees ruling · Judge Liman on the record</a>
+      <a href="avila-v-chris-brown.html" class="ticker-item"><span class="ti-badge ti-trial">Jun 15</span> Avila v. Chris Brown — $90M dog attack · Rihanna evidence fight</a>
       <a href="d4vd-grand-jury.html" class="ticker-item"><span class="ti-badge ti-trial">Jun 17</span> People v. d4vd — Status hearing · prelim Jun 29</a>
-      <a href="live-nation-ticketmaster.html" class="ticker-item"><span class="ti-badge ti-verdict">Liable</span> Live Nation / Ticketmaster — Jury finds illegal monopoly · breakup possible</a>
-      <a href="britney-spears-dui.html" class="ticker-item"><span class="ti-badge ti-verdict">Resolved</span> Britney Spears — Wet-reckless plea · 1 yr probation</a>
+      <a href="tiger-woods-dui.html" class="ticker-item"><span class="ti-badge ti-trial">DUI</span> State v. Woods — Prescription records ruled admissible</a>
+      <a href="pratt-v-city-of-la.html" class="ticker-item"><span class="ti-badge ti-trial">Discovery</span> Pratt v. City of LA — Status conference held May 20</a>
+      <a href="wilson-v-ghost-the-deb.html" class="ticker-item"><span class="ti-badge ti-trial">Oct 2026</span> Ghost v. Wilson — The Deb defamation · appeal denied</a>
       <a href="chris-brown-uk-trial.html" class="ticker-item"><span class="ti-badge ti-trial">Oct 26</span> R v. Brown — UK Crown Court · GBH bottle attack · 2-16 years</a>
       <a href="russell-brand-uk-trial.html" class="ticker-item"><span class="ti-badge ti-trial">Oct 12</span> R v. Brand — UK rape trial · 7 charges · up to life</a>
-      <a href="fat-joe-v-dixon.html" class="ticker-item"><span class="ti-badge ti-new">Update</span> Fat Joe v. Dixon — Sanctions motion deadline passed</a>
-      <a href="busta-rhymes-gables.html" class="ticker-item"><span class="ti-badge ti-settled">Settled</span> Busta Rhymes — Private mediation · Cheeks motion due Jun 1</a>
+      <a href="lizzo-employees-lawsuit.html" class="ticker-item"><span class="ti-badge ti-trial">Trial 2026</span> Davis v. Lizzo — Sexual harassment · backup dancers</a>
+      <a href="tyler-perry-lawsuits.html" class="ticker-item"><span class="ti-badge ti-trial">MTD</span> Tyler Perry — Lionsgate motion to dismiss</a>
       <a href="latest.html" class="ticker-item" style="color:var(--gold);font-weight:600;">See all latest updates →</a>
     </div>
   </div>
 </div>
 <script>
 (function(){
-  // Clone ticker items for seamless loop
   var tc=document.getElementById('tickerContent');
   if(!tc)return;
   var items=tc.innerHTML;
   tc.innerHTML=items+items;
-  // Adjust speed based on content width
   requestAnimationFrame(function(){
     var w=tc.scrollWidth/2;
     var speed=Math.max(40,Math.round(w/45));
@@ -202,23 +197,15 @@ function toggleTheme(){var c=document.documentElement.getAttribute('data-theme')
 </section>
 
 <!-- SHOW NOTES · EPISODE 3 -->
-<div style="max-width:1100px;margin:0 auto 28px;padding:0 24px;">
-  <div style="display:flex;align-items:center;gap:16px;margin-bottom:14px;">
-    <h2 style="font-family:'DM Serif Display',serif;font-size:1.2rem;color:var(--t1);white-space:nowrap;">★ This Week's Show Notes</h2>
-    <div style="flex:1;height:1px;background:var(--bdr);"></div>
-    <span style="font-family:'JetBrains Mono',monospace;font-size:.62rem;color:var(--gold);background:rgba(246,195,64,.1);padding:4px 12px;border-radius:4px;border:1px solid rgba(246,195,64,.2);">May 11, 2026</span>
+<div style="max-width:1100px;margin:0 auto 12px;padding:0 24px;">
+<a href="episodes/2026-05-11/" target="_blank" style="display:flex;align-items:center;gap:14px;background:var(--card);border:1px solid var(--bdr);border-left:4px solid var(--red);border-radius:10px;padding:14px 22px;text-decoration:none;color:inherit;flex-wrap:wrap;transition:transform .2s,border-color .2s;">
+  <div style="font-family:'JetBrains Mono',monospace;font-size:.62rem;letter-spacing:2px;color:var(--red);font-weight:700;text-transform:uppercase;white-space:nowrap;display:inline-flex;align-items:center;gap:6px;"><span style="width:6px;height:6px;background:var(--red);border-radius:50%;animation:p 2s infinite"></span>Ep 003 · May 11</div>
+  <div style="flex:1;min-width:200px;font-family:'DM Serif Display',serif;font-size:1.05rem;color:var(--t1);">The <em style="color:var(--red);">Biggest Loser</em> · Public Spins &amp; the Docket Rundown</div>
+  <div style="display:flex;gap:10px;align-items:center;flex-wrap:wrap;">
+    <span style="font-family:'JetBrains Mono',monospace;font-size:.68rem;color:var(--red);letter-spacing:1.5px;text-transform:uppercase;font-weight:700;">Show Notes →</span>
+    <a href="https://www.youtube.com/live/Eu2Ub0uVDKI" target="_blank" rel="noopener" onclick="event.stopPropagation();" style="font-family:'JetBrains Mono',monospace;font-size:.68rem;color:#FFDD00;letter-spacing:1.5px;text-transform:uppercase;font-weight:700;text-decoration:none;padding:5px 10px;border:1px solid #FFDD00;border-radius:4px;">▶ YouTube</a>
   </div>
-  <a href="episodes/2026-05-11/" target="_blank" style="display:grid;grid-template-columns:1fr;gap:14px;background:var(--card);border:1px solid var(--bdr);border-left:4px solid var(--red);border-radius:12px;padding:22px 24px;text-decoration:none;color:inherit;transition:transform .2s,border-color .2s;">
-    <div>
-      <div style="font-family:'JetBrains Mono',monospace;font-size:.62rem;color:var(--red);letter-spacing:2px;text-transform:uppercase;font-weight:700;margin-bottom:8px;">★ Episode 003 · May 11, 2026</div>
-      <h3 style="font-family:'DM Serif Display',serif;font-size:1.5rem;line-height:1.2;color:var(--t1);margin-bottom:10px;">The <em style="color:var(--red);">Biggest Loser</em> · Public Spins &amp; the Docket Rundown</h3>
-      <p style="font-size:.88rem;color:var(--t2);line-height:1.6;margin-bottom:14px;">Lively settled · Diggs walked · Pratt won the debate · § 47.1 carve-out · Mondschein + Kjersti panel · Freedman + Fritz interviews · 14-card Docket Rundown.</p>
-      <div style="display:flex;flex-wrap:wrap;gap:12px;align-items:center;">
-        <span style="font-family:'JetBrains Mono',monospace;font-size:.68rem;color:var(--red);letter-spacing:1.5px;text-transform:uppercase;font-weight:700;">Open show notes →</span>
-        <a href="https://www.youtube.com/live/Eu2Ub0uVDKI" target="_blank" rel="noopener" style="font-family:'JetBrains Mono',monospace;font-size:.68rem;color:#FFDD00;letter-spacing:1.5px;text-transform:uppercase;font-weight:700;text-decoration:none;padding:6px 12px;border:1px solid #FFDD00;border-radius:4px;">▶ Watch on YouTube</a>
-      </div>
-    </div>
-  </a>
+</a>
 </div>
 
 <!-- TRIAL WATCH STRIP -->
