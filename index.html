@@ -98,7 +98,7 @@ html{scroll-behavior:smooth}body{background:var(--bg);color:var(--t1);font-famil
 @keyframes fu{from{opacity:0;transform:translateY(24px)}to{opacity:1;transform:translateY(0)}}
 .hero{animation:fu .6s ease-out}.cc{animation:fu .5s ease-out both}
 /* Ticker */
-.ticker-wrap{display:flex;align-items:center;background:linear-gradient(90deg,rgba(225,16,40,.08),rgba(10,10,15,.95) 12%,rgba(10,10,15,.95) 88%,rgba(246,195,64,.08));border-bottom:1px solid var(--bdr);overflow:hidden;height:38px;position:relative}
+.ticker-wrap{display:flex;align-items:center;background:linear-gradient(90deg,rgba(225,16,40,.08),rgba(10,10,15,.95) 12%,rgba(10,10,15,.95) 88%,rgba(246,195,64,.08));border-bottom:1px solid var(--bdr);overflow:hidden;height:38px;position:sticky;top:var(--hdr-h,57px);z-index:99}
 :root[data-theme="light"] .ticker-wrap{background:linear-gradient(90deg,rgba(225,16,40,.06),rgba(245,242,234,.97) 12%,rgba(245,242,234,.97) 88%,rgba(246,195,64,.06))}
 .ticker-label{font-family:'JetBrains Mono',monospace;font-size:.62rem;font-weight:800;text-transform:uppercase;letter-spacing:2px;color:#fff;background:var(--red);padding:6px 14px;white-space:nowrap;z-index:2;display:flex;align-items:center;gap:6px;height:100%}
 .ticker-label::before{content:'';width:6px;height:6px;background:#fff;border-radius:50%;animation:p 2s infinite}
@@ -173,6 +173,10 @@ function toggleTheme(){var c=document.documentElement.getAttribute('data-theme')
 </div>
 <script>
 (function(){
+  // Measure header and pin ticker below it
+  var hdr=document.querySelector('.hdr');
+  if(hdr)document.documentElement.style.setProperty('--hdr-h',hdr.offsetHeight+'px');
+  // Clone ticker items for seamless loop
   var tc=document.getElementById('tickerContent');
   if(!tc)return;
   var items=tc.innerHTML;
