@@ -1,0 +1,269 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<link rel="icon" type="image/png" href="favicon.png"><link rel="apple-touch-icon" href="favicon.png">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Moon Dream v. Saweetie &amp; Jason Derulo · Afro Jam Festival Breach | Celebrity Dockets</title>
+<link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&family=IBM+Plex+Sans:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+<style>
+:root{--bg-primary:#0a0a0f;--bg-card:#12121a;--bg-elevated:#1a1a26;--accent:#ec407a;--accent-red:#E11028;--accent-gold:#F6C340;--text-primary:#e8e6e1;--text-secondary:#9a9a9a;--text-muted:#5a5a6a;--border:#2a2a3a;--border-light:#1e1e2e}
+*{margin:0;padding:0;box-sizing:border-box}
+body{background:var(--bg-primary);color:var(--text-primary);font-family:'IBM Plex Sans',sans-serif;line-height:1.6;min-height:100vh}
+.site-header{border-bottom:1px solid var(--border);padding:16px 24px;display:flex;align-items:center;justify-content:space-between;background:var(--bg-primary);position:sticky;top:0;z-index:100;backdrop-filter:blur(12px)}
+.site-logo{font-family:'DM Serif Display',serif;font-size:1.2rem;color:var(--text-primary);text-decoration:none}.site-logo span{color:var(--accent-red)}
+.site-nav{display:flex;gap:24px;font-size:.8rem;text-transform:uppercase;letter-spacing:1.5px;font-weight:600}
+.site-nav a{color:var(--text-secondary);text-decoration:none;transition:color .2s}.site-nav a:hover{color:var(--accent-gold)}
+.hamburger{display:none;background:none;border:none;color:var(--text-primary);cursor:pointer;padding:8px;flex-direction:column;gap:5px}
+.hamburger span{display:block;width:24px;height:2px;background:var(--text-primary);transition:all .3s}
+@media(max-width:768px){
+  .site-nav{display:none;position:absolute;top:100%;left:0;right:0;background:var(--bg-primary);flex-direction:column;padding:20px 24px;gap:18px;border-bottom:1px solid var(--border);box-shadow:0 4px 20px rgba(0,0,0,.4);z-index:99}
+  .site-nav.open{display:flex}
+  .hamburger{display:flex}
+}
+.case-hero{padding:60px 24px 48px;max-width:900px;margin:0 auto}
+.case-title{font-family:'DM Serif Display',serif;font-size:2.8rem;line-height:1.15;margin-bottom:12px}.case-title em{font-style:italic;color:var(--accent)}
+.case-subtitle{font-size:1.1rem;color:var(--text-secondary);margin-bottom:24px;max-width:700px}
+.case-meta-row{display:flex;gap:28px;flex-wrap:wrap;font-size:.82rem;color:var(--text-muted)}
+.meta-item{display:flex;flex-direction:column;gap:2px}
+.meta-label{text-transform:uppercase;font-size:.65rem;letter-spacing:1.2px;font-weight:700;color:var(--accent)}
+.meta-value{color:var(--text-secondary)}
+.case-body{max-width:900px;margin:0 auto;padding:40px 24px 80px;display:grid;grid-template-columns:1fr 280px;gap:48px}
+@media(max-width:768px){.case-body{grid-template-columns:1fr;gap:32px}.case-title{font-size:2rem}}
+.parties-block{background:var(--bg-card);border:1px solid var(--border);border-radius:8px;padding:28px;margin-bottom:32px}
+.parties-header{font-size:.7rem;text-transform:uppercase;letter-spacing:2px;font-weight:700;color:var(--accent-gold);margin-bottom:20px}
+.party-vs{display:grid;grid-template-columns:1fr auto 1fr;gap:16px;align-items:center}
+.party-card{text-align:center}
+.party-role{font-size:.65rem;text-transform:uppercase;letter-spacing:1.5px;color:var(--text-muted);font-weight:700;margin-bottom:6px}
+.party-name{font-family:'DM Serif Display',serif;font-size:1.25rem;margin-bottom:4px}
+.party-desc{font-size:.78rem;color:var(--text-secondary)}
+.vs-badge{font-family:'DM Serif Display',serif;font-size:1.1rem;color:var(--accent-red);background:rgba(225,16,40,.1);width:44px;height:44px;border-radius:50%;display:flex;align-items:center;justify-content:center;border:1px solid rgba(225,16,40,.2)}
+.narrative-section{margin-bottom:32px}
+.section-label{font-size:.7rem;text-transform:uppercase;letter-spacing:2px;font-weight:700;color:var(--accent-gold);margin-bottom:16px;display:flex;align-items:center;gap:8px}
+.section-label::after{content:'';flex:1;height:1px;background:var(--border)}
+.narrative-text{font-size:.95rem;color:var(--text-secondary);line-height:1.8}
+.narrative-text p{margin-bottom:16px}
+.narrative-text strong{color:var(--text-primary);font-weight:600}
+.claims-list{list-style:none;display:flex;flex-direction:column;gap:12px;margin-bottom:32px}
+.claim-item{padding:16px 20px;background:var(--bg-card);border-left:3px solid var(--accent);border-radius:0 6px 6px 0;font-size:.9rem;color:var(--text-secondary);line-height:1.6}
+.claim-number{font-family:'JetBrains Mono',monospace;font-size:.7rem;color:var(--accent);font-weight:700;margin-right:8px}
+.sidebar-card{background:var(--bg-card);border:1px solid var(--border);border-radius:8px;padding:22px;margin-bottom:24px}
+.sidebar-card-header{font-size:.65rem;text-transform:uppercase;letter-spacing:2px;font-weight:700;color:var(--accent-gold);margin-bottom:16px;padding-bottom:10px;border-bottom:1px solid var(--border)}
+.docket-item{display:flex;gap:12px;padding:10px 0;border-bottom:1px solid var(--border-light);align-items:flex-start}
+.docket-item:last-child{border-bottom:none}
+.docket-date{font-family:'JetBrains Mono',monospace;font-size:.7rem;color:var(--text-muted);white-space:nowrap;min-width:80px}
+.docket-desc{font-size:.82rem;color:var(--text-secondary);line-height:1.5}
+.matters-box{background:linear-gradient(135deg,rgba(236,64,122,.08),rgba(246,195,64,.05));border:1px solid rgba(236,64,122,.2);border-radius:8px;padding:24px;margin-bottom:32px}
+.matters-box p{font-size:.9rem;color:var(--text-secondary);line-height:1.7}
+.case-footer{border-top:1px solid var(--border);padding:24px;text-align:center;font-size:.75rem;color:var(--text-muted)}
+.case-footer a{color:var(--accent-gold);text-decoration:none}
+.suit-card{background:var(--bg-card);border:1px solid var(--border);border-radius:8px;padding:24px;margin-bottom:24px;border-left:4px solid var(--accent)}
+.suit-card h3{font-family:'DM Serif Display',serif;font-size:1.3rem;margin-bottom:8px}
+.suit-card .suit-meta{font-family:'JetBrains Mono',monospace;font-size:.7rem;color:var(--text-muted);letter-spacing:1px;margin-bottom:12px}
+.highlight-box{background:rgba(225,16,40,.06);border:1px solid rgba(225,16,40,.15);border-radius:8px;padding:20px;margin:16px 0}
+.highlight-box p{font-size:.9rem;color:var(--text-secondary);line-height:1.7;margin:0}
+.flyer-img{width:100%;max-width:320px;border-radius:8px;border:1px solid var(--border);margin:0 auto;display:block}
+
+:root[data-theme="light"]{--bg:#f5f2ea;--bg-primary:#f5f2ea;--card:#ffffff;--bg-card:#ffffff;--elev:#fffcf5;--bg-elevated:#fffcf5;--accent:#ec407a;--accent-red:#E11028;--accent-gold:#8b6f20;--text-primary:#1a1a1f;--text-secondary:#5a5a5f;--text-muted:#8a8a8f;--border:#d4cfc0;--border-light:#e8e3d4}
+body{transition:background .3s,color .3s}
+.theme-toggle{background:none;border:1px solid currentColor;cursor:pointer;padding:6px 10px;border-radius:4px;font-size:.85rem;font-family:'JetBrains Mono',monospace;opacity:.7;transition:opacity .2s;margin-left:12px}
+.theme-toggle:hover{opacity:1}
+</style>
+<script>
+function toggleTheme(){var c=document.documentElement.getAttribute('data-theme')||'dark';var n=c==='dark'?'light':'dark';document.documentElement.setAttribute('data-theme',n);localStorage.setItem('cdTheme',n);var ic=document.getElementById('theme-icon');if(ic)ic.textContent=n==='dark'?'🌙':'☀️';}
+(function(){var s=localStorage.getItem('cdTheme')||'light';document.documentElement.setAttribute('data-theme',s);window.addEventListener('DOMContentLoaded',function(){var ic=document.getElementById('theme-icon');if(ic)ic.textContent=s==='dark'?'🌙':'☀️';});})();
+</script>
+<meta property="og:title" content="Moon Dream v. Saweetie &amp; Jason Derulo · Afro Jam Festival Breach | Celebrity Dockets">
+<meta property="og:description" content="Japanese concert promoter Moon Dream Production Co. sues both Saweetie and Jason Derulo for breaching Afro Jam Festival 2025 contracts. Same attorney, same 4 claims, same court. Saweetie allegedly used Mondream's visa then performed at rival venues.">
+<meta property="og:image" content="https://celebritydockets.com/logo-transparent.png">
+<meta name="twitter:card" content="summary_large_image">
+<!-- Microsoft Clarity --><script type="text/javascript">(function(c,l,a,r,i,t,y){c[a]=c[a]||function(){(c[a].q=c[a].q||[]).push(arguments)};t=l.createElement(r);t.async=1;t.src="https://www.clarity.ms/tag/"+i;y=l.getElementsByTagName(r)[0];y.parentNode.insertBefore(t,y);})(window, document, "clarity", "script", "wj08elhbdz");</script>
+</head>
+<body>
+<header class="site-header">
+<a href="index.html" class="site-logo">Celebrity<span>Dockets</span></a>
+<button class="hamburger" onclick="this.classList.toggle('open');document.querySelector('.site-nav').classList.toggle('open')"><span></span><span></span></button>
+<nav class="site-nav">
+      <a href="index.html#cases">Cases</a>
+      <a href="latest.html">📅 Latest</a>
+      <a href="objection-live.html">⚖️ All Rise</a>
+      <a href="recess.html">🔔 RECESS</a>
+      <a href="featured-dockets.html" style="color:#F6C340;">★ Featured</a>
+      <a href="star-bar.html">Star Bar</a>
+      <a href="courtroom-culture.html">Courtroom Culture</a>
+      <a href="about.html">About</a>
+      <a href="https://www.buymeacoffee.com/celebritydockets" target="_blank" rel="noopener" style="color:#FFDD00;">☕ Fuel</a><button class="theme-toggle" onclick="toggleTheme()"><span id="theme-icon">☀️</span></button></nav>
+</header>
+
+<section class="case-hero">
+<img src="mondream-hero.png" alt="Afro Jam Festival 2025 promo featuring Saweetie and Jason Derulo" style="width:100%;height:auto;border-radius:10px;margin-bottom:24px;display:block;border:1px solid var(--border);">
+<div style="display:flex;gap:12px;margin-bottom:14px;flex-wrap:wrap;">
+  <span style="font-family:'JetBrains Mono',monospace;font-size:.65rem;letter-spacing:2px;text-transform:uppercase;font-weight:700;padding:5px 14px;border:1px solid var(--accent);color:var(--accent);border-radius:4px;">NEW · May 2026</span>
+  <span style="font-family:'JetBrains Mono',monospace;font-size:.65rem;letter-spacing:2px;text-transform:uppercase;font-weight:700;padding:5px 14px;border:1px solid var(--accent-gold);color:var(--accent-gold);border-radius:4px;">Two Artists · One Promoter</span>
+  <span style="font-family:'JetBrains Mono',monospace;font-size:.65rem;letter-spacing:2px;text-transform:uppercase;font-weight:700;padding:5px 14px;border:1px solid var(--accent-red);color:var(--accent-red);border-radius:4px;">Breach + Fraud</span>
+</div>
+<h1 class="case-title"><em>Moon Dream</em> v. Saweetie &amp; Jason Derulo</h1>
+<p class="case-subtitle">Japanese concert promoter <strong>Moon Dream Production Co.</strong> files back-to-back lawsuits against <strong>Saweetie</strong> and <strong>Jason Derulo</strong> for allegedly breaching their <strong>Afro Jam Festival 2025</strong> contracts in Japan. Same attorney. Same four claims. Same court. One promoter left holding the bag.</p>
+<div class="case-meta-row">
+  <div class="meta-item"><span class="meta-label">Court</span><span class="meta-value">LA Superior Court</span></div>
+  <div class="meta-item"><span class="meta-label">Derulo Case</span><span class="meta-value">26STCV15493</span></div>
+  <div class="meta-item"><span class="meta-label">Saweetie Case</span><span class="meta-value">26STCV15924</span></div>
+  <div class="meta-item"><span class="meta-label">Status</span><span class="meta-value">Newly filed · May 2026</span></div>
+</div>
+</section>
+
+<div class="case-body">
+<main>
+
+  <!-- PARTIES -->
+  <div class="parties-block">
+    <div class="parties-header">Parties (Both Cases)</div>
+    <div class="party-vs">
+      <div class="party-card">
+        <div class="party-role">Plaintiffs</div>
+        <div class="party-name">Moon Dream Production Co. &amp; SFL Group Co., Ltd.</div>
+        <div class="party-desc">Concert promotions company &amp; Japanese partner (SFL Group is based in Japan)</div>
+      </div>
+      <div class="vs-badge">v.</div>
+      <div class="party-card">
+        <div class="party-role">Defendants</div>
+        <div class="party-name">Saweetie &amp; Jason Derulo</div>
+        <div class="party-desc">Via Icy Grl Touring &amp; Licensing LLC + UTA (Saweetie) &middot; Via Nuking Uffpop Inc. + Gelfand Rennert &amp; Feldman (Derulo)</div>
+      </div>
+    </div>
+  </div>
+
+  <!-- THE FESTIVAL -->
+  <div class="narrative-section">
+    <div class="section-label">The Festival</div>
+    <div class="narrative-text">
+      <p><strong>Afro Jam Festival 2025</strong> was a multi-city music festival across Japan featuring over 100 acts spanning afrobeats, rap, R&amp;B, pop, reggae, and dance. Four days in <strong>Okinawa</strong> (July 17&ndash;20 at Suntory Arena), three in <strong>Osaka</strong> (July 22&ndash;24), three in <strong>Tokyo</strong> (July 25&ndash;27). Headliners included Jason Derulo, Saweetie, Rema, Shenseea, Ruger, The Wailers, and Gyakie. Tickets started at 12,000 yen (~$83).</p>
+      <p>Moon Dream Production Co. and its Japanese partner <strong>SFL Group Co., Ltd.</strong> organized the festival and booked the talent. Both companies are in the business of concert promotions. Attorney for both lawsuits: <strong>Moses O. Onyejekwe</strong> (SBN 152809), Law Offices of Moses O. Onyejekwe, 3255 Wilshire Blvd Suite 826, LA.</p>
+    </div>
+  </div>
+
+  <!-- SUIT 1: SAWEETIE -->
+  <div class="suit-card">
+    <div class="suit-meta">CASE 1 &middot; 26STCV15924 &middot; FILED MAY 18, 2026</div>
+    <h3>Moon Dream v. Saweetie</h3>
+    <div class="narrative-text">
+      <p>On <strong>January 29, 2025</strong>, Moon Dream entered a live performance agreement with <strong>Icy Grl Touring &amp; Licensing, LLC</strong> (a Georgia LLC owned by Saweetie, based at 15821 Ventura Blvd, Encino). Saweetie was contracted to perform four dates in Japan:</p>
+      <p>&bull; <strong>July 18</strong> &mdash; Okinawa Arena<br>&bull; <strong>July 23</strong> &mdash; Konohana Ward, Osaka<br>&bull; <strong>July 25</strong> &mdash; Chofu, Tokyo<br>&bull; <strong>July 26</strong> &mdash; Tokyo</p>
+      <p>The agreed fee was <strong>$200,000</strong>. Moon Dream wired <strong>$100,000</strong> to the defendants (via <strong>United Talent Agency</strong>) in March 2025, with the balance due June 26, 2025 upon proof of an approved visa.</p>
+
+      <div class="highlight-box">
+        <p><strong style="color:var(--accent-red);">The alleged breach:</strong> On or about <strong>May 19, 2025</strong>, Saweetie and her team repudiated the agreement and refused to perform. But they still <strong>used all the visa services Moon Dream had facilitated</strong> to enter Japan &mdash; then proceeded to <strong>perform at different venues for other vendors on the same contracted dates</strong>. Specifically, Saweetie and UTA unilaterally sold and reassigned the July 25 and July 26 dates to third-party nightclubs <strong>CELAVI TOKYO</strong> and <strong>LAFIN SHANGAI</strong>.</p>
+      </div>
+
+      <p>Despite demands for a refund, Saweetie has refused. Moon Dream claims <strong>$200,000</strong> in nonrefundable venue procurement fees, <strong>$100,000</strong> in merchandise and promotional expenses, and <strong>~$400,000</strong> in estimated lost net profit (from projected gross revenue of ~$1,000,000). The complaint also alleges that Icy Grl Touring is the <strong>alter ego</strong> of UTA and seeks to <strong>pierce the corporate veil</strong>.</p>
+    </div>
+  </div>
+
+  <!-- SUIT 2: DERULO -->
+  <div class="suit-card">
+    <div class="suit-meta">CASE 2 &middot; 26STCV15493 &middot; FILED MAY 14, 2026</div>
+    <h3>Moon Dream v. Jason Derulo</h3>
+    <div class="narrative-text">
+      <p>Filed four days before the Saweetie suit. Moon Dream sues <strong>Nuking Uffpop Inc.</strong> (Derulo's company, c/o <strong>Gelfand, Rennert &amp; Feldman LLC</strong>) and <strong>Jason Desrouleaux aka Jason Derulo</strong> individually.</p>
+      <p>Derulo was the <strong>top-billed headliner</strong> for Afro Jam, booked for the festival's opening night &mdash; <strong>July 17 in Okinawa</strong>. Same four causes of action, same attorney, same court.</p>
+      <p>Demand of complaint exceeds <strong>$35,000</strong>. Jury trial demanded.</p>
+    </div>
+  </div>
+
+  <!-- CLAIMS -->
+  <div class="narrative-section">
+    <div class="section-label">Claims (Both Cases)</div>
+    <ul class="claims-list">
+      <li class="claim-item"><span class="claim-number">01</span><strong>Breach of Contract.</strong> Both artists entered live performance agreements for Afro Jam Japan 2025 and allegedly failed to honor their obligations.</li>
+      <li class="claim-item"><span class="claim-number">02</span><strong>Monies Had and Received.</strong> Moon Dream paid deposits and fees; defendants became indebted for sums exceeding $100,000 received for performances never delivered.</li>
+      <li class="claim-item"><span class="claim-number">03</span><strong>Common Count.</strong> Standard California claim for money owed.</li>
+      <li class="claim-item"><span class="claim-number">04</span><strong>Fraud / Misrepresentation.</strong> Defendants allegedly misrepresented their intent to perform while accepting payment and promotional support.</li>
+    </ul>
+  </div>
+
+  <!-- THE PATTERN -->
+  <div class="matters-box">
+    <div class="section-label">The Pattern</div>
+    <p><strong>Same promoter. Same attorney. Same court. Same four claims. Filed four days apart.</strong> Moon Dream isn't chasing one flaky booking &mdash; they're alleging a pattern of artists taking money, using visa services, then performing at rival venues or simply not showing up. The Saweetie complaint is especially detailed: she allegedly used Moon Dream's visa facilitation to enter Japan, then sold her contracted dates to nightclubs while refusing to refund the $100K deposit.</p>
+  </div>
+
+  <!-- SOCIAL -->
+  <div class="narrative-section">
+    <div class="section-label">Coverage &amp; Social</div>
+    <blockquote class="twitter-tweet" data-dnt="true" data-conversation="none"><a href="https://twitter.com/DocumentTingz/status/2057262584244425144"></a></blockquote>
+    <div style="margin-top:16px;"></div>
+    <blockquote class="twitter-tweet" data-dnt="true" data-conversation="none"><a href="https://twitter.com/DocumentTingz/status/2056580644331737391"></a></blockquote>
+  </div>
+
+</main>
+
+<aside>
+  <!-- FLYER -->
+  <div class="sidebar-card">
+    <div class="sidebar-card-header">Afro Jam Festival 2025</div>
+    <img src="mondream-afrojam-flyer.jpg" alt="Afro Jam Festival 2025 flyer &mdash; Okinawa Suntory Arena, July 17-20" class="flyer-img">
+    <p style="font-size:.75rem;color:var(--text-muted);margin-top:10px;text-align:center;">Okinawa &middot; Osaka &middot; Tokyo<br>July 17&ndash;27, 2025 &middot; 100+ acts</p>
+  </div>
+
+  <!-- CASE TRACKER -->
+  <div class="sidebar-card">
+    <div class="sidebar-card-header">Cases Tracker</div>
+    <div class="docket-item"><span class="docket-date">Saweetie</span><span class="docket-desc">26STCV15924 &middot; Filed 5/18/26</span></div>
+    <div class="docket-item"><span class="docket-date">Derulo</span><span class="docket-desc">26STCV15493 &middot; Filed 5/14/26</span></div>
+  </div>
+
+  <!-- MONEY -->
+  <div class="sidebar-card">
+    <div class="sidebar-card-header">Saweetie &middot; Alleged Damages</div>
+    <div class="docket-item"><span class="docket-date">Deposit</span><span class="docket-desc" style="color:var(--accent-red);font-weight:600;">$100,000 paid</span></div>
+    <div class="docket-item"><span class="docket-date">Venue fees</span><span class="docket-desc">$200,000 nonrefundable</span></div>
+    <div class="docket-item"><span class="docket-date">Merch/promo</span><span class="docket-desc">$100,000</span></div>
+    <div class="docket-item"><span class="docket-date">Lost profit</span><span class="docket-desc">~$400,000 estimated</span></div>
+    <div class="docket-item"><span class="docket-date" style="color:var(--accent-red);font-weight:700;">Total</span><span class="docket-desc" style="color:var(--accent-red);font-weight:700;">$700K+ claimed</span></div>
+  </div>
+
+  <!-- TIMELINE -->
+  <div class="sidebar-card">
+    <div class="sidebar-card-header">Timeline</div>
+    <div class="docket-item"><span class="docket-date">Jan 29, 2025</span><span class="docket-desc">Saweetie performance agreement signed</span></div>
+    <div class="docket-item"><span class="docket-date">Mar 2025</span><span class="docket-desc">$100K wired to UTA for Saweetie</span></div>
+    <div class="docket-item"><span class="docket-date">May 19, 2025</span><span class="docket-desc" style="color:var(--accent-red);font-weight:600;">Saweetie allegedly repudiates agreement</span></div>
+    <div class="docket-item"><span class="docket-date">Jul 17-27, 2025</span><span class="docket-desc">Afro Jam Festival dates (Okinawa/Osaka/Tokyo)</span></div>
+    <div class="docket-item"><span class="docket-date">Jul 25-26</span><span class="docket-desc" style="color:var(--accent-red);font-weight:600;">Saweetie performs at CELAVI TOKYO &amp; LAFIN SHANGAI instead</span></div>
+    <div class="docket-item"><span class="docket-date">May 14, 2026</span><span class="docket-desc">Derulo lawsuit filed (26STCV15493)</span></div>
+    <div class="docket-item"><span class="docket-date">May 18, 2026</span><span class="docket-desc">Saweetie lawsuit filed (26STCV15924)</span></div>
+  </div>
+
+  <!-- KEY PLAYERS -->
+  <div class="sidebar-card">
+    <div class="sidebar-card-header">Key Players</div>
+    <div class="docket-item"><span class="docket-date">Plaintiff atty</span><span class="docket-desc">Moses O. Onyejekwe (SBN 152809)</span></div>
+    <div class="docket-item"><span class="docket-date">Saweetie co.</span><span class="docket-desc">Icy Grl Touring &amp; Licensing LLC</span></div>
+    <div class="docket-item"><span class="docket-date">Saweetie agent</span><span class="docket-desc">United Talent Agency (UTA)</span></div>
+    <div class="docket-item"><span class="docket-date">Derulo co.</span><span class="docket-desc">Nuking Uffpop Inc.</span></div>
+    <div class="docket-item"><span class="docket-date">Derulo mgmt</span><span class="docket-desc">Gelfand, Rennert &amp; Feldman LLC</span></div>
+  </div>
+
+  <!-- SOURCE -->
+  <div class="sidebar-card">
+    <div class="sidebar-card-header">Sources</div>
+    <a href="https://drive.google.com/file/d/10NycwyF3Z1C4BaxzFtQw-Kbwl6zz82mK/view" target="_blank" rel="noopener" style="display:block;background:rgba(236,64,122,.08);border:1px solid rgba(236,64,122,.2);border-radius:6px;padding:10px 14px;margin-bottom:8px;text-decoration:none;color:var(--text-primary);font-size:.78rem;">
+      <div style="font-weight:600;margin-bottom:2px;">Saweetie Complaint (PDF)</div>
+      <div style="font-family:'JetBrains Mono',monospace;font-size:.65rem;color:var(--text-muted);">Google Drive &middot; via @DocumentTingz</div>
+    </a>
+    <a href="https://japan.stripes.com/travel/jason-derulo,-saweetie-among-slated-acts-for-summer-afro-jam-festival-in-okinawa,-osaka-and-tokyo.html" target="_blank" rel="noopener" style="display:block;background:rgba(236,64,122,.08);border:1px solid rgba(236,64,122,.2);border-radius:6px;padding:10px 14px;margin-bottom:8px;text-decoration:none;color:var(--text-primary);font-size:.78rem;">
+      <div style="font-weight:600;margin-bottom:2px;">Stars &amp; Stripes Japan</div>
+      <div style="font-family:'JetBrains Mono',monospace;font-size:.65rem;color:var(--text-muted);">Original Afro Jam Festival announcement</div>
+    </a>
+  </div>
+</aside>
+</div>
+
+<footer class="case-footer">
+  <div style="font-family:'DM Serif Display',serif;font-size:1.1rem;color:var(--text-primary);margin-bottom:6px;">Celebrity<span style="color:var(--accent-red);">Dockets</span></div>
+  <div>Filed under entertainment law &middot; breach of contract &middot; concert promotions</div>
+  <div style="margin-top:8px;"><a href="index.html">Home</a> &middot; <a href="latest.html">Latest</a> &middot; <a href="legal.html">Terms</a></div>
+</footer>
+<script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>
+</body>
+</html>
