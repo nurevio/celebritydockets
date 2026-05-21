@@ -97,7 +97,23 @@ html{scroll-behavior:smooth}body{background:var(--bg);color:var(--t1);font-famil
 .ftc{font-size:.7rem;color:var(--t3)}
 @keyframes fu{from{opacity:0;transform:translateY(24px)}to{opacity:1;transform:translateY(0)}}
 .hero{animation:fu .6s ease-out}.cc{animation:fu .5s ease-out both}
-
+/* Ticker */
+.ticker-wrap{display:flex;align-items:center;background:linear-gradient(90deg,rgba(225,16,40,.08),rgba(10,10,15,.95) 12%,rgba(10,10,15,.95) 88%,rgba(246,195,64,.08));border-bottom:1px solid var(--bdr);overflow:hidden;height:38px;position:relative}
+:root[data-theme="light"] .ticker-wrap{background:linear-gradient(90deg,rgba(225,16,40,.06),rgba(245,242,234,.97) 12%,rgba(245,242,234,.97) 88%,rgba(246,195,64,.06))}
+.ticker-label{font-family:'JetBrains Mono',monospace;font-size:.62rem;font-weight:800;text-transform:uppercase;letter-spacing:2px;color:#fff;background:var(--red);padding:6px 14px;white-space:nowrap;z-index:2;display:flex;align-items:center;gap:6px;height:100%}
+.ticker-label::before{content:'';width:6px;height:6px;background:#fff;border-radius:50%;animation:p 2s infinite}
+.ticker-track{flex:1;overflow:hidden;position:relative;height:100%;display:flex;align-items:center;mask-image:linear-gradient(90deg,transparent 0%,#000 3%,#000 97%,transparent 100%);-webkit-mask-image:linear-gradient(90deg,transparent 0%,#000 3%,#000 97%,transparent 100%)}
+.ticker-content{display:flex;align-items:center;gap:0;white-space:nowrap;animation:tickerScroll var(--ticker-speed,90s) linear infinite}
+.ticker-content:hover{animation-play-state:paused}
+.ticker-item{display:inline-flex;align-items:center;gap:6px;padding:0 28px;font-family:'IBM Plex Sans',sans-serif;font-size:.78rem;color:var(--t2);text-decoration:none;transition:color .2s;white-space:nowrap;border-right:1px solid var(--bdr2);height:22px}
+.ticker-item:last-child{border-right:none}
+.ticker-item:hover{color:var(--gold)}
+.ticker-item .ti-badge{font-family:'JetBrains Mono',monospace;font-size:.58rem;font-weight:700;text-transform:uppercase;letter-spacing:.8px;padding:2px 7px;border-radius:3px;white-space:nowrap}
+.ti-verdict{background:rgba(39,174,96,.15);color:#27ae60}
+.ti-trial{background:rgba(225,16,40,.12);color:var(--red)}
+.ti-new{background:rgba(246,195,64,.12);color:var(--gold)}
+.ti-settled{background:rgba(74,144,217,.12);color:var(--blue)}
+@keyframes tickerScroll{0%{transform:translateX(0)}100%{transform:translateX(-50%)}}
 .hamburger{display:none;background:none;border:none;color:var(--t1);cursor:pointer;padding:8px;flex-direction:column;gap:5px}
 .hamburger span{display:block;width:24px;height:2px;background:var(--t1);transition:all .3s}
 @media(max-width:768px){
@@ -134,6 +150,44 @@ html{scroll-behavior:smooth}body{background:var(--bg);color:var(--t1);font-famil
 <script>
 function toggleTheme(){var c=document.documentElement.getAttribute('data-theme')||'dark';var n=c==='dark'?'light':'dark';document.documentElement.setAttribute('data-theme',n);localStorage.setItem('cdTheme',n);document.getElementById('theme-icon').textContent=n==='dark'?'🌙':'☀️';}
 (function(){var s=localStorage.getItem('cdTheme')||'light';document.documentElement.setAttribute('data-theme',s);window.addEventListener('DOMContentLoaded',function(){var ic=document.getElementById('theme-icon');if(ic)ic.textContent=s==='dark'?'🌙':'☀️';});})();
+</script>
+
+<!-- NEWS TICKER -->
+<div class="ticker-wrap">
+  <div class="ticker-label">★ Live</div>
+  <div class="ticker-track">
+    <div class="ticker-content" id="tickerContent">
+      <a href="lively-v-baldoni.html" class="ticker-item"><span class="ti-badge ti-settled">Settled</span> Lively v. Wayfarer — § 47.1 attorneys' fees ruling pending · Judge Liman on the record</a>
+      <a href="kanye-west-employee-lawsuits.html" class="ticker-item"><span class="ti-badge ti-verdict">Verdict</span> Kanye West — ~$438K "Hurricane" copyright infringement · 8-juror federal jury</a>
+      <a href="stefon-diggs-criminal.html" class="ticker-item"><span class="ti-badge ti-verdict">Not Guilty</span> Stefon Diggs — Acquitted on all charges · &lt; 2hr deliberation</a>
+      <a href="dua-lipa-samsung.html" class="ticker-item"><span class="ti-badge ti-new">New</span> Dua Lipa v. Samsung — $15M copyright + right of publicity · photo on TV packaging</a>
+      <a href="mondream-entertainment-lawsuits.html" class="ticker-item"><span class="ti-badge ti-new">Filed</span> Moon Dream v. Saweetie &amp; Derulo — Afro Jam Festival breach · $700K+ damages</a>
+      <a href="avila-v-chris-brown.html" class="ticker-item"><span class="ti-badge ti-trial">Trial Jun 15</span> Avila v. Chris Brown — $90M dog attack · Rihanna evidence fight</a>
+      <a href="d4vd-grand-jury.html" class="ticker-item"><span class="ti-badge ti-trial">Jun 17</span> People v. d4vd — Status hearing · prelim Jun 29</a>
+      <a href="live-nation-ticketmaster.html" class="ticker-item"><span class="ti-badge ti-verdict">Liable</span> Live Nation / Ticketmaster — Jury finds illegal monopoly · breakup possible</a>
+      <a href="britney-spears-dui.html" class="ticker-item"><span class="ti-badge ti-verdict">Resolved</span> Britney Spears — Wet-reckless plea · 1 yr probation</a>
+      <a href="chris-brown-uk-trial.html" class="ticker-item"><span class="ti-badge ti-trial">Oct 26</span> R v. Brown — UK Crown Court · GBH bottle attack · 2-16 years</a>
+      <a href="russell-brand-uk-trial.html" class="ticker-item"><span class="ti-badge ti-trial">Oct 12</span> R v. Brand — UK rape trial · 7 charges · up to life</a>
+      <a href="fat-joe-v-dixon.html" class="ticker-item"><span class="ti-badge ti-new">Update</span> Fat Joe v. Dixon — Sanctions motion deadline passed</a>
+      <a href="busta-rhymes-gables.html" class="ticker-item"><span class="ti-badge ti-settled">Settled</span> Busta Rhymes — Private mediation · Cheeks motion due Jun 1</a>
+      <a href="latest.html" class="ticker-item" style="color:var(--gold);font-weight:600;">See all latest updates →</a>
+    </div>
+  </div>
+</div>
+<script>
+(function(){
+  // Clone ticker items for seamless loop
+  var tc=document.getElementById('tickerContent');
+  if(!tc)return;
+  var items=tc.innerHTML;
+  tc.innerHTML=items+items;
+  // Adjust speed based on content width
+  requestAnimationFrame(function(){
+    var w=tc.scrollWidth/2;
+    var speed=Math.max(40,Math.round(w/45));
+    tc.style.setProperty('--ticker-speed',speed+'s');
+  });
+})();
 </script>
 
 <section class="hero">
@@ -189,8 +243,8 @@ Trial Watch
 <div style="font-family:'JetBrains Mono',monospace;font-size:.65rem;color:var(--t3);text-transform:uppercase;letter-spacing:1.5px;">Read docket →</div>
 </a>
 <a href="pratt-v-city-of-la.html" style="display:flex;padding:14px 24px;background:linear-gradient(90deg,rgba(225,16,40,.16),rgba(246,195,64,.08));border:1px solid rgba(225,16,40,.40);border-radius:10px;align-items:center;gap:18px;flex-wrap:wrap;text-decoration:none;color:inherit;transition:transform .2s,border-color .2s;">
-<div style="flex:1;min-width:200px;font-family:'DM Serif Display',serif;font-size:1.05rem;color:var(--t1);"><em style="color:var(--red);font-style:italic;">Pratt</em> v. City of LA · 🚨 <strong style="color:var(--gold);">STATUS CONFERENCE TOMORROW</strong> · 1:45 PM · Dept. 7 Spring St. · ✅ May 6 mayoral · Pratt won (per polls)</div>
-<div style="font-family:'JetBrains Mono',monospace;font-size:.85rem;color:var(--red);font-weight:700;">May 20, 2026</div>
+<div style="flex:1;min-width:200px;font-family:'DM Serif Display',serif;font-size:1.05rem;color:var(--t1);"><em style="color:var(--red);font-style:italic;">Pratt</em> v. City of LA · Status conference held May 20 · Dept. 7 Spring St. · ✅ May 6 mayoral · Pratt won (per polls)</div>
+<div style="font-family:'JetBrains Mono',monospace;font-size:.85rem;color:var(--gold);font-weight:700;">May 20, 2026</div>
 <div style="font-family:'JetBrains Mono',monospace;font-size:.65rem;color:var(--t3);text-transform:uppercase;letter-spacing:1.5px;">Read docket →</div>
 </a>
 <a href="d4vd-grand-jury.html" style="display:flex;padding:14px 24px;background:linear-gradient(90deg,rgba(225,16,40,.12),rgba(246,195,64,.06));border:1px solid rgba(225,16,40,.25);border-radius:10px;align-items:center;gap:18px;flex-wrap:wrap;text-decoration:none;color:inherit;transition:transform .2s,border-color .2s;">
