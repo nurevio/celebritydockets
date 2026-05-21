@@ -208,63 +208,6 @@ function toggleTheme(){var c=document.documentElement.getAttribute('data-theme')
 </a>
 </div>
 
-<!-- TRIAL WATCH STRIP -->
-<div style="max-width:1100px;margin:0 auto 24px;display:flex;flex-direction:column;gap:8px;">
-<div style="font-family:'JetBrains Mono',monospace;font-size:.62rem;text-transform:uppercase;letter-spacing:2.5px;color:var(--red);font-weight:700;display:inline-flex;align-items:center;gap:8px;padding:0 4px;">
-<span style="width:7px;height:7px;background:var(--red);border-radius:50%;display:inline-block;animation:p 2s infinite"></span>
-Trial Watch
-</div>
-<a href="lively-v-baldoni.html" style="display:flex;padding:14px 24px;background:linear-gradient(90deg,rgba(246,195,64,.14),rgba(225,16,40,.06));border:1px solid rgba(246,195,64,.50);border-radius:10px;align-items:center;gap:18px;flex-wrap:wrap;text-decoration:none;color:inherit;transition:transform .2s,border-color .2s;">
-<div style="flex:1;min-width:200px;font-family:'DM Serif Display',serif;font-size:1.05rem;color:var(--t1);"><em style="color:var(--red);font-style:italic;">Lively</em> v. Wayfarer · 🚨 <strong style="color:var(--gold);">LIMAN DENIES FURTHER BRIEFING</strong> on § 47.1</div>
-<div style="font-family:'JetBrains Mono',monospace;font-size:.85rem;color:var(--gold);font-weight:700;">May 11, 2026</div>
-<div style="font-family:'JetBrains Mono',monospace;font-size:.65rem;color:var(--t3);text-transform:uppercase;letter-spacing:1.5px;">Read docket →</div>
-</a>
-<a href="tiger-woods-dui.html" style="display:flex;padding:14px 24px;background:linear-gradient(90deg,rgba(225,16,40,.18),rgba(246,195,64,.08));border:1px solid rgba(225,16,40,.45);border-radius:10px;align-items:center;gap:18px;flex-wrap:wrap;text-decoration:none;color:inherit;transition:transform .2s,border-color .2s;">
-<div style="flex:1;min-width:200px;font-family:'DM Serif Display',serif;font-size:1.05rem;color:var(--t1);"><em style="color:var(--red);font-style:italic;">State</em> v. Woods · 🚨 <strong style="color:var(--gold);">Prescription records ADMISSIBLE</strong> · DUI trial</div>
-<div style="font-family:'JetBrains Mono',monospace;font-size:.85rem;color:var(--red);font-weight:700;">May 13, 2026</div>
-<div style="font-family:'JetBrains Mono',monospace;font-size:.65rem;color:var(--t3);text-transform:uppercase;letter-spacing:1.5px;">Read docket →</div>
-</a>
-<a href="tyler-perry-lawsuits.html" style="display:flex;padding:14px 24px;background:linear-gradient(90deg,rgba(225,16,40,.12),rgba(246,195,64,.06));border:1px solid rgba(225,16,40,.25);border-radius:10px;align-items:center;gap:18px;flex-wrap:wrap;text-decoration:none;color:inherit;transition:transform .2s,border-color .2s;">
-<div style="flex:1;min-width:200px;font-family:'DM Serif Display',serif;font-size:1.05rem;color:var(--t1);"><em style="color:var(--red);font-style:italic;">Tyler Perry</em> · Lionsgate motion to dismiss</div>
-<div style="font-family:'JetBrains Mono',monospace;font-size:.85rem;color:var(--gold);font-weight:700;" id="perryCountdown">May 7, 2026</div>
-<div style="font-family:'JetBrains Mono',monospace;font-size:.65rem;color:var(--t3);text-transform:uppercase;letter-spacing:1.5px;">Read docket →</div>
-</a>
-<a href="pratt-v-city-of-la.html" style="display:flex;padding:14px 24px;background:linear-gradient(90deg,rgba(225,16,40,.16),rgba(246,195,64,.08));border:1px solid rgba(225,16,40,.40);border-radius:10px;align-items:center;gap:18px;flex-wrap:wrap;text-decoration:none;color:inherit;transition:transform .2s,border-color .2s;">
-<div style="flex:1;min-width:200px;font-family:'DM Serif Display',serif;font-size:1.05rem;color:var(--t1);"><em style="color:var(--red);font-style:italic;">Pratt</em> v. City of LA · Status conference held May 20 · Dept. 7 Spring St. · ✅ May 6 mayoral · Pratt won (per polls)</div>
-<div style="font-family:'JetBrains Mono',monospace;font-size:.85rem;color:var(--gold);font-weight:700;">May 20, 2026</div>
-<div style="font-family:'JetBrains Mono',monospace;font-size:.65rem;color:var(--t3);text-transform:uppercase;letter-spacing:1.5px;">Read docket →</div>
-</a>
-<a href="d4vd-grand-jury.html" style="display:flex;padding:14px 24px;background:linear-gradient(90deg,rgba(225,16,40,.12),rgba(246,195,64,.06));border:1px solid rgba(225,16,40,.25);border-radius:10px;align-items:center;gap:18px;flex-wrap:wrap;text-decoration:none;color:inherit;transition:transform .2s,border-color .2s;">
-<div style="flex:1;min-width:200px;font-family:'DM Serif Display',serif;font-size:1.05rem;color:var(--t1);"><em style="color:var(--red);font-style:italic;">People</em> v. d4vd · Status Jun 17 · Prelim Jun 29</div>
-<div style="font-family:'JetBrains Mono',monospace;font-size:.85rem;color:var(--gold);font-weight:700;" id="trialCountdown">Jun 17, 2026</div>
-<div style="font-family:'JetBrains Mono',monospace;font-size:.65rem;color:var(--t3);text-transform:uppercase;letter-spacing:1.5px;">Read docket →</div>
-</a>
-</div>
-<script>
-(function(){
-  function countdown(id, target, label){
-    var el = document.getElementById(id);
-    if (!el) return;
-    var diff = target - new Date();
-    if (diff < 0) { el.textContent = 'In Session'; return; }
-    var days = Math.floor(diff/86400000);
-    var hours = Math.floor((diff%86400000)/3600000);
-    el.textContent = days + 'd ' + hours + 'h · ' + label;
-  }
-  function tick(){
-    countdown('diggsCountdown', new Date('2026-05-04T09:00:00-04:00'), 'May 4');
-    countdown('britneyCountdown', new Date('2026-05-04T09:00:00-07:00'), 'May 4');
-    countdown('woodsCountdown', new Date('2026-05-05T09:00:00-04:00'), 'May 5');
-    countdown('perryCountdown', new Date('2026-05-07T09:00:00-07:00'), 'May 7');
-    // prattCountdown removed — debate happened May 6, replaced with static "Pratt won" line
-    countdown('livelyCountdown', new Date('2026-05-18T09:00:00-04:00'), 'May 18');
-    countdown('trialCountdown', new Date('2026-06-17T08:30:00-07:00'), 'Jun 17');
-  }
-  tick();
-  setInterval(tick, 60000);
-})();
-</script>
-
 <!-- LATEST CTA STRIP -->
 <div style="max-width:1100px;margin:0 auto 12px;padding:0 24px;">
 <a href="latest.html" style="display:flex;align-items:center;gap:14px;background:linear-gradient(90deg,rgba(225,16,40,.10),rgba(246,195,64,.04));border:1px solid rgba(225,16,40,.30);border-radius:10px;padding:14px 22px;text-decoration:none;color:inherit;flex-wrap:wrap;transition:transform .2s,border-color .2s;">
@@ -371,6 +314,8 @@ Or browse the full <a href="docket-directory.html" style="color:var(--gold);text
 <a href="smith-v-falco-pictures.html" class="cc resolved" data-search="smith santana falco pictures artists equity matt damon ben affleck the rip miami dade police defamation defamation per se by implication intentional infliction emotional distress s.d. fla. southern district florida 1:26-cv-23213-CMA cecilia altonaga hialeah miami lakes orange buckets seized drug money inspired by true events dismissed without prejudice diversity jurisdiction florida limited partner refile state court celebrity legal cases celebrity lawsuits" style="--ca:#27ae60"><img src="smith-falco-thumb.jpg" alt="Smith &amp; Santana v. Falco Pictures · The Rip defamation thumbnail" loading="lazy" style="width:calc(100% + 48px);height:140px;object-fit:cover;display:block;margin:-24px -24px 16px;border-bottom:1px solid var(--bdr);"><div class="cb"><span class="cbd bdone">✅ Dismissed May 15</span><span class="cbd bc">Refile expected</span></div><div class="cctt"><em>Smith</em> &amp; <em>Santana</em> v. <em>Falco Pictures</em></div><div class="ccs"><strong style="color:#27ae60;">DISMISSED WITHOUT PREJUDICE</strong> May 15 &mdash; diversity-jurisdiction problem (Florida-resident limited partner in Falco's ownership chain). Parties agreed to drop <strong>Artists Equity, LLC</strong> entirely (no such entity exists; Falco is proper party). Plaintiffs intend to refile in proper jurisdiction.</div><div class="ccf"><span class="ccd" style="color:#27ae60;font-weight:700;">Dismissed · refile expected</span><span class="cca">→</span></div></a>
 
 <a href="kilcher-v-cameron.html" class="cc" data-search="qorianka kilcher james cameron walt disney avatar neytiri the new world pocahontas right of publicity california deepfake statute lanham act ai likeness celebrity legal cases celebrity lawsuits" style="--ca:#1e64b4"><span class="cc-new">★ New</span><img src="kilcher-cameron-thumb.jpg" alt="Kilcher v Cameron Avatar likeness thumbnail" loading="lazy" style="width:calc(100% + 48px);height:140px;object-fit:cover;display:block;margin:-24px -24px 16px;border-bottom:1px solid var(--bdr);"><div class="cb"><span class="cbd ba">New · May 5</span><span class="cbd bc">Right of Publicity / AI Likeness</span></div><div class="cctt"><em>Kilcher</em> v. <em>Cameron</em></div><div class="ccs">Q'orianka Kilcher (<em>Yellowstone</em>) sues James Cameron + Disney in C.D. Cal. — alleges Cameron used her face at age 14 (from <em>The New World</em>) as the foundation for Neytiri in <em>Avatar</em>. Right of publicity + CA deepfake statute. Disgorgement of ~$3B Avatar grosses sought.</div><div class="ccf"><span class="ccd">C.D. Cal. · 2:26-cv-04832</span><span class="cca">→</span></div></a>
+
+<a href="mondream-entertainment-lawsuits.html" class="cc" data-search="moon dream mondream saweetie jason derulo afro jam festival okinawa osaka tokyo breach contract fraud uta nuking uffpop moses onyejekwe concert promoter japan" style="--ca:#ec407a"><span class="cc-new">★ New</span><img src="mondream-hero.png" alt="" loading="lazy" style="width:calc(100% + 48px);height:140px;object-fit:cover;display:block;margin:-24px -24px 16px;border-bottom:1px solid var(--bdr);"><div class="cb"><span class="cbd ba">2 Suits Filed</span><span class="cbd bc">Breach / Fraud</span></div><div class="cctt"><em>Moon Dream</em> v. Saweetie &amp; Derulo</div><div class="ccs">Japan concert promoter <strong>Moon Dream Production Co.</strong> sues both <strong style="color:var(--gold);">Saweetie</strong> and <strong style="color:var(--gold);">Jason Derulo</strong> for breaching Afro Jam Festival 2025 contracts. Saweetie allegedly used their visa to enter Japan then performed at rival venues. $700K+ combined damages.</div><div class="ccf"><span class="ccd">LA Superior · May 2026</span><span class="cca">→</span></div></a>
 
 <a href="dua-lipa-samsung.html" class="cc" data-search="dua lipa samsung electronics crystal uhd television tv packaging copyright right of publicity lanham act trademark austin city limits 2024 photograph likeness content partner explicit assurance" style="--ca:#3b82f6"><span class="cc-new">★ New</span><img src="dua-lipa-samsung-hero.jpg" alt="Dua Lipa pop-art portrait beside a Samsung Crystal UHD TV" loading="lazy" style="width:calc(100% + 48px);height:140px;object-fit:cover;display:block;margin:-24px -24px 16px;border-bottom:1px solid var(--bdr);"><div class="cb"><span class="cbd ba">New · May 8</span><span class="cbd bc">Copyright / Right of Publicity</span></div><div class="cctt"><em>Dua Lipa</em> v. Samsung</div><div class="ccs"><strong>$15M minimum</strong> &mdash; Samsung used a copyrighted Dua Lipa photo on Crystal UHD TV packaging without consent. Copyright + CA right of publicity + Lanham Act + trademark. Samsung blames an unnamed "content partner."</div><div class="ccf"><span class="ccd">C.D. Cal. · Filed May 8, 2026</span><span class="cca">→</span></div></a>
 
