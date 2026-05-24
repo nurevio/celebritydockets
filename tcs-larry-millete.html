@@ -1,0 +1,550 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<link rel="icon" type="image/png" href="favicon.png">
+<link rel="apple-touch-icon" href="favicon.png">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>FILE No. 001 · People v. Larry Millete · TCS · Celebrity Dockets</title>
+<link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&family=IBM+Plex+Sans:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500;600&family=Special+Elite&family=Permanent+Marker&family=Shadows+Into+Light&display=swap" rel="stylesheet">
+<style>
+:root{
+  --bg:#000000; --bg2:#0a0a0a; --board:#0c0c0c;
+  --red:#E11028; --red-bright:#ff1a2e; --red-deep:#9c0a1a;
+  --paper:#f0e9d8; --paper-yellow:#fff5b8; --paper-aged:#d8cdb1;
+  --ink:#0a0a0a; --pin:#dc2626;
+  --t1:#f0eee8; --t2:#9a9a9a; --t3:#5a5a5a;
+  --bdr:#2a2a2a;
+}
+*{margin:0;padding:0;box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{background:var(--bg);color:var(--t1);font-family:'IBM Plex Sans',sans-serif;line-height:1.55;min-height:100vh}
+
+/* HEADER */
+.hdr{border-bottom:1px solid var(--bdr);padding:16px 24px;display:flex;align-items:center;justify-content:space-between;background:var(--bg);position:sticky;top:0;z-index:100;backdrop-filter:blur(12px)}
+.logo{font-family:'DM Serif Display',serif;font-size:1.4rem;color:var(--t1);text-decoration:none}
+.logo span{color:var(--red)}
+.nav{display:flex;gap:24px;font-size:.8rem;text-transform:uppercase;letter-spacing:1.5px;font-weight:600;align-items:center}
+.nav a{color:var(--t2);text-decoration:none;transition:color .2s}.nav a:hover{color:var(--red-bright)}
+.nav a.on{color:var(--red-bright)}
+.hamburger{display:none;background:none;border:none;color:var(--t1);cursor:pointer;padding:8px;flex-direction:column;gap:5px}
+.hamburger span{display:block;width:24px;height:2px;background:var(--t1);transition:all .3s}
+@media(max-width:768px){
+  .nav{display:none;position:absolute;top:100%;left:0;right:0;background:var(--bg);flex-direction:column;padding:20px 24px;gap:18px;border-bottom:1px solid var(--bdr);z-index:99}
+  .nav.open{display:flex}.hamburger{display:flex}
+}
+
+/* CRAZY-WALL CONTAINER */
+.wall{
+  position:relative;min-height:100vh;
+  background:
+    radial-gradient(ellipse at 25% 15%, rgba(225,16,40,.06), transparent 55%),
+    radial-gradient(ellipse at 75% 85%, rgba(225,16,40,.05), transparent 60%),
+    repeating-linear-gradient(0deg, rgba(255,255,255,.012) 0 1px, transparent 1px 3px),
+    repeating-linear-gradient(90deg, rgba(255,255,255,.010) 0 1px, transparent 1px 3px),
+    radial-gradient(ellipse at center, #131313 0%, #050505 80%);
+  overflow:hidden;
+  padding:36px 24px 70px;
+}
+
+/* SVG STRING LAYER */
+.string-layer{position:absolute;inset:0;pointer-events:none;opacity:.85;z-index:1}
+.string-layer line{stroke:var(--red);stroke-width:1.3;filter:drop-shadow(0 0 4px rgba(225,16,40,.35));opacity:.7}
+.string-layer line.thick{stroke-width:1.8;opacity:.85}
+.string-layer line.faint{stroke:var(--red-deep);stroke-width:1;opacity:.45}
+.string-layer circle{fill:var(--pin);filter:drop-shadow(0 0 4px rgba(220,38,38,.6))}
+
+/* HERO */
+.case-hero{position:relative;z-index:2;max-width:1100px;margin:0 auto 28px;padding:6px 0 0}
+.crumb{font-family:'Special Elite',monospace;font-size:.74rem;letter-spacing:2px;text-transform:uppercase;color:var(--paper-aged);margin-bottom:14px}
+.crumb a{color:var(--red-bright);text-decoration:none}.crumb a:hover{color:var(--paper)}
+.case-stamps{display:flex;gap:10px;flex-wrap:wrap;margin-bottom:20px}
+.case-stamp{
+  font-family:'Special Elite',monospace;font-size:.62rem;letter-spacing:2.5px;text-transform:uppercase;font-weight:700;
+  padding:5px 14px;border:1.5px solid var(--red);background:rgba(225,16,40,.08);color:var(--red-bright);
+  transform:rotate(-1.5deg);
+}
+.case-stamp.dark{background:#0a0a0a;color:var(--paper);border-color:var(--paper-aged);transform:rotate(1deg)}
+.case-stamp.gold{border-color:#b8941f;color:#b8941f;transform:rotate(-.5deg)}
+
+.case-name{
+  font-family:'Permanent Marker',cursive;
+  font-size:clamp(2.4rem,6vw,4rem);
+  line-height:1;color:var(--paper);
+  margin-bottom:18px;letter-spacing:1.5px;
+  transform:rotate(-1deg);
+  text-shadow:0 0 20px rgba(225,16,40,.25);
+}
+.case-name em{color:var(--red-bright);font-style:italic}
+.case-sub{font-family:'Special Elite',monospace;font-size:clamp(.95rem,1.6vw,1.1rem);color:var(--paper-aged);max-width:780px;line-height:1.65}
+.case-sub strong{color:var(--paper)}
+
+/* DISCLAIMER STRIP */
+.disclaim{
+  position:relative;z-index:2;max-width:1000px;margin:24px auto 36px;padding:14px 22px;
+  background:rgba(225,16,40,.05);border:1px dashed var(--red);
+  font-family:'Special Elite',monospace;font-size:.78rem;color:var(--paper-aged);text-align:center;line-height:1.6;
+}
+.disclaim strong{color:var(--red-bright)}
+
+/* SECTION HEAD */
+.sh{position:relative;z-index:2;display:flex;align-items:center;gap:16px;max-width:1100px;margin:50px auto 22px}
+.sht{font-family:'Permanent Marker',cursive;font-size:1.6rem;color:var(--red-bright);letter-spacing:2.5px;text-transform:uppercase;text-shadow:0 0 14px rgba(225,16,40,.4);transform:rotate(-.8deg)}
+.shl{flex:1;height:2px;background:repeating-linear-gradient(90deg,var(--red) 0 8px,transparent 8px 16px);opacity:.55}
+
+/* PAPER PANEL */
+.panel{
+  position:relative;z-index:2;
+  max-width:1100px;margin:0 auto 30px;
+  background:var(--paper);color:var(--ink);
+  padding:26px 28px 28px;
+  box-shadow:0 14px 28px rgba(0,0,0,.6),0 6px 12px rgba(0,0,0,.5),0 0 0 1px rgba(0,0,0,.4);
+  font-family:'Special Elite',monospace;
+}
+.panel.tilt-l{transform:rotate(-.4deg)}
+.panel.tilt-r{transform:rotate(.5deg)}
+.panel::before{
+  content:'';position:absolute;top:-12px;left:50%;transform:translateX(-50%);
+  width:20px;height:20px;border-radius:50%;
+  background:radial-gradient(circle at 30% 30%,#ff5252,var(--pin) 60%,#6a0a0a 100%);
+  box-shadow:0 4px 8px rgba(0,0,0,.7),0 0 8px rgba(220,38,38,.5),inset 0 1px 1px rgba(255,255,255,.4);
+  z-index:3;
+}
+.panel-tab{
+  font-family:'Special Elite',monospace;
+  font-size:.6rem;letter-spacing:2.8px;text-transform:uppercase;font-weight:700;
+  background:#0a0a0a;color:var(--paper);
+  display:inline-block;padding:5px 14px;
+  margin:-32px 0 14px -10px;
+  transform:rotate(-2deg);
+  box-shadow:2px 2px 0 rgba(0,0,0,.5);
+}
+.panel-tab.red{background:var(--red-deep);color:var(--paper-yellow)}
+.panel-tab.gold{background:#b8941f;color:var(--paper)}
+.panel h3{font-family:'Permanent Marker',cursive;font-size:1.5rem;color:var(--ink);margin-bottom:12px;letter-spacing:.5px}
+.panel p{font-size:.92rem;line-height:1.7;color:#1a1a1a;margin-bottom:12px}
+.panel p:last-child{margin-bottom:0}
+.panel strong{color:var(--ink);font-weight:700}
+.panel em{color:var(--red-deep);font-style:italic}
+
+/* TIMELINE · index-card stack */
+.timeline{position:relative;z-index:2;max-width:1100px;margin:0 auto 30px;display:flex;flex-direction:column;gap:14px}
+.tl-card{
+  background:var(--paper);color:var(--ink);padding:14px 20px;
+  display:grid;grid-template-columns:140px 1fr;gap:18px;align-items:start;
+  box-shadow:4px 5px 10px rgba(0,0,0,.55),0 0 0 1px rgba(0,0,0,.3);
+  border-left:5px solid var(--red);
+  font-family:'Special Elite',monospace;
+}
+.tl-card.green{border-left-color:#27ae60}
+.tl-card.gold{border-left-color:#b8941f}
+.tl-card .tl-date{font-family:'Special Elite',monospace;font-size:.75rem;font-weight:700;color:var(--red-deep);letter-spacing:1.2px;text-transform:uppercase}
+.tl-card.green .tl-date{color:#27ae60}.tl-card.gold .tl-date{color:#8b6f20}
+.tl-card .tl-body{font-size:.88rem;line-height:1.6;color:#1a1a1a}
+.tl-card .tl-body strong{color:var(--ink)}
+@media(max-width:600px){.tl-card{grid-template-columns:1fr;gap:6px}}
+
+/* PLAYERS · polaroid grid */
+.players{position:relative;z-index:2;max-width:1100px;margin:0 auto 30px;display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:24px}
+.player{
+  background:#fff;padding:10px 10px 32px;
+  box-shadow:5px 6px 14px rgba(0,0,0,.6),0 0 0 1px rgba(0,0,0,.3);
+  position:relative;font-family:'Special Elite',monospace;
+}
+.player::before{
+  content:'';position:absolute;top:-8px;left:50%;transform:translateX(-50%);
+  width:16px;height:16px;border-radius:50%;
+  background:radial-gradient(circle at 30% 30%,#ff5252,var(--pin) 60%);
+  box-shadow:0 3px 5px rgba(0,0,0,.6),0 0 6px rgba(220,38,38,.5);
+}
+.player.tilt-1{transform:rotate(-1.2deg)}
+.player.tilt-2{transform:rotate(.8deg)}
+.player.tilt-3{transform:rotate(-.6deg)}
+.player.tilt-4{transform:rotate(1.4deg)}
+.player .photo{
+  width:100%;aspect-ratio:1/1.05;
+  background:linear-gradient(180deg, #1a1a1a 0%, #3a3a3a 50%, #1a1a1a 100%);
+  display:flex;align-items:center;justify-content:center;text-align:center;
+  font-family:'Special Elite',monospace;font-size:.62rem;color:rgba(255,255,255,.6);letter-spacing:1.5px;text-transform:uppercase;line-height:1.4;padding:14px;
+  position:relative;
+}
+.player .photo::before{content:'';position:absolute;inset:0;background:repeating-linear-gradient(0deg,rgba(0,0,0,.06) 0 1px,transparent 1px 3px)}
+.player-cap{position:absolute;left:0;right:0;bottom:8px;text-align:center;font-family:'Permanent Marker',cursive;font-size:.82rem;color:var(--ink);line-height:1.1}
+.player-role{display:block;font-family:'Special Elite',monospace;font-size:.55rem;letter-spacing:1.5px;text-transform:uppercase;color:var(--red-deep);margin-top:2px;font-weight:700}
+
+/* THEORIES · sticky notes */
+.theories{position:relative;z-index:2;max-width:1100px;margin:0 auto 30px;display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:22px}
+.sticky{
+  font-family:'Permanent Marker',cursive;font-size:.98rem;line-height:1.4;
+  background:var(--paper-yellow);color:var(--ink);padding:18px 22px 24px;
+  box-shadow:5px 6px 14px rgba(0,0,0,.6),0 0 0 1px rgba(0,0,0,.3);
+  position:relative;min-height:140px;
+}
+.sticky::before{
+  content:'';position:absolute;top:-7px;left:50%;transform:translateX(-50%);
+  width:14px;height:14px;border-radius:50%;
+  background:radial-gradient(circle at 30% 30%,#ffe060,#b09020 70%);
+  box-shadow:0 2px 3px rgba(0,0,0,.5);
+}
+.sticky.tilt-1{transform:rotate(-1.5deg)}
+.sticky.tilt-2{transform:rotate(1.2deg)}
+.sticky.tilt-3{transform:rotate(-.8deg)}
+.sticky.tilt-4{transform:rotate(1.6deg)}
+.sticky-label{display:block;font-family:'Special Elite',monospace;font-size:.55rem;letter-spacing:1.5px;text-transform:uppercase;color:var(--red-deep);font-weight:700;margin-bottom:8px}
+.sticky em{color:var(--red-deep);font-style:italic}
+
+/* STAMP */
+.stamp{
+  font-family:'Permanent Marker',cursive;font-size:1.1rem;letter-spacing:3px;text-transform:uppercase;
+  color:var(--red);border:4px solid var(--red);padding:8px 18px;
+  display:inline-block;transform:rotate(-6deg);opacity:.85;margin:8px 0;
+}
+.stamp.green{color:#27ae60;border-color:#27ae60}
+.stamp.gold{color:#8b6f20;border-color:#8b6f20}
+
+/* SOURCES */
+.sources{position:relative;z-index:2;max-width:1100px;margin:0 auto 30px;display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:14px}
+.source{
+  background:var(--paper);padding:14px 16px;font-family:'Special Elite',monospace;font-size:.82rem;color:var(--ink);
+  text-decoration:none;border-left:4px solid var(--red-deep);
+  box-shadow:3px 4px 8px rgba(0,0,0,.55),0 0 0 1px rgba(0,0,0,.3);
+  display:block;transition:transform .15s ease;
+}
+.source:hover{transform:translateY(-2px);border-left-color:#27ae60}
+.source strong{display:block;color:var(--red-deep);font-size:.62rem;letter-spacing:2px;text-transform:uppercase;margin-bottom:5px}
+
+/* FOOTER */
+.tcs-footer{position:relative;z-index:2;border-top:1px solid var(--bdr);padding:36px 24px 40px;text-align:center;font-size:.75rem;color:var(--t3);background:var(--bg);margin-top:30px}
+.tcs-footer a{color:var(--red);text-decoration:none}
+.tcs-footer .ftl{font-family:'Permanent Marker',cursive;font-size:1.1rem;color:var(--paper);letter-spacing:2px;margin-bottom:6px}
+
+/* SKETCH SCROLL */
+.sketch-strip{display:flex;gap:18px;overflow-x:auto;-webkit-overflow-scrolling:touch;scroll-snap-type:x mandatory;padding:6px 24px 16px;max-width:1100px;margin:0 auto 30px;position:relative;z-index:2}
+.sketch-strip::-webkit-scrollbar{height:6px}
+.sketch-strip::-webkit-scrollbar-track{background:rgba(255,255,255,.06);border-radius:3px}
+.sketch-strip::-webkit-scrollbar-thumb{background:var(--red);border-radius:3px}
+
+/* SOURCES SCROLL */
+.sources{display:flex;gap:14px;overflow-x:auto;-webkit-overflow-scrolling:touch;scroll-snap-type:x mandatory;padding:6px 24px 16px;max-width:1100px;margin:0 auto 30px;position:relative;z-index:2}
+.sources::-webkit-scrollbar{height:6px}
+.sources::-webkit-scrollbar-track{background:rgba(255,255,255,.06);border-radius:3px}
+.sources::-webkit-scrollbar-thumb{background:var(--red);border-radius:3px}
+.sources .source{flex:0 0 260px;scroll-snap-align:start}
+
+@media(max-width:768px){
+  .sht{font-size:1.25rem}
+  .panel{padding:22px 22px 22px}
+  .panel h3{font-size:1.2rem}
+}
+</style>
+</head>
+<body>
+
+<header class="hdr">
+  <a href="index.html" class="logo">Celebrity<span>Dockets</span></a>
+  <button class="hamburger" onclick="this.classList.toggle('open');document.querySelector('.nav').classList.toggle('open')"><span></span><span></span><span></span></button>
+  <nav class="nav">
+    <a href="objection-live.html">⚖️ All Rise</a>
+    <a href="recess.html">🔔 RECESS</a>
+    <a href="latest.html">📅 Latest</a>
+    <a href="featured-dockets.html" style="color:#F6C340;">★ Featured</a>
+    <a href="tcs.html" class="on">★ TCS</a>
+    <a href="https://www.buymeacoffee.com/celebritydockets" target="_blank" rel="noopener" style="color:#FFDD00;">☕ Fuel</a>
+  </nav>
+</header>
+
+<section class="wall">
+  <!-- RED STRING WEB -->
+  <svg class="string-layer" viewBox="0 0 1400 2400" preserveAspectRatio="none">
+    <line class="thick" x1="80"   y1="180"  x2="1320" y2="240" />
+    <line class="thick" x1="200"  y1="100"  x2="900"  y2="1100" />
+    <line class="thick" x1="1100" y1="120"  x2="350"  y2="1050" />
+    <line class="thick" x1="100"  y1="800"  x2="1300" y2="900" />
+    <line class="thick" x1="700"  y1="200"  x2="700"  y2="2300" />
+    <line x1="50"   y1="500"  x2="1350" y2="560" />
+    <line x1="50"   y1="1500" x2="1350" y2="1450" />
+    <line x1="300"  y1="60"   x2="1100" y2="2300" />
+    <line x1="1000" y1="60"   x2="200"  y2="2300" />
+    <line x1="450"  y1="60"   x2="450"  y2="2200" />
+    <line x1="950"  y1="60"   x2="950"  y2="2200" />
+    <line x1="180"  y1="700"  x2="1200" y2="1900" />
+    <line x1="1180" y1="450"  x2="240"  y2="1850" />
+    <line class="faint" x1="0"    y1="900"  x2="1400" y2="1300" />
+    <line class="faint" x1="0"    y1="1700" x2="1400" y2="2000" />
+    <line class="faint" x1="600"  y1="0"    x2="800"  y2="2400" />
+    <line class="faint" x1="100"  y1="0"    x2="1300" y2="2400" />
+    <line class="faint" x1="1300" y1="0"    x2="100"  y2="2400" />
+    <circle cx="700"  cy="200"  r="5" />
+    <circle cx="700"  cy="1100" r="5" />
+    <circle cx="350"  cy="1050" r="5" />
+    <circle cx="200"  cy="100"  r="5" />
+    <circle cx="1100" cy="120"  r="5" />
+    <circle cx="450"  cy="60"   r="5" />
+    <circle cx="950"  cy="60"   r="5" />
+    <circle cx="50"   cy="500"  r="5" />
+    <circle cx="1350" cy="560"  r="5" />
+    <circle cx="100"  cy="800"  r="5" />
+    <circle cx="1300" cy="900"  r="5" />
+    <circle cx="240"  cy="1850" r="5" />
+    <circle cx="1180" cy="450"  r="5" />
+  </svg>
+
+  <!-- HERO -->
+  <div class="case-hero">
+    <div class="crumb">← <a href="tcs.html">TCS · The Wall</a> &middot; FILE No. 001</div>
+    <div class="case-stamps">
+      <span class="case-stamp">Open File · Active</span>
+      <span class="case-stamp dark">Murder · No Body</span>
+      <span class="case-stamp gold">★ Trial Underway · May 18, 2026</span>
+    </div>
+    <h1 class="case-name"><em>People</em> v. Larry Millete</h1>
+    <p class="case-sub">May "Maya" Millete vanished from her Chula Vista home on <strong>January 7, 2021</strong>. Her body has never been found. Her husband Larry was charged with first-degree murder ten months later. After <strong>five years of delays</strong>, his <strong>trial began May 18, 2026</strong>. Seven women, five men. Expected to last three months.</p>
+  </div>
+
+  <div class="disclaim">
+    <strong>★ Citizen-investigation page.</strong> All allegations on this wall are pulled from publicly available filings, charging documents and on-the-record reporting. Larry Millete is presumed innocent. Nothing here is a legal finding or determination of guilt.
+  </div>
+
+  <!-- TRIAL PREP · LIVE-READ DEEP DIVE -->
+  <div class="sh"><h2 class="sht">★ Trial Prep · Live-Read Deep Dive</h2><div class="shl"></div></div>
+  <div style="position:relative;z-index:2;max-width:900px;margin:0 auto 30px;">
+    <p style="font-family:'Special Elite',monospace;font-size:.92rem;color:var(--paper-aged);line-height:1.7;margin-bottom:18px;text-align:center;">Live-read deep dive of the case to set the table before trial. Press play, take the receipts in chronological order.</p>
+    <div style="position:relative;width:100%;aspect-ratio:16/9;border-radius:10px;overflow:hidden;border:1px solid var(--border);background:#000;box-shadow:0 14px 28px rgba(0,0,0,.6),0 0 0 1px rgba(225,16,40,.3);">
+      <iframe src="https://www.youtube.com/embed/Y1NPL1Kfqqg?rel=0&modestbranding=1&playsinline=1&iv_load_policy=3" title="Larry Millete · Live-Read Deep Dive · trial prep" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen style="position:absolute;top:0;left:0;width:100%;height:100%;border:0;"></iframe>
+    </div>
+    <p style="font-family:'JetBrains Mono',monospace;font-size:.7rem;letter-spacing:1.5px;text-transform:uppercase;color:var(--text-muted);margin-top:14px;text-align:center;">▶ <a href="https://www.youtube.com/watch?v=Y1NPL1Kfqqg" target="_blank" rel="noopener" style="color:var(--red-bright);text-decoration:none;font-weight:700;">Open on YouTube</a></p>
+  </div>
+
+  <!-- LIVE TRIAL COVERAGE · @milletetrial -->
+  <div class="sh"><h2 class="sht">★ Live Trial Coverage · @milletetrial</h2><div class="shl"></div></div>
+  <div style="position:relative;z-index:2;max-width:900px;margin:0 auto 30px;">
+    <p style="font-family:'Special Elite',monospace;font-size:.92rem;color:var(--paper-aged);line-height:1.7;margin-bottom:18px;text-align:center;">Our go-to for real-time trial coverage &mdash; threads, exhibit photos, courtroom recaps &mdash; all from <a href="https://x.com/milletetrial" target="_blank" rel="noopener" style="color:var(--red-bright);text-decoration:none;font-weight:700;">@milletetrial</a> on X.</p>
+    <div style="background:var(--paper);color:var(--ink);padding:18px 22px;border-radius:10px;box-shadow:0 14px 28px rgba(0,0,0,.55),0 0 0 1px rgba(0,0,0,.3);text-align:center;">
+      <a href="https://x.com/milletetrial" target="_blank" rel="noopener" style="display:inline-block;background:#000;color:var(--paper);padding:12px 22px;border-radius:8px;text-decoration:none;font-family:'Special Elite',monospace;font-size:.82rem;letter-spacing:1.5px;text-transform:uppercase;font-weight:700;">𝕏 Follow @milletetrial</a>
+      <p style="font-family:'Special Elite',monospace;font-size:.78rem;color:#3a3a3a;margin-top:12px;line-height:1.55;">Dedicated trial-coverage feed for <em>People v. Larry Millete</em>. Live updates from inside the courtroom. Every motion, ruling, and witness disclosure pinned as it lands.</p>
+    </div>
+  </div>
+
+  <!-- @milletetrial · PROBABLE CAUSE PREVIEW -->
+  <div style="position:relative;z-index:2;max-width:900px;margin:0 auto 30px;">
+    <p style="font-family:'Special Elite',monospace;font-size:.85rem;color:var(--paper-aged);line-height:1.7;margin-bottom:14px;text-align:center;">★ <strong style="color:var(--red-bright);">Probable Cause Preview</strong> &mdash; pre-trial thread breaking down the case before jury selection.</p>
+    <div style="background:var(--paper);padding:14px;box-shadow:0 14px 28px rgba(0,0,0,.55),0 0 0 1px rgba(0,0,0,.3);">
+      <blockquote class="twitter-tweet" data-dnt="true" data-conversation="none" data-theme="light"><a href="https://twitter.com/milletetrial/status/2047514434084733227"></a></blockquote>
+    </div>
+  </div>
+
+  <!-- @milletetrial · DAY 1 LIVE THREAD -->
+  <div style="position:relative;z-index:2;max-width:900px;margin:0 auto 30px;">
+    <p style="font-family:'Special Elite',monospace;font-size:.85rem;color:var(--paper-aged);line-height:1.7;margin-bottom:14px;text-align:center;">★ <strong style="color:var(--red-bright);">Day 1 · Live Thread</strong> &mdash; opening statements, first impressions from inside the courtroom.</p>
+    <div style="background:var(--paper);padding:14px;box-shadow:0 14px 28px rgba(0,0,0,.55),0 0 0 1px rgba(0,0,0,.3);">
+      <blockquote class="twitter-tweet" data-dnt="true" data-conversation="none" data-theme="light"><a href="https://twitter.com/milletetrial/status/2056387803936940134"></a></blockquote>
+    </div>
+  </div>
+
+  <!-- @milletetrial · DAY 2 LIVE THREAD -->
+  <div style="position:relative;z-index:2;max-width:900px;margin:0 auto 30px;">
+    <p style="font-family:'Special Elite',monospace;font-size:.85rem;color:var(--paper-aged);line-height:1.7;margin-bottom:14px;text-align:center;">★ <strong style="color:var(--red-bright);">Day 2 · Live Thread</strong> &mdash; testimony begins, witnesses take the stand.</p>
+    <div style="background:var(--paper);padding:14px;box-shadow:0 14px 28px rgba(0,0,0,.55),0 0 0 1px rgba(0,0,0,.3);">
+      <blockquote class="twitter-tweet" data-dnt="true" data-conversation="none" data-theme="light"><a href="https://twitter.com/milletetrial/status/2056757531113120128"></a></blockquote>
+    </div>
+  </div>
+  <script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>
+
+  <!-- JAILHOUSE INTERVIEW · NBC 7 San Diego -->
+  <div class="sh"><h2 class="sht">★ Larry's Jailhouse Interview · NBC 7</h2><div class="shl"></div></div>
+  <div style="position:relative;z-index:2;max-width:900px;margin:0 auto 30px;">
+    <p style="font-family:'Special Elite',monospace;font-size:.92rem;color:var(--paper-aged);line-height:1.7;margin-bottom:18px;text-align:center;">NBC 7 Investigates sat down with Larry Millete inside Vista jail &mdash; four visits, two on-camera interviews. No questions off-limits. Only portions of his face shown at his request. The full documentary.</p>
+    <div style="position:relative;width:100%;aspect-ratio:16/9;border-radius:10px;overflow:hidden;border:1px solid var(--border);background:#000;box-shadow:0 14px 28px rgba(0,0,0,.6),0 0 0 1px rgba(225,16,40,.3);">
+      <iframe src="https://www.youtube.com/embed/NlZjPJ9sBmE?rel=0&modestbranding=1&playsinline=1&iv_load_policy=3" title="What Happened to Maya Millete? Larry's Jailhouse Interview · NBC 7 San Diego" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen style="position:absolute;top:0;left:0;width:100%;height:100%;border:0;"></iframe>
+    </div>
+    <p style="font-family:'JetBrains Mono',monospace;font-size:.7rem;letter-spacing:1.5px;text-transform:uppercase;color:var(--text-muted);margin-top:14px;text-align:center;">▶ <a href="https://www.youtube.com/watch?v=NlZjPJ9sBmE" target="_blank" rel="noopener" style="color:var(--red-bright);text-decoration:none;font-weight:700;">Open on YouTube</a> &middot; <a href="https://www.nbcsandiego.com/news/investigations/what-happened-to-maya-millete-larrys-jailhouse-interview/3316993/" target="_blank" rel="noopener" style="color:var(--red-bright);text-decoration:none;font-weight:700;">Read on NBC San Diego</a></p>
+  </div>
+
+  <!-- CASE OVERVIEW -->
+  <div class="sh"><h2 class="sht">★ Case Overview</h2><div class="shl"></div></div>
+  <div class="panel tilt-l">
+    <span class="panel-tab red">Background</span>
+    <h3>Three children. One mother. Zero body.</h3>
+    <p><strong>May "Maya" Millete</strong> &mdash; 39, mother of three &mdash; was last seen alive on <strong>January 7, 2021</strong> at the Millete family home in Chula Vista, California. Her sister reported her missing two days later. Court filings and reporting describe a strained marriage in which Maya had told family and friends she planned to file for divorce.</p>
+    <p>San Diego County prosecutors charged <strong>Larry Millete</strong> with first-degree murder + a deadly-weapon enhancement on <strong>October 19, 2021</strong>. Maya's remains have never been recovered. The state's case rests largely on circumstantial evidence: text messages, online "spell-caster" purchases, behavioral inconsistencies in the days surrounding her disappearance.</p>
+    <p>After <strong>five years of delays</strong> &mdash; preliminary hearing, motion practice, defense-team rotations, continuance after continuance &mdash; the case is finally in front of a jury. Larry has remained in custody throughout.</p>
+  </div>
+
+  <!-- TIMELINE -->
+  <div class="sh"><h2 class="sht">★ Timeline</h2><div class="shl"></div></div>
+  <div class="timeline">
+    <div class="tl-card"><div class="tl-date">Jan 7, 2021</div><div class="tl-body"><strong>Maya last seen alive</strong> at the Chula Vista family home. Per court filings, Larry was reportedly seen <strong>loading his car</strong> that morning and then <strong>disappeared for ~11 hours with no solid alibi</strong>.</div></div>
+    <div class="tl-card"><div class="tl-date">Jan 9, 2021</div><div class="tl-body">Maya's sister reports her missing to Chula Vista PD. Family-led search begins.</div></div>
+    <div class="tl-card"><div class="tl-date">Jan&ndash;Sep 2021</div><div class="tl-body">CVPD investigation: searches of the home, surrounding land, family vehicles. <strong>"Spell caster" online purchase records</strong> recovered from Larry's accounts &mdash; alleged escalation: <em>"first to make her love him again, then to injure her so she couldn't leave the house."</em> Investigators also surface allegations that Larry <strong>threatened Maya's suspected boyfriend</strong> and considered hiring someone to hurt him.</div></div>
+    <div class="tl-card gold"><div class="tl-date">Oct 19, 2021</div><div class="tl-body"><strong>Larry Millete charged</strong> with first-degree murder + gun enhancement. Held without bail.</div></div>
+    <div class="tl-card"><div class="tl-date">2022&ndash;2023</div><div class="tl-body"><strong>Preliminary hearing</strong>; defense motions to dismiss for lack of <em>corpus delicti</em> denied. Case bound over for trial.</div></div>
+    <div class="tl-card"><div class="tl-date">2022&ndash;present</div><div class="tl-body" style="color:var(--red-deep);"><strong>Larry's petition to interrogate the children.</strong> From custody, Larry filed a petition seeking to question the three children about the days surrounding their mother's disappearance. The petition is opposed and remains a live issue around protective rulings.</div></div>
+    <div class="tl-card gold"><div class="tl-date">Aug 2024</div><div class="tl-body" style="color:#8b6f20;font-weight:700;"><strong>★ FULL CUSTODY AWARDED.</strong> Maya's family wins full custody of the three Millete children. Per public reporting, the children now live with <strong>Maya's sister</strong>.</div></div>
+    <div class="tl-card"><div class="tl-date">2023&ndash;2025</div><div class="tl-body"><strong>Five years of delays.</strong> Continuances, attorney changes, scheduling fights, motion practice. Larry remains in custody throughout.</div></div>
+    <div class="tl-card"><div class="tl-date">Apr 2026</div><div class="tl-body" style="color:var(--red-deep);"><strong>Defense moves to remove DA from the case.</strong> Attorney <strong>Liann Sabatini</strong> files a motion alleging prosecutorial misconduct &mdash; claims DDA <strong>Christy Bowles</strong> elicited false testimony at the prelim and admitted evidence she knew to be illegal. Also alleges Det. <strong>Matthew Grindley</strong> downplayed Maya's communications with a man named "Jamey," omitting explicit photos and videos. If granted, the CA Attorney General's Office would take over prosecution. <em>Per <a href="https://www.nbcsandiego.com/news/local/motion-alleges-misconduct-maya-millete-murder-case/4014126/" target="_blank" rel="noopener" style="color:var(--red-bright);text-decoration:none;font-weight:700;">NBC 7 San Diego</a>.</em></div></div>
+    <div class="tl-card" style="grid-template-columns:140px 1fr;">
+      <div class="tl-date">Apr 2026</div>
+      <div class="tl-body">📄 <strong>26-page motion below.</strong> <em>Judge denied it &mdash; trial proceeded.</em>
+        <div style="position:relative;width:100%;max-width:480px;height:400px;overflow:hidden;border:1px solid rgba(0,0,0,.3);border-radius:4px;margin-top:10px;">
+          <iframe src="https://embed.documentcloud.org/documents/28067958-0344-001/?embed=1&amp;pdf=0&amp;onlyshoworg=0&amp;fullscreen=1" title="Defense Motion — Prosecutorial Misconduct · People v. Millete" style="width:100%;height:100%;border:0;" sandbox="allow-scripts allow-same-origin allow-popups allow-forms allow-popups-to-escape-sandbox"></iframe>
+        </div>
+      </div>
+    </div>
+    <div class="tl-card gold"><div class="tl-date">May 15&ndash;16, 2026</div><div class="tl-body" style="color:#8b6f20;font-weight:700;"><strong>★ JURY SELECTED.</strong> Seven women and five men seated, plus six alternates. Two days of voir dire. <em>Per CBS 8, FOX 5 San Diego.</em></div></div>
+    <div class="tl-card gold"><div class="tl-date">May 18, 2026</div><div class="tl-body" style="color:#8b6f20;font-weight:700;"><strong>★ TRIAL BEGINS &mdash; OPENING STATEMENTS.</strong> Five years after Maya disappeared, Larry Millete's first-degree murder trial opens. Prosecution argues divorce was not an option for Larry. Defense tells jurors there is no evidence a murder occurred &mdash; claims Maya was "living a double life." Trial expected to last <strong>~3 months</strong>. <em>Per CBS 8, Hawaii News Now, FOX 5.</em></div></div>
+  </div>
+
+  <!-- KEY PLAYERS -->
+  <div class="sh"><h2 class="sht">★ Key Players</h2><div class="shl"></div></div>
+  <div class="players">
+    <div class="player tilt-1"><div class="photo" style="padding:0;"><img src="millete-maya.jpg" alt="May 'Maya' Millete" style="width:100%;height:100%;object-fit:cover;display:block;"></div><div class="player-cap">May "Maya" Millete<span class="player-role">Victim · age 39</span></div></div>
+    <div class="player tilt-2"><div class="photo" style="padding:0;"><img src="millete-larry-prelim.jpg" alt="Larry Millete at preliminary hearing" style="width:100%;height:100%;object-fit:cover;display:block;"></div><div class="player-cap">Larry Millete<span class="player-role">Defendant · prelim hearing</span></div></div>
+    <div class="player tilt-3"><div class="photo" style="padding:0;"><img src="millete-da-bowles.jpg" alt="DDA Christy Bowles" style="width:100%;height:100%;object-fit:cover;display:block;"></div><div class="player-cap">DDA Christy Bowles<span class="player-role">Prosecution · San Diego DA</span></div></div>
+    <div class="player tilt-4"><div class="photo" style="padding:0;"><img src="millete-judge.jpg" alt="Judge on the bench" style="width:100%;height:100%;object-fit:cover;display:block;"></div><div class="player-cap">Judge<span class="player-role">Presiding</span></div></div>
+    <div class="player tilt-1"><div class="photo" style="padding:0;"><img src="millete-courtroom-podium.jpg" alt="Bonita Martinez at podium" style="width:100%;height:100%;object-fit:cover;display:block;"></div><div class="player-cap">Bonita Martinez<span class="player-role">Former defense counsel</span></div></div>
+    <div class="player tilt-2"><div class="photo" style="padding:0;"><img src="millete-defense-lawyers.png" alt="Defense lawyers leaving courthouse" style="width:100%;height:100%;object-fit:cover;display:block;"></div><div class="player-cap">Defense Team<span class="player-role">Current counsel · leaving court</span></div></div>
+  </div>
+
+  <!-- COURT SKETCHES -->
+  <div class="sh"><h2 class="sht">★ Court Sketches · Trial</h2><div class="shl"></div></div>
+  <div class="sketch-strip">
+    <div style="flex:0 0 380px;scroll-snap-align:start;background:var(--paper);box-shadow:5px 6px 14px rgba(0,0,0,.6),0 0 0 1px rgba(0,0,0,.3);overflow:hidden;position:relative;">
+      <div style="position:absolute;top:-8px;left:50%;transform:translateX(-50%);width:16px;height:16px;border-radius:50%;background:radial-gradient(circle at 30% 30%,#ff5252,var(--pin) 60%);box-shadow:0 3px 5px rgba(0,0,0,.6),0 0 6px rgba(220,38,38,.5);z-index:2;"></div>
+      <img src="millete-sketch-courtroom.jpg" alt="Courtroom sketch: trial scene" style="width:100%;height:260px;object-fit:cover;display:block;">
+      <div style="padding:12px 16px;font-family:'Special Elite',monospace;">
+        <div style="font-size:.55rem;letter-spacing:1.8px;text-transform:uppercase;color:var(--red-deep);font-weight:700;margin-bottom:4px;">Trial · Courtroom</div>
+        <div style="font-size:.85rem;color:var(--ink);line-height:1.4;">Prosecution presents to the jury. Larry seated at the defense table.</div>
+      </div>
+    </div>
+    <div style="flex:0 0 380px;scroll-snap-align:start;background:var(--paper);box-shadow:5px 6px 14px rgba(0,0,0,.6),0 0 0 1px rgba(0,0,0,.3);overflow:hidden;position:relative;">
+      <div style="position:absolute;top:-8px;left:50%;transform:translateX(-50%);width:16px;height:16px;border-radius:50%;background:radial-gradient(circle at 30% 30%,#ff5252,var(--pin) 60%);box-shadow:0 3px 5px rgba(0,0,0,.6),0 0 6px rgba(220,38,38,.5);z-index:2;"></div>
+      <img src="millete-sketch-closeup.jpg" alt="Courtroom sketch: Larry close-up with counsel" style="width:100%;height:260px;object-fit:cover;display:block;">
+      <div style="padding:12px 16px;font-family:'Special Elite',monospace;">
+        <div style="font-size:.55rem;letter-spacing:1.8px;text-transform:uppercase;color:var(--red-deep);font-weight:700;margin-bottom:4px;">Trial · Defense Table</div>
+        <div style="font-size:.85rem;color:var(--ink);line-height:1.4;">Larry Millete and counsel at the defense table during proceedings.</div>
+      </div>
+    </div>
+    <div style="flex:0 0 380px;scroll-snap-align:start;background:var(--paper);box-shadow:5px 6px 14px rgba(0,0,0,.6),0 0 0 1px rgba(0,0,0,.3);overflow:hidden;position:relative;">
+      <div style="position:absolute;top:-8px;left:50%;transform:translateX(-50%);width:16px;height:16px;border-radius:50%;background:radial-gradient(circle at 30% 30%,#ff5252,var(--pin) 60%);box-shadow:0 3px 5px rgba(0,0,0,.6),0 0 6px rgba(220,38,38,.5);z-index:2;"></div>
+      <img src="millete-sketch-maya-photo.jpg" alt="Courtroom sketch: Maya's photo shown to jury" style="width:100%;height:260px;object-fit:cover;display:block;">
+      <div style="padding:12px 16px;font-family:'Special Elite',monospace;">
+        <div style="font-size:.55rem;letter-spacing:1.8px;text-transform:uppercase;color:var(--red-deep);font-weight:700;margin-bottom:4px;">Trial · Maya Shown to Jury</div>
+        <div style="font-size:.85rem;color:var(--ink);line-height:1.4;">Prosecution displays Maya's photo for the jury during testimony.</div>
+      </div>
+    </div>
+    <div style="flex:0 0 380px;scroll-snap-align:start;background:var(--paper);box-shadow:5px 6px 14px rgba(0,0,0,.6),0 0 0 1px rgba(0,0,0,.3);overflow:hidden;position:relative;">
+      <div style="position:absolute;top:-8px;left:50%;transform:translateX(-50%);width:16px;height:16px;border-radius:50%;background:radial-gradient(circle at 30% 30%,#ff5252,var(--pin) 60%);box-shadow:0 3px 5px rgba(0,0,0,.6),0 0 6px rgba(220,38,38,.5);z-index:2;"></div>
+      <img src="millete-sketch-larry-bonita.jpg" alt="Court sketch: Larry at defense table" style="width:100%;height:260px;object-fit:cover;display:block;">
+      <div style="padding:12px 16px;font-family:'Special Elite',monospace;">
+        <div style="font-size:.55rem;letter-spacing:1.8px;text-transform:uppercase;color:var(--red-deep);font-weight:700;margin-bottom:4px;">Trial · Defense Table</div>
+        <div style="font-size:.85rem;color:var(--ink);line-height:1.4;">Larry Millete with counsel during proceedings.</div>
+      </div>
+    </div>
+    <div style="flex:0 0 380px;scroll-snap-align:start;background:var(--paper);box-shadow:5px 6px 14px rgba(0,0,0,.6),0 0 0 1px rgba(0,0,0,.3);overflow:hidden;position:relative;">
+      <div style="position:absolute;top:-8px;left:50%;transform:translateX(-50%);width:16px;height:16px;border-radius:50%;background:radial-gradient(circle at 30% 30%,#ff5252,var(--pin) 60%);box-shadow:0 3px 5px rgba(0,0,0,.6),0 0 6px rgba(220,38,38,.5);z-index:2;"></div>
+      <img src="millete-sketch-larry-bonita-real.jpg" alt="Court sketch: Maya's father in court" style="width:100%;height:260px;object-fit:cover;display:block;">
+      <div style="padding:12px 16px;font-family:'Special Elite',monospace;">
+        <div style="font-size:.55rem;letter-spacing:1.8px;text-transform:uppercase;color:var(--red-deep);font-weight:700;margin-bottom:4px;">Trial · Maya's Father</div>
+        <div style="font-size:.85rem;color:var(--ink);line-height:1.4;">Maya's father present in the courtroom during trial.</div>
+      </div>
+    </div>
+  </div>
+
+  <!-- EVIDENCE -->
+  <div class="sh"><h2 class="sht">★ Evidence on the Table</h2><div class="shl"></div></div>
+  <div class="panel tilt-r">
+    <span class="panel-tab gold">Prosecution's Case</span>
+    <h3>The receipts the state is leaning on.</h3>
+    <p>&rarr; <strong>Spell-caster purchases.</strong> Texts and emails describe an alleged <em>escalation</em>: first to make Maya love him again, then to injure her so she couldn't leave the house. Receipts, emails, and account logs were recovered.</p>
+    <div style="max-width:320px;margin:10px auto 18px;"><img src="millete-spellcaster.jpg" alt="Spell-caster candle ritual — evidence photo" style="width:100%;border-radius:6px;border:2px solid var(--red-deep);box-shadow:3px 4px 10px rgba(0,0,0,.5);"></div>
+    <p>&rarr; <strong>Threats toward the suspected boyfriend.</strong> Investigators describe alleged threats against the man Larry believed Maya was leaving him for &mdash; including alleged consideration of hiring someone to hurt him.</p>
+    <p>&rarr; <strong>Firearm timeline.</strong> Texts and purchase records around handguns Larry acquired in the months before Maya vanished.</p>
+    <p>&rarr; <strong>The Jan 7 hours.</strong> Larry was reportedly <em>seen loading his car</em> that morning and then <em>disappeared for ~11 hours with no solid alibi</em> &mdash; the gap the prosecution wants the jury sitting with.</p>
+    <p>&rarr; <strong>The marriage's last weeks.</strong> Texts between Maya and her sisters and friends about leaving Larry. Plans for a divorce attorney consult that never happened.</p>
+  </div>
+
+  <!-- CITIZEN THEORIES -->
+  <div class="sh"><h2 class="sht">★ Theories on the Wall</h2><div class="shl"></div></div>
+  <div class="theories">
+    <div class="sticky tilt-1">
+      <span class="sticky-label">Theory · 01</span>
+      Spell-caster receipts are <em>the</em> case. Premeditation. Modern-day stalker pattern with a paper trail.
+    </div>
+    <div class="sticky tilt-2">
+      <span class="sticky-label">Theory · 02</span>
+      The green Lexus. Where it went on Jan 7-8 &mdash; who saw it, who didn't, the gas-station footage gap.
+    </div>
+    <div class="sticky tilt-3">
+      <span class="sticky-label">Theory · 03</span>
+      No body, no problem? CA precedent: Scott Peterson, Bruce Beresford-Redman. Convictions on circumstantial evidence happen.
+    </div>
+    <div class="sticky tilt-4">
+      <span class="sticky-label">Theory · 04</span>
+      The <em>petition to question the kids.</em> Larry filed from custody to interrogate the same children Maya's family is now raising. Asked of the court when the prosecution's case is built around what Larry did at home. Read the room.
+    </div>
+    <div class="sticky tilt-2">
+      <span class="sticky-label">Theory · 05 · 🚨</span>
+      <em>Was it an accident?</em> Larry's search history includes <strong>Rohypnol</strong> and <strong>hemlock</strong>. A vial recovered from the home <em>tested positive for hemlock</em>. Citizen speculation: did he try to sedate Maya and give her too much? Not premeditated murder &mdash; a sedation gone wrong that he then had to cover up. The Google searches + the vial are the receipts the prosecution is sitting on.
+    </div>
+  </div>
+
+  <!-- VERDICT WATCH -->
+  <div class="sh"><h2 class="sht">★ Verdict Watch</h2><div class="shl"></div></div>
+  <div class="panel tilt-l">
+    <span class="panel-tab red">Status · Trial In Progress</span>
+    <h3>The jury is seated. Trial is live.</h3>
+    <p><strong>Opening statements delivered May 18, 2026.</strong> Five years and four months after Maya vanished &mdash; Larry's murder trial is finally underway. Seven women, five men on the jury. Trial expected to run <strong>~3 months</strong>.</p>
+    <p><strong>Prosecution's opening:</strong> divorce was not an option for Larry. The state is leaning into the spell-caster escalation, the firearm timeline, and the 11-hour gap on January 7.</p>
+    <p><strong>Defense's opening:</strong> no body, no DNA, no crime scene. Claims Maya was "living a double life" and there is no evidence a murder occurred.</p>
+    <p>The two questions everybody's watching: <strong>does the spell-caster paper trail carry the weight of premeditation without a body?</strong> And <strong>can the defense's "double life" theory create enough reasonable doubt</strong> against five years of circumstantial build-up? Every witness, every ruling, every exhibit pins here as it lands.</p>
+    <span class="stamp">★ Trial Live · May 2026</span>
+  </div>
+
+  <!-- SOURCES · side-scroller -->
+  <div class="sh"><h2 class="sht">★ Sources &amp; Coverage</h2><div class="shl"></div></div>
+  <div style="position:relative;z-index:2;max-width:1100px;margin:0 auto 30px;display:flex;gap:14px;overflow-x:auto;-webkit-overflow-scrolling:touch;scroll-snap-type:x mandatory;padding:6px 24px 16px;">
+    <a class="source" href="https://interactive.cbs8.com/pdf/millette-arrest-warrant.pdf" target="_blank" rel="noopener" style="flex:0 0 260px;scroll-snap-align:start;"><strong>📄 Arrest Warrant</strong>Larry Millete arrest warrant &middot; CBS 8</a>
+    <a class="source" href="https://www.scribd.com/document/674802719/Chula-Vista-PD-Media-Advisory-Press-Conference-Maya-Millete" target="_blank" rel="noopener" style="flex:0 0 260px;scroll-snap-align:start;"><strong>📄 CVPD Advisory</strong>Press conference advisory &middot; Scribd</a>
+    <a class="source" href="https://www.nbcsandiego.com/news/local/motion-alleges-misconduct-maya-millete-murder-case/4014126/" target="_blank" rel="noopener" style="flex:0 0 260px;scroll-snap-align:start;"><strong>📰 NBC 7 · Misconduct Motion</strong>Defense alleges false testimony at prelim</a>
+    <a class="source" href="https://www.cbs8.com/article/news/investigations/millete/millete-murder-trial-begins-monday-look-back-high-profile-case/509-6cbae516-da58-4470-8ade-b5b37aa72c25" target="_blank" rel="noopener" style="flex:0 0 260px;scroll-snap-align:start;"><strong>📰 CBS 8 · Trial Begins</strong>Look back at the high-profile case</a>
+    <a class="source" href="https://fox5sandiego.com/news/local-news/larry-millete-trial-maya-san-diego-county/" target="_blank" rel="noopener" style="flex:0 0 260px;scroll-snap-align:start;"><strong>📰 FOX 5 · Key Moments</strong>Key moments in Maya's disappearance</a>
+    <a class="source" href="https://fox5sandiego.com/news/local-news/timeline-the-disappearance-of-chula-vista-mom-maya-millete/" target="_blank" rel="noopener" style="flex:0 0 260px;scroll-snap-align:start;"><strong>📰 FOX 5 · Full Timeline</strong>Timeline: The disappearance of Chula Vista mom Maya Millete</a>
+    <a class="source" href="https://www.hawaiinewsnow.com/2026/05/19/murder-trial-begins-larry-millete-death-radford-grad-maya-millete/" target="_blank" rel="noopener" style="flex:0 0 260px;scroll-snap-align:start;"><strong>📰 Hawaii News Now</strong>Trial begins for Radford grad Maya Millete</a>
+    <a class="source" href="https://threadreaderapp.com/thread/1947603467398169023.html" target="_blank" rel="noopener" style="flex:0 0 260px;scroll-snap-align:start;"><strong>🧵 @genjustlaw</strong>Citizen-research timeline &middot; Thread Reader</a>
+    <a class="source" href="https://www.youtube.com/watch?v=FQQ952AuCTY" target="_blank" rel="noopener" style="flex:0 0 260px;scroll-snap-align:start;"><strong>▶ Case Overview</strong>Scene-setter video &middot; YouTube</a>
+  </div>
+
+  <!-- COURT TV · Live Trial Coverage -->
+  <div class="sh"><h2 class="sht">★ Court TV · Live Trial Coverage</h2><div class="shl"></div></div>
+  <div style="position:relative;z-index:2;max-width:800px;margin:0 auto 40px;padding:0 24px;">
+    <div style="background:var(--board);border:1px solid var(--bdr);border-radius:10px;overflow:hidden;box-shadow:0 8px 40px rgba(0,0,0,.5);">
+      <div style="padding:14px 18px;border-bottom:1px solid var(--bdr);display:flex;align-items:center;gap:10px;">
+        <span style="font-family:'JetBrains Mono',monospace;font-size:.65rem;text-transform:uppercase;letter-spacing:1.5px;font-weight:700;color:var(--red-bright);">&#9679; Court TV</span>
+        <span style="font-family:'JetBrains Mono',monospace;font-size:.6rem;text-transform:uppercase;letter-spacing:1.5px;color:var(--t3);">People v. Millete · Trial Coverage</span>
+      </div>
+      <div style="position:relative;width:100%;padding-bottom:56.25%;background:#000;">
+        <iframe src="https://www.facebook.com/plugins/video.php?href=https%3A%2F%2Fwww.facebook.com%2Fcourttv%2Fvideos%2F663910335819207%2F&show_text=false&width=740" style="position:absolute;top:0;left:0;width:100%;height:100%;border:0;" scrolling="no" frameborder="0" allowfullscreen="true" allow="autoplay; clipboard-write; encrypted-media; picture-in-picture; web-share"></iframe>
+      </div>
+      <div style="padding:12px 18px;">
+        <p style="font-family:'JetBrains Mono',monospace;font-size:.7rem;letter-spacing:1.5px;text-transform:uppercase;color:var(--t3);text-align:center;">&#9654; <a href="https://www.facebook.com/courttv/videos/663910335819207/" target="_blank" rel="noopener" style="color:var(--red-bright);text-decoration:none;font-weight:700;">Watch on Facebook</a> &middot; Court TV</p>
+      </div>
+    </div>
+  </div>
+
+</section>
+
+<footer class="tcs-footer">
+  <div class="ftl">TCS &middot; <span style="color:var(--red);">True Crime Stories</span></div>
+  <div>A research-and-receipts companion track to <a href="index.html">Celebrity Dockets</a>.</div>
+  <div style="display:flex;gap:10px;justify-content:center;flex-wrap:wrap;margin:18px auto 4px;font-family:'JetBrains Mono',monospace;font-size:.65rem;text-transform:uppercase;letter-spacing:1.2px;font-weight:700;">
+    <a href="https://x.com/CelebDockets" target="_blank" rel="noopener" style="color:var(--paper);background:#0a0a0a;border:1px solid var(--bdr);padding:6px 12px;border-radius:5px;text-decoration:none;">𝕏 @CelebDockets</a>
+    <a href="https://www.tiktok.com/@celebritydockets" target="_blank" rel="noopener" style="color:var(--paper);background:#0a0a0a;border:1px solid var(--bdr);padding:6px 12px;border-radius:5px;text-decoration:none;">🎵 TikTok</a>
+    <a href="https://www.youtube.com/@celebritydockets" target="_blank" rel="noopener" style="color:var(--paper);background:#0a0a0a;border:1px solid var(--bdr);padding:6px 12px;border-radius:5px;text-decoration:none;">▶ YouTube</a>
+    <a href="https://www.instagram.com/celebritydockets" target="_blank" rel="noopener" style="color:var(--paper);background:#0a0a0a;border:1px solid var(--bdr);padding:6px 12px;border-radius:5px;text-decoration:none;">📸 Instagram</a>
+  </div>
+  <div style="text-align:center;margin-top:12px;font-size:.6rem;color:var(--t3);line-height:1.5;"><a href="legal.html">Terms &amp; Privacy</a> &middot; <a href="legal.html#dmca">DMCA</a></div>
+</footer>
+
+<script src="ticker.js" defer></script>
+</body>
+</html>
