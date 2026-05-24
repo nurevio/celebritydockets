@@ -1,0 +1,317 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<link rel="icon" type="image/png" href="favicon.png">
+<link rel="apple-touch-icon" href="favicon.png">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>TCS Show · The Millete Trial · Monday Night | True Crime Stories</title>
+<link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&family=IBM+Plex+Sans:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500;600&family=Special+Elite&family=Permanent+Marker&family=Shadows+Into+Light&display=swap" rel="stylesheet">
+<style>
+:root{
+  --bg:#000; --bg2:#0a0a0a; --board:#0c0c0c;
+  --red:#E11028; --red-bright:#ff1a2e; --red-deep:#9c0a1a;
+  --paper:#f0e9d8; --paper-yellow:#fff5b8; --paper-aged:#d8cdb1;
+  --ink:#0a0a0a; --pin:#dc2626;
+  --t1:#f0eee8; --t2:#9a9a9a; --t3:#5a5a5a;
+  --bdr:#2a2a2a;
+}
+*{margin:0;padding:0;box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{background:var(--bg);color:var(--t1);font-family:'IBM Plex Sans',sans-serif;line-height:1.55;min-height:100vh}
+
+/* HEADER */
+.hdr{border-bottom:1px solid var(--bdr);padding:16px 24px;display:flex;align-items:center;justify-content:space-between;background:var(--bg);position:sticky;top:0;z-index:100;backdrop-filter:blur(12px)}
+.logo{font-family:'DM Serif Display',serif;font-size:1.4rem;color:var(--t1);text-decoration:none}
+.logo span{color:var(--red)}
+.nav{display:flex;gap:24px;font-size:.8rem;text-transform:uppercase;letter-spacing:1.5px;font-weight:600;align-items:center}
+.nav a{color:var(--t2);text-decoration:none;transition:color .2s}.nav a:hover{color:var(--red-bright)}
+.nav a.on{color:var(--red-bright)}
+.hamburger{display:none;background:none;border:none;color:var(--t1);cursor:pointer;padding:8px;flex-direction:column;gap:5px}
+.hamburger span{display:block;width:24px;height:2px;background:var(--t1);transition:all .3s}
+@media(max-width:768px){
+  .nav{display:none;position:absolute;top:100%;left:0;right:0;background:var(--bg);flex-direction:column;padding:20px 24px;gap:18px;border-bottom:1px solid var(--bdr);z-index:99}
+  .nav.open{display:flex}.hamburger{display:flex}
+}
+
+/* WALL · pure black + crisscross strings */
+.wall{
+  position:relative;min-height:100vh;
+  background:
+    radial-gradient(ellipse at 25% 15%, rgba(225,16,40,.06), transparent 55%),
+    radial-gradient(ellipse at 75% 85%, rgba(225,16,40,.05), transparent 60%),
+    repeating-linear-gradient(0deg, rgba(255,255,255,.012) 0 1px, transparent 1px 3px),
+    repeating-linear-gradient(90deg, rgba(255,255,255,.010) 0 1px, transparent 1px 3px),
+    radial-gradient(ellipse at center, #131313 0%, #050505 80%);
+  overflow:hidden;
+  padding:36px 24px 70px;
+}
+.string-layer{position:absolute;inset:0;pointer-events:none;opacity:.85;z-index:1}
+.string-layer line{stroke:var(--red);stroke-width:1.3;filter:drop-shadow(0 0 4px rgba(225,16,40,.35));opacity:.7}
+.string-layer line.thick{stroke-width:1.8;opacity:.85}
+.string-layer line.faint{stroke:var(--red-deep);stroke-width:1;opacity:.45}
+.string-layer circle{fill:var(--pin);filter:drop-shadow(0 0 4px rgba(220,38,38,.6))}
+
+/* CHROME progress / show meta */
+.chrome-top{
+  position:relative;z-index:3;max-width:1100px;margin:0 auto 18px;
+  display:flex;justify-content:space-between;align-items:center;
+  font-family:'JetBrains Mono',monospace;font-size:.65rem;letter-spacing:1.8px;text-transform:uppercase;color:var(--paper-aged);
+  padding:0 4px;
+}
+.chrome-top .brand{color:var(--red-bright);font-weight:700}
+
+/* HERO */
+.show-hero{position:relative;z-index:2;max-width:1100px;margin:24px auto 50px;padding:6px 0 0;text-align:center}
+.show-eyebrow{
+  font-family:'Special Elite',monospace;font-size:.78rem;letter-spacing:6px;text-transform:uppercase;color:var(--red-bright);
+  display:inline-block;padding:6px 18px;border:2px solid var(--red);background:rgba(225,16,40,.04);
+  transform:rotate(-1.5deg);margin-bottom:18px;
+}
+.show-title{
+  font-family:'Permanent Marker',cursive;font-size:clamp(2.6rem,7vw,4.6rem);line-height:1;
+  color:var(--paper);letter-spacing:1.5px;margin-bottom:14px;transform:rotate(-1deg);
+  text-shadow:0 0 20px rgba(225,16,40,.3);
+}
+.show-title em{color:var(--red-bright);font-style:italic}
+.show-sub{font-family:'Special Elite',monospace;font-size:1rem;color:var(--paper-aged);max-width:780px;margin:0 auto;line-height:1.7}
+.show-sub strong{color:var(--paper)}
+.show-meta{display:inline-flex;gap:16px;margin-top:22px;flex-wrap:wrap;justify-content:center}
+.show-meta-item{font-family:'JetBrains Mono',monospace;font-size:.7rem;letter-spacing:1.5px;text-transform:uppercase;padding:6px 14px;border:1px solid var(--paper-aged);color:var(--paper);background:rgba(0,0,0,.3)}
+
+/* DISCLAIM */
+.disclaim{
+  position:relative;z-index:2;max-width:1000px;margin:0 auto 36px;padding:14px 22px;
+  background:rgba(225,16,40,.05);border:1px dashed var(--red);
+  font-family:'Special Elite',monospace;font-size:.78rem;color:var(--paper-aged);text-align:center;line-height:1.6;
+}
+.disclaim strong{color:var(--red-bright)}
+
+/* SLIDE STORY HEADERS */
+.slide-story{
+  position:relative;z-index:2;max-width:1100px;margin:60px auto 26px;padding:30px 24px;
+  border-left:4px solid var(--red);
+  background:linear-gradient(90deg,rgba(225,16,40,.07),transparent 70%);
+}
+.story-num{font-family:'Special Elite',monospace;font-size:.7rem;letter-spacing:3px;text-transform:uppercase;color:var(--red-bright);font-weight:700;margin-bottom:8px}
+.story-tag{font-family:'Special Elite',monospace;font-size:.72rem;letter-spacing:1.5px;text-transform:uppercase;color:var(--paper-aged);display:inline-block;margin-bottom:10px;padding:3px 10px;border:1px solid var(--paper-aged)}
+.story-title{font-family:'Permanent Marker',cursive;font-size:clamp(1.6rem,3.4vw,2.4rem);line-height:1.15;color:var(--paper);transform:rotate(-.4deg);letter-spacing:1px}
+.story-title em{color:var(--red-bright);font-style:italic}
+.story-blurb{font-family:'Special Elite',monospace;font-size:.95rem;color:var(--paper-aged);line-height:1.7;margin-top:12px;max-width:860px}
+
+/* VIDEO SLIDE */
+.slide{position:relative;z-index:2;max-width:1100px;margin:0 auto 30px;padding:24px 24px}
+.slide-eyebrow{font-family:'Special Elite',monospace;font-size:.7rem;letter-spacing:3px;text-transform:uppercase;color:var(--red-bright);margin-bottom:10px;text-align:center;font-weight:700}
+.slide-title{font-family:'Permanent Marker',cursive;font-size:clamp(1.5rem,3vw,2.2rem);color:var(--paper);text-align:center;margin-bottom:16px;letter-spacing:1px}
+.slide-title em{color:var(--red-bright);font-style:italic}
+.slide-blurb{font-family:'Special Elite',monospace;font-size:.92rem;color:var(--paper-aged);line-height:1.7;max-width:780px;margin:0 auto 22px;text-align:center}
+.video-frame{position:relative;width:100%;max-width:860px;margin:0 auto;aspect-ratio:16/9;border-radius:12px;overflow:hidden;border:1px solid var(--bdr);background:#000;box-shadow:0 14px 28px rgba(0,0,0,.7),0 0 0 1px rgba(225,16,40,.3)}
+.video-frame iframe{position:absolute;top:0;left:0;width:100%;height:100%;border:0}
+.video-cta{font-family:'JetBrains Mono',monospace;font-size:.7rem;letter-spacing:1.5px;text-transform:uppercase;color:var(--text-muted);margin-top:14px;text-align:center}
+.video-cta a{color:var(--red-bright);text-decoration:none;font-weight:700}
+
+/* COVERAGE PILL ROW */
+.coverage-pills{position:relative;z-index:2;max-width:1100px;margin:0 auto 30px;padding:0 24px;display:flex;flex-wrap:wrap;gap:10px;justify-content:center}
+.cov-pill{
+  font-family:'Special Elite',monospace;font-size:.74rem;letter-spacing:1.5px;text-transform:uppercase;font-weight:700;
+  padding:8px 16px;border:1.5px solid var(--red);background:rgba(225,16,40,.06);color:var(--red-bright);
+  text-decoration:none;display:inline-flex;align-items:center;gap:8px;
+  transition:transform .15s;
+}
+.cov-pill:hover{transform:translateY(-2px);background:rgba(225,16,40,.12)}
+
+/* WHAT WE'RE WATCHING · checklist style */
+.watch-grid{
+  position:relative;z-index:2;max-width:1100px;margin:0 auto 30px;
+  display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:18px;padding:0 24px;
+}
+.watch-card{
+  background:var(--paper);color:var(--ink);padding:18px 22px;
+  font-family:'Special Elite',monospace;font-size:.86rem;line-height:1.55;
+  box-shadow:5px 6px 14px rgba(0,0,0,.6),0 0 0 1px rgba(0,0,0,.3);
+  position:relative;
+  border-left:4px solid var(--red);
+}
+.watch-card.tilt-1{transform:rotate(-.6deg)}.watch-card.tilt-2{transform:rotate(.4deg)}.watch-card.tilt-3{transform:rotate(-.4deg)}
+.watch-label{font-family:'Special Elite',monospace;font-size:.6rem;letter-spacing:2px;text-transform:uppercase;color:var(--red-deep);font-weight:700;margin-bottom:6px;display:block}
+
+/* OUTRO */
+.outro{position:relative;z-index:2;max-width:900px;margin:60px auto 30px;padding:30px 24px;text-align:center}
+.outro-line{font-family:'Permanent Marker',cursive;font-size:1.6rem;color:var(--paper);line-height:1.3;margin-bottom:16px;transform:rotate(-.5deg)}
+.outro-line em{color:var(--red-bright)}
+.outro-cta{display:inline-flex;gap:12px;flex-wrap:wrap;justify-content:center;margin-top:20px}
+.outro-btn{font-family:'JetBrains Mono',monospace;font-size:.72rem;letter-spacing:1.5px;text-transform:uppercase;font-weight:700;padding:10px 18px;border:2px solid var(--red);color:var(--paper);text-decoration:none;background:rgba(225,16,40,.06);transition:transform .15s}
+.outro-btn:hover{transform:translateY(-2px);background:var(--red);color:var(--paper)}
+.outro-btn.solid{background:var(--red);color:var(--paper)}
+
+/* FOOTER */
+.tcs-footer{position:relative;z-index:2;border-top:1px solid var(--bdr);padding:36px 24px 40px;text-align:center;font-size:.75rem;color:var(--t3);background:var(--bg);margin-top:30px}
+.tcs-footer a{color:var(--red);text-decoration:none}
+.tcs-footer .ftl{font-family:'Permanent Marker',cursive;font-size:1.1rem;color:var(--paper);letter-spacing:2px;margin-bottom:6px}
+
+@media(max-width:768px){
+  .show-title{font-size:2.4rem}
+  .story-title{font-size:1.5rem}
+}
+
+@keyframes pulse { 0%, 100% { opacity: 1; } 50% { opacity: 0.3; } }
+</style>
+<meta property="og:title" content="TCS Show · The Millete Trial · Monday Night | True Crime Stories">
+<meta property="og:description" content="The Monday-night TCS show notes for People v. Larry Millete. Five years of delays, the spell-caster receipts, the petition to question the children, and the trial finally in front of a jury. Live coverage feed via @milletetrial.">
+<meta name="description" content="TCS Show · The Millete Trial — Monday-night show notes for the People v. Larry Millete jury trial. Spell-caster receipts, petition to question the children, custody fallout. Live coverage via @milletetrial.">
+</head>
+<body>
+  <header class="hdr">
+    <a href="index.html" class="logo">Celebrity<span>Dockets</span></a>
+    <button class="hamburger" onclick="this.classList.toggle('open');document.querySelector('.nav').classList.toggle('open')"><span></span><span></span><span></span></button>
+    <nav class="nav">
+      <a href="objection-live.html">⚖️ All Rise</a>
+      <a href="recess.html">🔔 RECESS</a>
+      <a href="latest.html">📅 Latest</a>
+      <a href="featured-dockets.html" style="color:#F6C340;">★ Featured</a>
+      <a href="tcs.html" class="on">★ TCS</a>
+      <a href="https://www.buymeacoffee.com/celebritydockets" target="_blank" rel="noopener" style="color:#FFDD00;">☕ Fuel</a>
+    </nav>
+  </header>
+
+  <section class="wall">
+    <!-- RED STRING WEB -->
+    <svg class="string-layer" viewBox="0 0 1400 2000" preserveAspectRatio="none">
+      <line class="thick" x1="80" y1="180" x2="1320" y2="240" />
+      <line class="thick" x1="200" y1="100" x2="900" y2="1100" />
+      <line class="thick" x1="1100" y1="120" x2="350" y2="1050" />
+      <line class="thick" x1="100" y1="800" x2="1300" y2="900" />
+      <line class="thick" x1="700" y1="200" x2="700" y2="1900" />
+      <line x1="50" y1="500" x2="1350" y2="560" />
+      <line x1="50" y1="1500" x2="1350" y2="1450" />
+      <line x1="300" y1="60" x2="1100" y2="1900" />
+      <line x1="1000" y1="60" x2="200" y2="1900" />
+      <line x1="450" y1="60" x2="450" y2="1800" />
+      <line x1="950" y1="60" x2="950" y2="1800" />
+      <line class="faint" x1="0" y1="900" x2="1400" y2="1300" />
+      <line class="faint" x1="0" y1="1700" x2="1400" y2="1900" />
+      <line class="faint" x1="600" y1="0" x2="800" y2="2000" />
+      <line class="faint" x1="100" y1="0" x2="1300" y2="2000" />
+      <line class="faint" x1="1300" y1="0" x2="100" y2="2000" />
+      <circle cx="700" cy="200" r="5" /><circle cx="700" cy="1100" r="5" />
+      <circle cx="350" cy="1050" r="5" /><circle cx="200" cy="100" r="5" />
+      <circle cx="1100" cy="120" r="5" /><circle cx="450" cy="60" r="5" />
+      <circle cx="950" cy="60" r="5" /><circle cx="50" cy="500" r="5" />
+      <circle cx="1350" cy="560" r="5" /><circle cx="100" cy="800" r="5" />
+      <circle cx="1300" cy="900" r="5" />
+    </svg>
+
+    <!-- CHROME TOP / SHOW META -->
+    <div class="chrome-top">
+      <div><span class="brand">★ TCS Show</span> · The Millete Trial</div>
+      <div>Monday Night · Live · CJ &amp; the wall</div>
+    </div>
+
+    <!-- HERO -->
+    <div class="show-hero">
+      <div class="show-eyebrow">★ TCS · Monday-Night Show ★</div>
+      <h1 class="show-title">The <em>Millete</em> Trial.</h1>
+      <p class="show-sub">Five years after Maya disappeared. <strong>Spell-caster receipts.</strong> A petition to question the children. Custody to Maya's sister. The case is finally in front of a jury &mdash; we walk it tonight.</p>
+      <div class="show-meta">
+        <span class="show-meta-item">San Diego Superior</span>
+        <span class="show-meta-item">People v. Larry Millete</span>
+        <span class="show-meta-item">First Jury Trial</span>
+      </div>
+    </div>
+
+    <!-- DISCLAIM -->
+    <div class="disclaim">
+      <strong>★ Citizen-investigation show.</strong> All allegations are pulled from publicly available filings, charging documents and on-the-record reporting. Larry Millete is presumed innocent. Nothing here is a legal finding or determination of guilt.
+    </div>
+
+    <!-- STORY 01 — THE OVERVIEW -->
+    <div class="slide-story">
+      <div class="story-num">★ Story 01 · The Overview</div>
+      <span class="story-tag">Where the case stands · the scene-setter</span>
+      <h2 class="story-title">Set the <em>scene</em>.</h2>
+      <p class="story-blurb">Before we walk the deep dive, the overview. What happened January 7, 2021. The spell-caster receipts. The firearm timeline. The five-year delay that brought us to a jury.</p>
+    </div>
+    <div class="slide">
+      <div class="slide-eyebrow">★ slide 1 · the overview</div>
+      <div class="video-frame">
+        <iframe src="https://www.youtube.com/embed/FQQ952AuCTY?rel=0&modestbranding=1&playsinline=1&iv_load_policy=3" title="Larry Millete · Case Overview" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+      </div>
+      <p class="video-cta">▶ <a href="https://www.youtube.com/watch?v=FQQ952AuCTY" target="_blank" rel="noopener">Open on YouTube</a></p>
+    </div>
+
+    <!-- STORY 02 — THE DEEP DIVE -->
+    <div class="slide-story">
+      <div class="story-num">★ Story 02 · The Deep Dive</div>
+      <span class="story-tag">Live-read walk-through · the receipts in chronological order</span>
+      <h2 class="story-title">The <em>girls</em> walk it.</h2>
+      <p class="story-blurb">The live-read deep dive. Spell-caster purchases &mdash; first to make her love him again, then to injure her. Threats toward the suspected boyfriend. The 11-hour gap on January 7. The petition to question the children. The custody fallout. Press play, take it in order.</p>
+    </div>
+    <div class="slide">
+      <div class="slide-eyebrow">★ slide 2 · the deep dive</div>
+      <div class="video-frame">
+        <iframe src="https://www.youtube.com/embed/Y1NPL1Kfqqg?rel=0&modestbranding=1&playsinline=1&iv_load_policy=3" title="Larry Millete · Girls' Deep Dive" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+      </div>
+      <p class="video-cta">▶ <a href="https://www.youtube.com/watch?v=Y1NPL1Kfqqg" target="_blank" rel="noopener">Open on YouTube</a></p>
+    </div>
+
+    <!-- STORY 03 — WHAT WE'RE WATCHING -->
+    <div class="slide-story">
+      <div class="story-num">★ Story 03 · What We're Watching</div>
+      <span class="story-tag">The questions for the jury</span>
+      <h2 class="story-title">The <em>three</em> watch-fors.</h2>
+      <p class="story-blurb">After five years, what does the prosecution actually lean on? What's the defense's strongest argument? And what does the jury do when there's no body?</p>
+    </div>
+    <div class="watch-grid">
+      <div class="watch-card tilt-1">
+        <span class="watch-label">Watch · 01</span>
+        <strong>Spell-caster vs. firearm.</strong> Does the state lean harder into the supernatural-purchase angle, or anchor on the gun timeline? The first one is sensational. The second one is concrete. Closing arguments will tell you which one they trusted.
+      </div>
+      <div class="watch-card tilt-2">
+        <span class="watch-label">Watch · 02</span>
+        <strong>"No body, no DNA, no scene."</strong> Defense's go-to in a circumstantial case. The state has had five years to build the record around that gap. Reasonable doubt is a feeling — does it land?
+      </div>
+      <div class="watch-card tilt-3">
+        <span class="watch-label">Watch · 03</span>
+        <strong>The petition that didn't help.</strong> Larry filed from custody to interrogate the same kids Maya's sister is now raising. The court's posture on that petition is going to leak into the rest of the case. Watch which judge calls it.
+      </div>
+    </div>
+
+    <!-- STORY 04 — LIVE TRIAL COVERAGE -->
+    <div class="slide-story">
+      <div class="story-num">★ Story 04 · Live Trial Feed</div>
+      <span class="story-tag">For real-time updates as the jury phase moves</span>
+      <h2 class="story-title">Follow the <em>feed</em>.</h2>
+      <p class="story-blurb">For the day-by-day, motion-by-motion, witness-by-witness as it lands &mdash; the dedicated coverage account is where to be.</p>
+    </div>
+    <div class="coverage-pills">
+      <a class="cov-pill" href="https://x.com/milletetrial" target="_blank" rel="noopener">𝕏 @milletetrial · live trial feed</a>
+      <a class="cov-pill" href="https://x.com/MattBlacInc" target="_blank" rel="noopener">𝕏 @MattBlacInc · early exhibit</a>
+      <a class="cov-pill" href="https://threadreaderapp.com/thread/1947603467398169023.html" target="_blank" rel="noopener">🧵 @genjustlaw · case summary</a>
+      <a class="cov-pill" href="tcs-larry-millete.html">📂 Full TCS File →</a>
+    </div>
+
+    <!-- OUTRO -->
+    <div class="outro">
+      <p class="outro-line">Five years late.<br>The wall <em>goes live</em> tonight.</p>
+      <div class="outro-cta">
+        <a class="outro-btn solid" href="tcs-larry-millete.html">📂 Full Case File</a>
+        <a class="outro-btn" href="tcs.html">★ TCS Hub</a>
+        <a class="outro-btn" href="https://x.com/milletetrial" target="_blank" rel="noopener">𝕏 Trial Feed</a>
+      </div>
+    </div>
+  </section>
+
+  <footer class="tcs-footer">
+    <div class="ftl">TCS &middot; <span style="color:var(--red);">True Crime Stories</span></div>
+    <div>Monday-night show · companion to <a href="index.html">Celebrity Dockets</a>.</div>
+    <div style="display:flex;gap:10px;justify-content:center;flex-wrap:wrap;margin:18px auto 4px;font-family:'JetBrains Mono',monospace;font-size:.65rem;text-transform:uppercase;letter-spacing:1.2px;font-weight:700;">
+      <a href="https://x.com/CelebDockets" target="_blank" rel="noopener" style="color:var(--paper);background:#0a0a0a;border:1px solid var(--bdr);padding:6px 12px;border-radius:5px;text-decoration:none;">𝕏 @CelebDockets</a>
+      <a href="https://www.tiktok.com/@celebritydockets" target="_blank" rel="noopener" style="color:var(--paper);background:#0a0a0a;border:1px solid var(--bdr);padding:6px 12px;border-radius:5px;text-decoration:none;">🎵 TikTok</a>
+      <a href="https://www.youtube.com/@celebritydockets" target="_blank" rel="noopener" style="color:var(--paper);background:#0a0a0a;border:1px solid var(--bdr);padding:6px 12px;border-radius:5px;text-decoration:none;">▶ YouTube</a>
+      <a href="https://www.instagram.com/celebritydockets" target="_blank" rel="noopener" style="color:var(--paper);background:#0a0a0a;border:1px solid var(--bdr);padding:6px 12px;border-radius:5px;text-decoration:none;">📸 Instagram</a>
+    </div>
+    <div style="text-align:center;margin-top:12px;font-size:.6rem;color:var(--t3);line-height:1.5;"><a href="legal.html">Terms &amp; Privacy</a> &middot; <a href="legal.html#dmca">DMCA</a></div>
+  </footer>
+<script src="ticker.js" defer></script>
+</body>
+</html>

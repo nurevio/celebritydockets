@@ -1,0 +1,530 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<link rel="icon" type="image/png" href="favicon.png">
+<link rel="apple-touch-icon" href="favicon.png">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>TCS · True Crime Stories | Celebrity Dockets</title>
+<link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&family=IBM+Plex+Sans:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500;600&family=Special+Elite&family=Permanent+Marker&family=Shadows+Into+Light&display=swap" rel="stylesheet">
+<style>
+:root{
+  --bg:#000000; --bg2:#0a0a0a;
+  --board:#0c0c0c;
+  --red:#E11028; --red-bright:#ff1a2e; --red-deep:#9c0a1a;
+  --paper:#f0e9d8; --paper-yellow:#fff5b8; --paper-aged:#d8cdb1;
+  --ink:#0a0a0a; --pin:#dc2626;
+  --t1:#f0eee8; --t2:#9a9a9a; --t3:#5a5a5a;
+  --bdr:#2a2a2a;
+}
+*{margin:0;padding:0;box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{background:var(--bg);color:var(--t1);font-family:'IBM Plex Sans',sans-serif;line-height:1.55;min-height:100vh}
+
+/* HEADER */
+.hdr{border-bottom:1px solid var(--bdr);padding:16px 24px;display:flex;align-items:center;justify-content:space-between;background:var(--bg);position:sticky;top:0;z-index:100;backdrop-filter:blur(12px)}
+.logo{font-family:'DM Serif Display',serif;font-size:1.4rem;color:var(--t1);text-decoration:none}
+.logo span{color:var(--red)}
+.nav{display:flex;gap:24px;font-size:.8rem;text-transform:uppercase;letter-spacing:1.5px;font-weight:600;align-items:center}
+.nav a{color:var(--t2);text-decoration:none;transition:color .2s}.nav a:hover{color:var(--red-bright)}
+.nav a.on{color:var(--red-bright)}
+.hamburger{display:none;background:none;border:none;color:var(--t1);cursor:pointer;padding:8px;flex-direction:column;gap:5px}
+.hamburger span{display:block;width:24px;height:2px;background:var(--t1);transition:all .3s}
+@media(max-width:768px){
+  .nav{display:none;position:absolute;top:100%;left:0;right:0;background:var(--bg);flex-direction:column;padding:20px 24px;gap:18px;border-bottom:1px solid var(--bdr);z-index:99}
+  .nav.open{display:flex}.hamburger{display:flex}
+}
+
+/* CRAZY WALL · PEPE SILVIA ENERGY */
+.wall{
+  position:relative;
+  min-height:100vh;
+  background:
+    radial-gradient(ellipse at 25% 15%, rgba(225,16,40,.06), transparent 55%),
+    radial-gradient(ellipse at 75% 85%, rgba(225,16,40,.05), transparent 60%),
+    repeating-linear-gradient(0deg, rgba(255,255,255,.012) 0 1px, transparent 1px 3px),
+    repeating-linear-gradient(90deg, rgba(255,255,255,.010) 0 1px, transparent 1px 3px),
+    radial-gradient(ellipse at center, #131313 0%, #050505 80%);
+  overflow:hidden;
+  padding:50px 24px 80px;
+}
+
+/* SVG STRING LAYER · the chaotic red web (sits BEHIND content) */
+.string-layer{position:absolute;inset:0;pointer-events:none;opacity:.85;z-index:1}
+.string-layer line{
+  stroke:var(--red);
+  stroke-width:1.3;
+  filter:drop-shadow(0 0 4px rgba(225,16,40,.35));
+  opacity:.7;
+}
+.string-layer line.thick{stroke-width:1.8;opacity:.85}
+.string-layer line.faint{stroke:var(--red-deep);stroke-width:1;opacity:.45}
+
+/* Pinhead dots at intersections */
+.string-layer circle{fill:var(--pin);filter:drop-shadow(0 0 4px rgba(220,38,38,.6))}
+
+/* HERO — TCS LOGO + STAMP */
+.tcs-hero{
+  position:relative;
+  z-index:2;
+  max-width:1100px;
+  margin:0 auto 60px;
+  text-align:center;
+  padding:20px 0 40px;
+}
+.tcs-logo-wrap{
+  width:280px;height:280px;
+  margin:0 auto 24px;
+  position:relative;
+  display:flex;align-items:center;justify-content:center;
+  filter:drop-shadow(0 8px 30px rgba(225,16,40,.25));
+}
+.tcs-logo-wrap img{
+  width:100%;height:auto;display:block;
+}
+/* Fallback if logo image isn't there yet — circular text mark */
+.tcs-logo-fallback{
+  width:280px;height:280px;
+  border-radius:50%;
+  border:3px double rgba(240,233,216,.4);
+  background:radial-gradient(circle, #161616, #050505);
+  display:flex;flex-direction:column;align-items:center;justify-content:center;
+  font-family:'Permanent Marker',cursive;
+  position:relative;
+  letter-spacing:2px;
+}
+.tcs-logo-fallback::before{
+  content:'★';position:absolute;top:18px;color:var(--red);font-size:1.8rem;
+}
+.tcs-logo-fallback .lf-line1{font-size:2.6rem;color:var(--paper);line-height:1;letter-spacing:4px}
+.tcs-logo-fallback .lf-line2{font-size:3.2rem;color:var(--red);line-height:1;margin:6px 0 6px;letter-spacing:6px;text-shadow:0 0 20px rgba(225,16,40,.5)}
+.tcs-logo-fallback .lf-line3{font-family:'Shadows Into Light',cursive;font-size:1.5rem;color:var(--paper);letter-spacing:3px;transform:rotate(-3deg)}
+
+.tcs-eyebrow{
+  font-family:'Special Elite',monospace;
+  font-size:.78rem;
+  letter-spacing:6px;
+  text-transform:uppercase;
+  color:var(--red-bright);
+  margin-bottom:14px;
+  display:inline-block;
+  padding:6px 18px;
+  border:2px solid var(--red);
+  border-radius:0;
+  background:rgba(225,16,40,.04);
+  transform:rotate(-1.5deg);
+}
+.tcs-tagline{
+  font-family:'Permanent Marker',cursive;
+  font-size:1.6rem;
+  color:var(--paper);
+  margin:0 auto 6px;
+  max-width:780px;
+  letter-spacing:1.5px;
+  line-height:1.3;
+  transform:rotate(-.5deg);
+}
+.tcs-tagline em{color:var(--red-bright);font-style:italic}
+.tcs-sub{
+  font-family:'Special Elite',monospace;
+  font-size:.95rem;
+  color:var(--t2);
+  max-width:680px;margin:14px auto 0;
+  line-height:1.7;
+}
+
+/* SECTION HEADER · "case files" */
+.section-stamp{
+  position:relative;z-index:2;
+  max-width:1100px;margin:50px auto 28px;padding:0 8px;
+  display:flex;align-items:center;gap:18px;
+}
+.section-stamp h2{
+  font-family:'Permanent Marker',cursive;
+  font-size:1.9rem;
+  color:var(--red-bright);
+  letter-spacing:3px;
+  text-transform:uppercase;
+  text-shadow:0 0 14px rgba(225,16,40,.4);
+  transform:rotate(-1deg);
+}
+.section-stamp .scribble-line{flex:1;height:2px;background:repeating-linear-gradient(90deg,var(--red) 0 8px,transparent 8px 16px);opacity:.6}
+.section-stamp .count-stamp{
+  font-family:'Special Elite',monospace;font-size:.7rem;letter-spacing:2.5px;text-transform:uppercase;color:var(--paper-aged);
+  border:1px solid var(--red);background:rgba(225,16,40,.08);padding:4px 12px;
+  transform:rotate(2deg);
+}
+
+/* FILE CARD GRID */
+.case-grid{
+  position:relative;z-index:2;
+  max-width:1200px;margin:0 auto;
+  display:grid;
+  grid-template-columns:repeat(auto-fit,minmax(330px,1fr));
+  gap:50px 32px;
+  padding:20px;
+}
+
+/* INDIVIDUAL CASE FILE — polaroid + manila tab + pin */
+.case-file{
+  position:relative;
+  background:var(--paper);
+  padding:22px 22px 26px;
+  border:1px solid rgba(0,0,0,.4);
+  box-shadow:
+    0 14px 28px rgba(0,0,0,.55),
+    0 6px 12px rgba(0,0,0,.5),
+    inset 0 0 60px rgba(0,0,0,.02);
+  text-decoration:none;color:var(--ink);
+  transition:transform .25s ease, box-shadow .25s ease;
+  font-family:'Special Elite',monospace;
+}
+.case-file:hover{transform:rotate(0deg) translateY(-4px) scale(1.02)!important;box-shadow:0 22px 40px rgba(225,16,40,.4),0 10px 18px rgba(0,0,0,.6),0 0 0 1px rgba(225,16,40,.6);z-index:5}
+.case-file:nth-child(1){transform:rotate(-2.5deg)}
+.case-file:nth-child(2){transform:rotate(1.5deg)}
+.case-file:nth-child(3){transform:rotate(-1deg)}
+.case-file:nth-child(4){transform:rotate(2deg)}
+.case-file:nth-child(5){transform:rotate(-1.8deg)}
+.case-file:nth-child(6){transform:rotate(.8deg)}
+
+/* Manila tab on top */
+.case-tab{
+  position:absolute;top:-22px;left:24px;
+  background:var(--paper-yellow);
+  padding:6px 18px 7px;
+  font-family:'Special Elite',monospace;
+  font-size:.62rem;letter-spacing:2.5px;text-transform:uppercase;font-weight:700;color:#7a4f00;
+  border:1px solid rgba(0,0,0,.25);
+  border-bottom:none;
+  box-shadow:0 -3px 6px rgba(0,0,0,.2);
+}
+
+/* Red push pin */
+.case-pin{
+  position:absolute;top:6px;right:18px;
+  width:18px;height:18px;border-radius:50%;
+  background:radial-gradient(circle at 30% 30%, #ff5252, var(--pin) 60%, #6a0a0a 100%);
+  box-shadow:0 3px 6px rgba(0,0,0,.6),0 0 8px rgba(220,38,38,.4),inset 0 1px 1px rgba(255,255,255,.5);
+  z-index:2;
+}
+.case-pin::after{
+  content:'';position:absolute;top:6px;left:5px;width:5px;height:3px;background:rgba(255,255,255,.7);border-radius:50%;
+}
+
+/* Polaroid mug-shot frame inside the file */
+.case-photo{
+  background:#fff;
+  padding:8px 8px 38px;
+  margin:0 auto 14px;
+  max-width:200px;
+  box-shadow:0 4px 8px rgba(0,0,0,.25);
+  position:relative;
+  transform:rotate(-1.5deg);
+}
+.case-photo .photo-img{
+  width:100%;
+  aspect-ratio:1/1;
+  background:linear-gradient(180deg, #2a2a2a 0%, #4a4a4a 50%, #2a2a2a 100%);
+  position:relative;overflow:hidden;
+  display:flex;align-items:center;justify-content:center;
+}
+.case-photo .photo-img img{
+  width:100%;height:100%;object-fit:cover;display:block;
+  filter:contrast(1.05) saturate(1.05);
+}
+.case-photo .photo-img::after{
+  content:'';position:absolute;inset:0;pointer-events:none;
+  background:repeating-linear-gradient(0deg,rgba(0,0,0,.04) 0 1px,transparent 1px 3px);
+}
+
+/* PER-CASE COLOR TREATMENTS · subtle ambient glow on the file folder */
+.case-file.file-larry{background:linear-gradient(180deg,#f0e9d8 0%,#f5d5cc 100%);box-shadow:0 14px 28px rgba(140,20,30,.45),0 6px 12px rgba(0,0,0,.5),inset 0 0 60px rgba(180,30,40,.06)}
+.case-file.file-larry .case-stamp{color:#9c0a1a;border-color:#9c0a1a;background:rgba(180,30,40,.06)}
+.case-file.file-larry .case-pin{background:radial-gradient(circle at 30% 30%,#ff6868,#a80f1e 60%,#3d0508 100%)}
+.case-file.file-larry:hover{box-shadow:0 22px 40px rgba(225,16,40,.6),0 0 0 1px rgba(225,16,40,.7)}
+
+.case-file.file-shanna{background:linear-gradient(180deg,#f0e9d8 0%,#fde6c8 100%);box-shadow:0 14px 28px rgba(180,90,20,.45),0 6px 12px rgba(0,0,0,.5),inset 0 0 60px rgba(220,130,40,.06)}
+.case-file.file-shanna .case-stamp{color:#a85a14;border-color:#a85a14;background:rgba(220,130,40,.06)}
+.case-file.file-shanna .case-pin{background:radial-gradient(circle at 30% 30%,#ffb060,#cc6e1a 60%,#4a2a05 100%)}
+.case-file.file-shanna:hover{box-shadow:0 22px 40px rgba(220,130,40,.55),0 0 0 1px rgba(220,130,40,.65)}
+
+.case-file.file-barry{background:linear-gradient(180deg,#f0e9d8 0%,#dde8d2 100%);box-shadow:0 14px 28px rgba(50,90,40,.45),0 6px 12px rgba(0,0,0,.5),inset 0 0 60px rgba(70,120,60,.05)}
+.case-file.file-barry .case-stamp{color:#3a6b2e;border-color:#3a6b2e;background:rgba(70,120,60,.05)}
+.case-file.file-barry .case-pin{background:radial-gradient(circle at 30% 30%,#7ed070,#3a6b2e 60%,#0f2207 100%)}
+.case-file.file-barry:hover{box-shadow:0 22px 40px rgba(70,140,55,.5),0 0 0 1px rgba(70,140,55,.6)}
+.case-photo .photo-placeholder{
+  font-family:'Special Elite',monospace;
+  font-size:.6rem;letter-spacing:2px;text-transform:uppercase;
+  color:rgba(255,255,255,.65);text-align:center;line-height:1.4;padding:14px;
+  position:relative;z-index:1;
+}
+.case-photo .photo-caption{
+  position:absolute;bottom:8px;left:0;right:0;
+  text-align:center;
+  font-family:'Permanent Marker',cursive;
+  font-size:.78rem;color:#1a1a1a;letter-spacing:1px;
+}
+
+.case-name{
+  font-family:'Permanent Marker',cursive;
+  font-size:1.4rem;color:var(--ink);
+  text-align:center;margin:0 0 4px;
+  letter-spacing:1px;line-height:1.15;
+}
+.case-status{
+  text-align:center;
+  font-family:'Special Elite',monospace;
+  font-size:.62rem;letter-spacing:2.5px;text-transform:uppercase;
+  color:var(--red-deep);font-weight:700;
+  padding:3px 10px;display:inline-block;
+  border:1px solid var(--red-deep);
+  background:rgba(225,16,40,.05);
+  margin:0 auto 12px;
+  position:relative;left:50%;transform:translateX(-50%);
+}
+.case-tag{
+  text-align:center;
+  font-family:'Special Elite',monospace;
+  font-size:.7rem;letter-spacing:1px;color:#3a3a3a;
+  padding:0 4px;line-height:1.5;
+  margin-bottom:14px;
+}
+
+/* Stamp overlays */
+.case-stamp{
+  position:absolute;top:60px;right:14px;
+  font-family:'Special Elite',monospace;
+  font-size:.56rem;letter-spacing:2px;text-transform:uppercase;
+  color:var(--red);
+  border:2px solid var(--red);
+  padding:3px 8px;
+  transform:rotate(8deg);
+  background:rgba(225,16,40,.05);
+  font-weight:700;
+}
+
+.case-evidence{
+  border-top:1px dashed rgba(0,0,0,.25);
+  padding-top:10px;margin-top:6px;
+  font-family:'Special Elite',monospace;
+  font-size:.72rem;color:#2a2a2a;line-height:1.5;
+}
+.case-evidence-label{font-size:.55rem;letter-spacing:2px;text-transform:uppercase;color:#7a4f00;font-weight:700;margin-bottom:4px;display:block}
+.case-evidence li{list-style:none;padding-left:14px;position:relative;margin-bottom:3px}
+.case-evidence li::before{content:'▸';position:absolute;left:0;color:var(--red)}
+
+.case-cta{
+  margin-top:14px;
+  text-align:center;
+  font-family:'Permanent Marker',cursive;
+  font-size:.95rem;color:var(--red);
+  letter-spacing:1.5px;
+  border-top:2px solid var(--red);
+  padding-top:8px;
+  transform:rotate(-1deg);
+}
+
+/* DISCLAIMER STRIP */
+.disclaimer{
+  position:relative;z-index:2;
+  max-width:1000px;margin:60px auto 20px;padding:18px 24px;
+  background:rgba(225,16,40,.04);
+  border:1px dashed var(--red);
+  font-family:'Special Elite',monospace;
+  font-size:.78rem;color:var(--paper-aged);
+  line-height:1.6;text-align:center;
+}
+.disclaimer strong{color:var(--red-bright);font-style:normal}
+
+/* FOOTER */
+.tcs-footer{border-top:1px solid var(--bdr);padding:36px 24px;text-align:center;font-size:.75rem;color:var(--t3);background:var(--bg)}
+.tcs-footer a{color:var(--red);text-decoration:none}
+
+@media(max-width:768px){
+  .tcs-tagline{font-size:1.2rem}
+  .tcs-logo-wrap, .tcs-logo-fallback{width:220px;height:220px}
+  .case-grid{gap:42px 20px;padding:8px}
+  .section-stamp h2{font-size:1.4rem}
+}
+</style>
+<meta property="og:title" content="TCS · True Crime Stories | Celebrity Dockets">
+<meta property="og:description" content="The dockets you can't make up. Celebrity Dockets' companion wall for courtroom cases where the file reads stranger than fiction. Larry Millete spellcasters, Bridegan / Bexley Boxes, Barry Morphew the chipmunk slayer.">
+<meta name="description" content="True Crime Stories — the Celebrity Dockets companion wall for courtroom cases where the file reads stranger than fiction. Larry Millete and the spellcaster receipts. The Bridegan murder-for-hire (Shanna Gardner-Fernandez, Kirsten Bridegan's Bexley Boxes, Jose Baez on defense). Barry Morphew, the chipmunk slayer — twice charged, twice walked, now back with a body.">
+</head>
+<body>
+  <header class="hdr">
+    <a href="index.html" class="logo">Celebrity<span>Dockets</span></a>
+    <button class="hamburger" onclick="this.classList.toggle('open');document.querySelector('.nav').classList.toggle('open')"><span></span><span></span><span></span></button>
+    <nav class="nav">
+      <a href="objection-live.html">⚖️ All Rise</a>
+      <a href="recess.html">🔔 RECESS</a>
+      <a href="latest.html">📅 Latest</a>
+      <a href="featured-dockets.html" style="color:#F6C340;">★ Featured</a>
+      <a href="tcs.html" class="on">★ TCS</a>
+      <a href="https://www.buymeacoffee.com/celebritydockets" target="_blank" rel="noopener" style="color:#FFDD00;">☕ Fuel</a>
+    </nav>
+  </header>
+
+  <section class="wall">
+    <!-- RED STRING WEB · the Pepe Silvia layer -->
+    <svg class="string-layer" viewBox="0 0 1400 1800" preserveAspectRatio="none">
+      <!-- Major crisscross (thick) -->
+      <line class="thick" x1="80"   y1="180"  x2="1320" y2="220" />
+      <line class="thick" x1="200"  y1="100"  x2="900"  y2="900" />
+      <line class="thick" x1="1100" y1="120"  x2="350"  y2="850" />
+      <line class="thick" x1="100"  y1="700"  x2="1300" y2="780" />
+      <line class="thick" x1="700"  y1="200"  x2="700"  y2="1700" />
+      <!-- Mid-density -->
+      <line x1="50"   y1="400"  x2="1350" y2="460" />
+      <line x1="50"   y1="1100" x2="1350" y2="1050" />
+      <line x1="300"  y1="60"   x2="1100" y2="1700" />
+      <line x1="1000" y1="60"   x2="200"  y2="1700" />
+      <line x1="450"  y1="60"   x2="450"  y2="1600" />
+      <line x1="950"  y1="60"   x2="950"  y2="1600" />
+      <line x1="180"  y1="500"  x2="1200" y2="1500" />
+      <line x1="1180" y1="350"  x2="240"  y2="1450" />
+      <!-- Faint background filaments -->
+      <line class="faint" x1="0"    y1="600"  x2="1400" y2="900" />
+      <line class="faint" x1="0"    y1="1200" x2="1400" y2="1500" />
+      <line class="faint" x1="600"  y1="0"    x2="800"  y2="1800" />
+      <line class="faint" x1="100"  y1="0"    x2="1300" y2="1800" />
+      <line class="faint" x1="1300" y1="0"    x2="100"  y2="1800" />
+      <line class="faint" x1="50"   y1="1000" x2="1350" y2="600" />
+      <!-- Pinhead intersections -->
+      <circle cx="700"  cy="200"  r="5" />
+      <circle cx="700"  cy="900"  r="5" />
+      <circle cx="350"  cy="850"  r="5" />
+      <circle cx="200"  cy="100"  r="5" />
+      <circle cx="1100" cy="120"  r="5" />
+      <circle cx="450"  cy="60"   r="5" />
+      <circle cx="950"  cy="60"   r="5" />
+      <circle cx="50"   cy="400"  r="5" />
+      <circle cx="1350" cy="460"  r="5" />
+      <circle cx="100"  cy="700"  r="5" />
+      <circle cx="1300" cy="780"  r="5" />
+      <circle cx="240"  cy="1450" r="5" />
+      <circle cx="1180" cy="350"  r="5" />
+    </svg>
+
+    <!-- TCS HERO LOGO + STAMP -->
+    <div class="tcs-hero">
+      <div class="tcs-logo-wrap">
+        <!-- Drop tcs-logo.png in /Users/robert/celebritydockets/ to swap in the real logo -->
+        <img src="tcs-logo.png" alt="True Crime Stories logo" onerror="this.style.display='none';this.nextElementSibling.style.display='flex'">
+        <div class="tcs-logo-fallback" style="display:none;">
+          <div class="lf-line1">TRUE</div>
+          <div class="lf-line2">CRIME</div>
+          <div class="lf-line3">stories</div>
+        </div>
+      </div>
+
+      <div class="tcs-eyebrow">★ The Celebrity Dockets Companion Wall ★</div>
+      <h1 class="tcs-tagline">The dockets you <em>can't</em> make up.</h1>
+      <p class="tcs-sub">Where Celebrity Dockets stops covering star-power and starts covering the courtroom cases where the file reads stranger than fiction. <strong style="color:var(--paper);">Larry Millete</strong> and the <em style="color:var(--red-bright);font-style:italic;">spellcaster receipts</em>. The <strong style="color:var(--paper);">Bridegan</strong> murder-for-hire case &mdash; Shanna Gardner-Fernandez on one side, Kirsten Bridegan's <strong style="color:var(--paper);">"Bexley Boxes"</strong> advocacy on the other, and <strong style="color:var(--paper);">Jose Baez</strong> (yes, <em>that</em> Jose Baez) on the defense bench. <strong style="color:var(--paper);">Barry Morphew</strong> &mdash; the so-called <em style="color:var(--red-bright);font-style:italic;">"chipmunk slayer"</em> &mdash; twice charged, twice walked, now back with a body and a tranquilizer cap &mdash; <em style="color:var(--paper);font-style:italic;">receipts are real and so is the absurdity.</em></p>
+    </div>
+
+    <!-- ACTIVE FILES SECTION -->
+    <div class="section-stamp">
+      <h2>Active Case Files</h2>
+      <div class="scribble-line"></div>
+      <div class="count-stamp">3 Open</div>
+    </div>
+
+    <div class="case-grid">
+
+      <!-- FILE 001 · LARRY MILLETE -->
+      <a href="tcs-larry-millete.html" class="case-file file-larry">
+        <div class="case-tab">FILE No. 001</div>
+        <div class="case-pin"></div>
+        <div class="case-stamp">TRIAL · 1st</div>
+        <div class="case-photo">
+          <div class="photo-img">
+            <img src="larry-millete-photo.jpg" alt="Larry Millete + Maya double-exposure with spell altar">
+          </div>
+          <div class="photo-caption">L. + M. MILLETE</div>
+        </div>
+        <h3 class="case-name">Larry Millete</h3>
+        <div class="case-status">Murder · Maya Disappearance</div>
+        <p class="case-tag">San Diego County · wife Maya missing since Jan 7, 2021 · charged Oct 2021 · five years of delays · prelim done · trial finally on the calendar</p>
+        <div class="case-evidence">
+          <span class="case-evidence-label">Evidence Threads</span>
+          <ul>
+            <li>The spellcaster receipts</li>
+            <li>Firearm purchase timeline</li>
+            <li>The Jan 7 hours</li>
+          </ul>
+        </div>
+        <div class="case-cta">→ Open File 001</div>
+      </a>
+
+      <!-- FILE 002 · SHANNA GARDNER -->
+      <a href="tcs-shanna-gardner.html" class="case-file file-shanna">
+        <div class="case-tab">FILE No. 002</div>
+        <div class="case-pin"></div>
+        <div class="case-stamp">CUSTODY → MURDER</div>
+        <div class="case-photo">
+          <div class="photo-img">
+            <img src="shanna-gardner-photo.jpg" alt="Shanna Gardner-Fernandez courtroom appearance with Jose Baez and Jared Bridegan inset">
+          </div>
+          <div class="photo-caption">S. GARDNER · J. BRIDEGAN</div>
+        </div>
+        <h3 class="case-name">Shanna Gardner-Fernandez</h3>
+        <div class="case-status">Murder-for-hire · The Bridegan Case</div>
+        <p class="case-tag">Jacksonville Beach FL · Jared Bridegan killed Feb 2022 · texts read like asking to borrow salt · "<strong style="color:var(--ink);">funeral potatoes</strong>" was reportedly the code word · Jose Baez on the defense</p>
+        <div class="case-evidence">
+          <span class="case-evidence-label">Evidence Threads</span>
+          <ul>
+            <li>Custody-war timeline</li>
+            <li>Tenon flip + cooperation</li>
+            <li>The spike-strip geography</li>
+          </ul>
+        </div>
+        <div class="case-cta">→ Open File 002</div>
+      </a>
+
+      <!-- FILE 003 · BARRY MORPHEW -->
+      <a href="tcs-barry-morphew.html" class="case-file file-barry">
+        <div class="case-tab">FILE No. 003</div>
+        <div class="case-pin"></div>
+        <div class="case-stamp">RE-CHARGED</div>
+        <div class="case-photo">
+          <div class="photo-img">
+            <div class="photo-placeholder">Barry Morphew<br>"chipmunk slayer"<br><span style="opacity:.7;">(photo to come)</span></div>
+          </div>
+          <div class="photo-caption">B. MORPHEW · 2026</div>
+        </div>
+        <h3 class="case-name">Barry Morphew</h3>
+        <div class="case-status">Murder · "The Chipmunk Slayer"</div>
+        <p class="case-tag">Colorado · Suzanne disappeared Mother's Day 2020 · twice charged, twice walked · body found 2023 · BAM cap recovered</p>
+        <div class="case-evidence">
+          <span class="case-evidence-label">Evidence Threads</span>
+          <ul>
+            <li>BAM tranquilizer cap by remains</li>
+            <li>The chipmunk alibi</li>
+            <li>2022 dismissal → 2025 re-file</li>
+          </ul>
+        </div>
+        <div class="case-cta">→ Open File 003</div>
+      </a>
+
+    </div>
+
+    <div class="disclaimer">
+      <strong>★ TCS Editorial Standard ★</strong> &middot; All allegations on this wall are pulled from court records, charging documents, and on-the-record reporting. Defendants are presumed innocent. The wall is a research tool, not a verdict. We update when the docket moves &mdash; not when speculation does.
+    </div>
+  </section>
+
+  <footer class="tcs-footer">
+    <div style="font-family:'Permanent Marker',cursive;font-size:1.1rem;color:var(--paper);letter-spacing:2px;margin-bottom:6px;">TCS &middot; <span style="color:var(--red);">True Crime Stories</span></div>
+    <div>A research-and-receipts companion track to <a href="index.html">Celebrity Dockets</a>.</div>
+    <div style="display:flex;gap:10px;justify-content:center;flex-wrap:wrap;margin:18px auto 4px;font-family:'JetBrains Mono',monospace;font-size:.65rem;text-transform:uppercase;letter-spacing:1.2px;font-weight:700;">
+      <a href="https://x.com/CelebDockets" target="_blank" rel="noopener" style="color:var(--paper);background:#0a0a0a;border:1px solid var(--bdr);padding:6px 12px;border-radius:5px;text-decoration:none;">𝕏 @CelebDockets</a>
+      <a href="https://www.tiktok.com/@celebritydockets" target="_blank" rel="noopener" style="color:var(--paper);background:#0a0a0a;border:1px solid var(--bdr);padding:6px 12px;border-radius:5px;text-decoration:none;">🎵 TikTok</a>
+      <a href="https://www.youtube.com/@celebritydockets" target="_blank" rel="noopener" style="color:var(--paper);background:#0a0a0a;border:1px solid var(--bdr);padding:6px 12px;border-radius:5px;text-decoration:none;">▶ YouTube</a>
+      <a href="https://www.instagram.com/celebritydockets" target="_blank" rel="noopener" style="color:var(--paper);background:#0a0a0a;border:1px solid var(--bdr);padding:6px 12px;border-radius:5px;text-decoration:none;">📸 Instagram</a>
+    </div>
+    <div style="text-align:center;margin-top:12px;font-size:.6rem;color:var(--t3);line-height:1.5;"><a href="legal.html">Terms &amp; Privacy</a> &middot; <a href="legal.html#dmca">DMCA</a></div>
+  </footer>
+<script src="ticker.js" defer></script>
+</body>
+</html>

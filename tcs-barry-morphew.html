@@ -1,0 +1,258 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<link rel="icon" type="image/png" href="favicon.png">
+<link rel="apple-touch-icon" href="favicon.png">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>FILE No. 003 · Colorado v. Barry Morphew · TCS · Celebrity Dockets</title>
+<link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&family=IBM+Plex+Sans:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500;600&family=Special+Elite&family=Permanent+Marker&family=Shadows+Into+Light&display=swap" rel="stylesheet">
+<style>
+:root{--bg:#000;--bg2:#0a0a0a;--board:#0c0c0c;--red:#E11028;--red-bright:#ff1a2e;--red-deep:#9c0a1a;--paper:#f0e9d8;--paper-yellow:#fff5b8;--paper-aged:#d8cdb1;--ink:#0a0a0a;--pin:#dc2626;--t1:#f0eee8;--t2:#9a9a9a;--t3:#5a5a5a;--bdr:#2a2a2a}
+*{margin:0;padding:0;box-sizing:border-box}
+html{scroll-behavior:smooth}body{background:var(--bg);color:var(--t1);font-family:'IBM Plex Sans',sans-serif;line-height:1.55;min-height:100vh}
+.hdr{border-bottom:1px solid var(--bdr);padding:16px 24px;display:flex;align-items:center;justify-content:space-between;background:var(--bg);position:sticky;top:0;z-index:100;backdrop-filter:blur(12px)}
+.logo{font-family:'DM Serif Display',serif;font-size:1.4rem;color:var(--t1);text-decoration:none}.logo span{color:var(--red)}
+.nav{display:flex;gap:24px;font-size:.8rem;text-transform:uppercase;letter-spacing:1.5px;font-weight:600;align-items:center}.nav a{color:var(--t2);text-decoration:none;transition:color .2s}.nav a:hover{color:var(--red-bright)}.nav a.on{color:var(--red-bright)}
+.hamburger{display:none;background:none;border:none;color:var(--t1);cursor:pointer;padding:8px;flex-direction:column;gap:5px}.hamburger span{display:block;width:24px;height:2px;background:var(--t1);transition:all .3s}
+@media(max-width:768px){.nav{display:none;position:absolute;top:100%;left:0;right:0;background:var(--bg);flex-direction:column;padding:20px 24px;gap:18px;border-bottom:1px solid var(--bdr);z-index:99}.nav.open{display:flex}.hamburger{display:flex}}
+.wall{position:relative;min-height:100vh;background:radial-gradient(ellipse at 25% 15%,rgba(225,16,40,.06),transparent 55%),radial-gradient(ellipse at 75% 85%,rgba(225,16,40,.05),transparent 60%),repeating-linear-gradient(0deg,rgba(255,255,255,.012) 0 1px,transparent 1px 3px),repeating-linear-gradient(90deg,rgba(255,255,255,.010) 0 1px,transparent 1px 3px),radial-gradient(ellipse at center,#131313 0%,#050505 80%);overflow:hidden;padding:36px 24px 70px}
+.string-layer{position:absolute;inset:0;pointer-events:none;opacity:.85;z-index:1}
+.string-layer line{stroke:var(--red);stroke-width:1.3;filter:drop-shadow(0 0 4px rgba(225,16,40,.35));opacity:.7}
+.string-layer line.thick{stroke-width:1.8;opacity:.85}
+.string-layer line.faint{stroke:var(--red-deep);stroke-width:1;opacity:.45}
+.string-layer circle{fill:var(--pin);filter:drop-shadow(0 0 4px rgba(220,38,38,.6))}
+.case-hero{position:relative;z-index:2;max-width:1100px;margin:0 auto 28px;padding:6px 0 0}
+.crumb{font-family:'Special Elite',monospace;font-size:.74rem;letter-spacing:2px;text-transform:uppercase;color:var(--paper-aged);margin-bottom:14px}
+.crumb a{color:var(--red-bright);text-decoration:none}
+.case-stamps{display:flex;gap:10px;flex-wrap:wrap;margin-bottom:20px}
+.case-stamp{font-family:'Special Elite',monospace;font-size:.62rem;letter-spacing:2.5px;text-transform:uppercase;font-weight:700;padding:5px 14px;border:1.5px solid var(--red);background:rgba(225,16,40,.08);color:var(--red-bright);transform:rotate(-1.5deg)}
+.case-stamp.dark{background:#0a0a0a;color:var(--paper);border-color:var(--paper-aged);transform:rotate(1deg)}
+.case-stamp.gold{border-color:#b8941f;color:#b8941f;transform:rotate(-.5deg)}
+.case-name{font-family:'Permanent Marker',cursive;font-size:clamp(2.4rem,6vw,4rem);line-height:1;color:var(--paper);margin-bottom:18px;letter-spacing:1.5px;transform:rotate(-1deg);text-shadow:0 0 20px rgba(225,16,40,.25)}
+.case-name em{color:var(--red-bright);font-style:italic}
+.case-sub{font-family:'Special Elite',monospace;font-size:clamp(.95rem,1.6vw,1.1rem);color:var(--paper-aged);max-width:780px;line-height:1.65}.case-sub strong{color:var(--paper)}
+.disclaim{position:relative;z-index:2;max-width:1000px;margin:24px auto 36px;padding:14px 22px;background:rgba(225,16,40,.05);border:1px dashed var(--red);font-family:'Special Elite',monospace;font-size:.78rem;color:var(--paper-aged);text-align:center;line-height:1.6}
+.disclaim strong{color:var(--red-bright)}
+.sh{position:relative;z-index:2;display:flex;align-items:center;gap:16px;max-width:1100px;margin:50px auto 22px}
+.sht{font-family:'Permanent Marker',cursive;font-size:1.6rem;color:var(--red-bright);letter-spacing:2.5px;text-transform:uppercase;text-shadow:0 0 14px rgba(225,16,40,.4);transform:rotate(-.8deg)}
+.shl{flex:1;height:2px;background:repeating-linear-gradient(90deg,var(--red) 0 8px,transparent 8px 16px);opacity:.55}
+.panel{position:relative;z-index:2;max-width:1100px;margin:0 auto 30px;background:var(--paper);color:var(--ink);padding:26px 28px 28px;box-shadow:0 14px 28px rgba(0,0,0,.6),0 6px 12px rgba(0,0,0,.5),0 0 0 1px rgba(0,0,0,.4);font-family:'Special Elite',monospace}
+.panel.tilt-l{transform:rotate(-.4deg)}.panel.tilt-r{transform:rotate(.5deg)}
+.panel::before{content:'';position:absolute;top:-12px;left:50%;transform:translateX(-50%);width:20px;height:20px;border-radius:50%;background:radial-gradient(circle at 30% 30%,#ff5252,var(--pin) 60%,#6a0a0a 100%);box-shadow:0 4px 8px rgba(0,0,0,.7),0 0 8px rgba(220,38,38,.5),inset 0 1px 1px rgba(255,255,255,.4);z-index:3}
+.panel-tab{font-family:'Special Elite',monospace;font-size:.6rem;letter-spacing:2.8px;text-transform:uppercase;font-weight:700;background:#0a0a0a;color:var(--paper);display:inline-block;padding:5px 14px;margin:-32px 0 14px -10px;transform:rotate(-2deg);box-shadow:2px 2px 0 rgba(0,0,0,.5)}
+.panel-tab.red{background:var(--red-deep);color:var(--paper-yellow)}.panel-tab.gold{background:#b8941f;color:var(--paper)}
+.panel h3{font-family:'Permanent Marker',cursive;font-size:1.5rem;color:var(--ink);margin-bottom:12px;letter-spacing:.5px}
+.panel p{font-size:.92rem;line-height:1.7;color:#1a1a1a;margin-bottom:12px}.panel p:last-child{margin-bottom:0}
+.panel strong{color:var(--ink);font-weight:700}.panel em{color:var(--red-deep);font-style:italic}
+.timeline{position:relative;z-index:2;max-width:1100px;margin:0 auto 30px;display:flex;flex-direction:column;gap:14px}
+.tl-card{background:var(--paper);color:var(--ink);padding:14px 20px;display:grid;grid-template-columns:140px 1fr;gap:18px;align-items:start;box-shadow:4px 5px 10px rgba(0,0,0,.55),0 0 0 1px rgba(0,0,0,.3);border-left:5px solid var(--red);font-family:'Special Elite',monospace}
+.tl-card.green{border-left-color:#27ae60}.tl-card.gold{border-left-color:#b8941f}
+.tl-card .tl-date{font-family:'Special Elite',monospace;font-size:.75rem;font-weight:700;color:var(--red-deep);letter-spacing:1.2px;text-transform:uppercase}
+.tl-card.gold .tl-date{color:#8b6f20}
+.tl-card .tl-body{font-size:.88rem;line-height:1.6;color:#1a1a1a}.tl-card .tl-body strong{color:var(--ink)}
+@media(max-width:600px){.tl-card{grid-template-columns:1fr;gap:6px}}
+.players{position:relative;z-index:2;max-width:1100px;margin:0 auto 30px;display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:24px}
+.player{background:#fff;padding:10px 10px 32px;box-shadow:5px 6px 14px rgba(0,0,0,.6),0 0 0 1px rgba(0,0,0,.3);position:relative;font-family:'Special Elite',monospace}
+.player::before{content:'';position:absolute;top:-8px;left:50%;transform:translateX(-50%);width:16px;height:16px;border-radius:50%;background:radial-gradient(circle at 30% 30%,#ff5252,var(--pin) 60%);box-shadow:0 3px 5px rgba(0,0,0,.6),0 0 6px rgba(220,38,38,.5)}
+.player.tilt-1{transform:rotate(-1.2deg)}.player.tilt-2{transform:rotate(.8deg)}.player.tilt-3{transform:rotate(-.6deg)}.player.tilt-4{transform:rotate(1.4deg)}
+.player .photo{width:100%;aspect-ratio:1/1.05;background:linear-gradient(180deg,#1a1a1a 0%,#3a3a3a 50%,#1a1a1a 100%);display:flex;align-items:center;justify-content:center;text-align:center;font-family:'Special Elite',monospace;font-size:.62rem;color:rgba(255,255,255,.6);letter-spacing:1.5px;text-transform:uppercase;line-height:1.4;padding:14px;position:relative}
+.player .photo::before{content:'';position:absolute;inset:0;background:repeating-linear-gradient(0deg,rgba(0,0,0,.06) 0 1px,transparent 1px 3px)}
+.player-cap{position:absolute;left:0;right:0;bottom:8px;text-align:center;font-family:'Permanent Marker',cursive;font-size:.82rem;color:var(--ink);line-height:1.1}
+.player-role{display:block;font-family:'Special Elite',monospace;font-size:.55rem;letter-spacing:1.5px;text-transform:uppercase;color:var(--red-deep);margin-top:2px;font-weight:700}
+.theories{position:relative;z-index:2;max-width:1100px;margin:0 auto 30px;display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:22px}
+.sticky{font-family:'Permanent Marker',cursive;font-size:.98rem;line-height:1.4;background:var(--paper-yellow);color:var(--ink);padding:18px 22px 24px;box-shadow:5px 6px 14px rgba(0,0,0,.6),0 0 0 1px rgba(0,0,0,.3);position:relative;min-height:140px}
+.sticky::before{content:'';position:absolute;top:-7px;left:50%;transform:translateX(-50%);width:14px;height:14px;border-radius:50%;background:radial-gradient(circle at 30% 30%,#ffe060,#b09020 70%);box-shadow:0 2px 3px rgba(0,0,0,.5)}
+.sticky.tilt-1{transform:rotate(-1.5deg)}.sticky.tilt-2{transform:rotate(1.2deg)}.sticky.tilt-3{transform:rotate(-.8deg)}
+.sticky-label{display:block;font-family:'Special Elite',monospace;font-size:.55rem;letter-spacing:1.5px;text-transform:uppercase;color:var(--red-deep);font-weight:700;margin-bottom:8px}.sticky em{color:var(--red-deep);font-style:italic}
+.stamp{font-family:'Permanent Marker',cursive;font-size:1.1rem;letter-spacing:3px;text-transform:uppercase;color:var(--red);border:4px solid var(--red);padding:8px 18px;display:inline-block;transform:rotate(-6deg);opacity:.85;margin:8px 0}
+.sources{position:relative;z-index:2;max-width:1100px;margin:0 auto 30px;display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:14px}
+.source{background:var(--paper);padding:14px 16px;font-family:'Special Elite',monospace;font-size:.82rem;color:var(--ink);text-decoration:none;border-left:4px solid var(--red-deep);box-shadow:3px 4px 8px rgba(0,0,0,.55),0 0 0 1px rgba(0,0,0,.3);display:block;transition:transform .15s ease}
+.source:hover{transform:translateY(-2px);border-left-color:#27ae60}
+.source strong{display:block;color:var(--red-deep);font-size:.62rem;letter-spacing:2px;text-transform:uppercase;margin-bottom:5px}
+.tcs-footer{position:relative;z-index:2;border-top:1px solid var(--bdr);padding:36px 24px 40px;text-align:center;font-size:.75rem;color:var(--t3);background:var(--bg);margin-top:30px}
+.tcs-footer a{color:var(--red);text-decoration:none}
+.tcs-footer .ftl{font-family:'Permanent Marker',cursive;font-size:1.1rem;color:var(--paper);letter-spacing:2px;margin-bottom:6px}
+@media(max-width:768px){.sht{font-size:1.25rem}.panel{padding:22px 22px 22px}.panel h3{font-size:1.2rem}}
+</style>
+</head>
+<body>
+<header class="hdr">
+  <a href="index.html" class="logo">Celebrity<span>Dockets</span></a>
+  <button class="hamburger" onclick="this.classList.toggle('open');document.querySelector('.nav').classList.toggle('open')"><span></span><span></span><span></span></button>
+  <nav class="nav">
+    <a href="objection-live.html">⚖️ All Rise</a>
+    <a href="recess.html">🔔 RECESS</a>
+    <a href="latest.html">📅 Latest</a>
+    <a href="featured-dockets.html" style="color:#F6C340;">★ Featured</a>
+    <a href="tcs.html" class="on">★ TCS</a>
+    <a href="https://www.buymeacoffee.com/celebritydockets" target="_blank" rel="noopener" style="color:#FFDD00;">☕ Fuel</a>
+  </nav>
+</header>
+
+<section class="wall">
+  <svg class="string-layer" viewBox="0 0 1400 2400" preserveAspectRatio="none">
+    <line class="thick" x1="80" y1="180" x2="1320" y2="240" />
+    <line class="thick" x1="200" y1="100" x2="900" y2="1100" />
+    <line class="thick" x1="1100" y1="120" x2="350" y2="1050" />
+    <line class="thick" x1="100" y1="800" x2="1300" y2="900" />
+    <line class="thick" x1="700" y1="200" x2="700" y2="2300" />
+    <line x1="50" y1="500" x2="1350" y2="560" />
+    <line x1="50" y1="1500" x2="1350" y2="1450" />
+    <line x1="300" y1="60" x2="1100" y2="2300" />
+    <line x1="1000" y1="60" x2="200" y2="2300" />
+    <line x1="450" y1="60" x2="450" y2="2200" />
+    <line x1="950" y1="60" x2="950" y2="2200" />
+    <line x1="180" y1="700" x2="1200" y2="1900" />
+    <line x1="1180" y1="450" x2="240" y2="1850" />
+    <line class="faint" x1="0" y1="900" x2="1400" y2="1300" />
+    <line class="faint" x1="0" y1="1700" x2="1400" y2="2000" />
+    <line class="faint" x1="600" y1="0" x2="800" y2="2400" />
+    <line class="faint" x1="100" y1="0" x2="1300" y2="2400" />
+    <line class="faint" x1="1300" y1="0" x2="100" y2="2400" />
+    <circle cx="700" cy="200" r="5" /><circle cx="700" cy="1100" r="5" /><circle cx="350" cy="1050" r="5" />
+    <circle cx="200" cy="100" r="5" /><circle cx="1100" cy="120" r="5" /><circle cx="450" cy="60" r="5" />
+    <circle cx="950" cy="60" r="5" /><circle cx="50" cy="500" r="5" /><circle cx="1350" cy="560" r="5" />
+    <circle cx="100" cy="800" r="5" /><circle cx="1300" cy="900" r="5" /><circle cx="240" cy="1850" r="5" />
+  </svg>
+
+  <div class="case-hero">
+    <div class="crumb">← <a href="tcs.html">TCS · The Wall</a> &middot; FILE No. 003</div>
+    <div class="case-stamps">
+      <span class="case-stamp">★ Trial Oct 13, 2026</span>
+      <span class="case-stamp dark">1st-Degree Murder (After Deliberation)</span>
+      <span class="case-stamp gold">Case 2025CR128 · Alamosa County</span>
+      <span class="case-stamp">$3M Cash Bond · GPS · No Travel</span>
+    </div>
+    <h1 class="case-name"><em>Colorado</em> v. Barry Morphew</h1>
+    <p class="case-sub">Suzanne Morphew vanished on <strong>Mother's Day, May 10, 2020</strong> from her Salida, Colorado home. Her bicycle was staged near the road. Her husband Barry was charged in 2021 — then the case collapsed amid a discovery scandal. Suzanne's remains were found in a <strong>shallow clandestine grave</strong> in September 2023. Toxicology found <strong>BAM — a wildlife tranquilizer</strong> — in her bone marrow. A grand jury re-indicted Barry in <strong>June 2025</strong>. He was the only private citizen in the entire region with access to BAM. <strong>Trial begins October 13, 2026</strong> in Alamosa County.</p>
+  </div>
+
+  <div class="disclaim">
+    <strong>★ Citizen-investigation page.</strong> All allegations on this wall are pulled from publicly available filings, charging documents and on-the-record reporting. Barry Morphew is presumed innocent. Nothing here is a legal finding or determination of guilt.
+  </div>
+
+  <div class="sh"><h2 class="sht">★ Case Overview</h2><div class="shl"></div></div>
+  <div class="panel tilt-l">
+    <span class="panel-tab red">Background</span>
+    <h3>Mother's Day, the bike, and the only man with the tranquilizer.</h3>
+    <p><strong>Suzanne Morphew</strong> &mdash; 49, mother of two daughters &mdash; was reported missing at <strong>5:46pm on Mother's Day, May 10, 2020</strong> by a neighbor. The last known person to see her alive was her husband, <strong>Barry Morphew</strong>. Investigators arrived at the Morphew residence at <strong>19057 Puma Path near Salida</strong>, Colorado. The house was locked. No forced entry. Her vehicle was in the garage. Her bike was missing.</p>
+    <p>The bike was found down a hillside off a dirt road between the house and Highway 50, less than a mile from home. Her helmet turned up four days later &mdash; <strong>1.52 miles west</strong> of the Morphew home, nearly a mile from the bike. Staged.</p>
+    <p>Suzanne had been <strong>unhappy in the marriage for months</strong>. She confided in friends about plans to divorce Barry. She was having a secret affair with an old acquaintance, communicating daily over LinkedIn and WhatsApp. Her <strong>last electronic message to anyone</strong> was sent at <strong>2:11pm on May 9, 2020</strong> &mdash; thirty-two minutes before Barry Morphew returned to the home.</p>
+    <p>Barry was charged in <strong>May 2021</strong> with first-degree murder. The case <strong>collapsed in April 2022</strong> when a judge dismissed it over repeated Brady / discovery violations by the prosecution. Then in <strong>September 2023</strong>, Suzanne's remains were found in a <strong>shallow clandestine grave</strong> in Saguache County &mdash; and the toxicology changed everything. <strong>BAM was found in her bone marrow.</strong> A grand jury re-indicted Barry in <strong>June 2025</strong>. He pleaded not guilty at arraignment in <strong>January 2026</strong>.</p>
+  </div>
+
+  <div class="sh"><h2 class="sht">★ The Indictment · What the Grand Jury Heard</h2><div class="shl"></div></div>
+  <div class="panel tilt-r">
+    <span class="panel-tab">Grand Jury · June 2025</span>
+    <h3>Barry's alibi doesn't hold.</h3>
+    <p>Barry told police he set his alarm for <strong>4:30am</strong>, left the house at <strong>5:00am on May 10</strong> for a pre-planned work trip to Broomfield. He said Suzanne was asleep in bed. He said she planned to ride her bike that day.</p>
+    <p>His employee told a different story. They were supposed to drive to Broomfield <strong>together</strong>, and weren't supposed to leave until <strong>the evening of May 10</strong>. Instead, Barry left early without telling the employee, called at <strong>11:18am</strong> to say he'd already gone. When the employee arrived in Broomfield, Barry <strong>hadn't brought the right tools</strong> and the job materials <strong>hadn't even been delivered yet</strong>.</p>
+    <p>Hotel and business cameras showed Barry was in the Broomfield area for <strong>nine hours and forty-five minutes</strong>. He spent <strong>less than thirty minutes at the actual jobsite</strong>. He was seen driving around to various locations, <strong>discarding unknown items in separate trashcans</strong>. He returned to his hotel room from <strong>12:34pm to 5:55pm</strong> &mdash; meaning when he got the call about Suzanne being missing, he was in his hotel room, not at the jobsite like he told police.</p>
+  </div>
+
+  <div class="panel tilt-l">
+    <span class="panel-tab red">Phone &amp; Truck Blackouts</span>
+    <h3>The phones go dark in sequence.</h3>
+    <p>Barry's cell phone was <strong>turned off at 2:47pm on May 9</strong> &mdash; just minutes after he arrived home at 2:43pm, right after Suzanne's last message to anyone. It came back on at <strong>10:17pm</strong>. Then off again at <strong>4:32am on May 10</strong>.</p>
+    <p>Suzanne's phone stopped connecting at <strong>4:23am on May 10, 2020</strong>. It never connected again. Eight minutes later, Barry's phone went dark. <strong>Suzanne's phone was never found.</strong></p>
+    <p>Barry's truck telematics tell the same story: activity at the residence until <strong>9:52pm on May 9</strong>, then activity in the driveway from <strong>3:25am to 3:49am on May 10</strong>. Then a <strong>complete gap from 3:49am to 8:10am</strong> &mdash; during which Barry was supposedly driving to Broomfield. When the telematics came back online at 8:10am, GPS showed he was already in Broomfield &mdash; but the gap itself is <strong>inconsistent with every other day of telematics data</strong>.</p>
+  </div>
+
+  <div class="panel tilt-r">
+    <span class="panel-tab gold">BAM · The Smoking Dart</span>
+    <h3>A wildlife tranquilizer in her bones.</h3>
+    <p><strong>BAM</strong> is a patented premixed sedative cocktail: <strong>Butorphanol</strong> (pain reliever) + <strong>Azaperone</strong> (tranquilizer) + <strong>Medetomidine</strong> (animal sedative, a.k.a. "rhino tranq"). It's used exclusively by biologists and veterinarians for large animals. One kit = 11 milliliters. Requires a prescription from a veterinarian. Sold by <strong>one company</strong> in the United States.</p>
+    <p>The El Paso County coroner tested Suzanne's <strong>bone marrow</strong> for BAM. <strong>All three chemicals were present.</strong> The butorphanol metabolite was also present &mdash; meaning <strong>Suzanne metabolized the drug before she died</strong>, ruling out postmortem contamination. Cause of death: <em>"Homicide by unspecified means in the setting of butorphanol, azaperone, and medetomidine intoxication."</em></p>
+    <p>A pharmacology expert testified that BAM must be <strong>injected</strong> (IV or intramuscular &mdash; skin and GI tract don't absorb it). It's <strong>not FDA-approved for humans</strong>. No scientific studies exist on its effects in people. The expert testified it would render the recipient <strong>"wholly immobile, vulnerable, and unable to resist any constrictions to the recipient's ability to breathe."</strong></p>
+    <p>Prescription records for the entire region, 2017&ndash;2020: the only entities with BAM were <strong>Colorado Parks and Wildlife</strong> and the <strong>National Park Service</strong>. Barry obtained his prescriptions in <strong>Indiana in March 2018</strong> as a deer breeder, purchasing multiple kits. <strong>When Suzanne disappeared, only one private citizen in that entire area of the state had access to BAM: Barry Morphew.</strong></p>
+    <div style="text-align:center;margin-top:14px;"><a href="https://www.coloradojudicial.gov/sites/default/files/2025-06/Grand%20Jury%20Indictment.pdf" target="_blank" rel="noopener" style="display:inline-block;font-family:'Special Elite',monospace;font-size:.72rem;letter-spacing:2px;text-transform:uppercase;background:var(--red-deep);color:var(--paper);padding:8px 18px;text-decoration:none;font-weight:700;">📄 Read Full Grand Jury Indictment (PDF)</a></div>
+  </div>
+
+  <div class="sh"><h2 class="sht">★ Timeline</h2><div class="shl"></div></div>
+  <div class="timeline">
+    <div class="tl-card"><div class="tl-date">May 9, 2020</div><div class="tl-body"><strong>2:11pm</strong> &mdash; Suzanne sends her last electronic message to anyone. <strong>2:43pm</strong> &mdash; Barry arrives home (per truck telematics). <strong>2:47pm</strong> &mdash; Barry's phone is turned off, four minutes after arriving. <strong>9:52pm</strong> &mdash; truck activity ceases. <strong>10:17pm</strong> &mdash; Barry's phone briefly back on. They are alone at the residence &mdash; their daughter is on a road trip out of state.</div></div>
+    <div class="tl-card"><div class="tl-date">May 10, 2020</div><div class="tl-body"><strong>3:25am</strong> &mdash; Truck telematics resume in the driveway. <strong>3:49am</strong> &mdash; Telematics go dark (unexplained gap until 8:10am). <strong>4:23am</strong> &mdash; Suzanne's phone stops connecting. <em>Forever.</em> <strong>4:31am</strong> &mdash; Barry's phone ceases. <strong>4:32am</strong> &mdash; Barry's phone off. <strong>5:37am</strong> &mdash; Barry's phone back on near Johnson Village, CO. <strong>5:46pm</strong> &mdash; Neighbor reports Suzanne missing. Mother's Day.</div></div>
+    <div class="tl-card"><div class="tl-date">May 11, 2020</div><div class="tl-body">Multi-day search of residence begins. House locked, no forced entry, no intruder DNA. <strong>Gun safe in garage</strong>: dart rifle / tranquilizer rifle found inside, positioned toward the front. <strong>Pneu-Dart brand tranquilizer darts</strong> with hypodermic needles. <strong>Needle cap found in dryer</strong> with shorts matching what Barry wore on video May 9. No BAM formula found.</div></div>
+    <div class="tl-card"><div class="tl-date">May 2020 - 2021</div><div class="tl-body">Massive multi-agency search. CBI, FBI, FBI CAST team analyzes phone records. Investigators pursue Barry's BAM purchases, the affair Suzanne was preparing to leave for, and the telematics blackout windows. Hotel cameras show Barry spent <strong>&lt;30 min at the Broomfield jobsite</strong> out of a 9hr 45min trip &mdash; the rest was driving around discarding items in trashcans and sitting in his hotel room.</div></div>
+    <div class="tl-card gold"><div class="tl-date">May 5, 2021</div><div class="tl-body"><strong>Barry Morphew charged</strong> with first-degree murder, tampering with physical evidence, attempting to influence a public servant. Held without bond.</div></div>
+    <div class="tl-card"><div class="tl-date">2021 - Apr 2022</div><div class="tl-body">Pretrial motions. Defense surfaces repeated <strong>Brady / discovery violations</strong> by the prosecution &mdash; experts not disclosed, evidence withheld. Court issues escalating sanctions.</div></div>
+    <div class="tl-card"><div class="tl-date">Apr 19, 2022</div><div class="tl-body" style="color:#a01818;font-weight:700;">★ Case DISMISSED without prejudice. Sanction for prosecution misconduct. Barry walks &mdash; for now.</div></div>
+    <div class="tl-card"><div class="tl-date">Sep 22, 2023</div><div class="tl-body"><strong>Suzanne's remains found</strong> in a shallow clandestine grave in Saguache County near Highway 17, less than an hour south of the Morphew home. Bones <strong>significantly bleached</strong>. Cancer port and bike clothing recovered. No visible perimortem trauma. No bug activity, no animal predation &mdash; forensic anthropologist concludes <strong>body decomposed elsewhere before being moved to the gravesite</strong>. Toxicology on bone marrow detects <strong>all three BAM chemicals</strong> plus the butorphanol metabolite. Cause of death: <em>"Homicide by unspecified means in the setting of butorphanol, azaperone, and medetomidine intoxication."</em></div></div>
+    <div class="tl-card gold"><div class="tl-date">Jun 18, 2025</div><div class="tl-body"><strong>Grand jury returns TRUE BILL.</strong> Barry Morphew re-indicted for Murder in the First Degree (After Deliberation), C.R.S. 18-3-102(1)(a). Case No. 2025CR128. DA Anne E. Kelly + Special Deputy DA Frederick H. Johnson prosecuting. Chief Judge Amanda Hopkins presiding. Bond set at <strong>$3 million cash only</strong>. GPS monitor, no leaving Colorado, surrender passport, mandatory protection order. Indictment was sealed until arrest.</div></div>
+    <div class="tl-card"><div class="tl-date">Jan 2026</div><div class="tl-body"><strong>Barry arraigned.</strong> Pleads not guilty. Defense attorney David Beller calls the BAM toxicology <em>"junk science,"</em> notes only one of three labs consulted found BAM. Battle lines drawn.</div></div>
+    <div class="tl-card"><div class="tl-date">2025 - 2026</div><div class="tl-body">Pretrial hearings, discovery (this time disciplined), motions on admissibility of BAM toxicology and the bicycle-staging theory. Defense plans Daubert challenge on El Paso County Coroner's lab (certified for DUI testing, not toxicology of exotic veterinary drugs).</div></div>
+    <div class="tl-card"><div class="tl-date">May 19, 2026</div><div class="tl-body"><strong>Defense files 31 motions</strong> (all dated April 13) at a status conference. Seeking to exclude witness statements like "looked guilty" and "looked like he is hiding something." Also requesting all jury materials be preserved beyond standard 3-year requirement. Statements attributed to Suzanne also challenged. DA <strong>Anne Kelly</strong> plans to file responses. <strong>Next court date: June 24.</strong> Judge has not ruled on any of the motions yet. <em>Per <a href="https://www.kktv.com/2026/05/19/barry-morphews-lawyers-ask-that-certain-witness-comments-not-be-allowed-trial-file-31-motions-since-last-month/" target="_blank" rel="noopener" style="color:var(--red-bright);text-decoration:none;font-weight:700;">KKTV</a>.</em></div></div>
+    <div class="tl-card gold"><div class="tl-date">Jun 24, 2026</div><div class="tl-body" style="color:#8b6f20;font-weight:700;">★ NEXT HEARING. Rulings on 31 defense motions expected.</div></div>
+    <div class="tl-card gold"><div class="tl-date">Oct 13, 2026</div><div class="tl-body" style="color:#8b6f20;font-weight:700;">★ TRIAL BEGINS. Alamosa County. First-degree murder. Round two.</div></div>
+  </div>
+
+  <div class="sh"><h2 class="sht">★ Key Players</h2><div class="shl"></div></div>
+  <div class="players">
+    <div class="player tilt-1"><div class="photo">Suzanne Morphew<br>placeholder</div><div class="player-cap">Suzanne Morphew<span class="player-role">Victim · Age 49 · Mother of Two</span></div></div>
+    <div class="player tilt-2"><div class="photo">Barry Morphew<br>AKA "Lee Moore"</div><div class="player-cap">Barry Morphew<span class="player-role">Defendant · DOB 10/17/1967 · Indiana</span></div></div>
+    <div class="player tilt-3"><div class="photo">Anne E. Kelly<br>#38885</div><div class="player-cap">DA Anne E. Kelly<span class="player-role">12th Judicial · Lead Prosecutor</span></div></div>
+    <div class="player tilt-4"><div class="photo">Frederick H. Johnson<br>#42479</div><div class="player-cap">Fred Johnson<span class="player-role">Special Deputy DA</span></div></div>
+    <div class="player tilt-1"><div class="photo">Amanda Hopkins</div><div class="player-cap">Judge Amanda Hopkins<span class="player-role">Chief Judge · 12th Judicial</span></div></div>
+    <div class="player tilt-2"><div class="photo">David Beller</div><div class="player-cap">David Beller<span class="player-role">Defense Attorney</span></div></div>
+  </div>
+
+  <div class="sh"><h2 class="sht">★ Evidence on the Table</h2><div class="shl"></div></div>
+  <div class="panel tilt-r">
+    <span class="panel-tab gold">State's Case · The Evidence Wall</span>
+    <h3>Six pillars. Each one is bad. Together they're devastating.</h3>
+    <div style="float:right;margin:0 0 12px 18px;max-width:180px;background:#fff;padding:6px 6px 22px;box-shadow:4px 5px 10px rgba(0,0,0,.55);transform:rotate(2deg);position:relative;">
+      <img src="morphew-chipmunk.jpg" alt="Chipmunk" style="width:100%;display:block;">
+      <span style="display:block;text-align:center;font-family:'Permanent Marker',cursive;font-size:.72rem;color:var(--ink);margin-top:6px;line-height:1.2;">"The Chipmunk Slayer"<br><span style="font-family:'Special Elite',monospace;font-size:.58rem;color:var(--red-deep);letter-spacing:1px;">BAM CAPS · DEER BREEDER COVER</span></span>
+    </div>
+    <p>&rarr; <strong>BAM in her bone marrow.</strong> All three chemicals present. The butorphanol metabolite confirms she <em>metabolized the drug before death</em> &mdash; not postmortem contamination. Only one private citizen in the entire region had access to BAM: Barry. He obtained prescriptions in Indiana as a "deer breeder" in March 2018, purchasing multiple kits just months before moving to Colorado.</p>
+    <p>&rarr; <strong>The dart rifle in the gun safe.</strong> Tranquilizer rifle positioned toward the front. Pneu-Dart brand darts with hypodermic needles. A needle cap was found in the dryer with shorts matching what Barry wore on video May 9. No BAM formula was found during the search &mdash; meaning it had been used or disposed of.</p>
+    <p>&rarr; <strong>The phone blackout.</strong> Barry's phone went off at 2:47pm on May 9 &mdash; four minutes after arriving home. Suzanne's phone stopped forever at 4:23am May 10. Barry's went off eight minutes later. Her phone was never found.</p>
+    <p>&rarr; <strong>The telematics gap.</strong> Barry's truck logged normal activity all day May 9, then a driveway session at 3:25&ndash;3:49am May 10, then <em>nothing</em> until 8:10am when he was already in Broomfield. That 4+ hour gap has no parallel in any other day of recorded data.</p>
+    <p>&rarr; <strong>The bicycle staging.</strong> Bike found down a hillside less than a mile from home. Helmet found four days later, 1.52 miles west &mdash; nearly a mile from the bike. Investigators say the positioning was inconsistent with any real cycling accident.</p>
+    <p>&rarr; <strong>The Broomfield alibi collapse.</strong> He said he was at the jobsite when he got the missing-persons call. Hotel cameras show he was in his room from 12:34&ndash;5:55pm. He spent &lt;30 minutes at the actual job. He drove around discarding unknown items in separate trashcans. He left for Broomfield early without telling his employee, without the right tools, before materials arrived.</p>
+  </div>
+
+  <div class="sh"><h2 class="sht">★ Theories on the Wall</h2><div class="shl"></div></div>
+  <div class="theories">
+    <div class="sticky tilt-1"><span class="sticky-label">Theory · 01</span>BAM in her bones = the smoking dart. She metabolized it. He's the only civilian who had it. Round 2 has what round 1 never did.</div>
+    <div class="sticky tilt-2"><span class="sticky-label">Theory · 02</span>The phone kill sequence. Barry's off at 2:47pm. Suzanne's last sign of life: 2:11pm. Her phone dead at 4:23am. His off 8 minutes later. Her phone never found. Ever.</div>
+    <div class="sticky tilt-3"><span class="sticky-label">Theory · 03</span>The body was moved. No bugs. No animal predation. Clothing didn't decompose. Bones bleached. Forensic anthropologist says she didn't decompose at that gravesite. She was brought there.</div>
+    <div class="sticky tilt-1"><span class="sticky-label">Theory · 04</span>The 4-hour telematics gap. 3:49am to 8:10am on May 10 &mdash; the truck goes silent. No other day in the data has a gap like that. What was he doing?</div>
+    <div class="sticky tilt-2"><span class="sticky-label">Theory · 05</span>The trashcans. He drove around Broomfield dumping unknown items in separate trashcans at separate locations. Not one. Multiple. What was he getting rid of?</div>
+    <div class="sticky tilt-3"><span class="sticky-label">Theory · 06</span>Defense will hammer the lab. Only 1 of 3 labs found BAM. El Paso County Coroner is certified for DUI testing, not exotic veterinary drugs. Beller calls it "junk science." Daubert fight incoming.</div>
+  </div>
+
+  <div class="sh"><h2 class="sht">★ Verdict Watch</h2><div class="shl"></div></div>
+  <div class="panel tilt-l">
+    <span class="panel-tab red">Status · Trial Oct 13, 2026</span>
+    <h3>Round Two. And this time there's a body with BAM in it.</h3>
+    <p>DA Anne E. Kelly and Special Deputy DA Fred Johnson have what the first prosecution never did: Suzanne's remains, BAM in her bone marrow, a butorphanol metabolite proving she was alive when injected, and prescription records showing Barry was the only civilian in the region with access to the drug. The phone blackout timeline. The telematics gap. The needle cap in the dryer. The Broomfield alibi that cameras shredded.</p>
+    <p>Defense attorney David Beller's counter: <strong>the lab is the weak link.</strong> Only one of three labs found BAM. El Paso County Coroner's Office is certified for DUI blood-alcohol testing, not exotic veterinary compound analysis. If the Daubert challenge lands and the BAM toxicology gets excluded, the state's case loses its centerpiece. That's the whole trial in one motion.</p>
+    <p>31 additional defense motions pending as of May 2026 &mdash; seeking to exclude witness statements like "looked guilty." Next hearing June 24. Trial set for <strong>October 13, 2026</strong>, Alamosa County.</p>
+    <span class="stamp">Trial · Oct 2026</span>
+  </div>
+
+  <div class="sh"><h2 class="sht">★ Sources &amp; Coverage</h2><div class="shl"></div></div>
+  <div class="sources">
+    <a class="source" href="https://www.coloradojudicial.gov/sites/default/files/2025-06/Grand%20Jury%20Indictment.pdf" target="_blank" rel="noopener"><strong>Grand Jury Indictment (PDF)</strong>10-page probable cause statement &middot; June 18, 2025 &middot; DA Anne E. Kelly</a>
+    <a class="source" href="https://coloradosun.com/2026/03/06/barry-suzanne-morphew-murder-trial-chemical-compound-injection/" target="_blank" rel="noopener"><strong>Colorado Sun</strong>BAM toxicology deep dive &middot; Mar 6, 2026 &middot; injection evidence, defense "junk science" challenge</a>
+    <a class="source" href="https://www.kktv.com/2026/05/19/barry-morphews-lawyers-ask-that-certain-witness-comments-not-be-allowed-trial-file-31-motions-since-last-month/" target="_blank" rel="noopener"><strong>KKTV</strong>31 defense motions filed &middot; May 19, 2026 &middot; exclude witness credibility statements</a>
+    <a class="source" href="#" onclick="alert('More coverage links coming as trial approaches.');return false;"><strong>CJ's Coverage</strong>YouTube show notes &middot; live trial reactions &middot; coming Oct 2026</a>
+  </div>
+</section>
+
+<footer class="tcs-footer">
+  <div class="ftl">TCS &middot; <span style="color:var(--red);">True Crime Stories</span></div>
+  <div>A research-and-receipts companion track to <a href="index.html">Celebrity Dockets</a>.</div>
+  <div style="display:flex;gap:10px;justify-content:center;flex-wrap:wrap;margin:18px auto 4px;font-family:'JetBrains Mono',monospace;font-size:.65rem;text-transform:uppercase;letter-spacing:1.2px;font-weight:700;">
+    <a href="https://x.com/CelebDockets" target="_blank" rel="noopener" style="color:var(--paper);background:#0a0a0a;border:1px solid var(--bdr);padding:6px 12px;border-radius:5px;text-decoration:none;">𝕏 @CelebDockets</a>
+    <a href="https://www.tiktok.com/@celebritydockets" target="_blank" rel="noopener" style="color:var(--paper);background:#0a0a0a;border:1px solid var(--bdr);padding:6px 12px;border-radius:5px;text-decoration:none;">🎵 TikTok</a>
+    <a href="https://www.youtube.com/@celebritydockets" target="_blank" rel="noopener" style="color:var(--paper);background:#0a0a0a;border:1px solid var(--bdr);padding:6px 12px;border-radius:5px;text-decoration:none;">▶ YouTube</a>
+    <a href="https://www.instagram.com/celebritydockets" target="_blank" rel="noopener" style="color:var(--paper);background:#0a0a0a;border:1px solid var(--bdr);padding:6px 12px;border-radius:5px;text-decoration:none;">📸 Instagram</a>
+  </div>
+  <div style="text-align:center;margin-top:12px;font-size:.6rem;color:var(--t3);line-height:1.5;"><a href="legal.html">Terms &amp; Privacy</a> &middot; <a href="legal.html#dmca">DMCA</a></div>
+</footer>
+<script src="ticker.js" defer></script>
+</body>
+</html>

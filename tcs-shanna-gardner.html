@@ -1,0 +1,210 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<link rel="icon" type="image/png" href="favicon.png">
+<link rel="apple-touch-icon" href="favicon.png">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>FILE No. 002 · Florida v. Shanna Gardner-Fernandez · TCS · Celebrity Dockets</title>
+<link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&family=IBM+Plex+Sans:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500;600&family=Special+Elite&family=Permanent+Marker&family=Shadows+Into+Light&display=swap" rel="stylesheet">
+<style>
+:root{--bg:#000;--bg2:#0a0a0a;--board:#0c0c0c;--red:#E11028;--red-bright:#ff1a2e;--red-deep:#9c0a1a;--paper:#f0e9d8;--paper-yellow:#fff5b8;--paper-aged:#d8cdb1;--ink:#0a0a0a;--pin:#dc2626;--t1:#f0eee8;--t2:#9a9a9a;--t3:#5a5a5a;--bdr:#2a2a2a}
+*{margin:0;padding:0;box-sizing:border-box}
+html{scroll-behavior:smooth}body{background:var(--bg);color:var(--t1);font-family:'IBM Plex Sans',sans-serif;line-height:1.55;min-height:100vh}
+.hdr{border-bottom:1px solid var(--bdr);padding:16px 24px;display:flex;align-items:center;justify-content:space-between;background:var(--bg);position:sticky;top:0;z-index:100;backdrop-filter:blur(12px)}
+.logo{font-family:'DM Serif Display',serif;font-size:1.4rem;color:var(--t1);text-decoration:none}.logo span{color:var(--red)}
+.nav{display:flex;gap:24px;font-size:.8rem;text-transform:uppercase;letter-spacing:1.5px;font-weight:600;align-items:center}.nav a{color:var(--t2);text-decoration:none;transition:color .2s}.nav a:hover{color:var(--red-bright)}.nav a.on{color:var(--red-bright)}
+.hamburger{display:none;background:none;border:none;color:var(--t1);cursor:pointer;padding:8px;flex-direction:column;gap:5px}.hamburger span{display:block;width:24px;height:2px;background:var(--t1);transition:all .3s}
+@media(max-width:768px){.nav{display:none;position:absolute;top:100%;left:0;right:0;background:var(--bg);flex-direction:column;padding:20px 24px;gap:18px;border-bottom:1px solid var(--bdr);z-index:99}.nav.open{display:flex}.hamburger{display:flex}}
+.wall{position:relative;min-height:100vh;background:radial-gradient(ellipse at 25% 15%,rgba(225,16,40,.06),transparent 55%),radial-gradient(ellipse at 75% 85%,rgba(225,16,40,.05),transparent 60%),repeating-linear-gradient(0deg,rgba(255,255,255,.012) 0 1px,transparent 1px 3px),repeating-linear-gradient(90deg,rgba(255,255,255,.010) 0 1px,transparent 1px 3px),radial-gradient(ellipse at center,#131313 0%,#050505 80%);overflow:hidden;padding:36px 24px 70px}
+.string-layer{position:absolute;inset:0;pointer-events:none;opacity:.85;z-index:1}
+.string-layer line{stroke:var(--red);stroke-width:1.3;filter:drop-shadow(0 0 4px rgba(225,16,40,.35));opacity:.7}
+.string-layer line.thick{stroke-width:1.8;opacity:.85}
+.string-layer line.faint{stroke:var(--red-deep);stroke-width:1;opacity:.45}
+.string-layer circle{fill:var(--pin);filter:drop-shadow(0 0 4px rgba(220,38,38,.6))}
+.case-hero{position:relative;z-index:2;max-width:1100px;margin:0 auto 28px;padding:6px 0 0}
+.crumb{font-family:'Special Elite',monospace;font-size:.74rem;letter-spacing:2px;text-transform:uppercase;color:var(--paper-aged);margin-bottom:14px}
+.crumb a{color:var(--red-bright);text-decoration:none}
+.case-stamps{display:flex;gap:10px;flex-wrap:wrap;margin-bottom:20px}
+.case-stamp{font-family:'Special Elite',monospace;font-size:.62rem;letter-spacing:2.5px;text-transform:uppercase;font-weight:700;padding:5px 14px;border:1.5px solid var(--red);background:rgba(225,16,40,.08);color:var(--red-bright);transform:rotate(-1.5deg)}
+.case-stamp.dark{background:#0a0a0a;color:var(--paper);border-color:var(--paper-aged);transform:rotate(1deg)}
+.case-stamp.gold{border-color:#b8941f;color:#b8941f;transform:rotate(-.5deg)}
+.case-name{font-family:'Permanent Marker',cursive;font-size:clamp(2.4rem,6vw,4rem);line-height:1;color:var(--paper);margin-bottom:18px;letter-spacing:1.5px;transform:rotate(-1deg);text-shadow:0 0 20px rgba(225,16,40,.25)}
+.case-name em{color:var(--red-bright);font-style:italic}
+.case-sub{font-family:'Special Elite',monospace;font-size:clamp(.95rem,1.6vw,1.1rem);color:var(--paper-aged);max-width:780px;line-height:1.65}.case-sub strong{color:var(--paper)}
+.disclaim{position:relative;z-index:2;max-width:1000px;margin:24px auto 36px;padding:14px 22px;background:rgba(225,16,40,.05);border:1px dashed var(--red);font-family:'Special Elite',monospace;font-size:.78rem;color:var(--paper-aged);text-align:center;line-height:1.6}
+.disclaim strong{color:var(--red-bright)}
+.sh{position:relative;z-index:2;display:flex;align-items:center;gap:16px;max-width:1100px;margin:50px auto 22px}
+.sht{font-family:'Permanent Marker',cursive;font-size:1.6rem;color:var(--red-bright);letter-spacing:2.5px;text-transform:uppercase;text-shadow:0 0 14px rgba(225,16,40,.4);transform:rotate(-.8deg)}
+.shl{flex:1;height:2px;background:repeating-linear-gradient(90deg,var(--red) 0 8px,transparent 8px 16px);opacity:.55}
+.panel{position:relative;z-index:2;max-width:1100px;margin:0 auto 30px;background:var(--paper);color:var(--ink);padding:26px 28px 28px;box-shadow:0 14px 28px rgba(0,0,0,.6),0 6px 12px rgba(0,0,0,.5),0 0 0 1px rgba(0,0,0,.4);font-family:'Special Elite',monospace}
+.panel.tilt-l{transform:rotate(-.4deg)}.panel.tilt-r{transform:rotate(.5deg)}
+.panel::before{content:'';position:absolute;top:-12px;left:50%;transform:translateX(-50%);width:20px;height:20px;border-radius:50%;background:radial-gradient(circle at 30% 30%,#ff5252,var(--pin) 60%,#6a0a0a 100%);box-shadow:0 4px 8px rgba(0,0,0,.7),0 0 8px rgba(220,38,38,.5),inset 0 1px 1px rgba(255,255,255,.4);z-index:3}
+.panel-tab{font-family:'Special Elite',monospace;font-size:.6rem;letter-spacing:2.8px;text-transform:uppercase;font-weight:700;background:#0a0a0a;color:var(--paper);display:inline-block;padding:5px 14px;margin:-32px 0 14px -10px;transform:rotate(-2deg);box-shadow:2px 2px 0 rgba(0,0,0,.5)}
+.panel-tab.red{background:var(--red-deep);color:var(--paper-yellow)}.panel-tab.gold{background:#b8941f;color:var(--paper)}
+.panel h3{font-family:'Permanent Marker',cursive;font-size:1.5rem;color:var(--ink);margin-bottom:12px;letter-spacing:.5px}
+.panel p{font-size:.92rem;line-height:1.7;color:#1a1a1a;margin-bottom:12px}.panel p:last-child{margin-bottom:0}
+.panel strong{color:var(--ink);font-weight:700}.panel em{color:var(--red-deep);font-style:italic}
+.timeline{position:relative;z-index:2;max-width:1100px;margin:0 auto 30px;display:flex;flex-direction:column;gap:14px}
+.tl-card{background:var(--paper);color:var(--ink);padding:14px 20px;display:grid;grid-template-columns:140px 1fr;gap:18px;align-items:start;box-shadow:4px 5px 10px rgba(0,0,0,.55),0 0 0 1px rgba(0,0,0,.3);border-left:5px solid var(--red);font-family:'Special Elite',monospace}
+.tl-card.green{border-left-color:#27ae60}.tl-card.gold{border-left-color:#b8941f}
+.tl-card .tl-date{font-family:'Special Elite',monospace;font-size:.75rem;font-weight:700;color:var(--red-deep);letter-spacing:1.2px;text-transform:uppercase}
+.tl-card.gold .tl-date{color:#8b6f20}
+.tl-card .tl-body{font-size:.88rem;line-height:1.6;color:#1a1a1a}.tl-card .tl-body strong{color:var(--ink)}
+@media(max-width:600px){.tl-card{grid-template-columns:1fr;gap:6px}}
+.players{position:relative;z-index:2;max-width:1100px;margin:0 auto 30px;display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:24px}
+.player{background:#fff;padding:10px 10px 32px;box-shadow:5px 6px 14px rgba(0,0,0,.6),0 0 0 1px rgba(0,0,0,.3);position:relative;font-family:'Special Elite',monospace}
+.player::before{content:'';position:absolute;top:-8px;left:50%;transform:translateX(-50%);width:16px;height:16px;border-radius:50%;background:radial-gradient(circle at 30% 30%,#ff5252,var(--pin) 60%);box-shadow:0 3px 5px rgba(0,0,0,.6),0 0 6px rgba(220,38,38,.5)}
+.player.tilt-1{transform:rotate(-1.2deg)}.player.tilt-2{transform:rotate(.8deg)}.player.tilt-3{transform:rotate(-.6deg)}.player.tilt-4{transform:rotate(1.4deg)}
+.player .photo{width:100%;aspect-ratio:1/1.05;background:linear-gradient(180deg,#1a1a1a 0%,#3a3a3a 50%,#1a1a1a 100%);display:flex;align-items:center;justify-content:center;text-align:center;font-family:'Special Elite',monospace;font-size:.62rem;color:rgba(255,255,255,.6);letter-spacing:1.5px;text-transform:uppercase;line-height:1.4;padding:14px;position:relative}
+.player .photo::before{content:'';position:absolute;inset:0;background:repeating-linear-gradient(0deg,rgba(0,0,0,.06) 0 1px,transparent 1px 3px)}
+.player-cap{position:absolute;left:0;right:0;bottom:8px;text-align:center;font-family:'Permanent Marker',cursive;font-size:.82rem;color:var(--ink);line-height:1.1}
+.player-role{display:block;font-family:'Special Elite',monospace;font-size:.55rem;letter-spacing:1.5px;text-transform:uppercase;color:var(--red-deep);margin-top:2px;font-weight:700}
+.theories{position:relative;z-index:2;max-width:1100px;margin:0 auto 30px;display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:22px}
+.sticky{font-family:'Permanent Marker',cursive;font-size:.98rem;line-height:1.4;background:var(--paper-yellow);color:var(--ink);padding:18px 22px 24px;box-shadow:5px 6px 14px rgba(0,0,0,.6),0 0 0 1px rgba(0,0,0,.3);position:relative;min-height:140px}
+.sticky::before{content:'';position:absolute;top:-7px;left:50%;transform:translateX(-50%);width:14px;height:14px;border-radius:50%;background:radial-gradient(circle at 30% 30%,#ffe060,#b09020 70%);box-shadow:0 2px 3px rgba(0,0,0,.5)}
+.sticky.tilt-1{transform:rotate(-1.5deg)}.sticky.tilt-2{transform:rotate(1.2deg)}.sticky.tilt-3{transform:rotate(-.8deg)}
+.sticky-label{display:block;font-family:'Special Elite',monospace;font-size:.55rem;letter-spacing:1.5px;text-transform:uppercase;color:var(--red-deep);font-weight:700;margin-bottom:8px}.sticky em{color:var(--red-deep);font-style:italic}
+.stamp{font-family:'Permanent Marker',cursive;font-size:1.1rem;letter-spacing:3px;text-transform:uppercase;color:var(--red);border:4px solid var(--red);padding:8px 18px;display:inline-block;transform:rotate(-6deg);opacity:.85;margin:8px 0}
+.sources{position:relative;z-index:2;max-width:1100px;margin:0 auto 30px;display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:14px}
+.source{background:var(--paper);padding:14px 16px;font-family:'Special Elite',monospace;font-size:.82rem;color:var(--ink);text-decoration:none;border-left:4px solid var(--red-deep);box-shadow:3px 4px 8px rgba(0,0,0,.55),0 0 0 1px rgba(0,0,0,.3);display:block;transition:transform .15s ease}
+.source:hover{transform:translateY(-2px);border-left-color:#27ae60}
+.source strong{display:block;color:var(--red-deep);font-size:.62rem;letter-spacing:2px;text-transform:uppercase;margin-bottom:5px}
+.tcs-footer{position:relative;z-index:2;border-top:1px solid var(--bdr);padding:36px 24px 40px;text-align:center;font-size:.75rem;color:var(--t3);background:var(--bg);margin-top:30px}
+.tcs-footer a{color:var(--red);text-decoration:none}
+.tcs-footer .ftl{font-family:'Permanent Marker',cursive;font-size:1.1rem;color:var(--paper);letter-spacing:2px;margin-bottom:6px}
+@media(max-width:768px){.sht{font-size:1.25rem}.panel{padding:22px 22px 22px}.panel h3{font-size:1.2rem}}
+</style>
+</head>
+<body>
+<header class="hdr">
+  <a href="index.html" class="logo">Celebrity<span>Dockets</span></a>
+  <button class="hamburger" onclick="this.classList.toggle('open');document.querySelector('.nav').classList.toggle('open')"><span></span><span></span><span></span></button>
+  <nav class="nav">
+    <a href="objection-live.html">⚖️ All Rise</a>
+    <a href="recess.html">🔔 RECESS</a>
+    <a href="latest.html">📅 Latest</a>
+    <a href="featured-dockets.html" style="color:#F6C340;">★ Featured</a>
+    <a href="tcs.html" class="on">★ TCS</a>
+    <a href="https://www.buymeacoffee.com/celebritydockets" target="_blank" rel="noopener" style="color:#FFDD00;">☕ Fuel</a>
+  </nav>
+</header>
+
+<section class="wall">
+  <svg class="string-layer" viewBox="0 0 1400 2400" preserveAspectRatio="none">
+    <line class="thick" x1="80" y1="180" x2="1320" y2="240" />
+    <line class="thick" x1="200" y1="100" x2="900" y2="1100" />
+    <line class="thick" x1="1100" y1="120" x2="350" y2="1050" />
+    <line class="thick" x1="100" y1="800" x2="1300" y2="900" />
+    <line class="thick" x1="700" y1="200" x2="700" y2="2300" />
+    <line x1="50" y1="500" x2="1350" y2="560" />
+    <line x1="50" y1="1500" x2="1350" y2="1450" />
+    <line x1="300" y1="60" x2="1100" y2="2300" />
+    <line x1="1000" y1="60" x2="200" y2="2300" />
+    <line x1="450" y1="60" x2="450" y2="2200" />
+    <line x1="950" y1="60" x2="950" y2="2200" />
+    <line x1="180" y1="700" x2="1200" y2="1900" />
+    <line x1="1180" y1="450" x2="240" y2="1850" />
+    <line class="faint" x1="0" y1="900" x2="1400" y2="1300" />
+    <line class="faint" x1="0" y1="1700" x2="1400" y2="2000" />
+    <line class="faint" x1="600" y1="0" x2="800" y2="2400" />
+    <line class="faint" x1="100" y1="0" x2="1300" y2="2400" />
+    <line class="faint" x1="1300" y1="0" x2="100" y2="2400" />
+    <circle cx="700" cy="200" r="5" /><circle cx="700" cy="1100" r="5" /><circle cx="350" cy="1050" r="5" />
+    <circle cx="200" cy="100" r="5" /><circle cx="1100" cy="120" r="5" /><circle cx="450" cy="60" r="5" />
+    <circle cx="950" cy="60" r="5" /><circle cx="50" cy="500" r="5" /><circle cx="1350" cy="560" r="5" />
+    <circle cx="100" cy="800" r="5" /><circle cx="1300" cy="900" r="5" /><circle cx="240" cy="1850" r="5" />
+  </svg>
+
+  <div class="case-hero">
+    <div class="crumb">← <a href="tcs.html">TCS · The Wall</a> &middot; FILE No. 002</div>
+    <div class="case-stamps">
+      <span class="case-stamp">Open File · Trial Pending</span>
+      <span class="case-stamp dark">Murder · Conspiracy · Solicitation</span>
+      <span class="case-stamp gold">Co-Conspirators Charged</span>
+    </div>
+    <h1 class="case-name"><em>Florida</em> v. Shanna Gardner-Fernandez</h1>
+    <p class="case-sub">On <strong>February 16, 2022</strong>, Microsoft Bing executive <strong>Jared Bridegan</strong> was ambushed and shot dead in front of his 2-year-old daughter on a Jacksonville Beach side street. The state says his ex-wife &mdash; mother of two of his older children &mdash; orchestrated it. The custody fight that turned into a murder-for-hire.</p>
+  </div>
+
+  <div class="disclaim">
+    <strong>★ Citizen-investigation page.</strong> All allegations on this wall are pulled from publicly available filings, charging documents and on-the-record reporting. Shanna Gardner-Fernandez is presumed innocent. Nothing here is a legal finding or determination of guilt.
+  </div>
+
+  <div class="sh"><h2 class="sht">★ Case Overview</h2><div class="shl"></div></div>
+  <div class="panel tilt-l">
+    <span class="panel-tab red">Background</span>
+    <h3>Tire spike. Side street. Toddler in the back seat.</h3>
+    <p><strong>Jared Bridegan</strong> &mdash; 33, executive at Microsoft Bing &mdash; was driving home with his 2-year-old daughter Bexley after dropping his older twin children at their mother's house. On a quiet Jacksonville Beach side street, his SUV's tire was hit by a <strong>spike strip</strong> placed in the road. He stopped to investigate. <strong>He was shot multiple times.</strong> Bexley was unharmed in the car seat. Jared died at the scene.</p>
+    <p>Investigators traced the conspiracy back through paid intermediaries to <strong>Shanna Gardner-Fernandez</strong> &mdash; Jared's ex-wife, mother of his older twins, and a longtime opponent in a contentious custody dispute. She was arrested and charged in <strong>March 2023</strong>, more than a year after the murder. Her current husband <strong>Mario Fernandez Saldana</strong> was charged alongside her. Hitman <strong>Henry Tenon</strong> pleaded guilty in 2023 and is serving life. A fourth alleged co-conspirator was charged with conspiracy.</p>
+    <p>Shanna remains in custody. <strong>Trial pending</strong> &mdash; multiple delays, motions in limine, gag-order discussions ongoing.</p>
+  </div>
+
+  <div class="sh"><h2 class="sht">★ Timeline</h2><div class="shl"></div></div>
+  <div class="timeline">
+    <div class="tl-card"><div class="tl-date">Feb 16, 2022</div><div class="tl-body"><strong>Jared Bridegan murdered</strong> on Sanctuary Boulevard, Jacksonville Beach. Tire spike, ambush, multiple gunshots. 2-year-old daughter unharmed in the back seat.</div></div>
+    <div class="tl-card"><div class="tl-date">Aug 31, 2022</div><div class="tl-body"><strong>Henry Tenon arrested</strong> &mdash; the alleged shooter. Tenon and Mario Fernandez Saldana lived in the same Jacksonville-area duplex.</div></div>
+    <div class="tl-card"><div class="tl-date">Mar 12, 2023</div><div class="tl-body"><strong>Mario Fernandez Saldana arrested</strong> &mdash; Shanna's husband. Charged with first-degree murder + conspiracy + solicitation.</div></div>
+    <div class="tl-card gold"><div class="tl-date">Mar 27, 2023</div><div class="tl-body"><strong>Shanna Gardner-Fernandez arrested.</strong> Charged with first-degree murder, conspiracy to commit murder, and solicitation of murder. Held without bond.</div></div>
+    <div class="tl-card"><div class="tl-date">2023</div><div class="tl-body"><strong>Henry Tenon pleads guilty</strong> &mdash; sentenced to life in prison. Cooperates with the state.</div></div>
+    <div class="tl-card"><div class="tl-date">2024-2025</div><div class="tl-body">Pretrial motions, severance fights, change-of-venue arguments, gag-order debates. Trial dates set and reset.</div></div>
+    <div class="tl-card gold"><div class="tl-date">2026</div><div class="tl-body" style="color:#8b6f20;font-weight:700;">★ Trial pending. Jury selection on the calendar. Citizens watching every motion.</div></div>
+  </div>
+
+  <div class="sh"><h2 class="sht">★ Key Players</h2><div class="shl"></div></div>
+  <div class="players">
+    <div class="player tilt-1"><div class="photo">Jared Bridegan<br>placeholder</div><div class="player-cap">Jared Bridegan<span class="player-role">Victim · age 33</span></div></div>
+    <div class="player tilt-2"><div class="photo">Shanna Gardner<br>placeholder</div><div class="player-cap">Shanna Gardner<span class="player-role">Defendant · ex-wife</span></div></div>
+    <div class="player tilt-3"><div class="photo">Mario Fernandez<br>placeholder</div><div class="player-cap">Mario Fernandez<span class="player-role">Co-defendant · current husband</span></div></div>
+    <div class="player tilt-4"><div class="photo">Henry Tenon<br>placeholder</div><div class="player-cap">Henry Tenon<span class="player-role">Pled guilty · life</span></div></div>
+  </div>
+
+  <div class="sh"><h2 class="sht">★ Evidence on the Table</h2><div class="shl"></div></div>
+  <div class="panel tilt-r">
+    <span class="panel-tab gold">State's Theory</span>
+    <h3>Money. Motive. The custody file.</h3>
+    <p>&rarr; <strong>The custody battle.</strong> Years of escalating disputes between Jared and Shanna over their twins. Court filings. Restraining-order requests. Texts.</p>
+    <p>&rarr; <strong>Cash trail.</strong> Allegations of payments routed through Mario to Tenon to fund the hit.</p>
+    <p>&rarr; <strong>Tenon's cooperation.</strong> The shooter pleaded guilty and is now a state witness. His version of the chain of command is the spine of the prosecution case.</p>
+    <p>&rarr; <strong>The duplex.</strong> Tenon and Mario lived in the same building. Geography that the state says is not a coincidence.</p>
+    <p>&rarr; <strong>Communications.</strong> Texts, emails, and burner-phone records the state says tie Shanna to the planning conversations.</p>
+  </div>
+
+  <div class="sh"><h2 class="sht">★ Theories on the Wall</h2><div class="shl"></div></div>
+  <div class="theories">
+    <div class="sticky tilt-1"><span class="sticky-label">Theory · 01</span>Custody fight that "kept escalating" &mdash; the paper trail of family-court grievances reads like a motive board on its own.</div>
+    <div class="sticky tilt-2"><span class="sticky-label">Theory · 02</span>The spike strip placement. <em>Pre-meditated geography</em> &mdash; that side street was chosen for a reason.</div>
+    <div class="sticky tilt-3"><span class="sticky-label">Theory · 03</span>Tenon flipped early and hard. The state's whole case may live or die on his credibility on cross.</div>
+  </div>
+
+  <div class="sh"><h2 class="sht">★ Verdict Watch</h2><div class="shl"></div></div>
+  <div class="panel tilt-l">
+    <span class="panel-tab red">Status · Trial Pending</span>
+    <h3>Awaiting trial.</h3>
+    <p>Shanna remains in custody. Mario remains in custody. Tenon is locked up with his cooperation deal. The state is moving toward a jury trial &mdash; severance question still on the table for Shanna v. Mario, plus a steady drumbeat of pretrial motions on admissibility.</p>
+    <p>Big open questions for the jury, when they finally land: <strong>does Shanna's voice ever appear directly in any of the planning communications?</strong> And <strong>can Tenon's testimony survive the credibility cross?</strong> If yes to both, this is a long sentence. If no, the conspiracy theory has to do all the lifting on its own.</p>
+    <span class="stamp">Open File · Pinned</span>
+  </div>
+
+  <div class="sh"><h2 class="sht">★ Sources &amp; Coverage</h2><div class="shl"></div></div>
+  <div class="sources">
+    <a class="source" href="#" onclick="alert('Source links coming as coverage continues.');return false;"><strong>Court Filings</strong>4th Judicial Circuit &middot; Duval County &middot; case dockets</a>
+    <a class="source" href="#" onclick="alert('Source links coming as coverage continues.');return false;"><strong>Press Coverage</strong>News4Jax &middot; Action News Jax &middot; NYT Magazine deep-dive</a>
+    <a class="source" href="#" onclick="alert('Source links coming as coverage continues.');return false;"><strong>CJ's Coverage</strong>YouTube show notes &middot; live trial reactions</a>
+  </div>
+</section>
+
+<footer class="tcs-footer">
+  <div class="ftl">TCS &middot; <span style="color:var(--red);">True Crime Stories</span></div>
+  <div>A research-and-receipts companion track to <a href="index.html">Celebrity Dockets</a>.</div>
+  <div style="display:flex;gap:10px;justify-content:center;flex-wrap:wrap;margin:18px auto 4px;font-family:'JetBrains Mono',monospace;font-size:.65rem;text-transform:uppercase;letter-spacing:1.2px;font-weight:700;">
+    <a href="https://x.com/CelebDockets" target="_blank" rel="noopener" style="color:var(--paper);background:#0a0a0a;border:1px solid var(--bdr);padding:6px 12px;border-radius:5px;text-decoration:none;">𝕏 @CelebDockets</a>
+    <a href="https://www.tiktok.com/@celebritydockets" target="_blank" rel="noopener" style="color:var(--paper);background:#0a0a0a;border:1px solid var(--bdr);padding:6px 12px;border-radius:5px;text-decoration:none;">🎵 TikTok</a>
+    <a href="https://www.youtube.com/@celebritydockets" target="_blank" rel="noopener" style="color:var(--paper);background:#0a0a0a;border:1px solid var(--bdr);padding:6px 12px;border-radius:5px;text-decoration:none;">▶ YouTube</a>
+    <a href="https://www.instagram.com/celebritydockets" target="_blank" rel="noopener" style="color:var(--paper);background:#0a0a0a;border:1px solid var(--bdr);padding:6px 12px;border-radius:5px;text-decoration:none;">📸 Instagram</a>
+  </div>
+  <div style="text-align:center;margin-top:12px;font-size:.6rem;color:var(--t3);line-height:1.5;"><a href="legal.html">Terms &amp; Privacy</a> &middot; <a href="legal.html#dmca">DMCA</a></div>
+</footer>
+<script src="ticker.js" defer></script>
+</body>
+</html>
