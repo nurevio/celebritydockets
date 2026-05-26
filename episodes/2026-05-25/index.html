@@ -34,21 +34,6 @@
     line-height: 1.55;
     overflow-x: hidden;
   }
-  .chrome-top {
-    position: fixed; top: 0; left: 0; right: 0;
-    padding: 12px 24px;
-    background: rgba(10,10,15,0.85);
-    backdrop-filter: blur(12px);
-    border-bottom: 1px solid var(--border);
-    display: flex; align-items: center; justify-content: space-between;
-    z-index: 1000;
-    font-family: 'JetBrains Mono', monospace;
-    font-size: 0.7rem; letter-spacing: 1.5px; text-transform: uppercase;
-  }
-  .chrome-brand { color: var(--accent-red); font-weight: 700; }
-  .chrome-brand::before { content: '● '; animation: pulse 2s infinite; }
-  .chrome-progress { color: var(--text-muted); }
-  .chrome-progress span { color: var(--accent-gold); }
   @keyframes pulse { 0%, 100% { opacity: 1; } 50% { opacity: 0.4; } }
 
   .slide {
@@ -228,13 +213,23 @@
 </head>
 <body>
 
-<div class="chrome-top">
-  <div class="chrome-brand">Celebrity Dockets · Episode 4 · ★ Primetime Debut</div>
-  <div class="chrome-progress">Monday · May 25 · 9 PM EST · <span>scroll →</span></div>
-</div>
+<!-- SITE NAV -->
+<header style="border-bottom:1px solid var(--border);padding:16px 24px;display:flex;align-items:center;justify-content:space-between;background:var(--bg-primary);position:sticky;top:0;z-index:100;backdrop-filter:blur(12px);">
+  <a href="../../index.html" style="font-family:'DM Serif Display',serif;font-size:1.4rem;color:var(--text-primary);text-decoration:none;">Celebrity<span style="color:var(--accent-red);">Dockets</span></a>
+  <nav style="display:flex;gap:24px;font-size:.8rem;text-transform:uppercase;letter-spacing:1.5px;font-weight:600;">
+    <a href="../../index.html#cases" style="color:var(--text-secondary);text-decoration:none;">Cases</a>
+    <a href="../../latest.html" style="color:var(--text-secondary);text-decoration:none;">📅 Latest</a>
+    <a href="../../objection-live.html" style="color:var(--text-secondary);text-decoration:none;">⚖️ All Rise</a>
+    <a href="../../recess.html" style="color:var(--text-secondary);text-decoration:none;">🔔 RECESS</a>
+    <a href="../../featured-dockets.html" style="color:var(--accent-gold);text-decoration:none;">★ Featured</a>
+    <a href="../../star-bar.html" style="color:var(--text-secondary);text-decoration:none;">Star Bar</a>
+    <a href="https://www.buymeacoffee.com/celebritydockets" target="_blank" rel="noopener" style="color:#FFDD00;text-decoration:none;">☕ Fuel</a>
+    <a href="../../tcs.html" style="color:var(--accent-red);text-decoration:none;font-weight:700;">★ TCS</a>
+  </nav>
+</header>
 
 <!-- TICKER -->
-<div style="display:flex;align-items:center;background:linear-gradient(90deg,rgba(225,16,40,.08),rgba(10,10,15,.95) 12%,rgba(10,10,15,.95) 88%,rgba(246,195,64,.08));border-bottom:1px solid var(--border);overflow:hidden;height:38px;position:sticky;top:45px;z-index:99;">
+<div style="display:flex;align-items:center;background:linear-gradient(90deg,rgba(225,16,40,.08),rgba(10,10,15,.95) 12%,rgba(10,10,15,.95) 88%,rgba(246,195,64,.08));border-bottom:1px solid var(--border);overflow:hidden;height:38px;position:sticky;top:57px;z-index:99;">
   <div style="font-family:'JetBrains Mono',monospace;font-size:.62rem;font-weight:800;text-transform:uppercase;letter-spacing:2px;color:#fff;background:var(--accent-red);padding:6px 14px;white-space:nowrap;z-index:2;display:flex;align-items:center;gap:6px;height:100%;"><span style="width:6px;height:6px;background:#fff;border-radius:50%;animation:pulse 2s infinite;"></span>★ Latest</div>
   <div style="flex:1;overflow:hidden;position:relative;height:100%;display:flex;align-items:center;mask-image:linear-gradient(90deg,transparent 0%,#000 3%,#000 97%,transparent 100%);-webkit-mask-image:linear-gradient(90deg,transparent 0%,#000 3%,#000 97%,transparent 100%);">
     <div id="tickerContent" style="display:flex;align-items:center;gap:0;white-space:nowrap;animation:tickerScroll var(--ticker-speed,90s) linear infinite;">
