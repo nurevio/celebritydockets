@@ -233,6 +233,37 @@
   <div class="chrome-progress">Monday · May 25 · 9 PM EST · <span>scroll →</span></div>
 </div>
 
+<!-- TICKER -->
+<div style="display:flex;align-items:center;background:linear-gradient(90deg,rgba(225,16,40,.08),rgba(10,10,15,.95) 12%,rgba(10,10,15,.95) 88%,rgba(246,195,64,.08));border-bottom:1px solid var(--border);overflow:hidden;height:38px;position:sticky;top:45px;z-index:99;">
+  <div style="font-family:'JetBrains Mono',monospace;font-size:.62rem;font-weight:800;text-transform:uppercase;letter-spacing:2px;color:#fff;background:var(--accent-red);padding:6px 14px;white-space:nowrap;z-index:2;display:flex;align-items:center;gap:6px;height:100%;"><span style="width:6px;height:6px;background:#fff;border-radius:50%;animation:pulse 2s infinite;"></span>★ Latest</div>
+  <div style="flex:1;overflow:hidden;position:relative;height:100%;display:flex;align-items:center;mask-image:linear-gradient(90deg,transparent 0%,#000 3%,#000 97%,transparent 100%);-webkit-mask-image:linear-gradient(90deg,transparent 0%,#000 3%,#000 97%,transparent 100%);">
+    <div id="tickerContent" style="display:flex;align-items:center;gap:0;white-space:nowrap;animation:tickerScroll var(--ticker-speed,90s) linear infinite;">
+      <a href="../../d4vd-grand-jury.html" style="display:inline-flex;align-items:center;gap:6px;padding:0 28px;font-family:'IBM Plex Sans',sans-serif;font-size:.78rem;color:var(--text-secondary);text-decoration:none;white-space:nowrap;border-right:1px solid var(--border);height:22px;"><span style="font-family:'JetBrains Mono',monospace;font-size:.58rem;font-weight:700;text-transform:uppercase;letter-spacing:.8px;padding:2px 7px;border-radius:3px;background:rgba(225,16,40,.12);color:var(--accent-red);">Jun 29</span> People v. d4vd — Prelim hearing · status Jun 17</a>
+      <a href="../../lively-v-baldoni.html" style="display:inline-flex;align-items:center;gap:6px;padding:0 28px;font-family:'IBM Plex Sans',sans-serif;font-size:.78rem;color:var(--text-secondary);text-decoration:none;white-space:nowrap;border-right:1px solid var(--border);height:22px;"><span style="font-family:'JetBrains Mono',monospace;font-size:.58rem;font-weight:700;text-transform:uppercase;letter-spacing:.8px;padding:2px 7px;border-radius:3px;background:rgba(74,144,217,.12);color:var(--accent-blue);">Settled</span> Lively v. Wayfarer — § 47.1 ruling pending</a>
+      <a href="../../pratt-v-city-of-la.html" style="display:inline-flex;align-items:center;gap:6px;padding:0 28px;font-family:'IBM Plex Sans',sans-serif;font-size:.78rem;color:var(--text-secondary);text-decoration:none;white-space:nowrap;border-right:1px solid var(--border);height:22px;"><span style="font-family:'JetBrains Mono',monospace;font-size:.58rem;font-weight:700;text-transform:uppercase;letter-spacing:.8px;padding:2px 7px;border-radius:3px;background:rgba(246,195,64,.12);color:var(--accent-gold);">New</span> Pratt v. City of LA — suing the city + running for mayor</a>
+      <a href="../../fat-joe-v-dixon.html" style="display:inline-flex;align-items:center;gap:6px;padding:0 28px;font-family:'IBM Plex Sans',sans-serif;font-size:.78rem;color:var(--text-secondary);text-decoration:none;white-space:nowrap;border-right:1px solid var(--border);height:22px;"><span style="font-family:'JetBrains Mono',monospace;font-size:.58rem;font-weight:700;text-transform:uppercase;letter-spacing:.8px;padding:2px 7px;border-radius:3px;background:rgba(246,195,64,.12);color:var(--accent-gold);">New</span> Fat Joe v. Dixon — sanctions spiral + show-cause order</a>
+      <a href="../../shakira-tax-fraud.html" style="display:inline-flex;align-items:center;gap:6px;padding:0 28px;font-family:'IBM Plex Sans',sans-serif;font-size:.78rem;color:var(--text-secondary);text-decoration:none;white-space:nowrap;border-right:1px solid var(--border);height:22px;"><span style="font-family:'JetBrains Mono',monospace;font-size:.58rem;font-weight:700;text-transform:uppercase;letter-spacing:.8px;padding:2px 7px;border-radius:3px;background:rgba(39,174,96,.15);color:#27ae60;">Acquitted</span> Shakira — Spain tax fraud NOT GUILTY</a>
+      <a href="../../mondream-entertainment-lawsuits.html" style="display:inline-flex;align-items:center;gap:6px;padding:0 28px;font-family:'IBM Plex Sans',sans-serif;font-size:.78rem;color:var(--text-secondary);text-decoration:none;white-space:nowrap;border-right:1px solid var(--border);height:22px;"><span style="font-family:'JetBrains Mono',monospace;font-size:.58rem;font-weight:700;text-transform:uppercase;letter-spacing:.8px;padding:2px 7px;border-radius:3px;background:rgba(246,195,64,.12);color:var(--accent-gold);">New</span> Moon Dream v. Saweetie & Derulo — Afro Jam breach</a>
+      <a href="../../live-nation-ticketmaster.html" style="display:inline-flex;align-items:center;gap:6px;padding:0 28px;font-family:'IBM Plex Sans',sans-serif;font-size:.78rem;color:var(--text-secondary);text-decoration:none;white-space:nowrap;border-right:1px solid var(--border);height:22px;"><span style="font-family:'JetBrains Mono',monospace;font-size:.58rem;font-weight:700;text-transform:uppercase;letter-spacing:.8px;padding:2px 7px;border-radius:3px;background:rgba(225,16,40,.12);color:var(--accent-red);">Update</span> Live Nation asks judge to overturn monopoly verdict</a>
+      <a href="https://celebritydockets.com/latest.html" style="display:inline-flex;align-items:center;gap:6px;padding:0 28px;font-family:'IBM Plex Sans',sans-serif;font-size:.78rem;color:var(--accent-gold);text-decoration:none;white-space:nowrap;height:22px;font-weight:600;">See all latest updates →</a>
+    </div>
+  </div>
+</div>
+<script>
+(function(){
+  var tc=document.getElementById('tickerContent');
+  if(!tc)return;
+  var items=tc.innerHTML;
+  tc.innerHTML=items+items;
+  requestAnimationFrame(function(){
+    var w=tc.scrollWidth/2;
+    var speed=Math.max(40,Math.round(w/45));
+    tc.style.setProperty('--ticker-speed',speed+'s');
+  });
+})();
+</script>
+<style>@keyframes tickerScroll{0%{transform:translateX(0)}100%{transform:translateX(-50%)}}</style>
+
 <!-- 00 — LEAD VIDEO · YouTube community post intro -->
 <section class="slide">
   <div class="slide-inner" style="text-align:center;">
