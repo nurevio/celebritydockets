@@ -1,0 +1,227 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<link rel="icon" type="image/png" href="favicon.png"><link rel="apple-touch-icon" href="favicon.png">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Faust v. Paramount · Subscriber Antitrust Suit | Celebrity Dockets</title>
+<link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&family=IBM+Plex+Sans:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+<style>
+:root{--bg-primary:#0a0a0f;--bg-card:#12121a;--bg-elevated:#1a1a26;--accent:#f6c340;--accent-red:#E11028;--accent-gold:#F6C340;--accent-blue:#4a90d9;--text-primary:#e8e6e1;--text-secondary:#9a9a9a;--text-muted:#5a5a6a;--border:#2a2a3a;--border-light:#1e1e2e}
+*{margin:0;padding:0;box-sizing:border-box}
+body{background:var(--bg-primary);color:var(--text-primary);font-family:'IBM Plex Sans',sans-serif;line-height:1.6;min-height:100vh}
+.site-header{border-bottom:1px solid var(--border);padding:16px 24px;display:flex;align-items:center;justify-content:space-between;background:var(--bg-primary);position:sticky;top:0;z-index:100;backdrop-filter:blur(12px)}
+.site-logo{font-family:'DM Serif Display',serif;font-size:1.2rem;color:var(--text-primary);text-decoration:none}.site-logo span{color:var(--accent-red)}
+.site-nav{display:flex;gap:24px;font-size:.8rem;text-transform:uppercase;letter-spacing:1.5px;font-weight:600}
+.site-nav a{color:var(--text-secondary);text-decoration:none;transition:color .2s}.site-nav a:hover{color:var(--accent-gold)}
+.hamburger{display:none;background:none;border:none;color:var(--text-primary);cursor:pointer;padding:8px;flex-direction:column;gap:5px}
+.hamburger span{display:block;width:24px;height:2px;background:var(--text-primary);transition:all .3s}
+@media(max-width:768px){
+  .site-nav{display:none;position:absolute;top:100%;left:0;right:0;background:var(--bg-primary);flex-direction:column;padding:20px 24px;gap:18px;border-bottom:1px solid var(--border);box-shadow:0 4px 20px rgba(0,0,0,.4);z-index:99}
+  .site-nav.open{display:flex}
+  .hamburger{display:flex}
+  .hamburger.open span:nth-child(1){transform:rotate(45deg) translate(5px,5px)}
+  .hamburger.open span:nth-child(2){opacity:0}
+  .hamburger.open span:nth-child(3){transform:rotate(-45deg) translate(7px,-7px)}
+}
+.case-hero{padding:60px 24px 48px;max-width:900px;margin:0 auto}
+.case-title{font-family:'DM Serif Display',serif;font-size:2.8rem;line-height:1.15;margin-bottom:12px}.case-title em{font-style:italic;color:var(--accent)}
+.case-subtitle{font-size:1.1rem;color:var(--text-secondary);margin-bottom:24px;max-width:650px}
+.case-meta-row{display:flex;gap:28px;flex-wrap:wrap;font-size:.82rem;color:var(--text-muted)}
+.meta-label{text-transform:uppercase;font-size:.65rem;letter-spacing:1.2px;font-weight:700}
+.meta-value{color:var(--text-secondary);margin-left:6px}
+.case-body{max-width:900px;margin:0 auto;padding:40px 24px 80px;display:grid;grid-template-columns:1fr 280px;gap:48px}
+@media(max-width:768px){.case-body{grid-template-columns:1fr;gap:32px}.case-title{font-size:2rem}}
+.parties-block{background:var(--bg-card);border:1px solid var(--border);border-radius:8px;padding:28px;margin-bottom:32px}
+.parties-header{font-size:.7rem;text-transform:uppercase;letter-spacing:2px;font-weight:700;color:var(--accent-gold);margin-bottom:20px}
+.party-vs{display:grid;grid-template-columns:1fr auto 1fr;gap:16px;align-items:center}
+.party-card{text-align:center}
+.party-role{font-size:.65rem;text-transform:uppercase;letter-spacing:1.5px;color:var(--text-muted);font-weight:700;margin-bottom:6px}
+.party-name{font-family:'DM Serif Display',serif;font-size:1.25rem;margin-bottom:4px}
+.party-desc{font-size:.78rem;color:var(--text-secondary)}
+.vs-badge{font-family:'DM Serif Display',serif;font-size:1.1rem;color:var(--accent-red);background:rgba(225,16,40,.1);width:44px;height:44px;border-radius:50%;display:flex;align-items:center;justify-content:center;border:1px solid rgba(225,16,40,.2)}
+.narrative-section{margin-bottom:32px}
+.section-label{font-size:.7rem;text-transform:uppercase;letter-spacing:2px;font-weight:700;color:var(--accent-gold);margin-bottom:16px;display:flex;align-items:center;gap:8px}
+.section-label::after{content:'';flex:1;height:1px;background:var(--border)}
+.narrative-text{font-size:.95rem;color:var(--text-secondary);line-height:1.8}
+.narrative-text p{margin-bottom:16px}
+.narrative-text strong{color:var(--text-primary);font-weight:600}
+.claims-list{list-style:none;display:flex;flex-direction:column;gap:12px;margin-bottom:32px}
+.claim-item{padding:16px 20px;background:var(--bg-card);border-left:3px solid var(--accent);border-radius:0 6px 6px 0;font-size:.9rem;color:var(--text-secondary);line-height:1.6}
+.claim-number{font-family:'JetBrains Mono',monospace;font-size:.7rem;color:var(--accent);font-weight:700;margin-right:8px}
+.sidebar-card{background:var(--bg-card);border:1px solid var(--border);border-radius:8px;padding:22px;margin-bottom:24px}
+.sidebar-card-header{font-size:.65rem;text-transform:uppercase;letter-spacing:2px;font-weight:700;color:var(--accent-gold);margin-bottom:16px;padding-bottom:10px;border-bottom:1px solid var(--border)}
+.docket-item{display:flex;gap:12px;padding:10px 0;border-bottom:1px solid var(--border-light);align-items:flex-start}
+.docket-item:last-child{border-bottom:none}
+.docket-date{font-family:'JetBrains Mono',monospace;font-size:.7rem;color:var(--text-muted);white-space:nowrap;min-width:90px}
+.docket-desc{font-size:.82rem;color:var(--text-secondary);line-height:1.5}
+.matters-box{background:linear-gradient(135deg,rgba(246,195,64,.08),rgba(225,16,40,.05));border:1px solid rgba(246,195,64,.2);border-radius:8px;padding:24px;margin-bottom:32px}
+.matters-box p{font-size:.9rem;color:var(--text-secondary);line-height:1.7}
+.case-footer{border-top:1px solid var(--border);padding:24px;text-align:center;font-size:.75rem;color:var(--text-muted)}
+.case-footer a{color:var(--accent-gold);text-decoration:none}
+.filing-link{display:block;background:rgba(246,195,64,.08);border:1px solid rgba(246,195,64,.2);border-radius:6px;padding:10px 14px;margin-bottom:8px;text-decoration:none;color:var(--text-primary);font-size:.78rem;transition:background .2s}
+.filing-link:hover{background:rgba(246,195,64,.15)}
+.filing-link-title{font-weight:600;margin-bottom:2px}
+.filing-link-source{font-family:'JetBrains Mono',monospace;font-size:.65rem;color:var(--text-muted)}
+
+:root[data-theme="light"]{--bg:#f5f2ea;--bg-primary:#f5f2ea;--card:#ffffff;--bg-card:#ffffff;--elev:#fffcf5;--bg-elev:#fffcf5;--bg-elevated:#fffcf5;--red:#E11028;--accent-red:#E11028;--gold:#8b6f20;--accent-gold:#8b6f20;--accent:#8b6f20;--blue:#1e5091;--accent-blue:#1e5091;--t1:#1a1a1f;--text-primary:#1a1a1f;--t2:#5a5a5f;--text-secondary:#5a5a5f;--t3:#8a8a8f;--text-muted:#8a8a8f;--bdr:#d4cfc0;--border:#d4cfc0;--bdr2:#e8e3d4;--border-light:#e8e3d4}
+body{transition:background .3s,color .3s}
+.theme-toggle{background:none;border:1px solid currentColor;cursor:pointer;padding:6px 10px;border-radius:4px;font-size:.85rem;font-family:'JetBrains Mono',monospace;opacity:.7;transition:opacity .2s;margin-left:12px}
+.theme-toggle:hover{opacity:1}
+</style>
+<script>
+function toggleTheme(){var c=document.documentElement.getAttribute('data-theme')||'dark';var n=c==='dark'?'light':'dark';document.documentElement.setAttribute('data-theme',n);localStorage.setItem('cdTheme',n);var ic=document.getElementById('theme-icon');if(ic)ic.textContent=n==='dark'?'🌙':'☀️';}
+(function(){var s=localStorage.getItem('cdTheme')||'light';document.documentElement.setAttribute('data-theme',s);window.addEventListener('DOMContentLoaded',function(){var ic=document.getElementById('theme-icon');if(ic)ic.textContent=s==='dark'?'🌙':'☀️';});})();
+</script>
+
+<meta property="og:type" content="article">
+<meta property="og:site_name" content="Celebrity Dockets">
+<meta property="og:title" content="Faust v. Paramount · Subscriber Antitrust Suit | Celebrity Dockets">
+<meta property="og:description" content="Five Paramount+ subscribers sue to block the $110 billion Warner Bros. Discovery acquisition, alleging it violates the Clayton Act and would reduce competition in streaming, theatrical distribution, and national news.">
+<meta property="og:image" content="https://celebritydockets.com/logo-transparent.png">
+<meta property="og:url" content="https://celebritydockets.com/paramount-antitrust.html">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Faust v. Paramount · Subscriber Antitrust Suit | Celebrity Dockets">
+<meta name="twitter:description" content="Five Paramount+ subscribers sue to block the $110 billion Warner Bros. Discovery acquisition under the Clayton Antitrust Act.">
+<meta name="twitter:image" content="https://celebritydockets.com/logo-transparent.png">
+<meta name="description" content="Five Paramount+ subscribers sue to block the $110 billion Warner Bros. Discovery acquisition, alleging it violates the Clayton Act and would reduce competition in streaming, theatrical distribution, and national news.">
+<!-- Microsoft Clarity --><script type="text/javascript">(function(c,l,a,r,i,t,y){c[a]=c[a]||function(){(c[a].q=c[a].q||[]).push(arguments)};t=l.createElement(r);t.async=1;t.src="https://www.clarity.ms/tag/"+i;y=l.getElementsByTagName(r)[0];y.parentNode.insertBefore(t,y);})(window, document, "clarity", "script", "wj08elhbdz");</script>
+</head>
+<body>
+
+<header class="site-header">
+<a href="index.html" class="site-logo">Celebrity<span>Dockets</span></a>
+<button class="hamburger" onclick="this.classList.toggle('open');document.querySelector('.site-nav').classList.toggle('open')"><span></span><span></span></button>
+<nav class="site-nav">
+      <a href="index.html#cases">Cases</a>
+      <a href="latest.html">📅 Latest</a>
+      <a href="objection-live.html">⚖️ All Rise</a>
+      <a href="recess.html">🔔 RECESS</a>
+      <a href="featured-dockets.html" style="color:#F6C340;">★ Featured</a>
+      <a href="star-bar.html">Star Bar</a>
+      <a href="courtroom-culture.html">Courtroom Culture</a>
+      <a href="about.html">About</a>
+      <a href="https://www.buymeacoffee.com/celebritydockets" target="_blank" rel="noopener" style="color:#FFDD00;">☕ Fuel</a><button class="theme-toggle" onclick="toggleTheme()"><span id="theme-icon">☀️</span></button></nav>
+</header>
+
+<section class="case-hero">
+<h1 class="case-title"><em>Faust</em> v. Paramount &amp; Skydance</h1>
+<p class="case-subtitle">Five Paramount+ subscribers filed a federal antitrust lawsuit seeking to block the proposed $110 billion acquisition of Warner Bros. Discovery, arguing the deal would concentrate too much power in streaming, theatrical distribution, and national news.</p>
+<div class="case-meta-row">
+<div><span class="meta-label">Filed</span><span class="meta-value">April 30, 2026</span></div>
+<div><span class="meta-label">Court</span><span class="meta-value">N.D. Cal. (San Jose)</span></div>
+<div><span class="meta-label">Case No.</span><span class="meta-value" style="font-family:'JetBrains Mono',monospace;">5:26-cv-03790</span></div>
+<div><span class="meta-label">Status</span><span class="meta-value" style="color:var(--accent-red);font-weight:700;">Active</span></div>
+</div>
+</section>
+
+<!-- DOCKET AT TOP -->
+<section style="max-width:900px;margin:0 auto;padding:24px 24px 0;">
+  <div style="background:linear-gradient(135deg,rgba(246,195,64,.10),rgba(225,16,40,.05));border:1px solid rgba(246,195,64,.30);border-left:4px solid var(--accent-gold);border-radius:10px;padding:22px 24px;">
+    <div style="font-family:'JetBrains Mono',monospace;font-size:.62rem;letter-spacing:2px;text-transform:uppercase;color:var(--accent-gold);font-weight:700;margin-bottom:14px;">★ Docket &middot; Primary Sources</div>
+    <div style="font-family:'JetBrains Mono',monospace;font-size:.95rem;color:var(--text-primary);letter-spacing:.5px;margin-bottom:14px;font-weight:700;">Case No. <span style="color:var(--accent-gold);">5:26-cv-03790</span> &middot; N.D. Cal.</div>
+    <div style="display:flex;flex-wrap:wrap;gap:10px;">
+      <a href="https://www.courtlistener.com/docket/73272253/faust-v-paramount-skydance-corporation/?filed_after=&filed_before=&entry_gte=&entry_lte=&order_by=desc" target="_blank" rel="noopener" style="display:inline-flex;align-items:center;gap:8px;font-family:'JetBrains Mono',monospace;font-size:.75rem;font-weight:700;text-transform:uppercase;letter-spacing:1.2px;text-decoration:none;padding:10px 16px;border-radius:6px;background:var(--accent-gold);color:#0a0a0f;">📂 CourtListener Docket &rarr;</a>
+      <a href="https://files.lbr.cloud/public/2026-04/Faust_et_al_v_Paramount_Skydance_Corporation__candce-26-03790__0001.0%20(1).pdf" target="_blank" rel="noopener" style="display:inline-flex;align-items:center;gap:8px;font-family:'JetBrains Mono',monospace;font-size:.75rem;font-weight:700;text-transform:uppercase;letter-spacing:1.2px;text-decoration:none;padding:10px 16px;border-radius:6px;background:rgba(246,195,64,.15);color:var(--accent-gold);border:1px solid rgba(246,195,64,.3);">📄 Original Complaint PDF &rarr;</a>
+    </div>
+    <div style="font-family:'JetBrains Mono',monospace;font-size:.7rem;color:var(--text-muted);margin-top:12px;line-height:1.55;">Faust et al. v. Paramount Global et al. &middot; Clayton Act &sect; 7 &middot; Antitrust &middot; Consumer Class Action</div>
+  </div>
+</section>
+
+<main class="case-body">
+<div class="case-main">
+
+<div class="parties-block">
+<div class="parties-header">Parties</div>
+<div class="party-vs">
+<div class="party-card">
+<div class="party-role">Plaintiffs</div>
+<div class="party-name">Faust, Marazzo, McCarthy, Rubinsohn &amp; Talewsky</div>
+<div class="party-desc">Five Paramount+ subscribers &middot; on behalf of proposed class</div>
+</div>
+<div class="vs-badge">v.</div>
+<div class="party-card">
+<div class="party-role">Defendants</div>
+<div class="party-name">Paramount Global &amp; Skydance</div>
+<div class="party-desc">Media conglomerate &amp; production company</div>
+</div>
+</div>
+</div>
+
+<div class="narrative-section">
+<div class="section-label">Background</div>
+<div class="narrative-text">
+<p>In 2025, <strong>Skydance Media</strong> completed a buyout of Paramount Global. Now the combined company is pursuing a <strong>$110 billion acquisition of Warner Bros. Discovery</strong> &mdash; a deal that would merge two of the biggest entertainment conglomerates in the world under one roof. Paramount+ and Max, CBS and CNN, Paramount Pictures and Warner Bros. Pictures &mdash; all under a single owner.</p>
+<p>Five Paramount+ subscribers filed suit in federal court on <strong>April 30, 2026</strong>, arguing the merger violates <strong>Section 7 of the Clayton Antitrust Act</strong> &mdash; the same law the DOJ used against Live Nation. Their argument: the combined company would control roughly <strong>23.6% of the studio market</strong>, making it the single largest studio. The top four studios combined would hold about <strong>76.3% market share</strong> &mdash; a 10.2 percentage point jump in concentration.</p>
+<p>The plaintiffs argue consumers would face <strong>higher prices, fewer choices, lower quality programming</strong>, and a loss of independent editorial voices in national news &mdash; specifically flagging concerns about what happens to <strong>CNN</strong> when its parent company merges with a competitor.</p>
+</div>
+</div>
+
+<div class="narrative-section">
+<div class="section-label">Key Claims</div>
+<ul class="claims-list">
+<li class="claim-item"><span class="claim-number">01</span>The proposed acquisition of Warner Bros. Discovery violates <strong>Section 7 of the Clayton Act</strong> by substantially lessening competition in streaming, theatrical distribution, and national television news.</li>
+<li class="claim-item"><span class="claim-number">02</span>Post-merger, the combined entity would hold <strong>~23.6% market share</strong> in studio output, making it the largest single studio. Top-four concentration would reach ~76.3%.</li>
+<li class="claim-item"><span class="claim-number">03</span>Consumers would face <strong>increased prices and diminished choice</strong> across streaming platforms as competitive pressure drops.</li>
+<li class="claim-item"><span class="claim-number">04</span>The merger threatens <strong>editorial independence and viewpoint diversity</strong> in national news by reducing the number of independent owners capable of sustaining national TV news operations.</li>
+<li class="claim-item"><span class="claim-number">05</span>Plaintiffs seek an <strong>injunction blocking the merger</strong> and, separately, an order forcing Skydance to divest Paramount (acquired last year).</li>
+</ul>
+</div>
+
+<div class="narrative-section">
+<div class="section-label">Paramount&rsquo;s Legal Team</div>
+<div class="narrative-text">
+<p>Paramount brought on <strong>Jeffrey Kessler</strong>, co-executive chair of <strong>Winston &amp; Strawn</strong>, to lead the defense. Kessler is one of the most recognized antitrust litigators in the country &mdash; he recently led the 30+ state coalition that secured the <strong>Live Nation monopoly verdict</strong> (already on the Celebrity Dockets docket). He also won the landmark 2019 NCAA case that opened the door for college athletes to profit from their name, image, and likeness.</p>
+<p>Kessler called the subscriber complaint &ldquo;baseless&rdquo; and said there is no credible antitrust case against the deal. He joins a defense team that already includes <strong>Makan Delrahim</strong> (former Trump-era antitrust chief) and <strong>David Gelfand</strong> (Obama-era DOJ antitrust official).</p>
+<p>Paramount has said it does not expect legal challenges from the Justice Department, state prosecutors, or foreign regulators &mdash; but the subscriber suit is now active in federal court.</p>
+</div>
+</div>
+
+<div class="matters-box">
+<div class="section-label">Why It Matters</div>
+<p>This is the streaming-era version of the old Hollywood studio monopoly fights. If Paramount and Warner Bros. merge, a single company would control CBS, Showtime, Paramount+, Max, HBO, CNN, Paramount Pictures, and Warner Bros. Pictures. The subscriber suit argues that kind of consolidation hurts everyone who pays for a streaming subscription. The same antitrust lawyer who just proved Live Nation is a monopoly is now defending the deal &mdash; so both sides of the Live Nation verdict are now entangled with Paramount.</p>
+</div>
+
+</div>
+
+<aside class="case-sidebar">
+
+<div class="sidebar-card">
+<div class="sidebar-card-header">Timeline</div>
+<div class="docket-item"><span class="docket-date">2025</span><span class="docket-desc">Skydance Media completes buyout of Paramount Global</span></div>
+<div class="docket-item"><span class="docket-date">Early 2026</span><span class="docket-desc">Paramount/Skydance announces proposed $110B acquisition of Warner Bros. Discovery</span></div>
+<div class="docket-item"><span class="docket-date">Apr 30, 2026</span><span class="docket-desc" style="color:var(--accent-red);font-weight:600;">Faust et al. file antitrust suit in N.D. Cal.</span></div>
+<div class="docket-item"><span class="docket-date">May 2026</span><span class="docket-desc">Paramount hires Jeffrey Kessler (Winston &amp; Strawn) to lead defense</span></div>
+<div class="docket-item"><span class="docket-date">May 2026</span><span class="docket-desc">Federal judge approves Kessler&rsquo;s application to represent Paramount in the subscriber suit</span></div>
+</div>
+
+<div class="sidebar-card">
+<div class="sidebar-card-header">Key Players</div>
+<div class="docket-item"><span class="docket-date" style="min-width:110px;">Jeffrey Kessler</span><span class="docket-desc">Lead defense &middot; Winston &amp; Strawn &middot; won Live Nation monopoly verdict + NCAA NIL case</span></div>
+<div class="docket-item"><span class="docket-date" style="min-width:110px;">Makan Delrahim</span><span class="docket-desc">Defense team &middot; former Trump DOJ antitrust chief</span></div>
+<div class="docket-item"><span class="docket-date" style="min-width:110px;">David Gelfand</span><span class="docket-desc">Defense team &middot; former Obama DOJ antitrust official</span></div>
+</div>
+
+<div class="sidebar-card">
+<div class="sidebar-card-header">Related Cases</div>
+<a href="live-nation-ticketmaster.html" class="filing-link">
+<div class="filing-link-title">U.S. v. Live Nation / Ticketmaster &rarr;</div>
+<div class="filing-link-source">Same lawyer (Kessler) &middot; antitrust monopoly verdict</div>
+</a>
+<a href="capolongo-v-spotify.html" class="filing-link">
+<div class="filing-link-title">Capolongo v. Spotify &rarr;</div>
+<div class="filing-link-source">Streaming industry antitrust &middot; dismissed</div>
+</a>
+</div>
+
+</aside>
+</main>
+
+<footer class="case-footer">
+  <p><a href="index.html">&larr; Back to all cases</a></p>
+  <p style="margin-top:8px;">&copy; 2026 Celebrity Dockets &middot; Independent media &middot; Nothing here is legal advice.</p>
+</footer>
+
+<script data-name="BMC-Widget" data-cfasync="false" src="https://cdnjs.buymeacoffee.com/1.0.0/widget.prod.min.js" data-id="celebritydockets" data-description="Support CJ on Buy Me a Coffee" data-message="Help keep the docket running. Buy CJ a coffee." data-color="#FFDD00" data-position="Right" data-x_margin="18" data-y_margin="18"></script>
+</body>
+</html>
