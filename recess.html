@@ -79,7 +79,7 @@ body{background:var(--bg);color:var(--t1);font-family:'IBM Plex Sans',sans-serif
 .rstrip::-webkit-scrollbar-track{background:rgba(0,0,0,.10);border-radius:4px}
 .rstrip::-webkit-scrollbar-thumb{background:var(--gold);border-radius:4px;opacity:.6}
 .rstrip::-webkit-scrollbar-thumb:hover{background:var(--red)}
-.rcard{flex:0 0 340px;scroll-snap-align:start;background:var(--card);border:1px solid var(--bdr);border-left:4px solid var(--gold);border-radius:10px;padding:16px 18px;text-decoration:none;color:inherit;display:flex;flex-direction:column;gap:8px;transition:transform .15s;overflow:hidden}
+.rcard{flex:0 0 340px;height:320px;scroll-snap-align:start;background:var(--card);border:1px solid var(--bdr);border-left:4px solid var(--gold);border-radius:10px;padding:16px 18px;text-decoration:none;color:inherit;display:flex;flex-direction:column;gap:8px;transition:transform .15s;overflow:hidden;position:relative}
 .rcard:hover{transform:translateY(-2px)}
 .rcard.rblue{border-left-color:#3b82f6}
 .rcard.rpink{border-left-color:var(--pink)}
@@ -89,8 +89,7 @@ body{background:var(--bg);color:var(--t1);font-family:'IBM Plex Sans',sans-serif
 .rcard .rt{font-family:'DM Serif Display',serif;font-size:1.15rem;line-height:1.25;color:var(--t1)}
 .rcard .rt em{font-style:italic}
 .rcard .rd{font-size:.82rem;color:var(--t2);line-height:1.6}
-.rcard.rtweet{min-height:260px;max-height:380px;position:relative;overflow:hidden}
-.rcard.rtweet::after{content:'';position:absolute;left:0;right:0;bottom:0;height:40px;background:linear-gradient(transparent,var(--card));pointer-events:none}
+.rcard::after{content:'';position:absolute;left:0;right:0;bottom:0;height:40px;background:linear-gradient(transparent,var(--card));pointer-events:none;z-index:1}
 .spotify-strip .rcard{flex:0 0 420px;height:auto}
 
 .hamburger{display:none;background:none;border:none;color:var(--t1);cursor:pointer;padding:8px;flex-direction:column;gap:5px}
@@ -177,9 +176,7 @@ function toggleTheme(){var c=document.documentElement.getAttribute('data-theme')
 
     <!-- Heidi Montag · Spacey -->
     <a href="https://x.com/heidimontag/status/2059394056820531334" target="_blank" rel="noopener" class="rcard rpink rtweet" style="flex:0 0 340px;">
-      <div class="re" style="color:var(--pink);">★ new music &middot; heidi montag</div>
-      <h3 class="rt"><em style="color:var(--pink);">Spacey</em> &middot; Heidi Montag</h3>
-      <p class="rd">The song invites listeners into a daydream, weaving together a memorable guitar riff with introspective lyrics.</p>
+      <div class="re" style="color:var(--pink);">★ new music &middot; heidi montag &middot; spacey</div>
       <blockquote class="twitter-tweet" data-dnt="true" data-conversation="none" data-theme="dark"><a href="https://twitter.com/heidimontag/status/2059394056820531334"></a></blockquote>
     </a>
 
@@ -331,7 +328,7 @@ function toggleTheme(){var c=document.documentElement.getAttribute('data-theme')
 <div style="max-width:1000px;margin:0 auto;padding:12px 24px 24px;">
   <div style="background:var(--card);border:1px solid var(--bdr);border-radius:10px;padding:18px;">
     <div style="font-family:'JetBrains Mono',monospace;font-size:.62rem;letter-spacing:2px;text-transform:uppercase;color:var(--gold);font-weight:700;margin-bottom:10px;text-align:center;">★ source &middot; 2026-2027 major releases master list &middot; via @ErikDavis</div>
-    <a href="2026-2027-releases-master.png" target="_blank" rel="noopener"><img src="2026-2027-releases-master.png" alt="2026 and 2027 major theatrical release master list" style="width:100%;border-radius:8px;display:block;border:1px solid var(--bdr);"></a>
+    <a href="2026-2027-releases-master.png" target="_blank" rel="noopener"><img src="2026-2027-releases-master.png" alt="2026 and 2027 major theatrical release master list" style="max-width:180px;border-radius:8px;display:block;margin:0 auto;border:1px solid var(--bdr);cursor:zoom-in;transition:transform .15s;"></a>
     <p style="margin-top:10px;font-size:.7rem;color:var(--t3);text-align:center;font-family:'JetBrains Mono',monospace;letter-spacing:1px;">Tap to expand &middot; 2026 + 2027 &middot; all months &middot; Credit: <a href="https://twitter.com/ErikDavis/status/2050210229812429229" target="_blank" rel="noopener" style="color:var(--gold);text-decoration:none;font-weight:700;">@ErikDavis tweet &rarr;</a></p>
   </div>
 </div>
