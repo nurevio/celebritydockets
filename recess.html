@@ -79,7 +79,7 @@ body{background:var(--bg);color:var(--t1);font-family:'IBM Plex Sans',sans-serif
 .rstrip::-webkit-scrollbar-track{background:rgba(0,0,0,.10);border-radius:4px}
 .rstrip::-webkit-scrollbar-thumb{background:var(--gold);border-radius:4px;opacity:.6}
 .rstrip::-webkit-scrollbar-thumb:hover{background:var(--red)}
-.rcard{flex:0 0 340px;height:320px;scroll-snap-align:start;background:var(--card);border:1px solid var(--bdr);border-left:4px solid var(--gold);border-radius:10px;padding:16px 18px;text-decoration:none;color:inherit;display:flex;flex-direction:column;gap:8px;transition:transform .15s;overflow:hidden;position:relative}
+.rcard{flex:0 0 340px;min-height:320px;scroll-snap-align:start;background:var(--card);border:1px solid var(--bdr);border-left:4px solid var(--gold);border-radius:10px;padding:16px 18px;text-decoration:none;color:inherit;display:flex;flex-direction:column;gap:8px;transition:transform .15s;overflow:hidden;position:relative}
 .rcard:hover{transform:translateY(-2px)}
 .rcard.rblue{border-left-color:#3b82f6}
 .rcard.rpink{border-left-color:var(--pink)}
@@ -179,14 +179,6 @@ function toggleTheme(){var c=document.documentElement.getAttribute('data-theme')
       <div class="re" style="color:var(--pink);">★ new music &middot; heidi montag &middot; spacey</div>
       <blockquote class="twitter-tweet" data-dnt="true" data-conversation="none" data-theme="dark"><a href="https://twitter.com/heidimontag/status/2059394056820531334"></a></blockquote>
     </a>
-
-    <!-- @itstherosehips TikTok -->
-    <div class="rcard rpink" style="flex:0 0 340px;">
-      <div class="re" style="color:var(--pink);">★ music &middot; @itstherosehips &middot; tiktok</div>
-      <h3 class="rt"><em style="color:var(--pink);">@itstherosehips</em></h3>
-      <p class="rd">The song invites listeners into a daydream, weaving together a memorable guitar riff with introspective lyrics.</p>
-      <blockquote class="tiktok-embed" cite="https://www.tiktok.com/@itstherosehips/video/7626525786899533069" data-video-id="7626525786899533069" style="max-width:100%;min-width:260px;"><section><a target="_blank" href="https://www.tiktok.com/@itstherosehips/video/7626525786899533069">Watch on TikTok</a></section></blockquote>
-    </div>
 
     <!-- Bieber · Coachella -->
     <div class="rcard rblue" style="flex:0 0 340px;">
