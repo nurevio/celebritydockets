@@ -1,0 +1,372 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<link rel="icon" type="image/png" href="favicon.png">
+<link rel="apple-touch-icon" href="favicon.png">
+<link rel="icon" type="image/png" href="favicon.png"><link rel="apple-touch-icon" href="favicon.png">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Carter v. Buzbee - JAY-Z Defamation Suit | Celebrity Dockets</title>
+<link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display&family=IBM+Plex+Sans:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --bg-primary: #0a0a0f;
+    --bg-card: #12121a;
+    --bg-elevated: #1a1a26;
+    --accent: #2c3e50;
+    --accent-red: #E11028;
+    --accent-gold: #F6C340;
+    --accent-blue: #4a90d9;
+    --text-primary: #e8e6e1;
+    --text-secondary: #9a9a9a;
+    --text-muted: #5a5a6a;
+    --border: #2a2a3a;
+    --border-light: #1e1e2e;
+  }
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  body { background: var(--bg-primary); color: var(--text-primary); font-family: 'IBM Plex Sans', sans-serif; line-height: 1.6; min-height: 100vh; }
+  .site-header { border-bottom: 1px solid var(--border); padding: 16px 24px; display: flex; align-items: center; justify-content: space-between; background: var(--bg-primary); position: sticky; top: 0; z-index: 100; backdrop-filter: blur(12px); }
+  .site-logo { font-family: 'DM Serif Display', serif; font-size: 1.2rem; color: var(--text-primary); letter-spacing: 0.5px; }
+  .site-logo span { color: var(--accent-red); }
+  .site-nav { display: flex; gap: 24px; font-size: 0.8rem; text-transform: uppercase; letter-spacing: 1.5px; font-weight: 600; color: var(--text-secondary); }
+  .site-nav a { color: var(--text-secondary); text-decoration: none; transition: color 0.2s; }
+  .site-nav a:hover { color: var(--accent-gold); }
+  .case-hero { position: relative; padding: 60px 24px 48px; max-width: 900px; margin: 0 auto; overflow: hidden; }
+  .case-hero::before { display: none; }
+  .case-status-bar { display: flex; gap: 12px; align-items: center; margin-bottom: 20px; flex-wrap: wrap; }
+  .status-badge { display: inline-flex; align-items: center; gap: 6px; padding: 5px 14px; border-radius: 4px; font-size: 0.7rem; font-weight: 700; text-transform: uppercase; letter-spacing: 1.2px; }
+  .status-active { background: rgba(225, 16, 40, 0.15); color: var(--accent-red); border: 1px solid rgba(225, 16, 40, 0.3); }
+  .status-active::before { content: ''; width: 6px; height: 6px; background: var(--accent-red); border-radius: 50%; animation: pulse 2s infinite; }
+  .status-settled { background: rgba(74, 144, 217, 0.12); color: var(--accent-blue); border: 1px solid rgba(74, 144, 217, 0.25); }
+  .status-cat { background: rgba(44, 62, 80, 0.12); color: var(--accent); border: 1px solid rgba(44, 62, 80, 0.25); }
+  .status-cat2 { background: rgba(246, 195, 64, 0.12); color: var(--accent-gold); border: 1px solid rgba(246, 195, 64, 0.25); }
+  @keyframes pulse { 0%, 100% { opacity: 1; } 50% { opacity: 0.3; } }
+  .case-title { font-family: 'DM Serif Display', serif; font-size: 2.8rem; line-height: 1.15; margin-bottom: 12px; color: var(--text-primary); position: relative; }
+  .case-title em { font-style: italic; color: var(--accent-blue); }
+  .case-subtitle { font-size: 1.1rem; color: var(--text-secondary); font-weight: 400; margin-bottom: 24px; max-width: 650px; }
+  .case-meta-row { display: flex; gap: 28px; flex-wrap: wrap; font-size: 0.82rem; color: var(--text-muted); }
+  .meta-item { display: flex; align-items: center; gap: 6px; }
+  .meta-label { text-transform: uppercase; font-size: 0.65rem; letter-spacing: 1.2px; font-weight: 700; color: var(--text-muted); }
+  .meta-value { color: var(--text-secondary); }
+  .section-divider { max-width: 900px; margin: 0 auto; padding: 0 24px; }
+  .section-divider hr { border: none; height: 1px; background: linear-gradient(to right, transparent, var(--border), transparent); }
+  .case-body { max-width: 900px; margin: 0 auto; padding: 40px 24px 80px; display: grid; grid-template-columns: 1fr 280px; gap: 48px; }
+  @media (max-width: 768px) { .case-body { grid-template-columns: 1fr; gap: 32px; } .case-title { font-size: 2rem; } .case-hero::before { display: none; } }
+  .parties-block { background: var(--bg-card); border: 1px solid var(--border); border-radius: 8px; padding: 28px; margin-bottom: 32px; }
+  .parties-header { font-size: 0.7rem; text-transform: uppercase; letter-spacing: 2px; font-weight: 700; color: var(--accent-gold); margin-bottom: 20px; }
+  .party-vs { display: grid; grid-template-columns: 1fr auto 1fr; gap: 16px; align-items: center; }
+  .party-card { text-align: center; }
+  .party-role { font-size: 0.65rem; text-transform: uppercase; letter-spacing: 1.5px; color: var(--text-muted); font-weight: 700; margin-bottom: 6px; }
+  .party-name { font-family: 'DM Serif Display', serif; font-size: 1.25rem; color: var(--text-primary); margin-bottom: 4px; }
+  .party-desc { font-size: 0.78rem; color: var(--text-secondary); }
+  .vs-badge { font-family: 'DM Serif Display', serif; font-size: 1.1rem; color: var(--accent-blue); background: rgba(74, 144, 217, 0.1); width: 44px; height: 44px; border-radius: 50%; display: flex; align-items: center; justify-content: center; border: 1px solid rgba(74, 144, 217, 0.2); }
+  .narrative-section { margin-bottom: 32px; }
+  .section-label { font-size: 0.7rem; text-transform: uppercase; letter-spacing: 2px; font-weight: 700; color: var(--accent-gold); margin-bottom: 16px; display: flex; align-items: center; gap: 8px; }
+  .section-label::after { content: ''; flex: 1; height: 1px; background: var(--border); }
+  .narrative-text { font-size: 0.95rem; color: var(--text-secondary); line-height: 1.8; }
+  .narrative-text p { margin-bottom: 16px; }
+  .narrative-text strong { color: var(--text-primary); font-weight: 600; }
+  .claims-list { list-style: none; display: flex; flex-direction: column; gap: 12px; margin-bottom: 32px; }
+  .claim-item { padding: 16px 20px; background: var(--bg-card); border-left: 3px solid var(--accent-blue); border-radius: 0 6px 6px 0; font-size: 0.9rem; color: var(--text-secondary); line-height: 1.6; transition: border-color 0.2s, background 0.2s; }
+  .claim-item:hover { border-left-color: var(--accent-gold); background: var(--bg-elevated); }
+  .claim-number { font-family: 'JetBrains Mono', monospace; font-size: 0.7rem; color: var(--accent-blue); font-weight: 700; margin-right: 8px; }
+  .case-sidebar { display: flex; flex-direction: column; gap: 24px; }
+  .sidebar-card { background: var(--bg-card); border: 1px solid var(--border); border-radius: 8px; padding: 22px; }
+  .sidebar-card-header { font-size: 0.65rem; text-transform: uppercase; letter-spacing: 2px; font-weight: 700; color: var(--accent-gold); margin-bottom: 16px; padding-bottom: 10px; border-bottom: 1px solid var(--border); }
+  .docket-item { display: flex; gap: 12px; padding: 10px 0; border-bottom: 1px solid var(--border-light); align-items: flex-start; }
+  .docket-item:last-child { border-bottom: none; }
+  .docket-date { font-family: 'JetBrains Mono', monospace; font-size: 0.7rem; color: var(--text-muted); white-space: nowrap; min-width: 70px; }
+  .docket-desc { font-size: 0.82rem; color: var(--text-secondary); line-height: 1.5; }
+  .relief-item { padding: 8px 0; font-size: 0.82rem; color: var(--text-secondary); border-bottom: 1px solid var(--border-light); display: flex; align-items: baseline; gap: 8px; }
+  .relief-item:last-child { border-bottom: none; }
+  .relief-icon { color: var(--accent-gold); font-size: 0.7rem; }
+  .matters-box { background: linear-gradient(135deg, rgba(74, 144, 217, 0.08), rgba(246, 195, 64, 0.05)); border: 1px solid rgba(74, 144, 217, 0.2); border-radius: 8px; padding: 24px; margin-bottom: 32px; }
+  .matters-box p { font-size: 0.9rem; color: var(--text-secondary); line-height: 1.7; }
+  .info-note { margin-top: 12px; padding: 14px; background: rgba(74, 144, 217, 0.08); border: 1px solid rgba(74, 144, 217, 0.15); border-radius: 6px; font-size: 0.78rem; color: var(--accent-blue); line-height: 1.5; }
+  .case-footer { border-top: 1px solid var(--border); padding: 24px; text-align: center; font-size: 0.75rem; color: var(--text-muted); }
+  .case-footer a { color: var(--accent-gold); text-decoration: none; }
+  @keyframes fadeUp { from { opacity: 0; transform: translateY(20px); } to { opacity: 1; transform: translateY(0); } }
+  .case-hero, .parties-block, .narrative-section, .claims-list, .sidebar-card, .matters-box { animation: fadeUp 0.6s ease-out both; }
+  .parties-block { animation-delay: 0.1s; }
+  .narrative-section { animation-delay: 0.15s; }
+  .claims-list { animation-delay: 0.2s; }
+  .matters-box { animation-delay: 0.25s; }
+
+  .attorneys-block {
+    background: var(--bg-elevated);
+    border: 1px solid var(--border);
+    border-radius: 8px;
+    padding: 20px 24px;
+    margin-top: 16px;
+  }
+  .attorneys-header {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 0.65rem;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    color: var(--accent-blue);
+    margin-bottom: 12px;
+  }
+  .attorney-row {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 16px;
+  }
+  @media (max-width: 600px) { .attorney-row { grid-template-columns: 1fr; } }
+  .attorney-side {
+    padding: 12px;
+    background: var(--bg-card);
+    border-radius: 6px;
+    border: 1px solid var(--border-light);
+  }
+  .attorney-label {
+    font-size: 0.6rem;
+    text-transform: uppercase;
+    letter-spacing: 1.5px;
+    color: var(--text-muted);
+    margin-bottom: 6px;
+    font-weight: 600;
+  }
+  .attorney-name {
+    font-size: 0.85rem;
+    color: var(--text-primary);
+    line-height: 1.5;
+  }
+
+
+.hamburger{display:none;background:none;border:none;color:var(--text-primary);cursor:pointer;padding:8px;flex-direction:column;gap:5px}
+.hamburger span{display:block;width:24px;height:2px;background:var(--text-primary);transition:all .3s}
+@media(max-width:768px){
+  .site-nav{display:none;position:absolute;top:100%;left:0;right:0;background:var(--bg-primary);flex-direction:column;padding:20px 24px;gap:18px;border-bottom:1px solid var(--border);box-shadow:0 4px 20px rgba(0,0,0,.4);z-index:99}
+  .site-nav.open{display:flex}
+  .hamburger{display:flex}
+  .hamburger.open span:nth-child(1){transform:rotate(45deg) translate(5px,5px)}
+  .hamburger.open span:nth-child(2){opacity:0}
+  .hamburger.open span:nth-child(3){transform:rotate(-45deg) translate(7px,-7px)}
+}
+
+:root[data-theme="light"]{--bg:#f5f2ea;--bg-primary:#f5f2ea;--card:#ffffff;--bg-card:#ffffff;--elev:#fffcf5;--bg-elev:#fffcf5;--bg-elevated:#fffcf5;--red:#E11028;--accent-red:#E11028;--gold:#8b6f20;--accent-gold:#8b6f20;--accent:#E11028;--blue:#1e5091;--accent-blue:#1e5091;--cyan:#0891b2;--t1:#1a1a1f;--text-primary:#1a1a1f;--t2:#5a5a5f;--text-secondary:#5a5a5f;--t3:#8a8a8f;--text-muted:#8a8a8f;--bdr:#d4cfc0;--border:#d4cfc0;--bdr2:#e8e3d4;--border-light:#e8e3d4}
+body{transition:background .3s,color .3s}
+.theme-toggle{background:none;border:1px solid currentColor;cursor:pointer;padding:6px 10px;border-radius:4px;font-size:.85rem;font-family:'JetBrains Mono',monospace;opacity:.7;transition:opacity .2s;margin-left:12px}
+.theme-toggle:hover{opacity:1}
+
+</style>
+<script>
+function toggleTheme(){var c=document.documentElement.getAttribute('data-theme')||'dark';var n=c==='dark'?'light':'dark';document.documentElement.setAttribute('data-theme',n);localStorage.setItem('cdTheme',n);var ic=document.getElementById('theme-icon');if(ic)ic.textContent=n==='dark'?'\u{1F319}':'\u{2600}\u{FE0F}';}
+(function(){var s=localStorage.getItem('cdTheme')||'light';document.documentElement.setAttribute('data-theme',s);window.addEventListener('DOMContentLoaded',function(){var ic=document.getElementById('theme-icon');if(ic)ic.textContent=s==='dark'?'\u{1F319}':'\u{2600}\u{FE0F}';});})();
+</script>
+
+<meta property="og:type" content="article">
+<meta property="og:site_name" content="Celebrity Dockets">
+<meta property="og:title" content="Carter v. Buzbee - JAY-Z Sues Tony Buzbee | Celebrity Dockets">
+<meta property="og:description" content="Jay-Z (Shawn Corey Carter) sues attorney Tony Buzbee and associates in SDNY, alleging a coordinated campaign of attorney misconduct causing $150M+ in financial damages. Third Amended Complaint motion pending before Judge Dale E. Ho.">
+<meta property="og:image" content="https://celebritydockets.com/logo-transparent.png">
+<meta property="og:url" content="https://celebritydockets.com/carter-v-buzbee.html">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Carter v. Buzbee - JAY-Z Sues Tony Buzbee | Celebrity Dockets">
+<meta name="twitter:description" content="Jay-Z (Shawn Corey Carter) sues attorney Tony Buzbee and associates in SDNY, alleging a coordinated campaign of attorney misconduct causing $150M+ in financial damages. Third Amended Complaint motion pending before Judge Dale E. Ho.">
+<meta name="twitter:image" content="https://celebritydockets.com/logo-transparent.png">
+<meta name="description" content="Jay-Z (Shawn Corey Carter) sues attorney Tony Buzbee and associates in SDNY, alleging a coordinated campaign of attorney misconduct causing $150M+ in financial damages. Third Amended Complaint motion pending before Judge Dale E. Ho.">
+<!-- Microsoft Clarity --><script type="text/javascript">(function(c,l,a,r,i,t,y){c[a]=c[a]||function(){(c[a].q=c[a].q||[]).push(arguments)};t=l.createElement(r);t.async=1;t.src="https://www.clarity.ms/tag/"+i;y=l.getElementsByTagName(r)[0];y.parentNode.insertBefore(t,y);})(window, document, "clarity", "script", "wj08elhbdz");</script>
+</head>
+<body>
+  <header class="site-header">
+        <a href="index.html" class="site-logo" style="text-decoration:none;color:inherit;">Celebrity<span>Dockets</span></a>
+    <button class="hamburger" onclick="this.classList.toggle('open');document.querySelector('.site-nav').classList.toggle('open')"><span></span><span></span><span></span></button><nav class="site-nav">
+      <a href="index.html#cases">Cases</a>
+      <a href="latest.html">Latest</a>
+      <a href="objection-live.html">All Rise</a>
+      <a href="recess.html">RECESS</a>
+      <a href="featured-dockets.html" style="color:#F6C340;">Featured</a>
+      <a href="star-bar.html">Star Bar</a>
+      <a href="courtroom-culture.html">Courtroom Culture</a>
+      <a href="about.html">About</a>
+      <a href="https://www.buymeacoffee.com/celebritydockets" target="_blank" rel="noopener" style="color:#FFDD00;">Fuel</a>
+      <a href="tcs.html" style="color:#E11028;font-weight:700;">TCS</a><button class="theme-toggle" onclick="toggleTheme()"><span id="theme-icon"></span></button></nav>
+  </header>
+  <section class="case-hero">
+    <img src="carter-v-buzbee-notice-of-motion.jpg" alt="Court filing - Notice of Motion for Leave to File Third Amended Complaint in Carter v. Buzbee" style="width:100%;height:auto;border-radius:10px;margin-bottom:24px;display:block;border:1px solid var(--border);">
+
+    <!-- LATEST DEVELOPMENT -->
+    <div style="background:linear-gradient(90deg,rgba(74,144,217,.18),rgba(74,144,217,.04));border:1px solid rgba(74,144,217,.45);border-left:5px solid var(--accent-blue);border-radius:10px;padding:18px 22px;margin-bottom:20px;">
+      <div style="font-family:'JetBrains Mono',monospace;font-size:.7rem;letter-spacing:2px;color:var(--accent-blue);font-weight:700;text-transform:uppercase;margin-bottom:8px;">Latest &middot; Third Amended Complaint Motion Filed &middot; May 22, 2026</div>
+      <p style="font-size:.95rem;color:var(--text-secondary);line-height:1.6;margin:0 0 10px;"><strong style="color:var(--accent-blue);">Jay-Z's legal team filed Doc 123</strong> &mdash; a motion for leave to file a Third Amended Complaint. The proposed amendments restructure claims around New York law, add a <strong style="color:var(--text-primary);">Judiciary Law &sect;487 claim</strong> (attorney deceit/misconduct involving the judicial process), and continue to allege a coordinated effort causing reputational and financial harm.</p>
+      <p style="font-size:.95rem;color:var(--text-secondary);line-height:1.6;margin:0;"><strong style="color:var(--text-primary);">What happens next:</strong> Buzbee's side gets to respond/oppose the motion for leave to amend. Then <strong style="color:var(--accent-blue);">Judge Dale E. Ho</strong> decides whether the Third Amended Complaint can proceed. This is a procedural step &mdash; the merits haven't been decided.</p>
+    </div>
+
+    <div class="case-status-bar">
+      <span class="status-badge status-active">Active</span>
+      <span class="status-badge status-settled">Civil</span>
+      <span class="status-badge status-settled">SDNY</span>
+      <span class="status-badge status-cat2">Defamation</span>
+    </div>
+    <h1 class="case-title"><em>Carter</em> v. Buzbee</h1>
+    <p class="case-subtitle">Shawn Corey Carter p/k/a JAY-Z sues attorney Tony Buzbee, associates, and co-defendants in the Southern District of New York, alleging a coordinated campaign of attorney misconduct that caused $150M+ in financial damages and severe reputational harm.</p>
+    <div class="case-meta-row">
+      <div class="meta-item"><span class="meta-label">Case No.</span><span class="meta-value">1:26-cv-02775-DEH</span></div>
+      <div class="meta-item"><span class="meta-label">Court</span><span class="meta-value">S.D.N.Y.</span></div>
+      <div class="meta-item"><span class="meta-label">Judge</span><span class="meta-value">Dale E. Ho</span></div>
+      <div class="meta-item"><span class="meta-label">Status</span><span class="meta-value" style="color:var(--accent-blue);font-weight:700;">Motion to Amend Pending</span></div>
+    </div>
+  </section>
+  <div class="section-divider"><hr></div>
+
+  <main class="case-body">
+    <div class="case-main">
+      <div class="parties-block">
+        <div class="parties-header">Parties</div>
+        <div class="party-vs">
+          <div class="party-card">
+            <div class="party-role">Plaintiff</div>
+            <div class="party-name">Shawn Corey Carter</div>
+            <div class="party-desc">p/k/a JAY-Z &middot; Entrepreneur, artist, mogul</div>
+          </div>
+          <div class="vs-badge">v.</div>
+          <div class="party-card">
+            <div class="party-role">Defendants</div>
+            <div class="party-name">Anthony Buzbee et al.</div>
+            <div class="party-desc">Anthony Buzbee, David Fortney, Anthony G. Buzbee LP (d/b/a The Buzbee Law Firm), Antigone Curis, Curis Law PLLC, Jane Doe</div>
+          </div>
+        </div>
+        <div class="attorneys-block">
+          <div class="attorneys-header">Attorneys of Record</div>
+          <div class="attorney-row">
+            <div class="attorney-side">
+              <div class="attorney-label">For Plaintiff (Carter)</div>
+              <div class="attorney-name">Jordan W. Siev</div>
+            </div>
+            <div class="attorney-side">
+              <div class="attorney-label">For Defendants</div>
+              <div class="attorney-name" style="color:var(--text-muted);font-style:italic;">Not yet confirmed in public filings</div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="narrative-section">
+        <div class="section-label">Background</div>
+        <div class="narrative-text">
+          <p>This case arises from Jay-Z's affirmative lawsuit against Houston-based attorney <strong>Tony Buzbee</strong> and several co-defendants, filed in the <strong>Southern District of New York</strong> before <strong>Judge Dale E. Ho</strong>. Carter alleges that Buzbee, his law firm, and associates engaged in a coordinated campaign that caused severe reputational and financial harm.</p>
+          <p>The complaint has been amended multiple times. The latest motion (Doc 123, filed May 22, 2026) seeks leave to file a <strong>Third Amended Complaint</strong>, which restructures the claims around New York law and introduces a new cause of action under <strong>Judiciary Law &sect;487</strong> &mdash; a statute targeting attorney deceit and misconduct involving the judicial process.</p>
+          <p>Carter's legal team alleges that the coordinated effort resulted in <strong>$150M+ in lost financing and contracts</strong>, plus additional lost business opportunities. The full scope of claimed damages continues to develop as the case progresses.</p>
+        </div>
+      </div>
+
+      <div class="narrative-section">
+        <div class="section-label">Third Amended Complaint &mdash; Key Changes (Doc 123)</div>
+        <div class="narrative-text">
+          <p>The motion for leave to amend, filed <strong>May 22, 2026</strong>, proposes several significant changes to the complaint:</p>
+          <ul style="list-style:none;padding:0;margin:0 0 16px;">
+            <li style="padding:8px 0;border-left:3px solid var(--accent-blue);padding-left:14px;margin-bottom:6px;"><strong>Removing certain claims</strong> and restructuring the remaining allegations around New York law</li>
+            <li style="padding:8px 0;border-left:3px solid var(--accent-blue);padding-left:14px;margin-bottom:6px;"><strong>Adding Judiciary Law &sect;487</strong> &mdash; a New York statute that specifically addresses attorney deceit and misconduct involving the judicial process</li>
+            <li style="padding:8px 0;border-left:3px solid var(--accent-blue);padding-left:14px;margin-bottom:6px;"><strong>Continuing to allege</strong> a coordinated effort by defendants causing reputational and financial harm</li>
+            <li style="padding:8px 0;border-left:3px solid var(--accent-blue);padding-left:14px;"><strong>Financial damages</strong> &mdash; $150M+ in financing and contracts allegedly evaporated, plus additional lost business opportunities</li>
+          </ul>
+          <div class="info-note">This is a motion for <em>leave to amend</em> &mdash; not the final complaint. Buzbee's side will have the opportunity to respond and oppose. Judge Ho will then decide whether to grant leave. The merits of the underlying claims have not been adjudicated.</div>
+        </div>
+      </div>
+
+      <div class="narrative-section">
+        <div class="section-label">Claims (Proposed Third Amended Complaint)</div>
+        <ul class="claims-list">
+          <li class="claim-item"><span class="claim-number">01</span><strong>Judiciary Law &sect;487 &mdash; Attorney Deceit/Misconduct.</strong> Carter alleges that the defendant attorneys engaged in deceit and misconduct involving the judicial process, a claim specifically available under New York law targeting attorney conduct.</li>
+          <li class="claim-item"><span class="claim-number">02</span><strong>Coordinated Campaign &mdash; Reputational Harm.</strong> The complaint alleges defendants engaged in a coordinated effort that caused severe damage to Carter's personal and professional reputation.</li>
+          <li class="claim-item"><span class="claim-number">03</span><strong>Financial Damages &mdash; $150M+ in Losses.</strong> Carter claims that the alleged conduct caused more than $150 million in financing and contracts to evaporate, along with additional lost business opportunities still being quantified.</li>
+        </ul>
+      </div>
+
+      <div class="matters-box">
+        <div class="section-label">Why It Matters</div>
+        <p>This case sits at the intersection of celebrity reputation, high-stakes litigation strategy, and the boundaries of attorney conduct. The <strong>Judiciary Law &sect;487 claim</strong> is notable &mdash; it is a rarely invoked New York statute that allows individuals to sue attorneys for intentional deceit in legal proceedings. If the Third Amended Complaint is permitted and the case proceeds on this theory, it could set a meaningful precedent for how public figures can challenge what they characterize as bad-faith legal campaigns.</p>
+        <p style="margin-top:12px;">The <strong>$150M+ in alleged financial losses</strong> makes this one of the higher-dollar defamation-adjacent cases currently active in federal court. The outcome will be closely watched by entertainment lawyers, reputation-management firms, and anyone following the evolving standards around attorney accountability.</p>
+      </div>
+
+      <div class="narrative-section">
+        <div class="section-label">What We Don't Know Yet</div>
+        <div class="narrative-text">
+          <p>This case is still developing. Several key questions remain open:</p>
+          <ul style="list-style:none;padding:0;margin:0;">
+            <li style="padding:8px 0;border-left:3px solid var(--accent-gold);padding-left:14px;margin-bottom:6px;"><strong>Defendants' response</strong> &mdash; Buzbee's legal team has not yet filed their opposition to the motion for leave to amend. Their arguments could significantly shape the next stage.</li>
+            <li style="padding:8px 0;border-left:3px solid var(--accent-gold);padding-left:14px;margin-bottom:6px;"><strong>Defense counsel</strong> &mdash; Specific attorneys representing the defendants have not been confirmed in the public filings we have reviewed.</li>
+            <li style="padding:8px 0;border-left:3px solid var(--accent-gold);padding-left:14px;margin-bottom:6px;"><strong>Judge Ho's ruling</strong> &mdash; Whether the Third Amended Complaint will be allowed to proceed is entirely at the judge's discretion.</li>
+            <li style="padding:8px 0;border-left:3px solid var(--accent-gold);padding-left:14px;"><strong>Jane Doe</strong> &mdash; One defendant is listed as Jane Doe. Her identity and role in the alleged conduct have not been publicly disclosed.</li>
+          </ul>
+        </div>
+      </div>
+
+      <!-- Tweet embed -->
+      <div class="narrative-section">
+        <div class="section-label">Coverage</div>
+        <div style="margin-bottom:16px;">
+          <blockquote class="twitter-tweet"><a href="https://twitter.com/ComeWithFacts/status/2059353138105053514"></a></blockquote>
+        </div>
+      </div>
+
+    </div>
+    <aside class="case-sidebar">
+      <div class="sidebar-card">
+        <div class="sidebar-card-header">Case Info</div>
+        <div style="padding:16px 20px;background:rgba(74,144,217,.06);border:1px solid rgba(74,144,217,.15);border-radius:8px;text-align:center;">
+          <div style="font-family:'JetBrains Mono',monospace;font-size:.75rem;color:var(--accent-blue);font-weight:700;margin-bottom:8px;">Carter v. Buzbee et al.</div>
+          <div style="font-size:.65rem;color:var(--text-muted);line-height:1.6;">Case No. 1:26-cv-02775-DEH<br>U.S. District Court, S.D.N.Y.<br>Judge Dale E. Ho</div>
+        </div>
+      </div>
+      <div class="sidebar-card">
+        <div class="sidebar-card-header">Timeline</div>
+        <div class="docket-item"><span class="docket-date">2026</span><span class="docket-desc">Original complaint filed in SDNY</span></div>
+        <div class="docket-item"><span class="docket-date">2026</span><span class="docket-desc">First and Second Amended Complaints filed (exact dates from docket)</span></div>
+        <div class="docket-item"><span class="docket-date">05/22/26</span><span class="docket-desc"><strong style="color:var(--accent-blue);">Doc 123 filed</strong> &mdash; Motion for leave to file Third Amended Complaint (declaration by Jordan W. Siev)</span></div>
+        <div class="docket-item"><span class="docket-date">Pending</span><span class="docket-desc">Buzbee's side to respond/oppose motion for leave to amend</span></div>
+        <div class="docket-item"><span class="docket-date">Pending</span><span class="docket-desc">Judge Ho to rule on motion for leave</span></div>
+      </div>
+      <div class="sidebar-card">
+        <div class="sidebar-card-header">Status Badges</div>
+        <div style="display:flex;flex-wrap:wrap;gap:8px;">
+          <span class="status-badge status-active" style="font-size:.6rem;">Active</span>
+          <span class="status-badge status-settled" style="font-size:.6rem;">Civil</span>
+          <span class="status-badge status-settled" style="font-size:.6rem;">SDNY</span>
+          <span class="status-badge status-cat2" style="font-size:.6rem;">Defamation</span>
+          <span class="status-badge" style="font-size:.6rem;background:rgba(74,144,217,.12);color:var(--accent-blue);border:1px solid rgba(74,144,217,.25);">&sect;487</span>
+        </div>
+      </div>
+      <div class="sidebar-card">
+        <div class="sidebar-card-header">Relief Sought</div>
+        <div class="relief-item"><span class="relief-icon">&#9670;</span>Damages for $150M+ in lost financing, contracts, and business opportunities</div>
+        <div class="relief-item"><span class="relief-icon">&#9670;</span>Relief under Judiciary Law &sect;487 for alleged attorney deceit/misconduct</div>
+        <div class="relief-item"><span class="relief-icon">&#9670;</span>Additional damages for reputational harm (amount developing)</div>
+      </div>
+      <div class="sidebar-card">
+        <div class="sidebar-card-header">Defendants</div>
+        <div style="font-size:.78rem;color:var(--text-secondary);line-height:1.8;">
+          <strong style="color:var(--text-primary);">Anthony Buzbee</strong> &mdash; Attorney<br>
+          <strong style="color:var(--text-primary);">David Fortney</strong> &mdash; Co-defendant<br>
+          <strong style="color:var(--text-primary);">Anthony G. Buzbee LP</strong> &mdash; d/b/a The Buzbee Law Firm<br>
+          <strong style="color:var(--text-primary);">Antigone Curis</strong> &mdash; Co-defendant<br>
+          <strong style="color:var(--text-primary);">Curis Law PLLC</strong> &mdash; Law firm<br>
+          <strong style="color:var(--text-primary);">Jane Doe</strong> &mdash; Identity undisclosed
+        </div>
+      </div>
+      <div class="sidebar-card">
+        <div class="sidebar-card-header">Research Note</div>
+        <div style="font-size:.78rem;color:var(--text-secondary);line-height:1.7;">
+          <p>This page is a <strong style="color:var(--text-primary);">research resource</strong>, not advocacy for either side. Information is drawn from publicly available court filings. Case details are evolving &mdash; entries marked "pending" will be updated as new filings become available.</p>
+          <p style="margin-top:8px;color:var(--text-muted);font-size:.72rem;">Last updated: May 27, 2026</p>
+        </div>
+      </div>
+    </aside>
+  </main>
+  <footer class="case-footer">
+    <a href="index.html">celebritydockets.com</a> &middot; Tracking celebrity court cases, one docket at a time.<br>
+    Coverage by <a href="objection-live.html" style="color:var(--accent-gold);text-decoration:none;"><strong>Celebrity Dockets</strong></a> &middot; <a href="recess.html" style="color: var(--accent-gold); text-decoration: none;"><em>RECESS</em></a>
+  <div style="text-align:center;margin-top:16px;font-size:.6rem;color:#5a5a6a;line-height:1.5;"><a href="legal.html" style="color:#5a5a6a;">Terms &amp; Privacy</a> &middot; <a href="legal.html#dmca" style="color:#5a5a6a;">DMCA</a><br>Celebrity Dockets is an independent media site. Nothing here is legal advice.</div>
+    <div style="display:flex;gap:10px;justify-content:center;flex-wrap:wrap;margin:14px auto 4px;font-family:'JetBrains Mono',monospace;font-size:.65rem;text-transform:uppercase;letter-spacing:1.2px;font-weight:700;">
+      <a href="https://x.com/CelebDockets" target="_blank" rel="noopener" style="color:var(--text-primary);background:var(--bg-card);border:1px solid var(--border);padding:6px 12px;border-radius:5px;text-decoration:none;">@CelebDockets</a>
+      <a href="https://www.tiktok.com/@celebritydockets" target="_blank" rel="noopener" style="color:var(--text-primary);background:var(--bg-card);border:1px solid var(--border);padding:6px 12px;border-radius:5px;text-decoration:none;">TikTok</a>
+      <a href="https://www.youtube.com/@celebritydockets" target="_blank" rel="noopener" style="color:var(--text-primary);background:var(--bg-card);border:1px solid var(--border);padding:6px 12px;border-radius:5px;text-decoration:none;">YouTube</a>
+      <a href="https://www.instagram.com/celebritydockets" target="_blank" rel="noopener" style="color:var(--text-primary);background:var(--bg-card);border:1px solid var(--border);padding:6px 12px;border-radius:5px;text-decoration:none;">Instagram</a>
+    </div></footer>
+<script data-name="BMC-Widget" data-cfasync="false" src="https://cdnjs.buymeacoffee.com/1.0.0/widget.prod.min.js" data-id="celebritydockets" data-description="Support CJ on Buy Me a Coffee" data-message="Help keep the docket running. Buy CJ a coffee." data-color="#FFDD00" data-position="Right" data-x_margin="18" data-y_margin="18"></script>
+<script src="ticker.js" defer></script>
+<script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>
+</body>
+</html>
