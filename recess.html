@@ -79,8 +79,8 @@ body{background:var(--bg);color:var(--t1);font-family:'IBM Plex Sans',sans-serif
 .rstrip::-webkit-scrollbar-track{background:rgba(0,0,0,.10);border-radius:4px}
 .rstrip::-webkit-scrollbar-thumb{background:var(--gold);border-radius:4px;opacity:.6}
 .rstrip::-webkit-scrollbar-thumb:hover{background:var(--red)}
-.rcard{flex:0 0 340px;min-height:320px;scroll-snap-align:start;background:var(--card);border:1px solid var(--bdr);border-left:4px solid var(--gold);border-radius:10px;padding:16px 18px;text-decoration:none;color:inherit;display:flex;flex-direction:column;gap:8px;transition:transform .15s;overflow:hidden;position:relative}
-.rcard:hover{transform:translateY(-2px)}
+.rcard{flex:0 0 340px;height:320px;scroll-snap-align:start;background:var(--card);border:1px solid var(--bdr);border-left:4px solid var(--gold);border-radius:10px;padding:16px 18px;text-decoration:none;color:inherit;display:flex;flex-direction:column;gap:8px;transition:transform .15s,border-color .15s;overflow:hidden;position:relative}
+.rcard:hover{transform:translateY(-2px);border-color:var(--gold)}
 .rcard.rblue{border-left-color:#3b82f6}
 .rcard.rpink{border-left-color:var(--pink)}
 .rcard.rgold{border-left-color:var(--gold)}
