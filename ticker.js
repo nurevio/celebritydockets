@@ -38,7 +38,7 @@
     {href:'mondream-entertainment-lawsuits.html',badge:'new',badgeText:'New',text:'Moon Dream v. Saweetie & Derulo — concert promoter sues two artists'},
     {href:'hartbeat-v-eddings-gwam.html',badge:'new',badgeText:'New',text:'Hartbeat v. Eddings & Gwam — Kevin Hart trade-secret suit'},
     {href:'lizzo-employees-lawsuit.html',badge:'trial',badgeText:'Trial 2026',text:'Davis v. Lizzo — 9-count FEHA complaint \xb7 Lizzo refuses to settle'},
-    {href:'wade-v-swift-showgirl.html',badge:'trial',badgeText:'TODAY',text:'Flagg v. Swift — Showgirl trademark injunction hearing \xb7 LA federal court'},
+    {href:'wade-v-swift-showgirl.html',badge:'trial',badgeText:'TODAY',text:'Flagg v. Swift — PI hearing today \xb7 33-page MTD filed \xb7 Aug 5 MTD hearing'},
     {href:'latest.html',badge:'',badgeText:'',text:'See all latest updates →',gold:true}
   ];
 
