@@ -155,40 +155,46 @@ function toggleTheme(){var c=document.documentElement.getAttribute('data-theme')
 <span class="hero-icon">⚖️</span>
 <h1>All <span>Rise</span></h1>
 <p class="hero-sub">Celebrity court cases. Broken down live. Every filing, every ruling, every twist - as it happens.</p>
-<div class="live-badge" style="background:rgba(246,195,64,.12);color:var(--gold);border-color:rgba(246,195,64,.3);">★ Moving to Primetime · Monday May 25 · 9 PM EST</div>
+<div class="live-badge" style="background:rgba(246,195,64,.12);color:var(--gold);border-color:rgba(246,195,64,.3);">★ Primetime &middot; Mondays 9 PM EST &middot; YouTube</div>
 <div class="hero-schedule">@celebritydockets on YouTube</div>
 </section>
 
 <!-- Next live · Primetime debut May 25 -->
 <div class="next-live">
 <div class="nl-card" style="border-color:rgba(246,195,64,.4);background:linear-gradient(180deg,rgba(246,195,64,.06),var(--card) 60%);">
-<div class="nl-label" style="color:var(--gold);">★ Next Live · Primetime Debut</div>
-<div class="nl-title">Monday, May 25 · 9 PM EST</div>
-<div style="display:inline-block;font-family:'JetBrains Mono',monospace;font-size:.62rem;font-weight:700;text-transform:uppercase;letter-spacing:2px;color:var(--red);background:rgba(225,16,40,.12);padding:4px 12px;border-radius:4px;border:1px solid rgba(225,16,40,.3);margin-top:8px;">★ Moving to Primetime</div>
+<div class="nl-label" style="color:var(--gold);">★ Next Live &middot; Episode 5</div>
+<div class="nl-title">Monday, June 1 &middot; 9 PM EST</div>
 <div class="nl-countdown" id="countdown">--d --h --m</div>
-<div style="font-family:'JetBrains Mono',monospace;font-size:.6rem;color:var(--t3);text-transform:uppercase;letter-spacing:1.5px;margin-top:6px;">until primetime debut</div>
+<div style="font-family:'JetBrains Mono',monospace;font-size:.6rem;color:var(--t3);text-transform:uppercase;letter-spacing:1.5px;margin-top:6px;">until next episode</div>
 </div>
 <div class="nl-card">
-<div class="nl-label">★ What's New</div>
+<div class="nl-label">★ What&rsquo;s on the Docket</div>
 <ul class="nl-bullets">
-<li><strong>Celebrity Dockets is moving to primetime.</strong> No more Monday mornings — Monday nights, 9 PM EST, live on YouTube.</li>
-<li><strong>No show this week (May 11 wrap, no May 18 episode).</strong> We're saving everything for the primetime debut.</li>
-<li><em>Lively</em> v. Wayfarer · <strong>§ 47.1 watch</strong> still rolling · what new antics &amp; PR stunts get pulled while we wait for Liman</li>
-<li><em>People</em> v. d4vd · pre-preliminary conference update</li>
-<li>Plus the full <strong>Docket Rundown</strong> · everything moving across the calendar.</li>
+<li><em>Wade v. Swift</em> &middot; <strong>33-page MTD bombshell</strong> dropped &middot; Flagg fires back same day with noncompliance notice</li>
+<li><em>Mayweather</em> $175M fraud + Showtime cross-complaint breakdown</li>
+<li><em>Swift</em> PI hearing May 27 &middot; MTD hearing Aug 5</li>
+<li>Plus the full <strong>Docket Rundown</strong> &middot; everything moving across the calendar.</li>
 </ul>
 </div>
 </div>
 
-<!-- Past episodes (Ep 3 promoted into list now that May 11 is past) -->
-<!-- NOTE: Episode 4 Show Notes card is intentionally NOT here until May 25
-     The show notes are NOT live until day-of-show.
-     When May 25 arrives, paste back the Ep 4 Show Notes card from prior
-     commits or git history. The episodes/2026-05-25/ directory is ready. -->
+<!-- Past episodes -->
 <div style="max-width:1100px;margin:0 auto 40px;padding:0 24px;">
 <div style="display:flex;align-items:center;gap:16px;margin-bottom:20px;">
   <h2 style="font-family:'DM Serif Display',serif;font-size:1.4rem;color:var(--t1);white-space:nowrap;">★ Past Episodes</h2>
   <div style="flex:1;height:1px;background:var(--bdr);"></div>
+</div>
+
+<div class="ep-past" onclick="if(!event.target.closest('a'))window.open('episodes/2026-05-25/','_blank')" style="cursor:pointer">
+  <div class="ep-thumb" style="border-radius:6px;overflow:hidden;border:1px solid var(--bdr);display:flex;align-items:center;justify-content:center;background:linear-gradient(135deg,rgba(246,195,64,.12),rgba(225,16,40,.08));min-height:120px;">
+    <div style="font-family:'DM Serif Display',serif;font-size:1.6rem;color:var(--gold);text-align:center;padding:20px;">★ Ep 004</div>
+  </div>
+  <div>
+    <div style="font-family:'JetBrains Mono',monospace;font-size:.6rem;color:var(--t3);letter-spacing:2px;text-transform:uppercase;font-weight:700;margin-bottom:6px;">★ Episode 004 &middot; May 25, 2026 &middot; Primetime Debut</div>
+    <h3 style="font-family:'DM Serif Display',serif;font-size:1.15rem;line-height:1.25;color:var(--t1);margin-bottom:8px;">d4vd Prelim &middot; Lively <em style="color:var(--gold);">&sect; 47.1</em> Watch &middot; Pratt v. City of LA &middot; Full Docket Rundown</h3>
+    <p style="font-size:.82rem;color:var(--t2);line-height:1.55;">The primetime debut. d4vd prelim continued &middot; Lively v. Wayfarer &sect; 47.1 watch &middot; Pratt suing the city and running for mayor &middot; full rundown.</p>
+    <div style="margin-top:8px;"><a href="https://www.youtube.com/live/ZEsGSADWsr0" target="_blank" rel="noopener" style="font-family:'JetBrains Mono',monospace;font-size:.65rem;color:var(--red);text-decoration:none;font-weight:700;letter-spacing:1.2px;text-transform:uppercase;">&#9654; Watch on YouTube</a></div>
+  </div>
 </div>
 
 <div class="ep-past" onclick="if(!event.target.closest('a'))window.open('episodes/2026-05-11/','_blank')" style="cursor:pointer">
@@ -276,14 +282,14 @@ function toggleTheme(){var c=document.documentElement.getAttribute('data-theme')
 </div><div class="ftk"><a href="index.html#cases">Cases</a><a href="latest.html">📅 Latest</a><a href="objection-live.html">All Rise</a><a href="recess.html">RECESS</a><a href="star-bar.html">Star Bar</a><a href="courtroom-culture.html">Courtroom Culture</a><a href="about.html">About</a></div></footer>
 
 <script>
-// Primetime debut countdown - Monday May 25, 2026 · 9 PM Eastern
+// Episode 5 countdown - Monday June 1, 2026 · 9 PM Eastern
 function updateCountdown(){
   var el = document.getElementById('countdown');
   if (!el) return;
   var now = new Date();
   var nowEastern = new Date(now.toLocaleString('en-US', {timeZone: 'America/New_York'}));
-  // Target: May 25, 2026 at 9 PM ET (EDT = UTC-4 in May)
-  var target = new Date('2026-05-26T01:00:00Z'); // 9 PM EDT May 25 = 01:00 UTC May 26
+  // Target: June 1, 2026 at 9 PM ET (EDT = UTC-4 in June)
+  var target = new Date('2026-06-02T01:00:00Z'); // 9 PM EDT June 1 = 01:00 UTC June 2
   var diffMs = target - new Date();
   if (diffMs < 0) { el.textContent = 'Live Now!'; return; }
   var days = Math.floor(diffMs / 86400000);
