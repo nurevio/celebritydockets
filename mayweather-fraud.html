@@ -150,6 +150,10 @@ body{transition:background .3s,color .3s}
 .complaint-btn:hover { background:#c00d22; transform:translateY(-1px); box-shadow:0 6px 24px rgba(225,16,40,0.4); }
 .complaint-btn svg { width:18px; height:18px; fill:currentColor; }
 
+.diversion-item { padding:14px 18px; background:var(--bg-card); border:1px solid var(--border-light); border-radius:6px; margin-bottom:10px; }
+.diversion-date { font-family:'JetBrains Mono',monospace; font-size:.68rem; color:var(--accent-red); font-weight:700; margin-bottom:4px; }
+.diversion-amount { font-family:'JetBrains Mono',monospace; font-size:.9rem; color:var(--text-primary); font-weight:700; }
+.diversion-desc { font-size:.82rem; color:var(--text-secondary); line-height:1.6; margin-top:4px; }
 </style>
 <script>
 function toggleTheme(){var c=document.documentElement.getAttribute('data-theme')||'dark';var n=c==='dark'?'light':'dark';document.documentElement.setAttribute('data-theme',n);localStorage.setItem('cdTheme',n);var ic=document.getElementById('theme-icon');if(ic)ic.textContent=n==='dark'?'\u{1F319}':'\u{2600}\u{FE0F}';}
@@ -159,14 +163,14 @@ function toggleTheme(){var c=document.documentElement.getAttribute('data-theme')
 <meta property="og:type" content="article">
 <meta property="og:site_name" content="Celebrity Dockets">
 <meta property="og:title" content="Mayweather v. Rechnitz — $175M Fraud | Celebrity Dockets">
-<meta property="og:description" content="Floyd Mayweather Jr. files a $175 million fraud lawsuit against Jona Rechnitz. Index No. 156603/2026, New York Supreme Court. Full complaint PDF available.">
+<meta property="og:description" content="Floyd Mayweather Jr. files $175M verified fraud complaint against Jona Rechnitz, Ayal Frist, Frist Apex Ventures, and Alexander Seligson. Index No. 156603/2026, NY Supreme Court. 7 causes of action. Full complaint PDF.">
 <meta property="og:image" content="https://celebritydockets.com/mayweather-fraud-hero.png">
 <meta property="og:url" content="https://celebritydockets.com/mayweather-fraud.html">
 <meta name="twitter:card" content="summary_large_image">
 <meta name="twitter:title" content="Mayweather v. Rechnitz — $175M Fraud | Celebrity Dockets">
-<meta name="twitter:description" content="Floyd Mayweather Jr. files a $175 million fraud lawsuit against Jona Rechnitz. Index No. 156603/2026, New York Supreme Court. Full complaint PDF available.">
+<meta name="twitter:description" content="Floyd Mayweather Jr. files $175M verified fraud complaint against Jona Rechnitz, Ayal Frist, Frist Apex Ventures, and Alexander Seligson. 7 causes of action. Full complaint PDF.">
 <meta name="twitter:image" content="https://celebritydockets.com/mayweather-fraud-hero.png">
-<meta name="description" content="Floyd Mayweather Jr. files a $175 million fraud lawsuit against Jona Rechnitz. Index No. 156603/2026, New York Supreme Court. Full complaint PDF available.">
+<meta name="description" content="Floyd Mayweather Jr. files $175M verified fraud complaint against Jona Rechnitz, Ayal Frist, Frist Apex Ventures, and Alexander Seligson. Index No. 156603/2026, NY Supreme Court, New York County. 7 causes of action across 25 pages.">
 <!-- Microsoft Clarity --><script type="text/javascript">(function(c,l,a,r,i,t,y){c[a]=c[a]||function(){(c[a].q=c[a].q||[]).push(arguments)};t=l.createElement(r);t.async=1;t.src="https://www.clarity.ms/tag/"+i;y=l.getElementsByTagName(r)[0];y.parentNode.insertBefore(t,y);})(window, document, "clarity", "script", "wj08elhbdz");</script>
 </head>
 <body>
@@ -191,14 +195,15 @@ function toggleTheme(){var c=document.documentElement.getAttribute('data-theme')
       <span class="status-badge status-active">Active</span>
       <span class="status-badge status-settled">Civil</span>
       <span class="status-badge" style="font-size:.7rem;font-weight:700;text-transform:uppercase;letter-spacing:1.2px;background:rgba(225,16,40,.12);color:var(--accent-red);border:1px solid rgba(225,16,40,.25);">Fraud</span>
-      <span class="status-badge status-cat2">$175M</span>
+      <span class="status-badge status-cat2">$175M+</span>
+      <span class="status-badge" style="font-size:.7rem;font-weight:700;text-transform:uppercase;letter-spacing:1.2px;background:rgba(74,144,217,.12);color:var(--accent-blue);border:1px solid rgba(74,144,217,.25);">Verified Complaint</span>
     </div>
     <h1 class="case-title"><em>Mayweather</em> v. Rechnitz</h1>
-    <p class="case-subtitle">Floyd Mayweather Jr. has filed a $175 million civil fraud lawsuit against Jona Rechnitz and others in New York Supreme Court. The complaint is publicly available and details the fraud allegations.</p>
+    <p class="case-subtitle">Floyd Mayweather Jr. has filed a verified complaint alleging a multi-year fraud scheme in which his former investment advisor, Jona Rechnitz, and associates allegedly diverted $175 million in cash, real estate equity, an aircraft, jewelry, and income streams.</p>
     <div class="case-meta-row">
       <div class="meta-item"><span class="meta-label">Index No.</span><span class="meta-value" style="font-family:'JetBrains Mono',monospace;">156603/2026</span></div>
-      <div class="meta-item"><span class="meta-label">Court</span><span class="meta-value">New York Supreme Court</span></div>
-      <div class="meta-item"><span class="meta-label">Judge</span><span class="meta-value" style="color:var(--text-muted);font-style:italic;">Not yet assigned</span></div>
+      <div class="meta-item"><span class="meta-label">Court</span><span class="meta-value">NY Supreme Court, New York County</span></div>
+      <div class="meta-item"><span class="meta-label">Filed</span><span class="meta-value">May 21, 2026</span></div>
       <div class="meta-item"><span class="meta-label">Status</span><span class="meta-value" style="color:var(--accent-red);font-weight:700;">Newly Filed</span></div>
     </div>
   </section>
@@ -206,79 +211,118 @@ function toggleTheme(){var c=document.documentElement.getAttribute('data-theme')
 
   <main class="case-body">
     <div class="case-main">
+
+      <!-- PARTIES -->
       <div class="parties-block">
         <div class="parties-header">Parties</div>
         <div class="party-vs">
           <div class="party-card">
-            <div class="party-role">Plaintiff</div>
+            <div class="party-role">Plaintiffs</div>
             <div class="party-name">Floyd Mayweather Jr.</div>
-            <div class="party-desc">Professional boxer, promoter &middot; et al.</div>
+            <div class="party-desc">Individually and on behalf of 7 entities:<br>Mayweather Promotions, LLC &middot; TBE Aviation, LLC &middot; Fojoso, LLC &middot; 9504 Kings Gate Ct. LLC &middot; Vada Properties I, II &amp; III NYC, LLC</div>
           </div>
           <div class="vs-badge">v.</div>
           <div class="party-card">
-            <div class="party-role">Defendant</div>
+            <div class="party-role">Defendants</div>
             <div class="party-name">Jona Rechnitz</div>
-            <div class="party-desc">et al.</div>
+            <div class="party-desc">Ayal Frist (a/k/a Ayel Frist) &middot; Frist Apex Ventures, LLC &middot; Alexander Seligson &middot; John Does 1&ndash;10</div>
           </div>
         </div>
         <div class="attorneys-block">
           <div class="attorneys-header">Attorneys of Record</div>
           <div class="attorney-row">
             <div class="attorney-side">
-              <div class="attorney-label">For Plaintiff (Mayweather)</div>
-              <div class="attorney-name" style="color:var(--text-muted);font-style:italic;">Not yet confirmed</div>
+              <div class="attorney-label">For Plaintiffs (Mayweather)</div>
+              <div class="attorney-name"><strong>Jacobs P.C.</strong><br>Leo Jacobs, Adam B. Sherman, Wayne M. Greenwald<br><span style="font-size:.75rem;color:var(--text-muted);">717 Fifth Avenue, 17th Floor, NY 10022</span></div>
             </div>
             <div class="attorney-side">
-              <div class="attorney-label">For Defendant (Rechnitz)</div>
-              <div class="attorney-name" style="color:var(--text-muted);font-style:italic;">Not yet confirmed</div>
+              <div class="attorney-label">For Defendants</div>
+              <div class="attorney-name" style="color:var(--text-muted);font-style:italic;">Not yet appeared</div>
             </div>
           </div>
         </div>
       </div>
 
+      <!-- BACKGROUND -->
       <div class="narrative-section">
         <div class="section-label">Background</div>
         <div class="narrative-text">
-          <p>Floyd Mayweather Jr. and co-plaintiffs have filed a <strong>$175 million civil fraud lawsuit</strong> against Jona Rechnitz and other defendants in <strong>New York Supreme Court</strong> (Index No. 156603/2026). The complaint alleges a pattern of fraudulent conduct by Rechnitz and his associates.</p>
-          <p>This is a <strong>civil fraud case</strong> &mdash; not a criminal proceeding. The specific factual allegations and legal theories are detailed in the complaint, which is publicly available and linked below.</p>
-          <p>As this case was recently filed, many procedural details &mdash; including judge assignment, defense counsel, and scheduling &mdash; are still pending. This page will be updated as the docket develops.</p>
+          <p>According to the 25-page verified complaint, the alleged scheme began around <strong>2017</strong> when Rechnitz was introduced to Mayweather and positioned himself as a sophisticated real estate investor. By 2023&ndash;2024, Rechnitz had become Mayweather's de facto investment manager, real estate advisor, and banking liaison.</p>
+          <p>The complaint alleges Mayweather &mdash; described as having no formal training in finance, accounting, or real estate &mdash; was not told that Rechnitz had <strong>pleaded guilty to federal wire-fraud conspiracy</strong> in 2016 (SDNY, 16-cr-389) or that a <strong>$17.7 million civil fraud judgment</strong> was already entered against him in a separate Los Angeles case.</p>
+          <p>Rechnitz allegedly used his position to redirect Mayweather's funds into accounts controlled by his associates &mdash; primarily through <strong>Frist Apex Ventures, LLC</strong>, a Florida entity managed by co-defendant Ayal Frist. A third co-defendant, <strong>Alexander Seligson</strong>, a New York attorney, was allegedly installed as managing agent over Mayweather's single-purpose Nevada LLCs and disbursement accounts at Rechnitz's direction.</p>
         </div>
       </div>
 
       <!-- COMPLAINT PDF -->
       <div style="background:var(--bg-card);border:2px solid var(--accent-red);border-radius:10px;padding:28px;margin-bottom:32px;text-align:center;">
-        <div style="font-family:'JetBrains Mono',monospace;font-size:.7rem;letter-spacing:2px;color:var(--accent-red);font-weight:700;text-transform:uppercase;margin-bottom:14px;">Primary Source Document</div>
-        <p style="font-size:.95rem;color:var(--text-secondary);line-height:1.7;margin-bottom:18px;">The full complaint is publicly available. We recommend reading it directly &mdash; it is the most complete and accurate source for the allegations in this case.</p>
+        <div style="font-family:'JetBrains Mono',monospace;font-size:.7rem;letter-spacing:2px;color:var(--accent-red);font-weight:700;text-transform:uppercase;margin-bottom:14px;">Primary Source &middot; 25 Pages &middot; Verified Under Oath</div>
         <a href="https://drive.google.com/file/d/10dQqL1mog0rmFc4U__Ix5KCx295mAPc9/view" target="_blank" rel="noopener" class="complaint-btn" style="font-size:1rem;padding:16px 36px;"><svg viewBox="0 0 24 24" style="width:20px;height:20px;"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8l-6-6zm4 18H6V4h7v5h5v11z"/><path d="M8 15h8v2H8zm0-3h8v2H8z"/></svg>Read the Full Complaint (PDF)</a>
       </div>
 
+      <!-- ALLEGED DIVERSIONS -->
       <div class="narrative-section">
-        <div class="section-label">What We Know</div>
+        <div class="section-label">Alleged Diversions</div>
+        <div class="narrative-text"><p>The complaint itemizes specific transactions where Mayweather's funds were allegedly redirected without his authorization:</p></div>
+        <div class="diversion-item">
+          <div class="diversion-date">Jul 1, 2024</div>
+          <div class="diversion-amount">$7,500,000</div>
+          <div class="diversion-desc">Wired from Mayweather Promotions to Frist Apex at JPMorgan Chase, allegedly characterized as a "12 month investment." The complaint states no investment was made and no return was paid.</div>
+        </div>
+        <div class="diversion-item">
+          <div class="diversion-date">Jul 2024</div>
+          <div class="diversion-amount">$13,000,000 loan</div>
+          <div class="diversion-desc">Hankey Capital financing secured by Mayweather's Miami Beach property. Complaint alleges $6.5M went to purchase a Gulfstream G-IV aircraft; only ~$4M reached Mayweather Promotions.</div>
+        </div>
+        <div class="diversion-item">
+          <div class="diversion-date">Oct 10, 2024</div>
+          <div class="diversion-amount">$8,811,463.77</div>
+          <div class="diversion-desc">From a $16.4M Hankey Capital cross-collateralized loan secured by four Mayweather properties. Complaint states this amount was wired directly to Frist Apex; only $2.5M went to Mayweather Promotions.</div>
+        </div>
+        <div class="diversion-item">
+          <div class="diversion-date">Jan 2025</div>
+          <div class="diversion-amount">$1,000,000</div>
+          <div class="diversion-desc">Deposit related to a proposed acquisition of 1196 Sixth Avenue, allegedly diverted to Pristine Jewelers NY Inc. at Rechnitz's direction. The acquisition never closed.</div>
+        </div>
+        <div class="diversion-item">
+          <div class="diversion-date">Apr 2025</div>
+          <div class="diversion-amount">$2,127,826</div>
+          <div class="diversion-desc">Net refinance proceeds from 9504 Kings Gate Court property ($8.2M refi with U.S. Bank). Seligson allegedly admitted to Mayweather he transferred these to Frist Apex at Rechnitz's direction.</div>
+        </div>
+        <div class="diversion-item">
+          <div class="diversion-date">Ongoing</div>
+          <div class="diversion-amount">$15,000,000</div>
+          <div class="diversion-desc">Settlement proceeds from claims involving SL Green Realty Corp., allegedly diverted to Frist Apex. Seligson reportedly admitted causing the transfer without Mayweather's authorization.</div>
+        </div>
+        <div class="diversion-item">
+          <div class="diversion-date">Aug 2025</div>
+          <div class="diversion-amount">~$100,000,000 in jewelry</div>
+          <div class="diversion-desc">Jewelry allegedly pledged to two Miami dealers for ~$13M in consideration (14% of asserted value). Complaint states the consideration was diverted by Rechnitz and a substantial portion of the jewelry remains with the dealers.</div>
+        </div>
+        <div class="diversion-item">
+          <div class="diversion-date">Nov 2025</div>
+          <div class="diversion-amount">Gulfstream G-IV aircraft</div>
+          <div class="diversion-desc">FAA Bill of Sale (AC Form 8050-2) executed for aircraft N305DG with the purchaser block left blank. Complaint alleges proceeds went toward a Bugatti and to Frist Apex, with nothing paid to Mayweather or TBE Aviation.</div>
+        </div>
+      </div>
+
+      <!-- 7 CAUSES OF ACTION -->
+      <div class="narrative-section">
+        <div class="section-label">Seven Causes of Action</div>
         <ul class="claims-list">
-          <li class="claim-item"><span class="claim-number">01</span><strong>$175 Million in Damages Sought.</strong> Mayweather's complaint seeks $175 million in damages for alleged fraud &mdash; one of the larger fraud claims currently filed by a public figure.</li>
-          <li class="claim-item"><span class="claim-number">02</span><strong>Defendant: Jona Rechnitz et al.</strong> The lawsuit names Jona Rechnitz and additional defendants. The specific fraud allegations against each party are detailed in the complaint.</li>
-          <li class="claim-item"><span class="claim-number">03</span><strong>Filed in New York Supreme Court.</strong> Index No. 156603/2026. No judge has been publicly assigned yet.</li>
-          <li class="claim-item"><span class="claim-number">04</span><strong>Case Is Newly Filed.</strong> No answers, motions, or judicial rulings have occurred yet. The case is in its earliest procedural stage.</li>
+          <li class="claim-item"><span class="claim-number">I</span><strong>Fraud</strong> &mdash; Against Rechnitz &amp; Frist. Alleges material misrepresentations about the nature and purpose of fund transfers, with Rechnitz concealing his prior wire-fraud conviction and the diversion of assets. Seeks $175M+ in compensatory and punitive damages.</li>
+          <li class="claim-item"><span class="claim-number">II</span><strong>Breach of Fiduciary Duty</strong> &mdash; Against Rechnitz. Alleges a constructive fiduciary relationship arose from Rechnitz's role as de facto investment manager. Claims Rechnitz diverted funds, engaged in undisclosed self-dealing, and installed Seligson as disbursement agent. Seeks $175M+, disgorgement, and punitive damages.</li>
+          <li class="claim-item"><span class="claim-number">III</span><strong>Aiding &amp; Abetting Breach of Fiduciary Duty</strong> &mdash; Against Frist, Frist Apex Ventures &amp; Seligson. Alleges each had actual knowledge of Rechnitz's fiduciary duties and breaches and provided substantial assistance. Seeks $175M+.</li>
+          <li class="claim-item"><span class="claim-number">IV</span><strong>Conversion</strong> &mdash; Against Rechnitz, Frist &amp; Frist Apex. Alleges unauthorized dominion over identifiable property including the diverted wire transfers, loan proceeds, aircraft proceeds, and pledged jewelry. Seeks $175M+ and punitive damages.</li>
+          <li class="claim-item"><span class="claim-number">V</span><strong>Accounting</strong> &mdash; Against All Defendants. Demands a full and complete accounting of all funds, property, and value received from or attributable to Plaintiffs.</li>
+          <li class="claim-item"><span class="claim-number">VI</span><strong>Unjust Enrichment</strong> &mdash; Against Rechnitz, Frist &amp; Frist Apex (alternative). Alleges enrichment through receipt and retention of Plaintiffs' funds, seeking restitution plus interest.</li>
+          <li class="claim-item"><span class="claim-number">VII</span><strong>Constructive Trust</strong> &mdash; Against Frist Apex Ventures. Seeks imposition of constructive trust on all funds in Frist Apex's JPMorgan Chase accounts, all traceable property, and all Manhattan portfolio distributions routed to Frist Apex.</li>
         </ul>
       </div>
 
       <div class="matters-box">
         <div class="section-label">Why It Matters</div>
-        <p><strong>$175 million</strong> places this among the highest-dollar fraud claims currently pending from a celebrity plaintiff. Floyd Mayweather Jr. is one of the highest-earning athletes in history &mdash; him going on offense with a fraud claim of this magnitude signals serious allegations.</p>
-        <p style="margin-top:12px;">Worth watching: whether the defendants move to dismiss, whether additional claims or counterclaims emerge, and how the court handles the fraud allegations at each stage. For now, this is an initial filing &mdash; no side has had its day in court.</p>
-      </div>
-
-      <div class="narrative-section">
-        <div class="section-label">What We Don't Know Yet</div>
-        <div class="narrative-text">
-          <ul style="list-style:none;padding:0;margin:0;">
-            <li style="padding:8px 0;border-left:3px solid var(--accent-gold);padding-left:14px;margin-bottom:6px;"><strong>Judge assignment</strong> &mdash; No judge has been publicly assigned to this matter yet.</li>
-            <li style="padding:8px 0;border-left:3px solid var(--accent-gold);padding-left:14px;margin-bottom:6px;"><strong>Defendants' counsel</strong> &mdash; Rechnitz's legal representation has not been identified in public filings.</li>
-            <li style="padding:8px 0;border-left:3px solid var(--accent-gold);padding-left:14px;margin-bottom:6px;"><strong>Hearing dates</strong> &mdash; No hearings, conferences, or motion deadlines have been scheduled.</li>
-            <li style="padding:8px 0;border-left:3px solid var(--accent-gold);padding-left:14px;"><strong>Response from Rechnitz</strong> &mdash; No answer, motion to dismiss, or public statement from the defense has been filed.</li>
-          </ul>
-          <div class="info-note">This page is a living document. As court filings become available and case details are confirmed, we will update accordingly. The complaint PDF linked above is the most complete source at this time.</div>
-        </div>
+        <p><strong>$175 million</strong> across seven causes of action, filed as a <strong>verified complaint</strong> &mdash; meaning Mayweather himself swore to the allegations under penalty of perjury. The complaint names specific dollar amounts for each diversion, attaches exhibits including wire transfer records, emails, and signed agreements, and targets a defendant with a prior federal fraud conviction.</p>
+        <p style="margin-top:12px;">The scope of the alleged scheme is notable: real estate (Manhattan portfolio, Miami Beach, Las Vegas), a private jet (Gulfstream G-IV), approximately $100M in jewelry, SL Green settlement proceeds, and an ongoing 20% diversion of portfolio distributions. If the allegations hold, this is one of the more detailed celebrity fraud complaints in recent years.</p>
       </div>
 
       <!-- Coverage / Source -->
@@ -297,52 +341,81 @@ function toggleTheme(){var c=document.documentElement.getAttribute('data-theme')
         <div style="padding:16px 20px;background:rgba(225,16,40,.06);border:1px solid rgba(225,16,40,.15);border-radius:8px;">
           <div style="font-family:'JetBrains Mono',monospace;font-size:.85rem;color:var(--accent-red);font-weight:700;margin-bottom:10px;">156603/2026</div>
           <div style="font-size:.72rem;color:var(--text-secondary);line-height:1.8;">
-            <strong style="color:var(--text-primary);">Mayweather v. Rechnitz</strong><br>
-            New York Supreme Court<br>
+            <strong style="color:var(--text-primary);">Mayweather v. Rechnitz et al.</strong><br>
+            NY Supreme Court, New York County<br>
+            Filed: May 21, 2026<br>
+            NYSCEF Doc. No. 2<br>
             <span style="color:var(--text-muted);">Judge not yet assigned</span>
           </div>
         </div>
       </div>
-      <!-- COMPLAINT PDF SIDEBAR -->
       <div class="sidebar-card" style="border-color:var(--accent-red);">
         <div class="sidebar-card-header" style="color:var(--accent-red);border-bottom-color:rgba(225,16,40,.3);">Complaint PDF</div>
-        <p style="font-size:.78rem;color:var(--text-secondary);line-height:1.6;margin-bottom:14px;">Primary source for this case:</p>
+        <p style="font-size:.78rem;color:var(--text-secondary);line-height:1.6;margin-bottom:14px;">25-page verified complaint with exhibits (wire records, emails, agreements):</p>
         <a href="https://drive.google.com/file/d/10dQqL1mog0rmFc4U__Ix5KCx295mAPc9/view" target="_blank" rel="noopener" class="complaint-btn" style="width:100%;justify-content:center;font-size:.8rem;padding:12px 16px;"><svg viewBox="0 0 24 24" style="width:16px;height:16px;"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8l-6-6zm4 18H6V4h7v5h5v11z"/><path d="M8 15h8v2H8zm0-3h8v2H8z"/></svg>Read Complaint</a>
       </div>
       <div class="sidebar-card">
         <div class="sidebar-card-header">Timeline</div>
-        <div class="docket-item"><span class="docket-date">2026</span><span class="docket-desc"><strong style="color:var(--accent-red);">Complaint filed</strong> &mdash; $175M fraud, Index No. 156603/2026</span></div>
-        <div class="docket-item"><span class="docket-date">Pending</span><span class="docket-desc">Judge assignment</span></div>
-        <div class="docket-item"><span class="docket-date">Pending</span><span class="docket-desc">Defendants' response / motion to dismiss</span></div>
+        <div class="docket-item"><span class="docket-date">~2017</span><span class="docket-desc">Rechnitz introduced to Mayweather</span></div>
+        <div class="docket-item"><span class="docket-date">2023&ndash;24</span><span class="docket-desc">Rechnitz becomes de facto investment manager</span></div>
+        <div class="docket-item"><span class="docket-date">Jul 2024</span><span class="docket-desc">$7.5M "12 month investment" wire + $13M Hankey loan</span></div>
+        <div class="docket-item"><span class="docket-date">Oct 2024</span><span class="docket-desc">$16.4M cross-collateralized loan; $8.8M to Frist Apex</span></div>
+        <div class="docket-item"><span class="docket-date">Nov 2024</span><span class="docket-desc">Black Spruce agreement; distribution letter with Frist as "Manager"</span></div>
+        <div class="docket-item"><span class="docket-date">Apr 2025</span><span class="docket-desc">Kings Gate Court refi; $2.1M diverted</span></div>
+        <div class="docket-item"><span class="docket-date">Aug 2025</span><span class="docket-desc">~$100M in jewelry pledged for ~$13M</span></div>
+        <div class="docket-item"><span class="docket-date">Nov 2025</span><span class="docket-desc">Gulfstream G-IV sold with purchaser blank</span></div>
+        <div class="docket-item"><span class="docket-date">Jan 2026</span><span class="docket-desc">Rechnitz email re: 20% ongoing diversion</span></div>
+        <div class="docket-item"><span class="docket-date" style="color:var(--accent-red);font-weight:700;">05/21/26</span><span class="docket-desc"><strong style="color:var(--accent-red);">Verified complaint filed</strong></span></div>
+        <div class="docket-item"><span class="docket-date">Pending</span><span class="docket-desc">Judge assignment &middot; Defendants' response</span></div>
       </div>
       <div class="sidebar-card">
         <div class="sidebar-card-header">Relief Sought</div>
-        <div class="relief-item"><span class="relief-icon">&#9670;</span>$175 million in damages for alleged fraud</div>
-        <div class="relief-item"><span class="relief-icon">&#9670;</span>Additional relief as detailed in complaint</div>
+        <div class="relief-item"><span class="relief-icon">&#9670;</span>$175M+ compensatory damages</div>
+        <div class="relief-item"><span class="relief-icon">&#9670;</span>Punitive damages</div>
+        <div class="relief-item"><span class="relief-icon">&#9670;</span>Pre- and post-judgment interest</div>
+        <div class="relief-item"><span class="relief-icon">&#9670;</span>Full accounting from all defendants</div>
+        <div class="relief-item"><span class="relief-icon">&#9670;</span>Constructive trust on Frist Apex assets</div>
+        <div class="relief-item"><span class="relief-icon">&#9670;</span>Restitution and disgorgement</div>
+        <div class="relief-item"><span class="relief-icon">&#9670;</span>Attorneys' fees and costs</div>
+        <div class="relief-item"><span class="relief-icon">&#9670;</span>Jury trial demanded</div>
       </div>
       <div class="sidebar-card">
-        <div class="sidebar-card-header">Parties</div>
+        <div class="sidebar-card-header">Defendants</div>
         <div style="font-size:.78rem;color:var(--text-secondary);line-height:1.8;">
           <div style="margin-bottom:10px;">
-            <span style="font-size:.6rem;text-transform:uppercase;letter-spacing:1.2px;color:var(--text-muted);font-weight:700;">Plaintiff</span><br>
-            <strong style="color:var(--text-primary);">Floyd Mayweather Jr.</strong> et al.
+            <strong style="color:var(--text-primary);">Jona Rechnitz</strong><br>
+            Beverly Hills, CA<br>
+            <span style="color:var(--accent-red);font-size:.72rem;">Prior federal wire-fraud guilty plea (SDNY 16-cr-389, 2016)</span>
+          </div>
+          <div style="margin-bottom:10px;">
+            <strong style="color:var(--text-primary);">Ayal Frist</strong> (a/k/a Ayel Frist)<br>
+            FL resident &middot; Managing member, Frist Apex Ventures
+          </div>
+          <div style="margin-bottom:10px;">
+            <strong style="color:var(--text-primary);">Frist Apex Ventures, LLC</strong><br>
+            Boca Raton, FL<br>
+            <span style="font-size:.72rem;color:var(--text-muted);">Alleged de facto depository for diverted funds</span>
+          </div>
+          <div style="margin-bottom:10px;">
+            <strong style="color:var(--text-primary);">Alexander Seligson</strong><br>
+            NY attorney &middot; 29 W. 30th St, NY<br>
+            <span style="font-size:.72rem;color:var(--text-muted);">Alleged managing agent for Mayweather entities</span>
           </div>
           <div>
-            <span style="font-size:.6rem;text-transform:uppercase;letter-spacing:1.2px;color:var(--text-muted);font-weight:700;">Defendant</span><br>
-            <strong style="color:var(--text-primary);">Jona Rechnitz</strong> et al.
+            <span style="color:var(--text-muted);">John Does 1&ndash;10</span>
           </div>
         </div>
       </div>
       <div class="sidebar-card">
         <div class="sidebar-card-header">Source</div>
         <div style="font-size:.78rem;color:var(--text-secondary);line-height:1.7;">
-          <p>Case surfaced via <a href="https://x.com/DocumentTingz" target="_blank" rel="noopener" style="color:var(--accent-gold);text-decoration:none;font-weight:600;">@DocumentTingz</a> on X.</p>
+          <p>Surfaced via <a href="https://x.com/DocumentTingz" target="_blank" rel="noopener" style="color:var(--accent-gold);text-decoration:none;font-weight:600;">@DocumentTingz</a></p>
         </div>
       </div>
       <div class="sidebar-card">
         <div class="sidebar-card-header">Research Note</div>
         <div style="font-size:.78rem;color:var(--text-secondary);line-height:1.7;">
-          <p>This page is a <strong style="color:var(--text-primary);">research resource</strong>, not advocacy for either side. Information will be updated as court filings and public records become available.</p>
+          <p>This page is a <strong style="color:var(--text-primary);">research resource</strong>, not advocacy for either side. All information is drawn from the publicly available verified complaint. Defendants have not yet responded, and no allegations have been proven in court.</p>
           <p style="margin-top:8px;color:var(--text-muted);font-size:.72rem;">Last updated: May 27, 2026</p>
         </div>
       </div>
