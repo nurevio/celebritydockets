@@ -74,7 +74,7 @@ body{background:var(--bg);color:var(--t1);font-family:'IBM Plex Sans',sans-serif
 
 /* Side-scroll strips (Spotify, Soundcheck) */
 .rstrip{max-width:100%;overflow-x:auto;overflow-y:visible;-webkit-overflow-scrolling:touch;padding:6px 24px 18px;scroll-snap-type:x mandatory}
-.rstrip-row{display:flex;gap:14px;min-width:max-content;align-items:flex-start}
+.rstrip-row{display:flex;gap:14px;min-width:max-content;align-items:stretch}
 .rstrip::-webkit-scrollbar{height:8px}
 .rstrip::-webkit-scrollbar-track{background:rgba(0,0,0,.10);border-radius:4px}
 .rstrip::-webkit-scrollbar-thumb{background:var(--gold);border-radius:4px;opacity:.6}
@@ -89,7 +89,7 @@ body{background:var(--bg);color:var(--t1);font-family:'IBM Plex Sans',sans-serif
 .rcard .rt{font-family:'DM Serif Display',serif;font-size:1.15rem;line-height:1.25;color:var(--t1)}
 .rcard .rt em{font-style:italic}
 .rcard .rd{font-size:.82rem;color:var(--t2);line-height:1.6}
-.rcard.rtweet{height:340px;position:relative}
+.rcard.rtweet{min-height:260px;max-height:380px;position:relative;overflow:hidden}
 .rcard.rtweet::after{content:'';position:absolute;left:0;right:0;bottom:0;height:40px;background:linear-gradient(transparent,var(--card));pointer-events:none}
 .spotify-strip .rcard{flex:0 0 420px;height:auto}
 
@@ -174,12 +174,12 @@ function toggleTheme(){var c=document.documentElement.getAttribute('data-theme')
 <div class="rstrip">
   <div class="rstrip-row">
 
-    <!-- Heidi Montag · Spacey -->
-    <a href="https://x.com/heidimontag/status/2059394056820531334" target="_blank" rel="noopener" class="rcard rpink rtweet" style="flex:0 0 340px;">
+    <!-- Heidi Montag · Spacey · via @Yim1Lim -->
+    <a href="https://x.com/Yim1Lim/status/2058885538485330249" target="_blank" rel="noopener" class="rcard rpink rtweet" style="flex:0 0 340px;">
       <div class="re" style="color:var(--pink);">★ new music &middot; heidi montag</div>
       <h3 class="rt"><em style="color:var(--pink);">Spacey</em> &middot; Heidi Montag</h3>
       <p class="rd">The song invites listeners into a daydream, weaving together a memorable guitar riff with introspective lyrics.</p>
-      <blockquote class="twitter-tweet" data-dnt="true" data-conversation="none" data-theme="dark"><a href="https://twitter.com/heidimontag/status/2059394056820531334"></a></blockquote>
+      <blockquote class="twitter-tweet" data-dnt="true" data-conversation="none" data-theme="dark"><a href="https://twitter.com/Yim1Lim/status/2058885538485330249"></a></blockquote>
     </a>
 
     <!-- @itstherosehips TikTok -->
@@ -211,103 +211,120 @@ function toggleTheme(){var c=document.documentElement.getAttribute('data-theme')
 
 <!-- CHANNEL SURF -->
 <div class="sh" id="watching"><h2 class="sht">🌊 Channel Surf</h2><div class="shl"></div><span class="shtg" style="color:#fb7185;background:rgba(251,113,133,.1);border:1px solid rgba(251,113,133,.2)">Heavy Rotation</span></div>
-<p style="max-width:760px;margin:0 auto 20px;padding:0 24px;text-align:center;font-size:.92rem;color:var(--t2);line-height:1.7;">The shows I'm actually streaming when court is out. Not comprehensive - just what's in heavy rotation right now.</p>
-<div class="cw">
+<div style="max-width:1000px;margin:0 auto;padding:0 0 8px;"><p style="padding:0 24px;font-size:.82rem;color:var(--t2);margin-bottom:6px;"><b>&rarr; Scroll sideways</b> for what I&rsquo;m streaming when court is out.</p></div>
+<div class="rstrip">
+  <div class="rstrip-row">
 
-<div class="cjlist-feat" style="display:grid;grid-template-columns:1fr 1fr;gap:20px;margin-bottom:28px;">
+    <!-- Invincible -->
+    <a href="https://youtube.com/shorts/9U6hgoctNfg" target="_blank" rel="noopener" class="rcard rpink" style="flex:0 0 340px;">
+      <div class="re" style="color:#fb7185;">★ currently obsessed &middot; prime video</div>
+      <h3 class="rt"><em style="color:#fb7185;">Invincible</em></h3>
+      <p class="rd">Robert Kirkman&rsquo;s adult animated superhero series. The Mark Grayson coming-of-age that doesn&rsquo;t pull punches. CJ&rsquo;s Season 4 edit &mdash; featuring &ldquo;White Keys&rdquo; by <strong>Dominic Fike</strong>.</p>
+      <p style="font-size:.7rem;color:var(--t3);margin-top:auto;padding-top:8px;border-top:1px solid var(--bdr2);">S1-4 streaming &middot; Prime Video &middot; <span style="color:#fb7185;">Watch CJ&rsquo;s edit &rarr;</span></p>
+    </a>
 
-<!-- COLUMN 1: Invincible -->
-<div style="background:var(--card);border:1px solid var(--bdr);border-radius:12px;padding:20px;display:flex;flex-direction:column;align-items:center;text-align:center;">
-<div style="aspect-ratio:9/16;width:100%;max-width:260px;border-radius:10px;overflow:hidden;border:1px solid var(--bdr);background:#000;margin-bottom:16px;">
-<iframe src="https://www.youtube.com/embed/9U6hgoctNfg?rel=0&modestbranding=1&playsinline=1" style="width:100%;height:100%;border:0;" title="Invincible · CJ's Short" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+    <!-- Survivor 50 -->
+    <a href="https://www.tiktok.com/@rizgod34?lang=en" target="_blank" rel="noopener" class="rcard rpink" style="flex:0 0 340px;">
+      <div class="re" style="color:#fb7185;">★ currently obsessed &middot; cbs</div>
+      <h3 class="rt"><em style="color:#fb7185;">Survivor 50</em></h3>
+      <p class="rd">The 50th season is shaping up legendary. <strong>@rizgod34</strong> is the contestant I can&rsquo;t stop rooting for. Catch his TikToks for real-time takes &mdash; my favorite survivor of the season.</p>
+      <p style="font-size:.7rem;color:var(--t3);margin-top:auto;padding-top:8px;border-top:1px solid var(--bdr2);">Season 50 airing &middot; CBS &middot; <span style="color:#fb7185;">Follow @rizgod34 &rarr;</span></p>
+    </a>
+
+    <!-- @andrayofficial -->
+    <a href="https://x.com/andrayofficial/status/2057518756079731160" target="_blank" rel="noopener" class="rcard rpink rtweet" style="flex:0 0 340px;">
+      <div class="re" style="color:#fb7185;">★ tv &middot; @andrayofficial</div>
+      <h3 class="rt"><em style="color:#fb7185;">@andrayofficial</em></h3>
+      <blockquote class="twitter-tweet" data-dnt="true" data-conversation="none" data-theme="dark"><a href="https://twitter.com/andrayofficial/status/2057518756079731160"></a></blockquote>
+    </a>
+
+    <!-- Shrinking -->
+    <div class="rcard rblue" style="flex:0 0 340px;">
+      <div class="re" style="color:#3b82f6;">★ comedy &middot; apple tv+</div>
+      <h3 class="rt"><em style="color:#3b82f6;">Shrinking</em></h3>
+      <p class="rd">Jason Segel and Harrison Ford as therapists who break every rule in the book. Funny, then suddenly devastating. The Bill Lawrence touch. Season 3 finale dropped April 8 &mdash; Season 4 renewed with a time jump.</p>
+      <p style="font-size:.7rem;color:var(--t3);margin-top:auto;padding-top:8px;border-top:1px solid var(--bdr2);">S1-3 streaming &middot; S4 in production &middot; Apple TV+</p>
+    </div>
+
+    <!-- House of David -->
+    <div class="rcard rgold" style="flex:0 0 340px;">
+      <div class="re" style="color:var(--gold);">★ drama &middot; prime video</div>
+      <h3 class="rt"><em style="color:var(--gold);">House of David</em></h3>
+      <p class="rd">The young shepherd&rsquo;s rise from the fields to the throne. Biblical epic with real production weight. Season 2 just dropped, Season 3 confirmed to wrap the trilogy late 2026.</p>
+      <p style="font-size:.7rem;color:var(--t3);margin-top:auto;padding-top:8px;border-top:1px solid var(--bdr2);">S2 streaming now &middot; S3 late 2026 &middot; Prime Video</p>
+    </div>
+
+    <!-- Jujutsu Kaisen -->
+    <div class="rcard" style="flex:0 0 340px;border-left-color:#8b5cf6;">
+      <div class="re" style="color:#8b5cf6;">★ anime &middot; crunchyroll</div>
+      <h3 class="rt"><em style="color:#8b5cf6;">Jujutsu Kaisen</em></h3>
+      <p class="rd">Cursed energy. Sorcerers. Sukuna. The shonen series that turned the anime fandom upside down. All three seasons complete &mdash; the run is done but the rewatch never ends.</p>
+      <p style="font-size:.7rem;color:var(--t3);margin-top:auto;padding-top:8px;border-top:1px solid var(--bdr2);">Seasons 1-3 streaming &middot; Crunchyroll</p>
+    </div>
+
+    <!-- The Chosen -->
+    <div class="rcard rgreen" style="flex:0 0 340px;">
+      <div class="re" style="color:#10b981;">★ drama &middot; multi-platform</div>
+      <h3 class="rt"><em style="color:#10b981;">The Chosen</em></h3>
+      <p class="rd">The crowdfunded phenomenon that went global. A grounded, character-first telling of the gospels. Season 5 wrapped, Season 6 premieres on Prime Nov 15.</p>
+      <p style="font-size:.7rem;color:var(--t3);margin-top:auto;padding-top:8px;border-top:1px solid var(--bdr2);">S1-5 streaming &middot; S6 Nov 15, 2026 &middot; Prime / The Chosen App</p>
+    </div>
+
+  </div>
 </div>
-<div style="font-family:'JetBrains Mono',monospace;font-size:.62rem;color:#fb7185;text-transform:uppercase;letter-spacing:1.8px;margin-bottom:8px;">★ Currently Obsessed</div>
-<h3 style="font-family:'DM Serif Display',serif;font-size:1.5rem;line-height:1.2;margin-bottom:10px;color:var(--t1);"><em style="color:#fb7185;font-style:italic;">Invincible</em></h3>
-<p style="font-size:.85rem;color:var(--t2);line-height:1.6;margin-bottom:10px;">Robert Kirkman's adult animated superhero series on Prime Video. The Mark Grayson coming-of-age that doesn't pull punches. I made this edit as an ode to Season 4. Spoilers, obviously.</p>
-<div style="font-family:'JetBrains Mono',monospace;font-size:.62rem;color:var(--t3);margin-bottom:14px;">🎵 Featuring "White Keys" by <em>Dominic Fike</em></div>
-<a href="https://youtube.com/shorts/9U6hgoctNfg" target="_blank" rel="noopener" style="display:inline-block;padding:8px 18px;background:rgba(251,113,133,.12);border:1px solid rgba(251,113,133,.3);border-radius:6px;color:#fb7185;font-family:'JetBrains Mono',monospace;font-size:.7rem;text-transform:uppercase;letter-spacing:1.5px;text-decoration:none;font-weight:600;">Watch on YouTube →</a>
-</div>
-
-<!-- COLUMN 2: Survivor 50 / @rizgod34 -->
-<div style="background:var(--card);border:1px solid var(--bdr);border-radius:12px;padding:20px;display:flex;flex-direction:column;align-items:center;text-align:center;">
-<a href="https://www.tiktok.com/@rizgod34?lang=en" target="_blank" rel="noopener" style="aspect-ratio:9/16;width:100%;max-width:260px;border-radius:10px;overflow:hidden;background:#000;margin-bottom:16px;display:block;">
-<img src="tv-rizgod.jpg" alt="Rizzo · @rizgod34 · Survivor 50" style="width:100%;height:100%;object-fit:contain;display:block;">
-</a>
-<div style="font-family:'JetBrains Mono',monospace;font-size:.62rem;color:#fb7185;text-transform:uppercase;letter-spacing:1.8px;margin-bottom:8px;">★ Currently Obsessed</div>
-<h3 style="font-family:'DM Serif Display',serif;font-size:1.5rem;line-height:1.2;margin-bottom:10px;color:var(--t1);"><em style="color:#fb7185;font-style:italic;">Survivor 50</em></h3>
-<p style="font-size:.85rem;color:var(--t2);line-height:1.6;margin-bottom:14px;">The 50th season is shaping up legendary, and <strong>@rizgod34</strong> is the contestant I can't stop rooting for. Catch his TikToks for the real-time takes - my favorite survivor of the season.</p>
-<a href="https://www.tiktok.com/@rizgod34?lang=en" target="_blank" rel="noopener" style="display:inline-block;padding:8px 18px;background:rgba(251,113,133,.12);border:1px solid rgba(251,113,133,.3);border-radius:6px;color:#fb7185;font-family:'JetBrains Mono',monospace;font-size:.7rem;text-transform:uppercase;letter-spacing:1.5px;text-decoration:none;font-weight:600;">Follow on TikTok →</a>
-</div>
-
-</div>
-
-<div style="font-family:'JetBrains Mono',monospace;font-size:.65rem;color:var(--t3);text-transform:uppercase;letter-spacing:2px;margin:0 0 14px;text-align:center;">★ Also Riding the Wave</div>
-
-<div class="cg" style="grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:16px;">
-<div class="cc" style="--ca:#3b82f6"><img src="tv-shrinking.jpg" alt="" loading="lazy" onerror="this.style.background='linear-gradient(135deg,#1a1a26,#2a2a3a)';this.removeAttribute('src');" style="width:calc(100% + 48px);height:130px;object-fit:cover;display:block;margin:-24px -24px 16px;border-bottom:1px solid var(--bdr2);background:var(--elev)"><div class="cct">Comedy · Apple TV+</div><div class="ccn"><em>Shrinking</em></div><div class="ccd">Jason Segel and Harrison Ford as therapists who break every rule in the book. Funny, then suddenly devastating. The Bill Lawrence touch. Season 3 finale dropped April 8 - Season 4 renewed with a time jump.</div><div class="ccs">S1-3 streaming · S4 in production · Apple TV+</div></div>
-<div class="cc" style="--ca:#f59e0b"><img src="tv-house-of-david.jpg" alt="" loading="lazy" onerror="this.style.background='linear-gradient(135deg,#1a1a26,#2a2a3a)';this.removeAttribute('src');" style="width:calc(100% + 48px);height:130px;object-fit:cover;display:block;margin:-24px -24px 16px;border-bottom:1px solid var(--bdr2);background:var(--elev)"><div class="cct">Drama · Prime Video</div><div class="ccn"><em>House of David</em></div><div class="ccd">The young shepherd's rise from the fields to the throne. Biblical epic with real production weight. Season 2 just dropped, Season 3 confirmed to wrap the trilogy late 2026.</div><div class="ccs">S2 streaming now · S3 late 2026 · Prime Video</div></div>
-<div class="cc" style="--ca:#8b5cf6"><img src="tv-jjk.jpg" alt="" loading="lazy" onerror="this.style.background='linear-gradient(135deg,#1a1a26,#2a2a3a)';this.removeAttribute('src');" style="width:calc(100% + 48px);height:130px;object-fit:cover;display:block;margin:-24px -24px 16px;border-bottom:1px solid var(--bdr2);background:var(--elev)"><div class="cct">Anime · Crunchyroll</div><div class="ccn"><em>Jujutsu Kaisen</em></div><div class="ccd">Cursed energy. Sorcerers. Sukuna. The shonen series that turned the anime fandom upside down. All three seasons complete - the run is done but the rewatch never ends.</div><div class="ccs">Seasons 1-3 streaming · Crunchyroll</div></div>
-<div class="cc" style="--ca:#10b981"><img src="tv-chosen.jpg" alt="" loading="lazy" onerror="this.style.background='linear-gradient(135deg,#1a1a26,#2a2a3a)';this.removeAttribute('src');" style="width:calc(100% + 48px);height:130px;object-fit:cover;display:block;margin:-24px -24px 16px;border-bottom:1px solid var(--bdr2);background:var(--elev)"><div class="cct">Drama · Multi-platform</div><div class="ccn"><em>The Chosen</em></div><div class="ccd">The crowdfunded phenomenon that went global. A grounded, character-first telling of the gospels. Season 5 wrapped, Season 6 premieres on Prime Nov 15.</div><div class="ccs">S1-5 streaming · S6 Nov 15, 2026 · Prime / The Chosen App</div></div>
-</div>
-
-</div>
-
-<style>
-@media(max-width:700px){
-.cjlist-feat{grid-template-columns:1fr !important;gap:18px !important;}
-}
-</style>
 
 <!-- MAY 2026 — NOW PLAYING -->
-<div class="sh" id="may-2026"><h2 class="sht">🎬 May 2026 · Now Playing</h2><div class="shl"></div><span class="shtg" style="color:var(--gold);background:rgba(246,195,64,.12);border:1px solid rgba(246,195,64,.30)">When Court Takes Recess</span></div>
-<div style="max-width:1100px;margin:0 auto 24px;padding:0 24px;">
-  <p style="font-size:.95rem;color:var(--t2);line-height:1.6;margin-bottom:18px;">What's opening this month while we cover trials. Featured highlights below &mdash; full master list at the bottom of this section.</p>
-  <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:16px;">
+<div class="sh" id="may-2026"><h2 class="sht">🎬 May 2026 &middot; Now Playing</h2><div class="shl"></div><span class="shtg" style="color:var(--gold);background:rgba(246,195,64,.12);border:1px solid rgba(246,195,64,.30)">When Court Takes Recess</span></div>
+<div style="max-width:1000px;margin:0 auto;padding:0 0 8px;"><p style="padding:0 24px;font-size:.82rem;color:var(--t2);margin-bottom:6px;"><b>&rarr; Scroll sideways</b> for what&rsquo;s opening this month.</p></div>
+<div class="rstrip">
+  <div class="rstrip-row">
 
-    <a href="https://collider.com/backrooms-youtube-creepypasta-horror-thriller-perfect-binge-watch/" target="_blank" rel="noopener" style="text-decoration:none;color:inherit;display:block;background:var(--card);border:1px solid var(--bdr);border-left:4px solid #8b5cf6;border-radius:10px;padding:20px 22px;transition:transform .15s, border-color .15s;">
-      <div style="font-family:'JetBrains Mono',monospace;font-size:.62rem;letter-spacing:2px;color:#8b5cf6;font-weight:700;text-transform:uppercase;margin-bottom:8px;">★ may 29 · A24 · creepypasta → screen</div>
-      <h3 style="font-family:'DM Serif Display',serif;font-size:1.4rem;color:var(--t1);line-height:1.2;margin-bottom:8px;"><em>Backrooms</em></h3>
-      <p style="font-size:.85rem;color:var(--t2);line-height:1.55;margin-bottom:10px;">A24 brings <strong style="color:var(--t1);">Kane Parsons's YouTube creepypasta</strong> to the big screen with <strong style="color:var(--t1);">Chiwetel Ejiofor</strong>. Before it drops &mdash; Collider's pitch is to binge Parsons's 23-episode YouTube series (2022-present), which the director has confirmed exists in the same timeline as the film. Async Research Institute lore + found-footage rules + visual callbacks woven into the trailer.</p>
-      <p style="font-family:'JetBrains Mono',monospace;font-size:.65rem;color:var(--t3);text-transform:uppercase;letter-spacing:1px;">A24 · Theaters Fri May 29 · binge YouTube series first → Collider's pick</p>
+    <!-- Backrooms -->
+    <a href="https://collider.com/backrooms-youtube-creepypasta-horror-thriller-perfect-binge-watch/" target="_blank" rel="noopener" class="rcard" style="flex:0 0 340px;border-left-color:#8b5cf6;">
+      <div class="re" style="color:#8b5cf6;">★ may 29 &middot; A24 &middot; creepypasta &rarr; screen</div>
+      <h3 class="rt"><em style="color:#8b5cf6;">Backrooms</em></h3>
+      <p class="rd">A24 brings <strong>Kane Parsons&rsquo;s YouTube creepypasta</strong> to the big screen with <strong>Chiwetel Ejiofor</strong>. Binge Parsons&rsquo;s 23-episode YouTube series first &mdash; confirmed same timeline as the film.</p>
+      <p style="font-size:.7rem;color:var(--t3);margin-top:auto;padding-top:8px;border-top:1px solid var(--bdr2);">A24 &middot; Theaters Fri May 29</p>
     </a>
 
-    <a href="#may-2026" style="text-decoration:none;color:inherit;display:block;background:var(--card);border:1px solid var(--bdr);border-left:4px solid #3b82f6;border-radius:10px;padding:20px 22px;transition:transform .15s, border-color .15s;">
-      <div style="font-family:'JetBrains Mono',monospace;font-size:.62rem;letter-spacing:2px;color:#3b82f6;font-weight:700;text-transform:uppercase;margin-bottom:8px;">★ may 8 · franchise tentpole</div>
-      <h3 style="font-family:'DM Serif Display',serif;font-size:1.4rem;color:var(--t1);line-height:1.2;margin-bottom:8px;"><em>Mortal Kombat II</em></h3>
-      <p style="font-size:.85rem;color:var(--t2);line-height:1.55;margin-bottom:10px;">Warner Bros. brings <strong style="color:var(--t1);">Karl Urban as Johnny Cage</strong>. CinemaCon footage &mdash; the action sequels are leaning hard into R-rated tournament energy. Direct sequel to the 2021 reboot.</p>
-      <p style="font-family:'JetBrains Mono',monospace;font-size:.65rem;color:var(--t3);text-transform:uppercase;letter-spacing:1px;">Warner Bros · Theaters Fri May 8</p>
+    <!-- Mortal Kombat II -->
+    <a href="#may-2026" class="rcard rblue" style="flex:0 0 340px;">
+      <div class="re" style="color:#3b82f6;">★ may 8 &middot; franchise tentpole</div>
+      <h3 class="rt"><em style="color:#3b82f6;">Mortal Kombat II</em></h3>
+      <p class="rd">Warner Bros. brings <strong>Karl Urban as Johnny Cage</strong>. CinemaCon footage &mdash; the action sequels are leaning hard into R-rated tournament energy. Direct sequel to the 2021 reboot.</p>
+      <p style="font-size:.7rem;color:var(--t3);margin-top:auto;padding-top:8px;border-top:1px solid var(--bdr2);">Warner Bros &middot; Theaters Fri May 8</p>
     </a>
 
-    <a href="#may-2026" style="text-decoration:none;color:inherit;display:block;background:var(--card);border:1px solid var(--bdr);border-left:4px solid #f59e0b;border-radius:10px;padding:20px 22px;">
-      <div style="font-family:'JetBrains Mono',monospace;font-size:.62rem;letter-spacing:2px;color:#f59e0b;font-weight:700;text-transform:uppercase;margin-bottom:8px;">★ may 22 · star wars · the big one</div>
-      <h3 style="font-family:'DM Serif Display',serif;font-size:1.4rem;color:var(--t1);line-height:1.2;margin-bottom:8px;"><em>The Mandalorian &amp; Grogu</em></h3>
-      <p style="font-size:.85rem;color:var(--t2);line-height:1.55;margin-bottom:10px;">Disney/Lucasfilm's first big-screen <strong style="color:var(--t1);">Star Wars</strong> film since <em>Rise of Skywalker</em>. Pedro Pascal &amp; Grogu jump from streaming to theatrical. Memorial Day weekend slot.</p>
-      <p style="font-family:'JetBrains Mono',monospace;font-size:.65rem;color:var(--t3);text-transform:uppercase;letter-spacing:1px;">Disney / Lucasfilm · Theaters Fri May 22</p>
+    <!-- Mandalorian & Grogu -->
+    <a href="#may-2026" class="rcard rgold" style="flex:0 0 340px;">
+      <div class="re" style="color:var(--gold);">★ may 22 &middot; star wars &middot; the big one</div>
+      <h3 class="rt"><em style="color:var(--gold);">The Mandalorian &amp; Grogu</em></h3>
+      <p class="rd">Disney/Lucasfilm&rsquo;s first big-screen <strong>Star Wars</strong> film since <em>Rise of Skywalker</em>. Pedro Pascal &amp; Grogu jump from streaming to theatrical. Memorial Day weekend slot.</p>
+      <p style="font-size:.7rem;color:var(--t3);margin-top:auto;padding-top:8px;border-top:1px solid var(--bdr2);">Disney / Lucasfilm &middot; Theaters Fri May 22</p>
     </a>
 
-    <a href="#may-2026" style="text-decoration:none;color:inherit;display:block;background:var(--card);border:1px solid var(--bdr);border-left:4px solid #ec4899;border-radius:10px;padding:20px 22px;">
-      <div style="font-family:'JetBrains Mono',monospace;font-size:.62rem;letter-spacing:2px;color:#ec4899;font-weight:700;text-transform:uppercase;margin-bottom:8px;">★ still playing · opened apr 24</div>
-      <h3 style="font-family:'DM Serif Display',serif;font-size:1.4rem;color:var(--t1);line-height:1.2;margin-bottom:8px;"><em>Michael</em></h3>
-      <p style="font-size:.85rem;color:var(--t2);line-height:1.55;margin-bottom:10px;">Universal's <strong style="color:var(--t1);">Michael Jackson biopic</strong> directed by Antoine Fuqua. Jaafar Jackson stars as MJ. Opened amid the active <strong style="color:var(--t1);">Paris Jackson v. MJ Estate</strong> probate fight.</p>
-      <p style="font-family:'JetBrains Mono',monospace;font-size:.65rem;color:var(--t3);text-transform:uppercase;letter-spacing:1px;">Universal · In theaters · opened Apr 24</p>
+    <!-- Michael -->
+    <a href="#may-2026" class="rcard rpink" style="flex:0 0 340px;">
+      <div class="re" style="color:var(--pink);">★ still playing &middot; opened apr 24</div>
+      <h3 class="rt"><em style="color:var(--pink);">Michael</em></h3>
+      <p class="rd">Universal&rsquo;s <strong>Michael Jackson biopic</strong> directed by Antoine Fuqua. Jaafar Jackson stars as MJ. Opened amid the active <strong>Paris Jackson v. MJ Estate</strong> probate fight.</p>
+      <p style="font-size:.7rem;color:var(--t3);margin-top:auto;padding-top:8px;border-top:1px solid var(--bdr2);">Universal &middot; In theaters &middot; opened Apr 24</p>
+    </a>
+
+    <!-- @TheCinesthetic -->
+    <a href="https://twitter.com/TheCinesthetic/status/2051229343750234435" target="_blank" rel="noopener" class="rcard rtweet" style="flex:0 0 340px;border-left-color:var(--gold);">
+      <div class="re" style="color:var(--gold);">★ poster &middot; what&rsquo;s coming &middot; @TheCinesthetic</div>
+      <h3 class="rt"><em style="color:var(--gold);">2026 Preview Poster</em></h3>
+      <blockquote class="twitter-tweet" data-dnt="true" data-conversation="none" data-theme="dark"><a href="https://twitter.com/TheCinesthetic/status/2051229343750234435"></a></blockquote>
     </a>
 
   </div>
-  <p style="margin-top:16px;font-size:.78rem;color:var(--t3);text-align:center;font-family:'JetBrains Mono',monospace;letter-spacing:1px;">★ Featured highlights above &middot; full 2026 / 2027 master list below ↓</p>
-
-  <!-- @TheCinesthetic preview / poster -->
-  <div style="margin-top:24px;background:var(--card);border:1px solid var(--bdr);border-radius:10px;padding:18px;">
-    <div style="font-family:'JetBrains Mono',monospace;font-size:.62rem;letter-spacing:2px;text-transform:uppercase;color:var(--gold);font-weight:700;margin-bottom:10px;text-align:center;">★ poster · what's coming · via @TheCinesthetic</div>
-    <div style="max-width:560px;margin:0 auto;">
-      <blockquote class="twitter-tweet" data-dnt="true" data-conversation="none"><a href="https://twitter.com/TheCinesthetic/status/2051229343750234435"></a></blockquote>
-    </div>
-    <p style="margin-top:10px;font-size:.7rem;color:var(--t3);text-align:center;font-family:'JetBrains Mono',monospace;letter-spacing:1px;">Credit: <a href="https://twitter.com/TheCinesthetic/status/2051229343750234435" target="_blank" rel="noopener" style="color:var(--gold);text-decoration:none;font-weight:700;">@TheCinesthetic tweet →</a></p>
-  </div>
-
-  <div style="margin-top:24px;background:var(--card);border:1px solid var(--bdr);border-radius:10px;padding:18px;">
-    <div style="font-family:'JetBrains Mono',monospace;font-size:.62rem;letter-spacing:2px;text-transform:uppercase;color:var(--gold);font-weight:700;margin-bottom:10px;text-align:center;">★ source · 2026-2027 major releases master list · via @ErikDavis</div>
-    <a href="2026-2027-releases-master.png" target="_blank" rel="noopener"><img src="2026-2027-releases-master.png" alt="2026 and 2027 major theatrical release master list · all months · sortable by date · scroll for full slate" style="width:100%;border-radius:8px;display:block;border:1px solid var(--bdr);"></a>
-    <p style="margin-top:10px;font-size:.7rem;color:var(--t3);text-align:center;font-family:'JetBrains Mono',monospace;letter-spacing:1px;">Tap to expand · 2026 + 2027 · all months · Credit: <a href="https://twitter.com/ErikDavis/status/2050210229812429229" target="_blank" rel="noopener" style="color:var(--gold);text-decoration:none;font-weight:700;">@ErikDavis tweet →</a></p>
+</div>
+<div style="max-width:1000px;margin:0 auto;padding:12px 24px 24px;">
+  <div style="background:var(--card);border:1px solid var(--bdr);border-radius:10px;padding:18px;">
+    <div style="font-family:'JetBrains Mono',monospace;font-size:.62rem;letter-spacing:2px;text-transform:uppercase;color:var(--gold);font-weight:700;margin-bottom:10px;text-align:center;">★ source &middot; 2026-2027 major releases master list &middot; via @ErikDavis</div>
+    <a href="2026-2027-releases-master.png" target="_blank" rel="noopener"><img src="2026-2027-releases-master.png" alt="2026 and 2027 major theatrical release master list" style="width:100%;border-radius:8px;display:block;border:1px solid var(--bdr);"></a>
+    <p style="margin-top:10px;font-size:.7rem;color:var(--t3);text-align:center;font-family:'JetBrains Mono',monospace;letter-spacing:1px;">Tap to expand &middot; 2026 + 2027 &middot; all months &middot; Credit: <a href="https://twitter.com/ErikDavis/status/2050210229812429229" target="_blank" rel="noopener" style="color:var(--gold);text-decoration:none;font-weight:700;">@ErikDavis tweet &rarr;</a></p>
   </div>
 </div>
 <script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>
@@ -343,48 +360,103 @@ function toggleTheme(){var c=document.documentElement.getAttribute('data-theme')
 <style>@media(max-width:600px){.cinemacon-vids{grid-template-columns:1fr !important}}</style>
 </div>
 </div>
-<!-- Featured: Avengers Doomsday -->
-<div class="cc movie-feat" style="--ca:#10b981;padding:0;overflow:hidden;margin-bottom:24px;">
-<img src="movie-marvel.jpg" alt="" loading="lazy" style="width:100%;height:200px;object-fit:cover;display:block;border-bottom:1px solid var(--bdr2);">
-<div style="padding:24px;">
-<div class="cct" style="color:#10b981;">★ Featured · Franchise Watch 🦸</div>
-<div class="ccn" style="font-size:1.4rem;"><em>Avengers: Doomsday</em></div>
-<div class="ccd">Robert Downey Jr. returns as Doctor Doom. Russo brothers directing. Filming wrapped, in post-production. Early tracking has it as 2026's top earner.</div>
-<div class="ccs">Film · Marvel Studios · Theaters Dec 18, 2026</div>
+<!-- Franchise Watch · Book-to-Film · Docuseries -->
+<div style="font-family:'JetBrains Mono',monospace;font-size:.6rem;color:var(--t3);text-transform:uppercase;letter-spacing:2px;margin:8px 0 6px;padding:0 28px;" id="bookfilm">★ Franchise Watch &middot; Book-to-Film &middot; Docuseries &middot; Scroll &rarr;</div>
 </div>
-</div>
+<div class="rstrip">
+  <div class="rstrip-row">
 
-<!-- 2026 Book-to-Film Picks subhead -->
-<div id="bookfilm" style="font-family:'JetBrains Mono',monospace;font-size:.62rem;color:var(--t3);text-transform:uppercase;letter-spacing:2px;margin:8px 0 14px;text-align:center;scroll-margin-top:80px;">★ 2026 Book-to-Film Picks</div>
+    <!-- Avengers: Doomsday -->
+    <div class="rcard rgreen" style="flex:0 0 340px;">
+      <div class="re" style="color:#10b981;">★ featured &middot; franchise watch</div>
+      <h3 class="rt"><em style="color:#10b981;">Avengers: Doomsday</em></h3>
+      <p class="rd">Robert Downey Jr. returns as Doctor Doom. Russo brothers directing. Filming wrapped, in post-production. Early tracking has it as 2026&rsquo;s top earner.</p>
+      <p style="font-size:.7rem;color:var(--t3);margin-top:auto;padding-top:8px;border-top:1px solid var(--bdr2);">Marvel Studios &middot; Theaters Dec 18, 2026</p>
+    </div>
 
-<div class="cg">
-<div class="cc cc-poster" style="--ca:#f59e0b"><div class="poster-thumb"><img src="movie-backrooms.jpg" alt="" loading="lazy"></div><div class="poster-info"><div class="cct">Horror Hype 👁️</div><div class="ccn"><em>The Backrooms</em> - Creepypasta to Cinema</div><div class="ccd">The internet's most unsettling horror concept is getting the big-screen treatment. A24 and the found-footage creators are turning liminal-space nightmares into your next theater experience.</div><div class="ccs">Film · A24 · In development</div></div></div>
-<div class="cc cc-poster" style="--ca:#ec4899"><div class="poster-thumb"><img src="movie-blood-and-bone.jpg" alt="" loading="lazy"></div><div class="poster-info"><div class="cct">Book-to-Screen 📖</div><div class="ccn"><em>Children of Blood and Bone</em></div><div class="ccd">Tomi Adeyemi's West African fantasy. Gina Prince-Bythewood directs a stacked cast: Thuso Mbedu, Amandla Stenberg, Idris Elba, Viola Davis, Cynthia Erivo, Regina King. CinemaCon trailer in April had fans calling it "grounded fantasy epic."</div><div class="ccs">Film · Paramount · Theaters Jan 15, 2027</div></div></div>
-<div class="cc cc-poster" style="--ca:#E11028"><div class="poster-thumb"><img src="movie-hunger-games.jpg" alt="" loading="lazy"></div><div class="poster-info"><div class="cct">Prequel Season 🏹</div><div class="ccn"><em>Hunger Games: Sunrise on the Reaping</em></div><div class="ccd">The next Panem chapter. Set during the 50th Hunger Games with a young Haymitch as tribute. Trailer dropped late April - generating serious Oscar buzz already. IMAX confirmed.</div><div class="ccs">Film · Lionsgate · Theaters Nov 20, 2026</div></div></div>
-<div class="cc cc-poster" style="--ca:#d4a853"><div class="poster-thumb"><img src="movie-yesteryear.jpg" alt="" loading="lazy"></div><div class="poster-info"><div class="cct">Producer Watch 🎬</div><div class="ccn"><em>Yesteryear</em> - Anne Hathaway Producing</div><div class="ccd">Anne Hathaway's Somewhere Pictures is adapting Caro Claire Burke's debut novel - a tradwife thriller where the protagonist wakes up in the 19th century. Hathaway will star and produce; Amazon MGM holds rights.</div><div class="ccs">In development · Amazon MGM · <a href="https://vogueadria.com/yesteryear-novel-caro-claire-burke-anne-hathaway-screen-adaptation/" target="_blank" rel="noopener" style="color:#F6C340;">Read more at Vogue Adria →</a></div></div></div>
-</div>
+    <!-- The Backrooms -->
+    <div class="rcard rgold" style="flex:0 0 340px;">
+      <div class="re" style="color:var(--gold);">★ horror hype &middot; A24</div>
+      <h3 class="rt"><em style="color:var(--gold);">The Backrooms</em></h3>
+      <p class="rd">The internet&rsquo;s most unsettling horror concept gets the big-screen treatment. A24 and found-footage creators turning liminal-space nightmares into cinema.</p>
+      <p style="font-size:.7rem;color:var(--t3);margin-top:auto;padding-top:8px;border-top:1px solid var(--bdr2);">Film &middot; A24 &middot; In development</p>
+    </div>
 
-<!-- Docuseries Watch subhead -->
-<div style="font-family:'JetBrains Mono',monospace;font-size:.62rem;color:var(--t3);text-transform:uppercase;letter-spacing:2px;margin:24px 0 14px;text-align:center;">★ Docuseries Watch</div>
+    <!-- Children of Blood and Bone -->
+    <div class="rcard rpink" style="flex:0 0 340px;">
+      <div class="re" style="color:var(--pink);">★ book-to-screen &middot; paramount</div>
+      <h3 class="rt"><em style="color:var(--pink);">Children of Blood and Bone</em></h3>
+      <p class="rd">Tomi Adeyemi&rsquo;s West African fantasy. Gina Prince-Bythewood directs: Thuso Mbedu, Amandla Stenberg, Idris Elba, Viola Davis, Cynthia Erivo, Regina King.</p>
+      <p style="font-size:.7rem;color:var(--t3);margin-top:auto;padding-top:8px;border-top:1px solid var(--bdr2);">Paramount &middot; Theaters Jan 15, 2027</p>
+    </div>
 
-<div class="sc" style="--sa:#d4a853">
-<div class="sch"><div class="sbs"><span class="sb sb2">Canal+ Docuseries</span><span class="sb sb4">Paris Robbery</span></div><span class="scd">Announced Apr 22, 2026</span></div>
-<div class="scb">
-<h2 class="sct"><em>Kim, The Diamond and the Grandpa Robbers</em> - Paris Robbery Gets 4-Part Docuseries</h2>
-<div class="st"><p>The 2016 Paris Fashion Week robbery of <strong>Kim Kardashian</strong> - in which five masked men posing as police tied her up in her apartment and stole <strong>$6M in jewelry</strong> including the 20-carat diamond ring from Kanye - is getting a four-part docuseries. <strong>Pernel Media</strong> is producing <em>Kim, The Diamond and the Grandpa Robbers</em> for <strong>Canal+</strong>.</p><p>The series promises "rare and exclusive access" to the story, including members of the gang themselves and the lawyers who defended them. In early 2025, <strong>8 of the 12 defendants</strong> were convicted; two were acquitted. Because many of them were elderly, the French press dubbed them the "Grandpa Robbers." Kim herself is <strong>not involved</strong> in the production. International delivery scheduled for early 2027.</p><p>It joins a crowded field. Hulu already ran <em>IMPACT x Nightline: Inside the Kim Kardashian Heist</em> and <em>Kim Kardashian, The Concierge And The $6M Heist</em>. BBC Three produced <em>The Kim Kardashian Diamond Heist</em> from Firecracker Films.</p></div>
-<div class="ss"><strong>Status:</strong> In production · Canal+ · Delivery 2027 · Directed by Agnès Buthion · <a href="https://allhiphop.com/news/grandpa-robbers-tell-their-story-in-kim-kardashian-docuseries/" target="_blank" rel="noopener" style="color:#F6C340;">Read more at AllHipHop →</a></div>
-</div></div>
+    <!-- Hunger Games -->
+    <div class="rcard" style="flex:0 0 340px;border-left-color:var(--red);">
+      <div class="re" style="color:var(--red);">★ prequel season &middot; lionsgate</div>
+      <h3 class="rt"><em style="color:var(--red);">Hunger Games: Sunrise on the Reaping</em></h3>
+      <p class="rd">The next Panem chapter. 50th Hunger Games with a young Haymitch as tribute. Trailer dropped late April &mdash; generating serious Oscar buzz. IMAX confirmed.</p>
+      <p style="font-size:.7rem;color:var(--t3);margin-top:auto;padding-top:8px;border-top:1px solid var(--bdr2);">Lionsgate &middot; Theaters Nov 20, 2026</p>
+    </div>
 
+    <!-- Yesteryear -->
+    <a href="https://vogueadria.com/yesteryear-novel-caro-claire-burke-anne-hathaway-screen-adaptation/" target="_blank" rel="noopener" class="rcard" style="flex:0 0 340px;border-left-color:#d4a853;">
+      <div class="re" style="color:#d4a853;">★ producer watch &middot; amazon mgm</div>
+      <h3 class="rt"><em style="color:#d4a853;">Yesteryear</em> &middot; Anne Hathaway</h3>
+      <p class="rd">Anne Hathaway&rsquo;s Somewhere Pictures adapting Caro Claire Burke&rsquo;s debut novel &mdash; a tradwife thriller where the protagonist wakes up in the 19th century. Hathaway stars and produces.</p>
+      <p style="font-size:.7rem;color:var(--t3);margin-top:auto;padding-top:8px;border-top:1px solid var(--bdr2);">In development &middot; Amazon MGM &middot; <span style="color:var(--gold);">Vogue Adria &rarr;</span></p>
+    </a>
+
+    <!-- Kim Kardashian Docuseries -->
+    <a href="https://allhiphop.com/news/grandpa-robbers-tell-their-story-in-kim-kardashian-docuseries/" target="_blank" rel="noopener" class="rcard" style="flex:0 0 340px;border-left-color:#d4a853;">
+      <div class="re" style="color:#d4a853;">★ docuseries &middot; canal+ &middot; 2027</div>
+      <h3 class="rt"><em style="color:#d4a853;">Kim, The Diamond and the Grandpa Robbers</em></h3>
+      <p class="rd">The 2016 Paris Fashion Week robbery of <strong>Kim Kardashian</strong> gets a 4-part docuseries. <strong>Pernel Media</strong> producing for Canal+. Gang members and lawyers on camera. Kim not involved.</p>
+      <p style="font-size:.7rem;color:var(--t3);margin-top:auto;padding-top:8px;border-top:1px solid var(--bdr2);">In production &middot; Canal+ &middot; Delivery 2027 &middot; <span style="color:var(--gold);">AllHipHop &rarr;</span></p>
+    </a>
+
+  </div>
 </div>
 
 <!-- POWER COUPLES -->
-<div class="sh" id="couples"><h2 class="sht">💕 Power Couples & Splitsville</h2><div class="shl"></div><span class="shtg" style="color:var(--pink);background:rgba(236,72,153,.1);border:1px solid rgba(236,72,153,.2)">Who's In, Who's Out</span></div>
-<div class="cw"><div class="cg">
-<div class="cc" style="--ca:#ec4899"><div class="cct">Hard Launch Confirmed 🔥</div><div class="ccn"><em>Kim Kardashian</em> & Lewis Hamilton</div><div class="ccd">Hard-launched April 6. Two-hour Nobu Malibu dinner April 18, then a full PDA-filled beach day April 20 - making out in the Pacific, paddle boarding, and surf lessons. Body language experts called it "mutually clinging." Hamilton's mom reportedly hasn't fully approved. Kim is expected to discuss the relationship on the next season of <em>The Kardashians</em>, but Lewis is staying off-camera.</div><div class="ccs">Hard launch Apr 6, 2026 · Malibu PDA Apr 20 · <a href="https://www.realitytea.com/2026/04/22/kim-kardashian-lewis-hamilton-pda-kiss-malibu-beach-date/" target="_blank" rel="noopener" style="color:#F6C340;">Read more at Reality Tea →</a></div></div>
-<div class="cc" style="--ca:#2BBFD9"><div class="cct">Showmance? 🎬</div><div class="ccn"><em>Katie Holmes</em> & Joshua Jackson</div><div class="ccd">Joey and Pacey forever? Katie Holmes has been liking Instagram comments suggesting she and Dawson's Creek costar Joshua Jackson "should be a couple." They reunite in her upcoming film <em>Happy Hours</em>, which she wrote and directed - premieres at Tribeca June 6. Both are single. Sources say they find the hype "comical" and they're "just friends"... for now. Fans are feral.</div><div class="ccs">Dated 1998-99 · <em>Happy Hours</em> Tribeca premiere June 6 · <a href="https://atlantablackstar.com/2026/04/24/katie-holmes-steamy-reunion-with-dawsons-creek-co-star-joshua-jackson-has-fans-zooming-in-on-one-detail-that-says-more-than-it-should/" target="_blank" rel="noopener" style="color:#F6C340;">Read more at Atlanta Black Star →</a></div></div>
-<div class="cc" style="--ca:#8b5cf6"><div class="cct">Splitsville (Allegedly) 💔</div><div class="ccn"><em>Zayn Malik</em> & Louis Tomlinson</div><div class="ccd">A Netflix road-trip docuseries was supposed to bring the One Direction pair back together post-Liam Payne. Instead - Zayn allegedly insulted Louis's late mother, then punched him during filming. Louis reportedly suffered a concussion, unfollowed Zayn on Apr 18. Series shelved indefinitely.</div><div class="ccs">Series shelved · Tomlinson unfollowed Apr 18 · <a href="https://www.pedestrian.tv/entertainment/zayn-malik-louis-tomlinson-docuseries-axed-alleged-fight/" target="_blank" rel="noopener" style="color:#F6C340;">Read more at Pedestrian →</a></div></div>
-<div class="cc" style="--ca:#10b981"><div class="cct">Confirmed Makeout 💋</div><div class="ccn"><em>Jacob Elordi</em> & Kendall Jenner</div><div class="ccd">Caught making out at Bieber's Coachella afterparty (weekend 1) - sources say they've been quietly hanging since February. Kylie reportedly orchestrated the introduction. Kendall is said to be setting the pace, "boundaries over labels."</div><div class="ccs">Hooking up since Feb 2026 · Coachella afterparty makeout · <a href="https://www.realitytea.com/2026/04/24/kendall-jenner-jacob-elordi-romance-delusional-report/" target="_blank" rel="noopener" style="color:#F6C340;">Read more at Reality Tea →</a></div></div>
-</div></div>
+<div class="sh" id="couples"><h2 class="sht">💕 Power Couples &amp; Splitsville</h2><div class="shl"></div><span class="shtg" style="color:var(--pink);background:rgba(236,72,153,.1);border:1px solid rgba(236,72,153,.2)">Who's In, Who's Out</span></div>
+<div style="max-width:1000px;margin:0 auto;padding:0 0 8px;"><p style="padding:0 24px;font-size:.82rem;color:var(--t2);margin-bottom:6px;"><b>&rarr; Scroll sideways</b></p></div>
+<div class="rstrip">
+  <div class="rstrip-row">
+
+    <!-- Kim & Lewis -->
+    <a href="https://www.realitytea.com/2026/04/22/kim-kardashian-lewis-hamilton-pda-kiss-malibu-beach-date/" target="_blank" rel="noopener" class="rcard rpink" style="flex:0 0 340px;">
+      <div class="re" style="color:var(--pink);">★ hard launch confirmed</div>
+      <h3 class="rt"><em style="color:var(--pink);">Kim Kardashian</em> &amp; Lewis Hamilton</h3>
+      <p class="rd">Hard-launched April 6. Two-hour Nobu Malibu dinner, then a full PDA-filled beach day April 20. Hamilton&rsquo;s mom reportedly hasn&rsquo;t fully approved. Lewis staying off-camera for <em>The Kardashians</em>.</p>
+      <p style="font-size:.7rem;color:var(--t3);margin-top:auto;padding-top:8px;border-top:1px solid var(--bdr2);">Hard launch Apr 6 &middot; Malibu PDA Apr 20 &middot; <span style="color:var(--gold);">Reality Tea &rarr;</span></p>
+    </a>
+
+    <!-- Katie & Joshua -->
+    <a href="https://atlantablackstar.com/2026/04/24/katie-holmes-steamy-reunion-with-dawsons-creek-co-star-joshua-jackson-has-fans-zooming-in-on-one-detail-that-says-more-than-it-should/" target="_blank" rel="noopener" class="rcard" style="flex:0 0 340px;border-left-color:#2BBFD9;">
+      <div class="re" style="color:#2BBFD9;">★ showmance?</div>
+      <h3 class="rt"><em style="color:#2BBFD9;">Katie Holmes</em> &amp; Joshua Jackson</h3>
+      <p class="rd">Joey and Pacey forever? Katie liking IG comments about being a couple. They reunite in her upcoming film <em>Happy Hours</em> &mdash; Tribeca June 6. Both single. Sources say &ldquo;just friends.&rdquo; Fans are feral.</p>
+      <p style="font-size:.7rem;color:var(--t3);margin-top:auto;padding-top:8px;border-top:1px solid var(--bdr2);">Dated 1998-99 &middot; Tribeca June 6 &middot; <span style="color:var(--gold);">Atlanta Black Star &rarr;</span></p>
+    </a>
+
+    <!-- Zayn & Louis -->
+    <a href="https://www.pedestrian.tv/entertainment/zayn-malik-louis-tomlinson-docuseries-axed-alleged-fight/" target="_blank" rel="noopener" class="rcard" style="flex:0 0 340px;border-left-color:#8b5cf6;">
+      <div class="re" style="color:#8b5cf6;">★ splitsville (allegedly)</div>
+      <h3 class="rt"><em style="color:#8b5cf6;">Zayn Malik</em> &amp; Louis Tomlinson</h3>
+      <p class="rd">A Netflix road-trip docuseries was supposed to reunite the One Direction pair post-Liam Payne. Instead &mdash; Zayn allegedly punched Louis during filming. Concussion. Unfollowed Apr 18. Series shelved.</p>
+      <p style="font-size:.7rem;color:var(--t3);margin-top:auto;padding-top:8px;border-top:1px solid var(--bdr2);">Series shelved &middot; Unfollowed Apr 18 &middot; <span style="color:var(--gold);">Pedestrian &rarr;</span></p>
+    </a>
+
+    <!-- Jacob & Kendall -->
+    <a href="https://www.realitytea.com/2026/04/24/kendall-jenner-jacob-elordi-romance-delusional-report/" target="_blank" rel="noopener" class="rcard rgreen" style="flex:0 0 340px;">
+      <div class="re" style="color:#10b981;">★ confirmed makeout</div>
+      <h3 class="rt"><em style="color:#10b981;">Jacob Elordi</em> &amp; Kendall Jenner</h3>
+      <p class="rd">Caught making out at Bieber&rsquo;s Coachella afterparty (weekend 1). Quietly hanging since February. Kylie reportedly orchestrated the intro. Kendall setting the pace &mdash; &ldquo;boundaries over labels.&rdquo;</p>
+      <p style="font-size:.7rem;color:var(--t3);margin-top:auto;padding-top:8px;border-top:1px solid var(--bdr2);">Hooking up since Feb 2026 &middot; Coachella makeout &middot; <span style="color:var(--gold);">Reality Tea &rarr;</span></p>
+    </a>
+
+  </div>
+</div>
 
 <footer class="ft"><div class="ftl">Celebrity<span>Dockets</span></div><p class="ftt">Tracking celebrity court cases, one docket at a time.</p><div style="display:flex;gap:10px;justify-content:center;flex-wrap:wrap;margin:18px auto 8px;font-family:'JetBrains Mono',monospace;font-size:.65rem;text-transform:uppercase;letter-spacing:1.2px;font-weight:700;">
 <a href="https://x.com/CelebDockets" target="_blank" rel="noopener" style="color:#e8e6e1;background:#12121a;border:1px solid #2a2a3a;padding:6px 12px;border-radius:5px;text-decoration:none;">𝕏 @CelebDockets</a>
