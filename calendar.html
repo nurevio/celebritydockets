@@ -1,0 +1,333 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<link rel="icon" type="image/png" href="favicon.png">
+<link rel="apple-touch-icon" href="favicon.png">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Court Calendar · Celebrity Dockets</title>
+<link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&family=IBM+Plex+Sans:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+<style>
+:root,:root[data-theme="dark"]{--bg:#0a0a0f;--card:#12121a;--elev:#1a1a26;--red:#E11028;--gold:#F6C340;--blue:#4a90d9;--green:#27ae60;--orange:#e67e22;--pink:#ec407a;--t1:#e8e6e1;--t2:#9a9a9a;--t3:#5a5a6a;--bdr:#2a2a3a;--bdr2:#1e1e2e}
+:root[data-theme="light"]{--bg:#f5f2ea;--card:#ffffff;--elev:#fffcf5;--red:#E11028;--gold:#8b6f20;--blue:#1e5091;--green:#1e7e4a;--orange:#c25e10;--pink:#c2185b;--t1:#1a1a1f;--t2:#5a5a5f;--t3:#8a8a8f;--bdr:#d4cfc0;--bdr2:#e8e3d4}
+*{margin:0;padding:0;box-sizing:border-box}
+html{scroll-behavior:smooth}body{background:var(--bg);color:var(--t1);font-family:'IBM Plex Sans',sans-serif;line-height:1.6;transition:background .3s,color .3s}
+.theme-toggle{background:none;border:1px solid var(--bdr);color:var(--t2);cursor:pointer;padding:6px 10px;border-radius:4px;font-size:.75rem;font-family:'JetBrains Mono',monospace;text-transform:uppercase;letter-spacing:1px;transition:all .2s;display:flex;align-items:center;gap:6px}
+.theme-toggle:hover{border-color:var(--gold);color:var(--gold)}
+.hdr{border-bottom:1px solid var(--bdr);padding:16px 24px;display:flex;align-items:center;justify-content:space-between;background:var(--bg);position:sticky;top:0;z-index:100;backdrop-filter:blur(12px)}
+.logo{font-family:'DM Serif Display',serif;font-size:1.4rem;color:var(--t1);text-decoration:none}.logo span{color:var(--red)}
+.nav{display:flex;gap:24px;font-size:.8rem;text-transform:uppercase;letter-spacing:1.5px;font-weight:600}
+.nav a{color:var(--t2);text-decoration:none;transition:color .2s}.nav a:hover{color:var(--gold)}.nav a.on{color:var(--gold)}
+@keyframes p{0%,100%{opacity:1}50%{opacity:.3}}
+.page-hero{padding:64px 24px 24px;text-align:center;max-width:1100px;margin:0 auto}
+.page-eye{font-family:'JetBrains Mono',monospace;font-size:.78rem;font-weight:700;text-transform:uppercase;letter-spacing:3.5px;color:var(--red);margin-bottom:14px;display:inline-flex;align-items:center;gap:10px}
+.page-eye::before{content:'';width:7px;height:7px;background:var(--red);border-radius:50%;animation:p 2s infinite}
+.page-title{font-family:'DM Serif Display',serif;font-size:3.4rem;line-height:1.05;margin-bottom:12px}.page-title span{color:var(--red)}
+.page-sub{font-size:1.05rem;color:var(--t2);max-width:640px;margin:0 auto}
+.month-hdr{max-width:900px;margin:0 auto;padding:36px 24px 12px;display:flex;align-items:center;gap:16px}
+.month-title{font-family:'DM Serif Display',serif;font-size:1.8rem;color:var(--t1);white-space:nowrap}
+.month-line{flex:1;height:1px;background:var(--bdr)}
+.month-tag{font-family:'JetBrains Mono',monospace;font-size:.65rem;padding:4px 12px;border-radius:4px;letter-spacing:1px;text-transform:uppercase;font-weight:700}
+.cal-grid{max-width:900px;margin:0 auto;padding:0 24px 40px;display:flex;flex-direction:column;gap:12px}
+.cal-event{background:var(--card);border:1px solid var(--bdr);border-radius:10px;padding:18px 20px;display:grid;grid-template-columns:140px 1fr;gap:16px;text-decoration:none;color:inherit;transition:transform .15s,border-color .15s;align-items:start}
+.cal-event:hover{transform:translateY(-2px);border-color:var(--gold)}
+.cal-date{font-family:'JetBrains Mono',monospace;font-size:.82rem;color:var(--gold);font-weight:700;padding-top:2px}
+.cal-info{display:flex;flex-direction:column;gap:4px}
+.cal-case{font-family:'DM Serif Display',serif;font-size:1.15rem;color:var(--t1);line-height:1.25}
+.cal-case em{color:var(--red);font-style:italic}
+.cal-type{font-family:'JetBrains Mono',monospace;font-size:.6rem;letter-spacing:2px;font-weight:700;text-transform:uppercase;display:inline-block;padding:3px 10px;border-radius:3px}
+.cal-type.trial{color:#E11028;background:rgba(225,16,40,.12)}
+.cal-type.hearing{color:#F6C340;background:rgba(246,195,64,.12)}
+.cal-type.deadline{color:#e67e22;background:rgba(230,126,34,.12)}
+.cal-type.conference{color:#4a90d9;background:rgba(74,144,217,.12)}
+.cal-type.status{color:#9b59b6;background:rgba(155,89,182,.12)}
+.cal-type.motion{color:#27ae60;background:rgba(39,174,96,.12)}
+.cal-detail{font-size:.82rem;color:var(--t2);line-height:1.5}
+.cal-arrow{font-size:.85rem;color:var(--gold);margin-left:auto;align-self:center}
+.today-marker{border-left:4px solid var(--red)}
+.past-event{opacity:.45}
+.hamburger{display:none;background:none;border:none;color:var(--t1);cursor:pointer;padding:8px;flex-direction:column;gap:5px}
+.hamburger span{display:block;width:24px;height:2px;background:var(--t1);transition:all .3s}
+.ft{border-top:1px solid var(--bdr);padding:40px 24px;text-align:center}
+.ftl{font-family:'DM Serif Display',serif;font-size:1.6rem;color:var(--t1);margin-bottom:8px}.ftl span{color:var(--red)}
+.ftt{font-size:.82rem;color:var(--t3);margin-bottom:20px}
+.ftk{display:flex;gap:24px;justify-content:center;flex-wrap:wrap;margin-bottom:20px}
+.ftk a{font-size:.75rem;text-transform:uppercase;letter-spacing:1.5px;font-weight:600;color:var(--t2);text-decoration:none}.ftk a:hover{color:var(--gold)}
+.ftc{font-size:.7rem;color:var(--t3)}
+@media(max-width:768px){
+  .nav{display:none;position:absolute;top:100%;left:0;right:0;background:var(--bg);flex-direction:column;padding:20px 24px;gap:18px;border-bottom:1px solid var(--bdr);box-shadow:0 4px 20px rgba(0,0,0,.4);z-index:99}
+  .nav.open{display:flex}
+  .hamburger{display:flex}
+  .hamburger.open span:nth-child(1){transform:rotate(45deg) translate(5px,5px)}
+  .hamburger.open span:nth-child(2){opacity:0}
+  .hamburger.open span:nth-child(3){transform:rotate(-45deg) translate(7px,-7px)}
+  .page-title{font-size:2.4rem}
+  .cal-event{grid-template-columns:1fr;gap:8px}
+}
+</style>
+</head>
+<body>
+
+<header class="hdr">
+  <a href="index.html" class="logo">Celebrity<span>Dockets</span></a>
+  <button class="hamburger" onclick="this.classList.toggle('open');document.querySelector('.nav').classList.toggle('open')"><span></span><span></span><span></span></button>
+  <nav class="nav">
+    <a href="index.html">Cases</a>
+    <a href="latest.html">Latest</a>
+    <a href="objection-live.html">All Rise</a>
+    <a href="recess.html">RECESS</a>
+    <a href="calendar.html" class="on">Calendar</a>
+    <a href="about.html">About</a>
+  </nav>
+  <button class="theme-toggle" onclick="document.documentElement.dataset.theme=document.documentElement.dataset.theme==='light'?'dark':'light';localStorage.setItem('theme',document.documentElement.dataset.theme)">
+    <span id="themeIcon">☀</span>
+  </button>
+</header>
+
+<div class="page-hero">
+  <div class="page-eye">Court Calendar</div>
+  <h1 class="page-title">What&rsquo;s <span>Next</span></h1>
+  <p class="page-sub">Every upcoming hearing, trial, deadline, and status conference across the docket. Updated as filings come in.</p>
+</div>
+
+<!-- ══════════════════════════════════════ -->
+<!--  JUNE 2026                            -->
+<!-- ══════════════════════════════════════ -->
+<div class="month-hdr"><h2 class="month-title">June 2026</h2><div class="month-line"></div><span class="month-tag" style="color:var(--red);background:rgba(225,16,40,.1);border:1px solid rgba(225,16,40,.2)">6 events</span></div>
+<div class="cal-grid">
+
+  <a href="busta-rhymes-gables.html" class="cal-event">
+    <div class="cal-date">Jun 1</div>
+    <div class="cal-info">
+      <span class="cal-type deadline">Deadline</span>
+      <div class="cal-case"><em>Gables</em> v. Smith (Busta Rhymes)</div>
+      <div class="cal-detail">Cheeks motion for FLSA settlement approval due. Case settled Apr 22 &mdash; this is the formal court sign-off.</div>
+    </div>
+  </a>
+
+  <a href="avila-v-chris-brown.html" class="cal-event">
+    <div class="cal-date">Jun 5</div>
+    <div class="cal-info">
+      <span class="cal-type conference">Conference</span>
+      <div class="cal-case"><em>Avila</em> v. Chris Brown</div>
+      <div class="cal-detail">Final Status Conference. $90M dog attack case. Dueling motions in limine pending &mdash; Brown wants to exclude Rihanna evidence, Avila wants to exclude medical-bill payments.</div>
+    </div>
+  </a>
+
+  <a href="lizzo-employees-lawsuit.html" class="cal-event">
+    <div class="cal-date">Jun 5</div>
+    <div class="cal-info">
+      <span class="cal-type hearing">Hearing</span>
+      <div class="cal-case"><em>Davis</em> v. Lizzo &amp; Big Grrrl Big Touring</div>
+      <div class="cal-detail">Hearing date in the employment lawsuit brought by former dancers.</div>
+    </div>
+  </a>
+
+  <a href="littrell-beach-lawsuit.html" class="cal-event">
+    <div class="cal-date">Jun 9&ndash;10</div>
+    <div class="cal-info">
+      <span class="cal-type hearing">Hearing</span>
+      <div class="cal-case"><em>Littrell</em> v. Walton County</div>
+      <div class="cal-detail">Backstreet Boy Brian Littrell&rsquo;s beach property dispute. Hearings scheduled after earlier dismissal.</div>
+    </div>
+  </a>
+
+  <a href="avila-v-chris-brown.html" class="cal-event">
+    <div class="cal-date">Jun 15</div>
+    <div class="cal-info">
+      <span class="cal-type trial">Trial</span>
+      <div class="cal-case"><em>Avila</em> v. Chris Brown &middot; $90M Dog Attack</div>
+      <div class="cal-detail">Trial begins. LA Superior Court. Plaintiff alleges severe injuries from Brown&rsquo;s Caucasian Shepherd &ldquo;Hades.&rdquo;</div>
+    </div>
+  </a>
+
+  <a href="d4vd-grand-jury.html" class="cal-event">
+    <div class="cal-date">Jun 17</div>
+    <div class="cal-info">
+      <span class="cal-type status">Status</span>
+      <div class="cal-case">People v. <em>d4vd</em></div>
+      <div class="cal-detail">Status hearing. Defense still waiting on prosecution&rsquo;s DNA discovery. Preliminary hearing continued to Jun 29.</div>
+    </div>
+  </a>
+
+  <a href="d4vd-grand-jury.html" class="cal-event">
+    <div class="cal-date">Jun 29</div>
+    <div class="cal-info">
+      <span class="cal-type hearing">Preliminary Hearing</span>
+      <div class="cal-case">People v. <em>d4vd</em></div>
+      <div class="cal-detail">Preliminary hearing. Murder charge. Postponed twice (May 1 &rarr; May 26 &rarr; Jun 29). Held without bail at Twin Towers.</div>
+    </div>
+  </a>
+
+</div>
+
+<!-- ══════════════════════════════════════ -->
+<!--  JULY 2026                            -->
+<!-- ══════════════════════════════════════ -->
+<div class="month-hdr"><h2 class="month-title">July 2026</h2><div class="month-line"></div><span class="month-tag" style="color:var(--gold);background:rgba(246,195,64,.1);border:1px solid rgba(246,195,64,.2)">2 events</span></div>
+<div class="cal-grid">
+
+  <a href="paris-jackson-v-mj-estate.html" class="cal-event">
+    <div class="cal-date">Jul 15</div>
+    <div class="cal-info">
+      <span class="cal-type hearing">Hearing</span>
+      <div class="cal-case"><em>Paris Jackson</em> v. MJ Estate Executors</div>
+      <div class="cal-detail">Fee fight hearing in Century City. Paris objects to $600K+ in bonuses, premium payments, and gifts including cars and watches. ~$148M+ paid to Branca &amp; McClain through 2021.</div>
+    </div>
+  </a>
+
+  <a href="stefon-diggs-criminal.html" class="cal-event">
+    <div class="cal-date">Jul 2026</div>
+    <div class="cal-info">
+      <span class="cal-type hearing">Pretrial Hearing</span>
+      <div class="cal-case">People v. <em>Stefon Diggs</em></div>
+      <div class="cal-detail">Pretrial hearing. Case in discovery &mdash; Griffith moved to compel financial records and security-camera footage.</div>
+    </div>
+  </a>
+
+</div>
+
+<!-- ══════════════════════════════════════ -->
+<!--  AUGUST 2026                          -->
+<!-- ══════════════════════════════════════ -->
+<div class="month-hdr"><h2 class="month-title">August 2026</h2><div class="month-line"></div><span class="month-tag" style="color:var(--pink);background:rgba(236,64,122,.1);border:1px solid rgba(236,64,122,.2)">1 event</span></div>
+<div class="cal-grid">
+
+  <a href="wade-v-swift-showgirl.html" class="cal-event">
+    <div class="cal-date">Aug 5</div>
+    <div class="cal-info">
+      <span class="cal-type hearing">MTD Hearing</span>
+      <div class="cal-case"><em>Flagg</em> v. Swift &middot; Showgirl Trademark</div>
+      <div class="cal-detail">Motion to dismiss hearing. 1:30 PM, Courtroom 5D, 350 W. First St., LA. Judge Serena R. Murillo. Two-pronged attack: shotgun pleading + no personal jurisdiction (Swift domiciled in TN).</div>
+    </div>
+  </a>
+
+</div>
+
+<!-- ══════════════════════════════════════ -->
+<!--  OCTOBER 2026                         -->
+<!-- ══════════════════════════════════════ -->
+<div class="month-hdr"><h2 class="month-title">October 2026</h2><div class="month-line"></div><span class="month-tag" style="color:var(--orange);background:rgba(230,126,34,.1);border:1px solid rgba(230,126,34,.2)">4 events</span></div>
+<div class="cal-grid">
+
+  <a href="russell-brand-uk-trial.html" class="cal-event">
+    <div class="cal-date">Oct 12</div>
+    <div class="cal-info">
+      <span class="cal-type trial">Trial</span>
+      <div class="cal-case">R v. <em>Russell Brand</em> &middot; UK Criminal Trial</div>
+      <div class="cal-detail">Sexual assault charges. UK Crown Court.</div>
+    </div>
+  </a>
+
+  <a href="wilson-v-ghost-the-deb.html" class="cal-event">
+    <div class="cal-date">Oct 2026</div>
+    <div class="cal-info">
+      <span class="cal-type trial">Trial</span>
+      <div class="cal-case"><em>Ghost</em>, Cameron &amp; Holden v. Wilson &middot; The Deb</div>
+      <div class="cal-detail">Trial date for the production dispute.</div>
+    </div>
+  </a>
+
+  <a href="chris-brown-uk-trial.html" class="cal-event">
+    <div class="cal-date">Oct 26</div>
+    <div class="cal-info">
+      <span class="cal-type trial">Trial</span>
+      <div class="cal-case">R v. <em>Chris Brown</em> &middot; UK Criminal Trial</div>
+      <div class="cal-detail">GBH / Assault. Southwark Crown Court. Allegedly hit a music producer with a bottle at a London nightclub in 2023. Faces 2&ndash;16 years.</div>
+    </div>
+  </a>
+
+  <a href="cohen-v-mcsweeney.html" class="cal-event">
+    <div class="cal-date">Oct 30</div>
+    <div class="cal-info">
+      <span class="cal-type deadline">Fact Discovery Due</span>
+      <div class="cal-case"><em>McSweeney</em> v. Cohen &amp; Bravo</div>
+      <div class="cal-detail">Fact discovery deadline. Judge Lewis J. Liman. 7&ndash;10 day jury trial estimated.</div>
+    </div>
+  </a>
+
+</div>
+
+<!-- ══════════════════════════════════════ -->
+<!--  NOVEMBER 2026                        -->
+<!-- ══════════════════════════════════════ -->
+<div class="month-hdr"><h2 class="month-title">November 2026</h2><div class="month-line"></div><span class="month-tag" style="color:var(--blue);background:rgba(74,144,217,.1);border:1px solid rgba(74,144,217,.2)">2 events</span></div>
+<div class="cal-grid">
+
+  <a href="cohen-v-mcsweeney.html" class="cal-event">
+    <div class="cal-date">Nov 12</div>
+    <div class="cal-info">
+      <span class="cal-type conference">Status Conference</span>
+      <div class="cal-case"><em>McSweeney</em> v. Cohen &amp; Bravo</div>
+      <div class="cal-detail">11:00 AM, Courtroom 15C, 500 Pearl St. Judge Liman.</div>
+    </div>
+  </a>
+
+  <a href="cardi-b-mic-lawsuit.html" class="cal-event">
+    <div class="cal-date">Nov 25</div>
+    <div class="cal-info">
+      <span class="cal-type conference">Settlement Check</span>
+      <div class="cal-case">Jane Doe v. <em>Cardi B</em> &middot; Mic Throw</div>
+      <div class="cal-detail">Status check on settlement conference. 9:00 AM. Trial set Oct 11, 2027 (14-day jury trial).</div>
+    </div>
+  </a>
+
+</div>
+
+<!-- ══════════════════════════════════════ -->
+<!--  2027                                 -->
+<!-- ══════════════════════════════════════ -->
+<div class="month-hdr"><h2 class="month-title">2027 &amp; Beyond</h2><div class="month-line"></div><span class="month-tag" style="color:var(--t3);background:rgba(90,90,106,.1);border:1px solid rgba(90,90,106,.2)">4 events</span></div>
+<div class="cal-grid">
+
+  <a href="kardashian-v-ray-j.html" class="cal-event">
+    <div class="cal-date">Feb 9, 2027</div>
+    <div class="cal-info">
+      <span class="cal-type conference">Post-Arbitration Conference</span>
+      <div class="cal-case"><em>Kardashian</em> &amp; Jenner v. Ray J</div>
+      <div class="cal-detail">Post-arbitration status conference. Case kicked to private arbitration after split ruling.</div>
+    </div>
+  </a>
+
+  <a href="cohen-v-mcsweeney.html" class="cal-event">
+    <div class="cal-date">Feb 26, 2027</div>
+    <div class="cal-info">
+      <span class="cal-type deadline">All Discovery Due</span>
+      <div class="cal-case"><em>McSweeney</em> v. Cohen &amp; Bravo</div>
+      <div class="cal-detail">All discovery including depositions and experts due.</div>
+    </div>
+  </a>
+
+  <a href="cardi-b-mic-lawsuit.html" class="cal-event">
+    <div class="cal-date">Apr 13, 2027</div>
+    <div class="cal-info">
+      <span class="cal-type deadline">Discovery Cutoff</span>
+      <div class="cal-case">Jane Doe v. <em>Cardi B</em> &middot; Mic Throw</div>
+      <div class="cal-detail">Discovery cutoff. Trial Oct 11, 2027.</div>
+    </div>
+  </a>
+
+  <a href="cardi-b-mic-lawsuit.html" class="cal-event">
+    <div class="cal-date">Oct 11, 2027</div>
+    <div class="cal-info">
+      <span class="cal-type trial">Trial</span>
+      <div class="cal-case">Jane Doe v. <em>Cardi B</em> &middot; Mic Throw</div>
+      <div class="cal-detail">14-day jury trial including 3 days voir dire. Judge Yeager, Dept. 1. Eighth Judicial District Court, Clark County.</div>
+    </div>
+  </a>
+
+</div>
+
+<footer class="ft">
+  <div class="ftl">Celebrity<span>Dockets</span></div>
+  <p class="ftt">Tracking celebrity court cases, one docket at a time.</p>
+  <div class="ftk"><a href="index.html">Cases</a><a href="latest.html">Latest</a><a href="objection-live.html">All Rise</a><a href="recess.html">RECESS</a><a href="about.html">About</a></div>
+  <div class="ftk" style="margin-top:12px;"><a href="legal.html">Terms &amp; Privacy</a></div>
+  <p class="ftc">&copy; 2026 CelebrityDockets.com &middot; All rights reserved.</p>
+</footer>
+
+<script>
+(function(){var t=localStorage.getItem('theme');if(t)document.documentElement.dataset.theme=t;})();
+</script>
+</body>
+</html>
