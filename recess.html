@@ -81,6 +81,7 @@ body{background:var(--bg);color:var(--t1);font-family:'IBM Plex Sans',sans-serif
 .rstrip::-webkit-scrollbar-thumb:hover{background:var(--red)}
 .rcard{flex:0 0 340px;height:320px;scroll-snap-align:start;background:var(--card);border:1px solid var(--bdr);border-left:4px solid var(--gold);border-radius:10px;padding:16px 18px;text-decoration:none;color:inherit;display:flex;flex-direction:column;gap:8px;transition:transform .15s,border-color .15s;overflow:hidden;position:relative}
 .rcard:hover{transform:translateY(-2px);border-color:var(--gold)}
+a.rcard{cursor:pointer}a.rcard::after{content:'→';position:absolute;top:12px;right:14px;font-family:'JetBrains Mono',monospace;font-size:.75rem;font-weight:700;color:var(--gold);opacity:.5;transition:opacity .15s}a.rcard:hover::after{opacity:1}
 .rcard.rblue{border-left-color:#3b82f6}
 .rcard.rpink{border-left-color:var(--pink)}
 .rcard.rgold{border-left-color:var(--gold)}
