@@ -196,12 +196,20 @@ function toggleTheme(){var c=document.documentElement.getAttribute('data-theme')
 <section style="max-width:900px;margin:0 auto;padding:24px 24px 0;">
   <div style="background:linear-gradient(135deg,rgba(74,144,217,.10),rgba(246,195,64,.05));border:1px solid rgba(74,144,217,.30);border-left:4px solid var(--accent-blue);border-radius:10px;padding:22px 24px;">
     <div style="font-family:'JetBrains Mono',monospace;font-size:.62rem;letter-spacing:2px;text-transform:uppercase;color:var(--accent-blue);font-weight:700;margin-bottom:14px;">★ Docket · Primary Sources</div>
-    <div style="font-family:'JetBrains Mono',monospace;font-size:.95rem;color:var(--text-primary);letter-spacing:.5px;margin-bottom:14px;font-weight:700;">Case No. <span style="color:var(--accent-blue);">24STCV17314</span></div>
-    <div style="display:flex;flex-wrap:wrap;gap:10px;">
-      <a href="https://www.lacourt.ca.gov/pages/lp/access-a-case/tp/find-case-information/cp/os-civil-case-access" target="_blank" rel="noopener" style="display:inline-flex;align-items:center;gap:8px;font-family:'JetBrains Mono',monospace;font-size:.75rem;font-weight:700;text-transform:uppercase;letter-spacing:1.2px;text-decoration:none;padding:10px 16px;border-radius:6px;background:var(--accent-blue);color:#fff;">📂 L.A. Superior Court →</a>
-      <a href="https://x.com/CelebDockets" target="_blank" rel="noopener" style="display:inline-flex;align-items:center;gap:8px;font-family:'JetBrains Mono',monospace;font-size:.75rem;font-weight:700;text-transform:uppercase;letter-spacing:1.2px;text-decoration:none;padding:10px 16px;border-radius:6px;background:rgba(225,16,40,.14);color:var(--accent-red);border:1px solid rgba(225,16,40,.45);">𝕏 @CelebDockets →</a>
+    <div style="font-family:'JetBrains Mono',monospace;font-size:.85rem;color:var(--text-primary);letter-spacing:.5px;margin-bottom:4px;font-weight:700;">Ghost et al. v. Wilson &mdash; Case No. <span style="color:var(--accent-blue);">24STCV17314</span></div>
+    <div style="font-family:'JetBrains Mono',monospace;font-size:.7rem;color:var(--text-muted);margin-bottom:14px;line-height:1.55;">L.A. Superior Court &middot; Defamation &middot; Trial tentatively Oct 2026</div>
+    <div style="display:flex;flex-wrap:wrap;gap:10px;margin-bottom:16px;">
+      <a href="https://www.lacourt.ca.gov/pages/lp/access-a-case/tp/find-case-information/cp/os-civil-case-access" target="_blank" rel="noopener" style="display:inline-flex;align-items:center;gap:8px;font-family:'JetBrains Mono',monospace;font-size:.75rem;font-weight:700;text-transform:uppercase;letter-spacing:1.2px;text-decoration:none;padding:10px 16px;border-radius:6px;background:var(--accent-blue);color:#fff;">&#128194; L.A. Superior Court &rarr;</a>
     </div>
-    <div style="font-family:'JetBrains Mono',monospace;font-size:.7rem;color:var(--text-muted);margin-top:12px;line-height:1.55;"><strong style="color:var(--text-secondary);">Ghost et al. v. Wilson</strong> · L.A. Superior Court · defamation · trial tentatively Oct 2026<br>Parallel track: <strong style="color:var(--text-secondary);">MacInnes v. Wilson</strong> · Federal Court of Australia · trial in progress<br><span style="color:var(--accent-gold);">Documents sourced by <a href="https://x.com/bixiomusic" target="_blank" rel="noopener" style="color:var(--accent-gold);text-decoration:underline;text-underline-offset:3px;font-weight:600;">@bixiomusic</a> Miriam</span></div>
+    <!-- Australia case -->
+    <div style="padding-top:14px;border-top:1px solid rgba(74,144,217,.20);">
+      <div style="font-family:'JetBrains Mono',monospace;font-size:.85rem;color:var(--text-primary);letter-spacing:.5px;margin-bottom:4px;font-weight:700;">MacInnes v. Wilson &mdash; <span style="color:var(--accent-red);">Federal Court of Australia</span></div>
+      <div style="font-family:'JetBrains Mono',monospace;font-size:.7rem;color:var(--text-muted);margin-bottom:10px;line-height:1.55;">Defamation &middot; ~9-day trial opened Apr 20, 2026 &middot; Judgment reserved</div>
+      <div style="display:flex;flex-wrap:wrap;gap:10px;">
+        <a href="https://www.fedcourt.gov.au/" target="_blank" rel="noopener" style="display:inline-flex;align-items:center;gap:8px;font-family:'JetBrains Mono',monospace;font-size:.75rem;font-weight:700;text-transform:uppercase;letter-spacing:1.2px;text-decoration:none;padding:10px 16px;border-radius:6px;background:var(--accent-red);color:#fff;">&#128194; Federal Court of Australia &rarr;</a>
+      </div>
+    </div>
+    <div style="margin-top:14px;padding-top:12px;border-top:1px solid rgba(74,144,217,.20);font-family:'JetBrains Mono',monospace;font-size:.7rem;color:var(--text-muted);line-height:1.55;"><span style="color:var(--accent-gold);">Documents sourced by <a href="https://x.com/bixiomusic" target="_blank" rel="noopener" style="color:var(--accent-gold);text-decoration:underline;text-underline-offset:3px;font-weight:600;">@bixiomusic</a> Miriam</span></div>
   </div>
 </section>
 
@@ -313,6 +321,26 @@ function toggleTheme(){var c=document.documentElement.getAttribute('data-theme')
         </div>
         <p style="margin-top:16px;font-size:.82rem;color:var(--text-muted);line-height:1.65;font-style:italic;">Whichever way the judge resolves this dispute likely decides the truth defense — and with it, the case.</p>
       </div>
+
+      <!-- PARALLEL LAWSUITS · moved from sidebar to body -->
+      <div style="margin:48px 0 32px;padding-top:32px;border-top:2px solid var(--border);">
+        <div style="font-family:'JetBrains Mono',monospace;font-size:.62rem;letter-spacing:2.5px;text-transform:uppercase;color:var(--accent-red);font-weight:700;margin-bottom:8px;">&#127462;&#127482; Parallel Lawsuit &middot; Federal Court of Australia</div>
+        <h2 style="font-family:'DM Serif Display',serif;font-size:2rem;line-height:1.2;margin-bottom:12px;">MacInnes v. <em style="color:var(--accent-red);">Wilson</em></h2>
+        <p style="font-size:1rem;color:var(--text-secondary);margin-bottom:16px;max-width:650px;">Charlotte MacInnes &mdash; the lead actress Wilson said was harassed &mdash; sued Wilson for defamation in the <strong style="color:var(--text-primary);">Federal Court of Australia</strong>. MacInnes denies any harassment occurred and says Wilson&rsquo;s claims damaged her career.</p>
+        <div style="display:flex;gap:28px;flex-wrap:wrap;font-size:.82rem;color:var(--text-muted);margin-bottom:24px;">
+          <div><span class="meta-label">Court</span><span class="meta-value">Federal Court of Australia</span></div>
+          <div><span class="meta-label">Trial</span><span class="meta-value">~9 days &middot; Apr 20 &ndash; May 5, 2026</span></div>
+          <div><span class="meta-label">Judge</span><span class="meta-value">Justice Elizabeth Raper</span></div>
+          <div><span class="meta-label">Status</span><span class="meta-value" style="color:var(--accent-gold);font-weight:700;">Judgment Reserved</span></div>
+        </div>
+      </div>
+
+      <div style="margin-bottom:32px;padding-top:24px;border-top:1px solid var(--border);">
+        <div style="font-family:'JetBrains Mono',monospace;font-size:.62rem;letter-spacing:2.5px;text-transform:uppercase;color:var(--accent);font-weight:700;margin-bottom:8px;">&#127462;&#127482; NSW Supreme Court &middot; Sydney</div>
+        <h3 style="font-family:'DM Serif Display',serif;font-size:1.4rem;line-height:1.2;margin-bottom:12px;">AI Film v. <em style="color:var(--accent);">Wilson</em></h3>
+        <p style="font-size:.9rem;color:var(--text-secondary);line-height:1.7;max-width:650px;">UK-based <strong style="color:var(--text-primary);">AI Film</strong> (co-rights holder of <em>The Deb</em> alongside Wilson&rsquo;s Camp Sugar) alleges Wilson blocked distribution by threatening to sue if the film released, forcing distributor <strong style="color:var(--text-primary);">Kismet Movies</strong> to withdraw &mdash; to devalue the film and force a buyout.</p>
+      </div>
+
     </div>
     <aside class="case-sidebar">
       <div class="sidebar-card">
@@ -342,23 +370,7 @@ function toggleTheme(){var c=document.documentElement.getAttribute('data-theme')
 <div class="relief-item"><span class="relief-icon">◆</span>Ghost separately seeks damages for the anonymous website campaign</div>
       </div>
       <div class="sidebar-card">
-        <div class="sidebar-card-header">Parallel Lawsuits</div>
-        <div style="padding:14px 0;border-bottom:1px solid var(--border-light);">
-          <div style="display:flex;align-items:center;gap:8px;margin-bottom:6px;">
-            <span style="font-size:0.95rem;">🇦🇺</span>
-            <span style="font-family:'JetBrains Mono',monospace;font-size:0.65rem;text-transform:uppercase;letter-spacing:1.2px;color:var(--accent-red);font-weight:700;">Federal Court of Australia · trial in session</span>
-          </div>
-          <div style="font-size:0.85rem;color:var(--text-primary);font-weight:600;margin-bottom:4px;">MacInnes v. Wilson</div>
-          <div style="font-size:0.78rem;color:var(--text-secondary);line-height:1.5;">Charlotte MacInnes — the lead actress Wilson said was harassed — sued Wilson for defamation in the <strong>Federal Court of Australia</strong>. MacInnes denies any harassment occurred and says Wilson's claims damaged her career. <strong>~9-day trial opened April 20, 2026</strong>, livestreamed by the court.</div>
-        </div>
-        <div style="padding:14px 0;border-bottom:1px solid var(--border-light);">
-          <div style="display:flex;align-items:center;gap:8px;margin-bottom:6px;">
-            <span style="font-size:0.95rem;">🇦🇺</span>
-            <span style="font-family:'JetBrains Mono',monospace;font-size:0.65rem;text-transform:uppercase;letter-spacing:1.2px;color:var(--accent);font-weight:700;">NSW Supreme Court · Sydney</span>
-          </div>
-          <div style="font-size:0.85rem;color:var(--text-primary);font-weight:600;margin-bottom:4px;">AI Film v. Wilson</div>
-          <div style="font-size:0.78rem;color:var(--text-secondary);line-height:1.5;">UK-based production company <strong>AI Film</strong> (co-rights holder of <em>The Deb</em> alongside Wilson's <strong>Camp Sugar</strong>) alleges Wilson <strong>blocked distribution</strong> by threatening to sue if the film released, forcing distributor <strong>Kismet Movies</strong> to withdraw — to devalue the film and force a buyout. Freedman confirmed Wilson was "in active discussions to outright purchase <em>The Deb</em>."</div>
-        </div>
+        <div class="sidebar-card-header">Related</div>
         <div style="padding:14px 0;">
           <div style="display:flex;align-items:center;gap:8px;margin-bottom:6px;">
             <span style="font-size:0.95rem;">🇬🇧</span>
@@ -369,12 +381,6 @@ function toggleTheme(){var c=document.documentElement.getAttribute('data-theme')
         </div>
       </div>
       <div class="sidebar-card"><div class="sidebar-card-header">Hollywood Crossover</div><div class="info-note">Several of the same firms, lawyers, and PR operatives at dispute in the Baldoni-Lively litigation also appear in the filings here - on different sides of the case.</div></div>
-      <div class="sidebar-card" style="border:1px solid rgba(225,16,40,0.4);background:linear-gradient(135deg,rgba(225,16,40,0.08),rgba(225,16,40,0.02));">
-        <div class="sidebar-card-header" style="color:var(--accent-red);">▶ Watch the Trial Live</div>
-        <div style="font-size:0.78rem;color:var(--text-secondary);line-height:1.55;margin-bottom:12px;">The Federal Court of Australia is livestreaming the entire <strong>MacInnes v. Wilson</strong> defamation trial on YouTube — open justice, free to watch.</div>
-        <a href="https://www.youtube.com/@FederalCourtAus" target="_blank" rel="noopener" style="display:flex;align-items:center;justify-content:center;gap:8px;background:#FF0000;color:#fff;padding:10px 16px;border-radius:6px;text-decoration:none;font-family:'IBM Plex Sans',sans-serif;font-size:.82rem;font-weight:600;text-align:center;margin-bottom:8px;">▶ Federal Court of Australia · YouTube</a>
-        <div style="font-size:0.68rem;color:var(--text-muted);line-height:1.5;text-align:center;font-family:'JetBrains Mono',monospace;letter-spacing:0.5px;">@FederalCourtAus · livestream + replays</div>
-      </div>
       <div class="sidebar-card"><div class="sidebar-card-header">Dockets &amp; Websites</div>
 
       <div style="margin-bottom:14px;padding:10px 12px;background:rgba(225,16,40,0.08);border:1px solid rgba(225,16,40,0.25);border-radius:6px;">
