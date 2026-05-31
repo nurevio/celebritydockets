@@ -1,0 +1,178 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<link rel="icon" type="image/png" href="favicon.png">
+<link rel="apple-touch-icon" href="favicon.png">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>M.I.A. v. Kid Cudi - Tour Breach of Contract | Celebrity Dockets</title>
+<link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display&family=IBM+Plex+Sans:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --bg-primary: #0a0a0f;
+    --bg-card: #12121a;
+    --bg-elevated: #1a1a26;
+    --accent: #e91e63;
+    --accent-red: #E11028;
+    --accent-gold: #F6C340;
+    --accent-blue: #4a90d9;
+    --text-primary: #e8e6e1;
+    --text-secondary: #9a9a9a;
+    --text-muted: #5a5a6a;
+    --border: #2a2a3a;
+    --border-light: #1e1e2e;
+  }
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  body { background: var(--bg-primary); color: var(--text-primary); font-family: 'IBM Plex Sans', sans-serif; line-height: 1.6; min-height: 100vh; }
+  .site-header { border-bottom: 1px solid var(--border); padding: 16px 24px; display: flex; align-items: center; justify-content: space-between; background: var(--bg-primary); position: sticky; top: 0; z-index: 100; backdrop-filter: blur(12px); }
+  .site-logo { font-family: 'DM Serif Display', serif; font-size: 1.2rem; color: var(--text-primary); letter-spacing: 0.5px; }
+  .site-logo span { color: var(--accent-red); }
+  .nav { display: flex; gap: 20px; font-size: 0.75rem; text-transform: uppercase; letter-spacing: 1.5px; font-weight: 600; flex-wrap: wrap; }
+  .nav a { color: var(--text-muted); text-decoration: none; transition: color 0.2s; }
+  .nav a:hover { color: var(--accent-gold); }
+  .case-hero { position: relative; padding: 60px 24px 48px; max-width: 900px; margin: 0 auto; overflow: hidden; }
+  .case-title { font-family: 'DM Serif Display', serif; font-size: 2.8rem; line-height: 1.15; margin-bottom: 12px; color: var(--text-primary); }
+  .case-title em { font-style: italic; color: var(--accent); }
+  .case-subtitle { font-size: 1.1rem; color: var(--text-secondary); font-weight: 400; margin-bottom: 24px; max-width: 650px; }
+  .case-meta-row { display: flex; gap: 28px; flex-wrap: wrap; font-size: 0.82rem; color: var(--text-muted); }
+  .meta-label { font-family: 'JetBrains Mono', monospace; font-size: 0.6rem; text-transform: uppercase; letter-spacing: 1.5px; color: var(--text-muted); display: block; margin-bottom: 2px; }
+  .meta-value { color: var(--text-primary); font-weight: 600; }
+  .case-body { max-width: 900px; margin: 0 auto; padding: 40px 24px 80px; display: grid; grid-template-columns: 1fr 280px; gap: 48px; }
+  @media (max-width: 768px) { .case-body { grid-template-columns: 1fr; gap: 32px; } .case-title { font-size: 2rem; } }
+  .section-header { display: flex; align-items: center; gap: 16px; margin-bottom: 20px; }
+  .section-header h2 { font-family: 'DM Serif Display', serif; font-size: 1.4rem; white-space: nowrap; }
+  .section-line { flex: 1; height: 1px; background: var(--border); }
+  .case-text { font-size: 0.95rem; color: var(--text-secondary); line-height: 1.8; margin-bottom: 32px; }
+  .case-text p { margin-bottom: 16px; }
+  .case-text strong { color: var(--text-primary); font-weight: 600; }
+  .claims-list { margin-bottom: 32px; }
+  .claim-item { display: flex; gap: 16px; padding: 16px; background: var(--bg-card); border: 1px solid var(--border); border-left: 3px solid var(--accent); border-radius: 6px; margin-bottom: 8px; }
+  .claim-num { font-family: 'JetBrains Mono', monospace; font-size: 0.75rem; color: var(--accent); font-weight: 700; min-width: 24px; }
+  .claim-text { font-size: 0.88rem; color: var(--text-secondary); line-height: 1.6; }
+  .sidebar-card { background: var(--bg-card); border: 1px solid var(--border); border-radius: 10px; padding: 20px; margin-bottom: 16px; }
+  .sidebar-card-header { font-family: 'JetBrains Mono', monospace; font-size: 0.65rem; text-transform: uppercase; letter-spacing: 2px; color: var(--accent); margin-bottom: 14px; padding-bottom: 10px; border-bottom: 1px solid var(--border); }
+  .docket-item { display: flex; gap: 12px; padding: 10px 0; border-bottom: 1px solid var(--border-light); align-items: flex-start; }
+  .docket-item:last-child { border-bottom: none; }
+  .docket-date { font-family: 'JetBrains Mono', monospace; font-size: 0.7rem; color: var(--text-muted); white-space: nowrap; min-width: 70px; }
+  .docket-desc { font-size: 0.82rem; color: var(--text-secondary); line-height: 1.5; }
+  .case-status-bar { display: flex; flex-wrap: wrap; gap: 8px; margin-bottom: 20px; }
+  .status-badge { font-family: 'JetBrains Mono', monospace; font-size: 0.6rem; text-transform: uppercase; letter-spacing: 1.5px; padding: 5px 14px; border-radius: 4px; font-weight: 700; }
+  .status-active { background: rgba(225, 16, 40, 0.15); color: var(--accent-red); border: 1px solid rgba(225, 16, 40, 0.35); }
+  .status-cat { background: rgba(233, 30, 99, 0.12); color: var(--accent); border: 1px solid rgba(233, 30, 99, 0.3); }
+  .case-footer { max-width: 900px; margin: 0 auto; padding: 40px 24px; border-top: 1px solid var(--border); text-align: center; font-size: 0.78rem; color: var(--text-muted); }
+  .case-footer a { color: var(--accent-gold); text-decoration: none; }
+  .case-hero, .case-text, .claims-list, .sidebar-card { animation: fadeUp 0.6s ease-out both; }
+  @keyframes fadeUp { from { opacity: 0; transform: translateY(20px); } to { opacity: 1; transform: translateY(0); } }
+</style>
+<meta property="og:title" content="M.I.A. v. Kid Cudi - Tour Breach of Contract | Celebrity Dockets">
+<meta property="og:description" content="M.I.A. sues Kid Cudi in C.D. Cal. after being fired from tour after 4 of 33 shows. $2.8M contract guaranteed sole and exclusive creative control. Alleges firing was a publicity stunt for struggling ticket sales.">
+<meta property="og:image" content="https://celebritydockets.com/mia-kidcudi-hero.webp">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="M.I.A. v. Kid Cudi - Tour Breach of Contract | Celebrity Dockets">
+<meta name="description" content="M.I.A. sues Kid Cudi in C.D. Cal. after being fired from tour after 4 of 33 shows. $2.8M contract guaranteed sole and exclusive creative control. Alleges firing was a publicity stunt for struggling ticket sales. Filed May 29, 2026.">
+</head>
+<body>
+  <header class="site-header">
+    <a href="index.html" class="site-logo" style="text-decoration:none;color:inherit;">Celebrity<span>Dockets</span></a>
+    <nav class="nav">
+      <a href="index.html#cases">Cases</a>
+      <a href="latest.html">Latest</a>
+      <a href="objection-live.html">All Rise</a>
+      <a href="recess.html">RECESS</a>
+      <a href="featured-dockets.html" style="color:#F6C340;">Featured</a>
+      <a href="star-bar.html">Star Bar</a>
+      <a href="courtroom-culture.html">Courtroom Culture</a>
+      <a href="about.html">About</a>
+      <a href="tcs.html" style="color:#E11028;font-weight:700;">TCS</a>
+    </nav>
+  </header>
+
+  <section class="case-hero">
+    <img src="mia-kidcudi-hero.webp" alt="Pop-art portrait of Kid Cudi and M.I.A." style="width:100%;height:auto;border-radius:10px;margin-bottom:24px;display:block;border:1px solid var(--border);">
+    <div class="case-status-bar">
+      <span class="status-badge status-active">Just Filed</span>
+      <span class="status-badge status-cat">Breach of Contract</span>
+    </div>
+    <h1 class="case-title"><em>M.I.A.</em> v. Kid Cudi</h1>
+    <p class="case-subtitle"><strong style="color:var(--accent-red);">$2.8M+ breach of contract suit.</strong> M.I.A. sues Kid Cudi after being fired from his tour after only 4 of 33 contracted shows. She says her contract guaranteed "sole and exclusive creative control" over her performances. She alleges the firing was a publicity stunt to boost struggling ticket sales.</p>
+    <div class="case-meta-row">
+      <div class="meta-item"><span class="meta-label">Filed</span><span class="meta-value">May 29, 2026</span></div>
+      <div class="meta-item"><span class="meta-label">Court</span><span class="meta-value">C.D. Cal. (Federal)</span></div>
+      <div class="meta-item"><span class="meta-label">Amount</span><span class="meta-value" style="color:var(--accent-red);font-weight:700;">$2.8M+</span></div>
+      <div class="meta-item"><span class="meta-label">Status</span><span class="meta-value" style="color:var(--accent-red);font-weight:700;">Just Filed</span></div>
+    </div>
+  </section>
+
+  <div style="max-width:900px;margin:0 auto;padding:0 24px;"><hr style="border:none;border-top:1px solid var(--border);"></div>
+
+<main class="case-body">
+    <div class="case-main">
+
+      <div class="section-header"><h2>Background</h2><div class="section-line"></div></div>
+      <div class="case-text">
+        <p><strong>Mathangi "M.I.A." Arulpragasam</strong> was booked as the opening act on <strong>Kid Cudi's</strong> (Scott Mescudi) 2026 North American tour. The contract covered <strong>33 shows</strong> at just over <strong>$2.8 million</strong>, with M.I.A. retaining <strong>"sole and exclusive creative control"</strong> over her performances.</p>
+        <p>M.I.A. performed <strong>four shows</strong> before being removed from the tour. During those performances, she made statements from the stage including condemnations of ICE, calls for a free Palestine, and questioning why she had been "cancelled" as a "Republican voting American."</p>
+        <p>Kid Cudi told Live Nation to remove her from the tour. In a public statement, Cudi said fans "were upset by her rants" and that her remarks were "offensive." M.I.A.'s complaint calls Cudi's public statement <strong style="color:var(--accent-red);">"riddled with falsehoods"</strong> and alleges the real reason was to generate publicity for a tour that was <strong>struggling with ticket sales</strong>.</p>
+        <p>M.I.A. filed suit on <strong>May 29, 2026</strong> in the Central District of California.</p>
+      </div>
+
+      <div class="section-header"><h2>Key Claims</h2><div class="section-line"></div></div>
+      <div class="claims-list">
+        <div class="claim-item"><span class="claim-num">1</span><div class="claim-text"><strong>Breach of Contract</strong> &mdash; M.I.A. had a binding agreement for 33 shows at $2.8M+. She was terminated after 4 shows without contractual basis. The "sole and exclusive creative control" clause protected the statements she made on stage.</div></div>
+        <div class="claim-item"><span class="claim-num">2</span><div class="claim-text"><strong>Breach of Implied Covenant of Good Faith</strong> &mdash; The termination was done in bad faith, allegedly to generate press coverage and boost ticket sales for an underperforming tour, not because of genuine audience complaints.</div></div>
+        <div class="claim-item"><span class="claim-num">3</span><div class="claim-text"><strong>Defamation / False Light</strong> &mdash; Cudi's public statement that fans "were upset by her rants" and that her remarks were "offensive" was allegedly false and designed to publicly humiliate M.I.A. and deflect from the tour's commercial struggles.</div></div>
+      </div>
+
+      <div style="background:linear-gradient(135deg,rgba(233,30,99,.08),rgba(246,195,64,.05));border:1px solid rgba(233,30,99,.2);border-radius:8px;padding:24px;margin-bottom:32px;">
+        <div style="font-family:'JetBrains Mono',monospace;font-size:.62rem;letter-spacing:2px;text-transform:uppercase;color:var(--accent);font-weight:700;margin-bottom:12px;">The Core Question</div>
+        <p style="font-size:.88rem;color:var(--text-secondary);line-height:1.7;">If M.I.A.'s contract genuinely guaranteed "sole and exclusive creative control" over her stage performances, can an artist be fired for what she says on stage? And if the tour was already struggling with ticket sales, was the public firing really about the audience &mdash; or about creating a headline?</p>
+      </div>
+
+    </div>
+
+    <aside class="case-sidebar">
+      <div class="sidebar-card">
+        <div class="sidebar-card-header">Timeline</div>
+        <div class="docket-item"><span class="docket-date">2026</span><span class="docket-desc">M.I.A. booked as opening act for Kid Cudi's North American tour &middot; 33 shows &middot; $2.8M+</span></div>
+        <div class="docket-item"><span class="docket-date">Apr&ndash;May 2026</span><span class="docket-desc">M.I.A. performs 4 shows &middot; makes political statements on stage (ICE, Palestine, Republican identity)</span></div>
+        <div class="docket-item"><span class="docket-date">May 2026</span><span class="docket-desc" style="color:var(--accent-red);font-weight:600;">Kid Cudi tells Live Nation to remove M.I.A. from tour</span></div>
+        <div class="docket-item"><span class="docket-date">May 4, 2026</span><span class="docket-desc">Cudi's public statement: fans "were upset by her rants"</span></div>
+        <div class="docket-item"><span class="docket-date">May 4, 2026</span><span class="docket-desc">M.I.A. responds publicly, disputes Cudi's characterization</span></div>
+        <div class="docket-item"><span class="docket-date" style="color:var(--accent-red);font-weight:700;">May 29, 2026</span><span class="docket-desc" style="color:var(--accent-red);font-weight:600;"><strong>LAWSUIT FILED</strong> &middot; C.D. Cal. federal court &middot; breach of contract + defamation</span></div>
+      </div>
+      <div class="sidebar-card">
+        <div class="sidebar-card-header">Parties</div>
+        <div style="margin-bottom:12px;">
+          <div class="meta-label">Plaintiff</div>
+          <div class="meta-value">Mathangi Arulpragasam p/k/a M.I.A.</div>
+        </div>
+        <div>
+          <div class="meta-label">Defendant</div>
+          <div class="meta-value">Scott Ramon Seguro Mescudi p/k/a Kid Cudi</div>
+        </div>
+      </div>
+      <div class="sidebar-card">
+        <div class="sidebar-card-header">Relief Sought</div>
+        <div style="font-size:.82rem;color:var(--text-secondary);line-height:1.6;">
+          <p style="margin-bottom:8px;">&bull; Compensatory damages ($2.8M+ contract value)</p>
+          <p style="margin-bottom:8px;">&bull; Punitive damages</p>
+          <p style="margin-bottom:8px;">&bull; Reputational damages from public statements</p>
+          <p>&bull; Attorney fees and costs</p>
+        </div>
+      </div>
+    </aside>
+  </main>
+
+  <footer class="case-footer">
+    <a href="index.html">celebritydockets.com</a> &middot; Tracking celebrity court cases, one docket at a time.<br>
+    Coverage by <a href="objection-live.html"><strong>Celebrity Dockets</strong></a> &middot; <a href="recess.html"><em>RECESS</em></a>
+    <div style="text-align:center;margin-top:16px;font-size:.6rem;color:#5a5a6a;line-height:1.5;"><a href="legal.html" style="color:#5a5a6a;">Terms &amp; Privacy</a> &middot; <a href="legal.html#dmca" style="color:#5a5a6a;">DMCA</a><br>Celebrity Dockets is an independent media site. Nothing here is legal advice.</div>
+    <div style="display:flex;gap:10px;justify-content:center;flex-wrap:wrap;margin:14px auto 4px;font-family:'JetBrains Mono',monospace;font-size:.65rem;text-transform:uppercase;letter-spacing:1.2px;font-weight:700;">
+      <a href="https://x.com/CelebDockets" target="_blank" rel="noopener" style="color:var(--text-primary);background:var(--bg-card);border:1px solid var(--border);padding:6px 12px;border-radius:5px;text-decoration:none;">X @CelebDockets</a>
+      <a href="https://www.tiktok.com/@celebritydockets" target="_blank" rel="noopener" style="color:var(--text-primary);background:var(--bg-card);border:1px solid var(--border);padding:6px 12px;border-radius:5px;text-decoration:none;">TikTok</a>
+      <a href="https://www.youtube.com/@celebritydockets" target="_blank" rel="noopener" style="color:var(--text-primary);background:var(--bg-card);border:1px solid var(--border);padding:6px 12px;border-radius:5px;text-decoration:none;">YouTube</a>
+      <a href="https://www.instagram.com/celebritydockets" target="_blank" rel="noopener" style="color:var(--text-primary);background:var(--bg-card);border:1px solid var(--border);padding:6px 12px;border-radius:5px;text-decoration:none;">Instagram</a>
+    </div>
+  </footer>
+</body>
+</html>
