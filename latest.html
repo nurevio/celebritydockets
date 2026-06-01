@@ -180,62 +180,25 @@ function toggleTheme(){var c=document.documentElement.getAttribute('data-theme')
   </div>
 </div>
 
-<!-- BREAKING · Pitt deposition win · May 20 -->
-<div style="max-width:1100px;margin:0 auto 16px;padding:0 24px;">
-<a href="pitt-v-jolie-miraval.html" style="display:flex;padding:14px 24px;background:linear-gradient(90deg,rgba(39,174,96,.12),rgba(46,204,113,.04));border:1px solid rgba(39,174,96,.35);border-left:4px solid #27ae60;border-radius:10px;align-items:center;gap:18px;flex-wrap:wrap;text-decoration:none;color:inherit;transition:transform .2s,border-color .2s;">
-  <div style="font-family:'JetBrains Mono',monospace;font-size:.62rem;letter-spacing:2.5px;color:#27ae60;font-weight:700;text-transform:uppercase;display:inline-flex;align-items:center;gap:8px;">
-    <span style="width:7px;height:7px;background:#27ae60;border-radius:50%;animation:p 2s infinite"></span>Breaking
-  </div>
-  <div style="flex:1;min-width:200px;font-family:'DM Serif Display',serif;font-size:1.05rem;color:var(--t1);"><strong style="color:#27ae60;">Pitt Wins Deposition Fight</strong> &mdash; Michigan judge orders Stoli&rsquo;s ex-GC back after 33 questions blocked</div>
-  <div style="font-family:'JetBrains Mono',monospace;font-size:.68rem;color:#27ae60;letter-spacing:1.5px;text-transform:uppercase;font-weight:700;white-space:nowrap;">Read Docket &rarr;</div>
-</a>
-</div>
+<!-- TWO-COLUMN LAYOUT: main feed + sticky sidebar -->
+<style>
+.latest-grid{display:grid;grid-template-columns:1fr 280px;gap:24px;max-width:1100px;margin:0 auto;padding:0 24px;}
+.latest-main{min-width:0;}
+.latest-sidebar{position:sticky;top:80px;align-self:start;display:flex;flex-direction:column;gap:12px;}
+.sb-card{background:var(--card);border:1px solid var(--bdr);border-radius:10px;padding:14px 16px;}
+.sb-hdr{font-family:'JetBrains Mono',monospace;font-size:.58rem;letter-spacing:2.5px;text-transform:uppercase;font-weight:700;margin-bottom:10px;display:flex;align-items:center;gap:6px;}
+.sb-item{display:flex;align-items:center;gap:10px;padding:8px 0;border-bottom:1px solid var(--bdr2);text-decoration:none;color:inherit;transition:background .15s;}
+.sb-item:last-child{border-bottom:none;}
+.sb-item:hover{background:rgba(246,195,64,.04);border-radius:4px;}
+.sb-case{font-family:'DM Serif Display',serif;font-size:.88rem;color:var(--t1);flex:1;}
+.sb-date{font-family:'JetBrains Mono',monospace;font-size:.6rem;color:var(--t3);white-space:nowrap;}
+.sb-tag{font-family:'JetBrains Mono',monospace;font-size:.5rem;padding:2px 6px;border-radius:3px;font-weight:700;letter-spacing:.8px;text-transform:uppercase;white-space:nowrap;}
+@media(max-width:860px){.latest-grid{grid-template-columns:1fr;}.latest-sidebar{position:static;}}
+</style>
 
-<!-- TRIAL WATCH STRIP -->
-<div style="max-width:1100px;margin:0 auto 24px;padding:0 24px;display:flex;flex-direction:column;gap:8px;">
-<div style="font-family:'JetBrains Mono',monospace;font-size:.62rem;text-transform:uppercase;letter-spacing:2.5px;color:var(--red);font-weight:700;display:inline-flex;align-items:center;gap:8px;padding:0 4px;">
-<span style="width:7px;height:7px;background:var(--red);border-radius:50%;display:inline-block;animation:p 2s infinite"></span>
-Trial Watch
-</div>
-<a href="lively-v-baldoni.html" style="display:flex;padding:14px 24px;background:linear-gradient(90deg,rgba(225,16,40,.20),rgba(246,195,64,.08));border:1px solid rgba(225,16,40,.50);border-radius:10px;align-items:center;gap:18px;flex-wrap:wrap;text-decoration:none;color:inherit;transition:transform .2s,border-color .2s;">
-<div style="flex:1;min-width:200px;font-family:'DM Serif Display',serif;font-size:1.05rem;color:var(--t1);"><em style="color:var(--red);font-style:italic;">Lively</em> v. Wayfarer · 🔥 <strong style="color:var(--red);">§ 47.1 ORAL ARGUMENT JUN 1</strong> · Burden of proof · 2 PM SDNY</div>
-<div style="font-family:'JetBrains Mono',monospace;font-size:.85rem;color:var(--red);font-weight:700;">Jun 1, 2026</div>
-<div style="font-family:'JetBrains Mono',monospace;font-size:.65rem;color:var(--t3);text-transform:uppercase;letter-spacing:1.5px;">Read docket →</div>
-</a>
-<a href="avila-v-chris-brown.html" style="display:flex;padding:14px 24px;background:linear-gradient(90deg,rgba(225,16,40,.18),rgba(246,195,64,.08));border:1px solid rgba(225,16,40,.45);border-radius:10px;align-items:center;gap:18px;flex-wrap:wrap;text-decoration:none;color:inherit;transition:transform .2s,border-color .2s;">
-<div style="flex:1;min-width:200px;font-family:'DM Serif Display',serif;font-size:1.05rem;color:var(--t1);"><em style="color:var(--red);font-style:italic;">Avila</em> v. Chris Brown · 🚨 <strong style="color:var(--gold);">TRIAL JUN 15</strong> · $90M dog attack · Rihanna evidence fight</div>
-<div style="font-family:'JetBrains Mono',monospace;font-size:.85rem;color:var(--red);font-weight:700;">Jun 15, 2026</div>
-<div style="font-family:'JetBrains Mono',monospace;font-size:.65rem;color:var(--t3);text-transform:uppercase;letter-spacing:1.5px;">Read docket →</div>
-</a>
-<a href="d4vd-grand-jury.html" style="display:flex;padding:14px 24px;background:linear-gradient(90deg,rgba(225,16,40,.16),rgba(246,195,64,.08));border:1px solid rgba(225,16,40,.40);border-radius:10px;align-items:center;gap:18px;flex-wrap:wrap;text-decoration:none;color:inherit;transition:transform .2s,border-color .2s;">
-<div style="flex:1;min-width:200px;font-family:'DM Serif Display',serif;font-size:1.05rem;color:var(--t1);"><em style="color:var(--red);font-style:italic;">People</em> v. d4vd · Status Jun 17 · <strong style="color:var(--gold);">Prelim Jun 29</strong></div>
-<div style="font-family:'JetBrains Mono',monospace;font-size:.85rem;color:var(--gold);font-weight:700;" id="trialCountdown">Jun 17, 2026</div>
-<div style="font-family:'JetBrains Mono',monospace;font-size:.65rem;color:var(--t3);text-transform:uppercase;letter-spacing:1.5px;">Read docket →</div>
-</a>
-<a href="wade-v-swift-showgirl.html" style="display:flex;padding:14px 24px;background:linear-gradient(90deg,rgba(236,72,153,.16),rgba(246,195,64,.08));border:1px solid rgba(236,72,153,.40);border-radius:10px;align-items:center;gap:18px;flex-wrap:wrap;text-decoration:none;color:inherit;transition:transform .2s,border-color .2s;">
-<div style="flex:1;min-width:200px;font-family:'DM Serif Display',serif;font-size:1.05rem;color:var(--t1);"><em style="color:var(--pink);font-style:italic;">Flagg</em> v. Swift · PI Hearing May 27 · <strong style="color:var(--gold);">MTD Hearing Aug 5</strong></div>
-<div style="font-family:'JetBrains Mono',monospace;font-size:.85rem;color:var(--pink);font-weight:700;">May 27 / Aug 5</div>
-<div style="font-family:'JetBrains Mono',monospace;font-size:.65rem;color:var(--t3);text-transform:uppercase;letter-spacing:1.5px;">Read docket →</div>
-</a>
-</div>
-<script>
-(function(){
-  function countdown(id, target, label){
-    var el = document.getElementById(id);
-    if (!el) return;
-    var diff = target - new Date();
-    if (diff < 0) { el.textContent = 'In Session'; return; }
-    var days = Math.floor(diff/86400000);
-    var hours = Math.floor((diff%86400000)/3600000);
-    el.textContent = days + 'd ' + hours + 'h · ' + label;
-  }
-  function tick(){
-    countdown('trialCountdown', new Date('2026-06-17T08:30:00-07:00'), 'Jun 17');
-  }
-  tick();
-  setInterval(tick, 60000);
-})();
-</script>
+<div class="latest-grid">
+<div class="latest-main">
+<!-- main feed content continues below -->
 
 <!-- ═══════════════════════════════════════════════════════ -->
 <!-- ★ TOP STORY · d4vd · simplified, moved to top per editorial -->
@@ -1198,6 +1161,108 @@ Trial Watch
 
 
 <!-- Twitter widget JS - one load handles every embed on the page -->
+</div><!-- /latest-main -->
+
+<!-- STICKY SIDEBAR -->
+<aside class="latest-sidebar">
+
+  <!-- Trial Watch -->
+  <div class="sb-card" style="border-left:3px solid var(--red);">
+    <div class="sb-hdr" style="color:var(--red);"><span style="width:6px;height:6px;background:var(--red);border-radius:50%;animation:p 2s infinite"></span>Trial Watch</div>
+    <a href="lively-v-baldoni.html" class="sb-item">
+      <span class="sb-tag" style="background:rgba(225,16,40,.15);color:var(--red);">Today</span>
+      <span class="sb-case"><em style="color:var(--red);">Lively</em> &sect; 47.1</span>
+      <span class="sb-date">Jun 1</span>
+    </a>
+    <a href="avila-v-chris-brown.html" class="sb-item">
+      <span class="sb-tag" style="background:rgba(225,16,40,.15);color:var(--red);">Trial</span>
+      <span class="sb-case"><em>Avila</em> v. Brown</span>
+      <span class="sb-date">Jun 15</span>
+    </a>
+    <a href="d4vd-grand-jury.html" class="sb-item">
+      <span class="sb-tag" style="background:rgba(246,195,64,.15);color:var(--gold);">Prelim</span>
+      <span class="sb-case"><em>People</em> v. d4vd</span>
+      <span class="sb-date" id="trialCountdown2">Jun 29</span>
+    </a>
+    <a href="wade-v-swift-showgirl.html" class="sb-item">
+      <span class="sb-tag" style="background:rgba(236,72,153,.15);color:var(--pink);">MTD</span>
+      <span class="sb-case"><em>Flagg</em> v. Swift</span>
+      <span class="sb-date">Aug 5</span>
+    </a>
+    <a href="dua-lipa-samsung.html" class="sb-item">
+      <span class="sb-tag" style="background:rgba(74,144,217,.15);color:var(--blue);">Due</span>
+      <span class="sb-case"><em>Dua Lipa</em> v. Samsung</span>
+      <span class="sb-date">Jun 12</span>
+    </a>
+    <a href="mayers-v-50-cent.html" class="sb-item">
+      <span class="sb-tag" style="background:rgba(74,144,217,.15);color:var(--blue);">Due</span>
+      <span class="sb-case"><em>Mayers</em> v. 50 Cent</span>
+      <span class="sb-date">Jul 17</span>
+    </a>
+  </div>
+
+  <!-- Breaking -->
+  <div class="sb-card" style="border-left:3px solid var(--gold);">
+    <div class="sb-hdr" style="color:var(--gold);"><span style="width:6px;height:6px;background:var(--gold);border-radius:50%;animation:p 2s infinite"></span>Breaking</div>
+    <a href="mia-v-kidcudi.html" class="sb-item">
+      <span class="sb-tag" style="background:rgba(233,30,99,.15);color:#e91e63;">New</span>
+      <span class="sb-case"><em style="color:#e91e63;">M.I.A.</em> v. Cudi</span>
+      <span class="sb-date">May 29</span>
+    </a>
+    <a href="carter-v-buzbee.html" class="sb-item">
+      <span class="sb-tag" style="background:rgba(41,128,185,.15);color:#2980b9;">$190M</span>
+      <span class="sb-case"><em style="color:#2980b9;">Jay-Z</em> v. Buzbee</span>
+      <span class="sb-date">TAC filed</span>
+    </a>
+    <a href="combs-appeal.html" class="sb-item">
+      <span class="sb-tag" style="background:rgba(155,89,182,.15);color:#9b59b6;">BOP</span>
+      <span class="sb-case"><em style="color:#9b59b6;">Combs</em> Feb 23 &rsquo;28</span>
+      <span class="sb-date">Moved up</span>
+    </a>
+    <a href="pitt-v-jolie-miraval.html" class="sb-item">
+      <span class="sb-tag" style="background:rgba(39,174,96,.15);color:#27ae60;">Win</span>
+      <span class="sb-case"><em style="color:#27ae60;">Pitt</em> deposition</span>
+      <span class="sb-date">May 20</span>
+    </a>
+    <a href="cohen-v-mcsweeney.html" class="sb-item">
+      <span class="sb-tag" style="background:rgba(225,16,40,.15);color:var(--red);">Opp</span>
+      <span class="sb-case"><em>McSweeney</em> v. Cohen</span>
+      <span class="sb-date">May 26</span>
+    </a>
+    <a href="wilson-v-ghost-the-deb.html" class="sb-item">
+      <span class="sb-tag" style="background:rgba(230,126,34,.15);color:var(--orange);">Denied</span>
+      <span class="sb-case"><em>Wilson</em> anti-SLAPP</span>
+      <span class="sb-date">May 14</span>
+    </a>
+  </div>
+
+  <!-- Calendar link -->
+  <a href="calendar.html" class="sb-card" style="border-left:3px solid var(--blue);text-decoration:none;color:inherit;display:block;text-align:center;">
+    <div style="font-family:'JetBrains Mono',monospace;font-size:.7rem;color:var(--blue);font-weight:700;letter-spacing:1.5px;text-transform:uppercase;">&#128198; Full Calendar &rarr;</div>
+  </a>
+
+</aside>
+</div><!-- /latest-grid -->
+
+<script>
+(function(){
+  function countdown(id, target, label){
+    var el = document.getElementById(id);
+    if (!el) return;
+    var diff = target - new Date();
+    if (diff < 0) { el.textContent = 'In Session'; return; }
+    var days = Math.floor(diff/86400000);
+    var hours = Math.floor((diff%86400000)/3600000);
+    el.textContent = days + 'd ' + hours + 'h';
+  }
+  function tick(){
+    countdown('trialCountdown2', new Date('2026-06-17T08:30:00-07:00'), 'Jun 17');
+  }
+  tick();
+  setInterval(tick, 60000);
+})();
+</script>
+
 <script src="twitter-lazy.js" defer></script>
 
 <footer class="ft">
