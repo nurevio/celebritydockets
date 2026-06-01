@@ -122,6 +122,31 @@ function toggleTheme(){var c=document.documentElement.getAttribute('data-theme')
   <p class="page-sub">Breaking developments, real-time docket updates, and the X feed of the celebrity court beat — newest week first. Scroll sideways inside each week.</p>
 </section>
 
+<!-- TRIAL WATCH + BREAKING · side by side -->
+<div class="latest-sidebar" style="max-width:1100px;margin:0 auto 20px;padding:0 24px;">
+  <div class="sb-card" style="border-left:3px solid var(--red);">
+    <div class="sb-hdr" style="color:var(--red);"><span style="width:6px;height:6px;background:var(--red);border-radius:50%;animation:p 2s infinite"></span>Trial Watch</div>
+    <a href="lively-v-baldoni.html" class="sb-item"><span class="sb-tag" style="background:rgba(225,16,40,.15);color:var(--red);">Today</span><span class="sb-case"><em style="color:var(--red);">Lively</em> &sect; 47.1</span><span class="sb-date">Jun 1</span></a>
+    <a href="avila-v-chris-brown.html" class="sb-item"><span class="sb-tag" style="background:rgba(225,16,40,.15);color:var(--red);">Trial</span><span class="sb-case"><em>Avila</em> v. Brown</span><span class="sb-date">Jun 15</span></a>
+    <a href="d4vd-grand-jury.html" class="sb-item"><span class="sb-tag" style="background:rgba(246,195,64,.15);color:var(--gold);">Prelim</span><span class="sb-case"><em>People</em> v. d4vd</span><span class="sb-date" id="trialCountdown2">Jun 29</span></a>
+    <a href="wade-v-swift-showgirl.html" class="sb-item"><span class="sb-tag" style="background:rgba(236,72,153,.15);color:var(--pink);">MTD</span><span class="sb-case"><em>Flagg</em> v. Swift</span><span class="sb-date">Aug 5</span></a>
+    <a href="dua-lipa-samsung.html" class="sb-item"><span class="sb-tag" style="background:rgba(74,144,217,.15);color:var(--blue);">Due</span><span class="sb-case"><em>Dua Lipa</em> v. Samsung</span><span class="sb-date">Jun 12</span></a>
+    <a href="mayers-v-50-cent.html" class="sb-item"><span class="sb-tag" style="background:rgba(74,144,217,.15);color:var(--blue);">Due</span><span class="sb-case"><em>Mayers</em> v. 50 Cent</span><span class="sb-date">Jul 17</span></a>
+  </div>
+  <div class="sb-card" style="border-left:3px solid var(--gold);">
+    <div class="sb-hdr" style="color:var(--gold);"><span style="width:6px;height:6px;background:var(--gold);border-radius:50%;animation:p 2s infinite"></span>Breaking</div>
+    <a href="mia-v-kidcudi.html" class="sb-item"><span class="sb-tag" style="background:rgba(233,30,99,.15);color:#e91e63;">New</span><span class="sb-case"><em style="color:#e91e63;">M.I.A.</em> v. Cudi</span><span class="sb-date">May 29</span></a>
+    <a href="carter-v-buzbee.html" class="sb-item"><span class="sb-tag" style="background:rgba(41,128,185,.15);color:#2980b9;">$190M</span><span class="sb-case"><em style="color:#2980b9;">Jay-Z</em> v. Buzbee</span><span class="sb-date">TAC filed</span></a>
+    <a href="combs-appeal.html" class="sb-item"><span class="sb-tag" style="background:rgba(155,89,182,.15);color:#9b59b6;">BOP</span><span class="sb-case"><em style="color:#9b59b6;">Combs</em> Feb 23 &rsquo;28</span><span class="sb-date">Moved up</span></a>
+    <a href="pitt-v-jolie-miraval.html" class="sb-item"><span class="sb-tag" style="background:rgba(39,174,96,.15);color:#27ae60;">Win</span><span class="sb-case"><em style="color:#27ae60;">Pitt</em> deposition</span><span class="sb-date">May 20</span></a>
+    <a href="cohen-v-mcsweeney.html" class="sb-item"><span class="sb-tag" style="background:rgba(225,16,40,.15);color:var(--red);">Opp</span><span class="sb-case"><em>McSweeney</em> v. Cohen</span><span class="sb-date">May 26</span></a>
+    <a href="wilson-v-ghost-the-deb.html" class="sb-item"><span class="sb-tag" style="background:rgba(230,126,34,.15);color:var(--orange);">Denied</span><span class="sb-case"><em>Wilson</em> anti-SLAPP</span><span class="sb-date">May 14</span></a>
+  </div>
+  <a href="calendar.html" class="sb-card" style="border-left:3px solid var(--blue);text-decoration:none;color:inherit;display:block;text-align:center;grid-column:1/-1;">
+    <div style="font-family:'JetBrains Mono',monospace;font-size:.7rem;color:var(--blue);font-weight:700;letter-spacing:1.5px;text-transform:uppercase;">&#128198; Full Calendar &rarr;</div>
+  </a>
+</div>
+
 <!-- TOP STORIES · sideways scroll -->
 <div style="max-width:1100px;margin:0 auto 16px;padding:0 24px;">
   <div style="font-family:'JetBrains Mono',monospace;font-size:.62rem;text-transform:uppercase;letter-spacing:2.5px;color:var(--red);font-weight:700;display:inline-flex;align-items:center;gap:8px;margin-bottom:10px;">
@@ -217,9 +242,9 @@ function toggleTheme(){var c=document.documentElement.getAttribute('data-theme')
 
 <!-- TWO-COLUMN LAYOUT: main feed + sticky sidebar -->
 <style>
-.latest-grid{display:grid;grid-template-columns:1fr 540px;gap:24px;max-width:1400px;margin:0 auto;padding:0 24px;}
+.latest-grid{display:block;max-width:1100px;margin:0 auto;padding:0 24px;}
 .latest-main{min-width:0;}
-.latest-sidebar{position:sticky;top:80px;align-self:start;display:grid;grid-template-columns:1fr 1fr;gap:10px;}
+.latest-sidebar{display:grid;grid-template-columns:1fr 1fr;gap:10px;margin-bottom:24px;}
 .sb-card{background:var(--card);border:1px solid var(--bdr);border-radius:10px;padding:14px 16px;}
 .sb-hdr{font-family:'JetBrains Mono',monospace;font-size:.58rem;letter-spacing:2.5px;text-transform:uppercase;font-weight:700;margin-bottom:10px;display:flex;align-items:center;gap:6px;}
 .sb-item{display:flex;align-items:center;gap:10px;padding:8px 0;border-bottom:1px solid var(--bdr2);text-decoration:none;color:inherit;transition:background .15s;}
@@ -228,7 +253,6 @@ function toggleTheme(){var c=document.documentElement.getAttribute('data-theme')
 .sb-case{font-family:'DM Serif Display',serif;font-size:.88rem;color:var(--t1);flex:1;}
 .sb-date{font-family:'JetBrains Mono',monospace;font-size:.6rem;color:var(--t3);white-space:nowrap;}
 .sb-tag{font-family:'JetBrains Mono',monospace;font-size:.5rem;padding:2px 6px;border-radius:3px;font-weight:700;letter-spacing:.8px;text-transform:uppercase;white-space:nowrap;}
-@media(max-width:1100px){.latest-grid{grid-template-columns:1fr;}.latest-sidebar{position:static;}}
 @media(max-width:600px){.latest-sidebar{grid-template-columns:1fr;}}
 </style>
 
@@ -1154,86 +1178,6 @@ function toggleTheme(){var c=document.documentElement.getAttribute('data-theme')
 
 <!-- Twitter widget JS - one load handles every embed on the page -->
 </div><!-- /latest-main -->
-
-<!-- STICKY SIDEBAR -->
-<aside class="latest-sidebar">
-
-  <!-- Trial Watch -->
-  <div class="sb-card" style="border-left:3px solid var(--red);">
-    <div class="sb-hdr" style="color:var(--red);"><span style="width:6px;height:6px;background:var(--red);border-radius:50%;animation:p 2s infinite"></span>Trial Watch</div>
-    <a href="lively-v-baldoni.html" class="sb-item">
-      <span class="sb-tag" style="background:rgba(225,16,40,.15);color:var(--red);">Today</span>
-      <span class="sb-case"><em style="color:var(--red);">Lively</em> &sect; 47.1</span>
-      <span class="sb-date">Jun 1</span>
-    </a>
-    <a href="avila-v-chris-brown.html" class="sb-item">
-      <span class="sb-tag" style="background:rgba(225,16,40,.15);color:var(--red);">Trial</span>
-      <span class="sb-case"><em>Avila</em> v. Brown</span>
-      <span class="sb-date">Jun 15</span>
-    </a>
-    <a href="d4vd-grand-jury.html" class="sb-item">
-      <span class="sb-tag" style="background:rgba(246,195,64,.15);color:var(--gold);">Prelim</span>
-      <span class="sb-case"><em>People</em> v. d4vd</span>
-      <span class="sb-date" id="trialCountdown2">Jun 29</span>
-    </a>
-    <a href="wade-v-swift-showgirl.html" class="sb-item">
-      <span class="sb-tag" style="background:rgba(236,72,153,.15);color:var(--pink);">MTD</span>
-      <span class="sb-case"><em>Flagg</em> v. Swift</span>
-      <span class="sb-date">Aug 5</span>
-    </a>
-    <a href="dua-lipa-samsung.html" class="sb-item">
-      <span class="sb-tag" style="background:rgba(74,144,217,.15);color:var(--blue);">Due</span>
-      <span class="sb-case"><em>Dua Lipa</em> v. Samsung</span>
-      <span class="sb-date">Jun 12</span>
-    </a>
-    <a href="mayers-v-50-cent.html" class="sb-item">
-      <span class="sb-tag" style="background:rgba(74,144,217,.15);color:var(--blue);">Due</span>
-      <span class="sb-case"><em>Mayers</em> v. 50 Cent</span>
-      <span class="sb-date">Jul 17</span>
-    </a>
-  </div>
-
-  <!-- Breaking -->
-  <div class="sb-card" style="border-left:3px solid var(--gold);">
-    <div class="sb-hdr" style="color:var(--gold);"><span style="width:6px;height:6px;background:var(--gold);border-radius:50%;animation:p 2s infinite"></span>Breaking</div>
-    <a href="mia-v-kidcudi.html" class="sb-item">
-      <span class="sb-tag" style="background:rgba(233,30,99,.15);color:#e91e63;">New</span>
-      <span class="sb-case"><em style="color:#e91e63;">M.I.A.</em> v. Cudi</span>
-      <span class="sb-date">May 29</span>
-    </a>
-    <a href="carter-v-buzbee.html" class="sb-item">
-      <span class="sb-tag" style="background:rgba(41,128,185,.15);color:#2980b9;">$190M</span>
-      <span class="sb-case"><em style="color:#2980b9;">Jay-Z</em> v. Buzbee</span>
-      <span class="sb-date">TAC filed</span>
-    </a>
-    <a href="combs-appeal.html" class="sb-item">
-      <span class="sb-tag" style="background:rgba(155,89,182,.15);color:#9b59b6;">BOP</span>
-      <span class="sb-case"><em style="color:#9b59b6;">Combs</em> Feb 23 &rsquo;28</span>
-      <span class="sb-date">Moved up</span>
-    </a>
-    <a href="pitt-v-jolie-miraval.html" class="sb-item">
-      <span class="sb-tag" style="background:rgba(39,174,96,.15);color:#27ae60;">Win</span>
-      <span class="sb-case"><em style="color:#27ae60;">Pitt</em> deposition</span>
-      <span class="sb-date">May 20</span>
-    </a>
-    <a href="cohen-v-mcsweeney.html" class="sb-item">
-      <span class="sb-tag" style="background:rgba(225,16,40,.15);color:var(--red);">Opp</span>
-      <span class="sb-case"><em>McSweeney</em> v. Cohen</span>
-      <span class="sb-date">May 26</span>
-    </a>
-    <a href="wilson-v-ghost-the-deb.html" class="sb-item">
-      <span class="sb-tag" style="background:rgba(230,126,34,.15);color:var(--orange);">Denied</span>
-      <span class="sb-case"><em>Wilson</em> anti-SLAPP</span>
-      <span class="sb-date">May 14</span>
-    </a>
-  </div>
-
-  <!-- Calendar link -->
-  <a href="calendar.html" class="sb-card" style="border-left:3px solid var(--blue);text-decoration:none;color:inherit;display:block;text-align:center;grid-column:1/-1;">
-    <div style="font-family:'JetBrains Mono',monospace;font-size:.7rem;color:var(--blue);font-weight:700;letter-spacing:1.5px;text-transform:uppercase;">&#128198; Full Calendar &rarr;</div>
-  </a>
-
-</aside>
 </div><!-- /latest-grid -->
 
 <script>
