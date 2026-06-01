@@ -217,9 +217,9 @@ function toggleTheme(){var c=document.documentElement.getAttribute('data-theme')
 
 <!-- TWO-COLUMN LAYOUT: main feed + sticky sidebar -->
 <style>
-.latest-grid{display:grid;grid-template-columns:1fr 280px;gap:24px;max-width:1100px;margin:0 auto;padding:0 24px;}
+.latest-grid{display:grid;grid-template-columns:1fr 540px;gap:24px;max-width:1400px;margin:0 auto;padding:0 24px;}
 .latest-main{min-width:0;}
-.latest-sidebar{position:sticky;top:80px;align-self:start;display:flex;flex-direction:column;gap:12px;}
+.latest-sidebar{position:sticky;top:80px;align-self:start;display:grid;grid-template-columns:1fr 1fr;gap:10px;}
 .sb-card{background:var(--card);border:1px solid var(--bdr);border-radius:10px;padding:14px 16px;}
 .sb-hdr{font-family:'JetBrains Mono',monospace;font-size:.58rem;letter-spacing:2.5px;text-transform:uppercase;font-weight:700;margin-bottom:10px;display:flex;align-items:center;gap:6px;}
 .sb-item{display:flex;align-items:center;gap:10px;padding:8px 0;border-bottom:1px solid var(--bdr2);text-decoration:none;color:inherit;transition:background .15s;}
@@ -228,7 +228,8 @@ function toggleTheme(){var c=document.documentElement.getAttribute('data-theme')
 .sb-case{font-family:'DM Serif Display',serif;font-size:.88rem;color:var(--t1);flex:1;}
 .sb-date{font-family:'JetBrains Mono',monospace;font-size:.6rem;color:var(--t3);white-space:nowrap;}
 .sb-tag{font-family:'JetBrains Mono',monospace;font-size:.5rem;padding:2px 6px;border-radius:3px;font-weight:700;letter-spacing:.8px;text-transform:uppercase;white-space:nowrap;}
-@media(max-width:860px){.latest-grid{grid-template-columns:1fr;}.latest-sidebar{position:static;}}
+@media(max-width:1100px){.latest-grid{grid-template-columns:1fr;}.latest-sidebar{position:static;}}
+@media(max-width:600px){.latest-sidebar{grid-template-columns:1fr;}}
 </style>
 
 <div class="latest-grid">
@@ -1228,7 +1229,7 @@ function toggleTheme(){var c=document.documentElement.getAttribute('data-theme')
   </div>
 
   <!-- Calendar link -->
-  <a href="calendar.html" class="sb-card" style="border-left:3px solid var(--blue);text-decoration:none;color:inherit;display:block;text-align:center;">
+  <a href="calendar.html" class="sb-card" style="border-left:3px solid var(--blue);text-decoration:none;color:inherit;display:block;text-align:center;grid-column:1/-1;">
     <div style="font-family:'JetBrains Mono',monospace;font-size:.7rem;color:var(--blue);font-weight:700;letter-spacing:1.5px;text-transform:uppercase;">&#128198; Full Calendar &rarr;</div>
   </a>
 
