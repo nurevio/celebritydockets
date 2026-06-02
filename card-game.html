@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Docket Flip · Celebrity Dockets</title>
+<link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display&family=IBM+Plex+Sans:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+<style>
+:root{--bg:#0a0a0f;--card:#12121a;--red:#E11028;--gold:#F6C340;--t1:#e8e6e1;--t2:#9a9a9a;--t3:#5a5a6a;--bdr:#2a2a3a}
+*{margin:0;padding:0;box-sizing:border-box}
+body{background:var(--bg);color:var(--t1);font-family:'IBM Plex Sans',sans-serif;min-height:100vh;display:flex;flex-direction:column;align-items:center;padding:40px 24px 80px;}
+h1{font-family:'DM Serif Display',serif;font-size:2.8rem;margin-bottom:8px;text-align:center;}
+h1 em{color:var(--gold);font-style:italic;}
+.sub{font-size:1rem;color:var(--t2);margin-bottom:12px;text-align:center;max-width:500px;}
+.controls{display:flex;gap:12px;margin-bottom:32px;flex-wrap:wrap;justify-content:center;}
+.btn{font-family:'JetBrains Mono',monospace;font-size:.75rem;padding:10px 20px;border-radius:6px;border:1px solid var(--gold);background:rgba(246,195,64,.1);color:var(--gold);cursor:pointer;text-transform:uppercase;letter-spacing:1.5px;font-weight:700;transition:all .2s;}
+.btn:hover{background:var(--gold);color:#0a0a0f;}
+.btn.reset{border-color:var(--red);background:rgba(225,16,40,.1);color:var(--red);}
+.btn.reset:hover{background:var(--red);color:#fff;}
+.board{display:grid;grid-template-columns:repeat(4,1fr);gap:16px;max-width:900px;width:100%;}
+@media(max-width:700px){.board{grid-template-columns:repeat(3,1fr);}}
+@media(max-width:500px){.board{grid-template-columns:repeat(2,1fr);}}
+.flip-card{perspective:800px;height:220px;cursor:pointer;}
+.flip-card.flipped .flip-inner{transform:rotateY(180deg);}
+.flip-card.flipped{cursor:default;}
+.flip-inner{position:relative;width:100%;height:100%;transition:transform .6s cubic-bezier(.4,.2,.2,1);transform-style:preserve-3d;}
+.flip-front,.flip-back{position:absolute;top:0;left:0;width:100%;height:100%;backface-visibility:hidden;border-radius:12px;overflow:hidden;}
+.flip-front{background:linear-gradient(135deg,rgba(225,16,40,.15),rgba(246,195,64,.08));border:2px solid var(--bdr);display:flex;flex-direction:column;align-items:center;justify-content:center;gap:10px;}
+.flip-front:hover{border-color:var(--gold);}
+.flip-front .q{font-size:2.5rem;}
+.flip-front .label{font-family:'JetBrains Mono',monospace;font-size:.6rem;letter-spacing:2.5px;text-transform:uppercase;color:var(--gold);font-weight:700;}
+.flip-front .cd-logo{font-family:'DM Serif Display',serif;font-size:.9rem;color:var(--t3);margin-top:8px;}
+.flip-front .cd-logo span{color:var(--red);}
+.flip-back{transform:rotateY(180deg);display:flex;flex-direction:column;border:2px solid var(--gold);background:var(--card);}
+.flip-back img{width:100%;height:90px;object-fit:cover;display:block;}
+.flip-back .info{padding:10px 12px;flex:1;display:flex;flex-direction:column;}
+.flip-back .case-name{font-family:'DM Serif Display',serif;font-size:.95rem;color:var(--t1);margin-bottom:4px;line-height:1.2;}
+.flip-back .case-name em{color:var(--gold);font-style:italic;}
+.flip-back .case-desc{font-size:.7rem;color:var(--t2);line-height:1.4;flex:1;}
+.flip-back .case-foot{font-family:'JetBrains Mono',monospace;font-size:.55rem;color:var(--gold);text-transform:uppercase;letter-spacing:1px;padding-top:6px;border-top:1px solid var(--bdr);margin-top:6px;}
+.score{font-family:'JetBrains Mono',monospace;font-size:.85rem;color:var(--t2);margin-bottom:24px;text-align:center;}
+.score strong{color:var(--gold);}
+</style>
+</head>
+<body>
+
+<h1>Docket <em>Flip.</em></h1>
+<p class="sub">Tap a card to flip it. Whatever case you get, that's what we're talking about.</p>
+<div class="score">Cards flipped: <strong id="count">0</strong> / <strong id="total">0</strong></div>
+<div class="controls">
+  <button class="btn" onclick="shuffle()">Shuffle & Reset</button>
+  <button class="btn" onclick="flipAll()">Flip All</button>
+  <button class="btn reset" onclick="resetAll()">Reset</button>
+</div>
+<div class="board" id="board"></div>
+
+<script>
+var cases = [
+  {name:'<em>Lively</em> v. Wayfarer',desc:'Settled but § 47.1 still live. Oral argument June 1.',foot:'SDNY · § 47.1',img:'lively-baldoni-hero.webp',link:'lively-v-baldoni.html'},
+  {name:'<em>Combs</em> · Appeal',desc:'50-month sentence. BOP release Feb 23, 2028. 2nd Circuit opinion pending.',foot:'Appeal · Fully Briefed',img:'combs-hero.webp',link:'combs-appeal.html'},
+  {name:'<em>Drake</em> v. UMG',desc:'"Certified pedophile" lyric. Appeal fully briefed. 2nd Circuit ruling pending.',foot:'2nd Cir. · Briefed',img:'drake-umg-hero.webp',link:'drake-v-umg-appeal.html'},
+  {name:'<em>Barnett</em> v. LaBeouf',desc:'STAND Act + 3 battery charges + The Twigs trademark. CMC Aug 27.',foot:'3 Cases · Active',img:'barnett-labeouf-hero.webp',link:'barnett-v-labeouf.html'},
+  {name:'<em>Pitt</em> v. Jolie',desc:'Deposition win May 20. 33 questions must be answered. Palas trademark suit.',foot:'Deposition Win',img:'pitt-jolie-hero.webp',link:'pitt-v-jolie-miraval.html'},
+  {name:'<em>d4vd</em> · Murder',desc:'First-degree murder. No bail. Prelim Jun 29. 40 TB evidence.',foot:'Prelim Jun 29',img:'d4vd-hero.webp',link:'d4vd-grand-jury.html'},
+  {name:'<em>Avila</em> v. Chris Brown',desc:'$90M dog attack. Rihanna evidence fight. Trial Jun 15.',foot:'Trial Jun 15',img:'avila-brown-thumb.jpg',link:'avila-v-chris-brown.html'},
+  {name:'Wade v. <em>Swift</em>',desc:'Showgirl trademark. PI heard May 27. MTD hearing Aug 5.',foot:'MTD Aug 5',img:'wade-swift-hero.webp',link:'wade-v-swift-showgirl.html'},
+  {name:'<em>Carter</em> v. Buzbee',desc:'$190M. TAC filed. Doe recanted on tape. CA appeal fully briefed.',foot:'$190M · TAC Filed',img:'carter-buzbee-hero.webp',link:'carter-v-buzbee.html'},
+  {name:'<em>M.I.A.</em> v. Kid Cudi',desc:'$2.8M breach. Fired after 4 of 33 shows. Howard E. King.',foot:'Filed May 29',img:'mia-kidcudi-hero.webp',link:'mia-v-kidcudi.html'},
+  {name:'<em>Mayweather</em> Fraud',desc:'$500M+ across two suits. Rechnitz NY + Showtime C.D. Cal.',foot:'$500M+ · 2 Suits',img:'mayweather-fraud-hero.webp',link:'mayweather-fraud.html'},
+  {name:'Ghost v. <em>Wilson</em>',desc:'Anti-SLAPP denied May 14. Australia trial judgment reserved.',foot:'Trial Oct 2026',img:'wilson-ghost-hero.webp',link:'wilson-v-ghost-the-deb.html'},
+  {name:'<em>McSweeney</em> v. Cohen',desc:'35-page opposition cites Lively v. Wayfarer. MTD fully briefed.',foot:'Opposition May 26',img:'cohen-mcsweeney-hero.webp',link:'cohen-v-mcsweeney.html'},
+  {name:'<em>Mayers</em> v. 50 Cent',desc:'Served May 27. Answer due Jul 17. 83+ alleged threats.',foot:'Answer Due Jul 17',img:'mayers-50cent-hero.webp',link:'mayers-v-50-cent.html'},
+  {name:'<em>Paris Jackson</em> v. MJ Estate',desc:'$625K bonuses returned. 3 motion hearings Jul 15.',foot:'Jul 15 Hearings',img:'paris-jackson-hero.webp',link:'paris-jackson-v-mj-estate.html'},
+  {name:'<em>Dua Lipa</em> v. Samsung',desc:'$15M. Samsung served May 22. Answer due Jun 12.',foot:'Answer Due Jun 12',img:'dua-lipa-samsung-hero.webp',link:'dua-lipa-samsung.html'},
+  {name:'R v. <em>Brand</em> · UK',desc:'7 charges, 6 women. Trial Oct 12. ~2 months long.',foot:'Trial Oct 12',img:'russell-brand-hero.webp',link:'russell-brand-uk-trial.html'},
+  {name:'<em>Prince Harry</em> UK',desc:'Daily Mail trial done. Judgment pending. Sentebale suing him.',foot:'Judgment Pending',img:'prince-harry-hero.webp',link:'prince-harry-uk-cases.html'},
+  {name:'<em>Pratt</em> v. City of LA',desc:'Palisades fire suit. Running for mayor. Status conf Jul 15.',foot:'Discovery · Mayor',img:'pratt-hero.webp',link:'pratt-v-city-of-la.html'},
+  {name:'<em>Tory Lanez</em> v. CDCR',desc:'Stabbed 16 times. TRO denied (procedural). Parole Aug 2029.',foot:'TRO Denied',img:'tory-lanez-hero.webp',link:'tory-lanez-prison-lawsuit.html'},
+];
+
+function shuffle(){
+  for(var i=cases.length-1;i>0;i--){var j=Math.floor(Math.random()*(i+1));var t=cases[i];cases[i]=cases[j];cases[j]=t;}
+  render();
+}
+
+function render(){
+  var b=document.getElementById('board');
+  b.innerHTML='';
+  document.getElementById('total').textContent=cases.length;
+  document.getElementById('count').textContent='0';
+  cases.forEach(function(c,i){
+    var card=document.createElement('div');
+    card.className='flip-card';
+    card.setAttribute('data-index',i);
+    card.onclick=function(){
+      if(!this.classList.contains('flipped')){
+        this.classList.add('flipped');
+        var n=document.querySelectorAll('.flipped').length;
+        document.getElementById('count').textContent=n;
+      }
+    };
+    card.innerHTML='<div class="flip-inner">'
+      +'<div class="flip-front"><div class="q">&#9878;</div><div class="label">Flip to reveal</div><div class="cd-logo">Celebrity<span>Dockets</span></div></div>'
+      +'<div class="flip-back">'
+        +'<img src="'+c.img+'" alt="">'
+        +'<div class="info">'
+          +'<div class="case-name">'+c.name+'</div>'
+          +'<div class="case-desc">'+c.desc+'</div>'
+          +'<div class="case-foot">'+c.foot+'</div>'
+        +'</div>'
+      +'</div>'
+    +'</div>';
+    b.appendChild(card);
+  });
+}
+
+function flipAll(){
+  document.querySelectorAll('.flip-card').forEach(function(c){c.classList.add('flipped');});
+  document.getElementById('count').textContent=cases.length;
+}
+
+function resetAll(){
+  document.querySelectorAll('.flip-card').forEach(function(c){c.classList.remove('flipped');});
+  document.getElementById('count').textContent='0';
+}
+
+shuffle();
+</script>
+</body>
+</html>
