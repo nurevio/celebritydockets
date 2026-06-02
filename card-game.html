@@ -37,7 +37,8 @@ h1 em{color:var(--gold);font-style:italic;}
 .flip-back .case-name{font-family:'DM Serif Display',serif;font-size:.95rem;color:var(--t1);margin-bottom:4px;line-height:1.2;}
 .flip-back .case-name em{color:var(--gold);font-style:italic;}
 .flip-back .case-desc{font-size:.7rem;color:var(--t2);line-height:1.4;flex:1;}
-.flip-back .case-foot{font-family:'JetBrains Mono',monospace;font-size:.55rem;color:var(--gold);text-transform:uppercase;letter-spacing:1px;padding-top:6px;border-top:1px solid var(--bdr);margin-top:6px;}
+.flip-back .case-foot{font-family:'JetBrains Mono',monospace;font-size:.55rem;color:var(--gold);text-transform:uppercase;letter-spacing:1px;padding-top:6px;border-top:1px solid var(--bdr);margin-top:6px;transition:color .15s;}
+.flip-back .case-foot:hover{color:var(--red);}
 .score{font-family:'JetBrains Mono',monospace;font-size:.85rem;color:var(--t2);margin-bottom:24px;text-align:center;}
 .score strong{color:var(--gold);}
 </style>
@@ -109,11 +110,15 @@ function render(){
         +'<div class="info">'
           +'<div class="case-name">'+c.name+'</div>'
           +'<div class="case-desc">'+c.desc+'</div>'
-          +'<div class="case-foot">'+c.foot+'</div>'
+          +'<a href="'+c.link+'" class="case-foot" style="text-decoration:none;display:block;">Read Docket &rarr;</a>'
         +'</div>'
       +'</div>'
     +'</div>';
     b.appendChild(card);
+  });
+  // Stop link clicks from triggering card flip
+  document.querySelectorAll('.case-foot').forEach(function(a){
+    a.addEventListener('click',function(e){e.stopPropagation();});
   });
 }
 
