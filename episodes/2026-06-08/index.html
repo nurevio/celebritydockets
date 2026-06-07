@@ -134,8 +134,11 @@
   .rundown-grid { display:grid; grid-template-columns: repeat(3,1fr); gap:14px; max-width:980px; margin:0 auto; }
   @media(max-width:900px){ .rundown-grid { grid-template-columns: repeat(2,1fr); } }
   @media(max-width:560px){ .rundown-grid { grid-template-columns: 1fr; } }
-  .rd-card { background: var(--bg-card); border: 1px solid var(--border); border-radius: 10px; padding: 18px; position: relative; display: flex; flex-direction: column; gap: 8px; transition: transform .15s, border-color .15s; }
+  .rd-card { background: var(--bg-card); border: 1px solid var(--border); border-radius: 10px; padding: 0; position: relative; display: flex; flex-direction: column; gap: 0; transition: transform .15s, border-color .15s; overflow: hidden; }
   .rd-card:hover { transform: translateY(-2px); border-color: var(--accent-gold); }
+  .rd-img { width: 100%; aspect-ratio: 16/9; object-fit: cover; display: block; background: linear-gradient(135deg, rgba(225,16,40,.18), rgba(246,195,64,.12)); border-bottom: 1px solid rgba(255,255,255,.06); }
+  .rd-img-fallback { width: 100%; aspect-ratio: 16/9; display: flex; align-items: center; justify-content: center; background: linear-gradient(135deg, rgba(225,16,40,.22), rgba(246,195,64,.10)); border-bottom: 1px solid rgba(255,255,255,.06); font-family: 'DM Serif Display', serif; font-size: 2.4rem; color: rgba(255,255,255,.55); letter-spacing: 2px; }
+  .rd-body { padding: 16px 18px 18px; display: flex; flex-direction: column; gap: 8px; flex: 1; }
   .rd-card.win { border-left: 4px solid #27ae60; }
   .rd-card.loss { border-left: 4px solid var(--accent-red); }
   .rd-card.new { border-left: 4px solid var(--accent-gold); }
@@ -285,118 +288,166 @@
 
     <div class="rd-section-label">★ Verdicts &amp; Pleas</div>
     <div class="rundown-grid">
-      <div class="rd-card loss">
-        <span class="rd-status loss">★ Guilty Plea · Jun 3</span>
-        <div class="rd-title">Shia <em>LaBeouf</em></div>
-        <div class="rd-line">All 3 Mardi Gras battery counts. 6-mo suspended + 2 yrs probation + sensitivity + anger mgmt.</div>
-        <div class="rd-next">Civil case · CMC Aug 27</div>
-      </div>
-      <div class="rd-card win">
-        <span class="rd-status win">★ Rehearing Denied · Jun</span>
-        <div class="rd-title">Littrell · <em>Sheriff Case Over</em></div>
-        <div class="rd-line">11th Cir. rehearing denied. Brevard County deputies walk. Hill suit is the one still alive.</div>
-        <div class="rd-next">Hill civil suit continues</div>
-      </div>
-      <div class="rd-card win">
-        <span class="rd-status win">★ Win · Mansion Suit</span>
-        <div class="rd-title">Katy <em>Perry</em></div>
-        <div class="rd-line">Wins $5M Montecito mansion fight. Free Mexico concert + Chief Keef collab same week.</div>
-        <div class="rd-next">Ruby Rose probe silent</div>
-      </div>
+      <a href="../../barnett-v-labeouf.html" class="rd-card loss" style="text-decoration:none;color:inherit;">
+        <img class="rd-img" src="../../barnett-labeouf-hero.jpg" alt="Shia LaBeouf" loading="lazy">
+        <div class="rd-body">
+          <span class="rd-status loss">★ Guilty Plea · Jun 3</span>
+          <div class="rd-title">Shia <em>LaBeouf</em></div>
+          <div class="rd-line">All 3 Mardi Gras battery counts. 6-mo suspended + 2 yrs probation + sensitivity + anger mgmt.</div>
+          <div class="rd-next">Civil case · CMC Aug 27</div>
+        </div>
+      </a>
+      <a href="../../littrell-beach-lawsuit.html" class="rd-card win" style="text-decoration:none;color:inherit;">
+        <img class="rd-img" src="../../littrell-hero.jpg" alt="Brian Littrell" loading="lazy">
+        <div class="rd-body">
+          <span class="rd-status win">★ Rehearing Denied · Jun</span>
+          <div class="rd-title">Littrell · <em>Sheriff Case Over</em></div>
+          <div class="rd-line">11th Cir. rehearing denied. Brevard County deputies walk. Hill suit is the one still alive.</div>
+          <div class="rd-next">Hill civil suit continues</div>
+        </div>
+      </a>
+      <a href="../../perry-rose-criminal-probe.html" class="rd-card win" style="text-decoration:none;color:inherit;">
+        <img class="rd-img" src="../../perry-rose-hero.jpg" alt="Katy Perry" loading="lazy">
+        <div class="rd-body">
+          <span class="rd-status win">★ Win · Mansion Suit</span>
+          <div class="rd-title">Katy <em>Perry</em></div>
+          <div class="rd-line">Wins $5M Montecito mansion fight. Free Mexico concert + Chief Keef collab same week.</div>
+          <div class="rd-next">Ruby Rose probe silent</div>
+        </div>
+      </a>
     </div>
 
     <div class="rd-section-label">★ Trial Watch · 30 Days</div>
     <div class="rundown-grid">
-      <div class="rd-card watch">
-        <span class="rd-status watch">Trial Jun 15</span>
-        <div class="rd-title">Avila v. Chris <em>Brown</em></div>
-        <div class="rd-line">$90M dog-attack trial. Security supervisor paid $30–40K personally. Rihanna evidence fight live.</div>
-        <div class="rd-next">L.A. Superior · 13 days</div>
-      </div>
-      <div class="rd-card watch">
-        <span class="rd-status watch">Prelim Jun 29</span>
-        <div class="rd-title">People v. <em>d4vd</em></div>
-        <div class="rd-line">Status conf Jun 17 → prelim Jun 29. 40 TB evidence. Defense says prosecution is stalling.</div>
-        <div class="rd-next">L.A. Superior</div>
-      </div>
-      <div class="rd-card watch">
-        <span class="rd-status watch">Ruling Pending</span>
-        <div class="rd-title"><em>Lively</em> v. Wayfarer</div>
-        <div class="rd-line">§ 47.1 oral argument heard Jun 1. Liman has the briefs. McSweeney already citing his playbook.</div>
-        <div class="rd-next">SDNY · ruling watch</div>
-      </div>
-      <div class="rd-card watch">
-        <span class="rd-status watch">MTD Hearing Aug 5</span>
-        <div class="rd-title">Flagg v. <em>Swift</em></div>
-        <div class="rd-line">33-page MTD bombshell. PI hearing recap. Gaga Mayhem precedent quietly in play.</div>
-        <div class="rd-next">C.D. Cal.</div>
-      </div>
+      <a href="../../avila-v-chris-brown.html" class="rd-card watch" style="text-decoration:none;color:inherit;">
+        <img class="rd-img" src="../../avila-brown-warhol-hero.jpg" alt="Avila v. Brown" loading="lazy">
+        <div class="rd-body">
+          <span class="rd-status watch">Trial Jun 15</span>
+          <div class="rd-title">Avila v. Chris <em>Brown</em></div>
+          <div class="rd-line">$90M dog-attack trial. Security supervisor paid $30–40K personally. Rihanna evidence fight live.</div>
+          <div class="rd-next">L.A. Superior · 13 days</div>
+        </div>
+      </a>
+      <a href="../../d4vd-grand-jury.html" class="rd-card watch" style="text-decoration:none;color:inherit;">
+        <img class="rd-img" src="../../d4vd-hero.jpg" alt="d4vd" loading="lazy">
+        <div class="rd-body">
+          <span class="rd-status watch">Prelim Jun 29</span>
+          <div class="rd-title">People v. <em>d4vd</em></div>
+          <div class="rd-line">Status conf Jun 17 → prelim Jun 29. 40 TB evidence. Defense says prosecution is stalling.</div>
+          <div class="rd-next">L.A. Superior</div>
+        </div>
+      </a>
+      <a href="../../lively-v-baldoni.html" class="rd-card watch" style="text-decoration:none;color:inherit;">
+        <img class="rd-img" src="../../lively-baldoni-hero.jpg" alt="Lively v. Wayfarer" loading="lazy">
+        <div class="rd-body">
+          <span class="rd-status watch">Ruling Pending</span>
+          <div class="rd-title"><em>Lively</em> v. Wayfarer</div>
+          <div class="rd-line">§ 47.1 oral argument heard Jun 1. Liman has the briefs. McSweeney already citing his playbook.</div>
+          <div class="rd-next">SDNY · ruling watch</div>
+        </div>
+      </a>
+      <a href="../../wade-v-swift-showgirl.html" class="rd-card watch" style="text-decoration:none;color:inherit;">
+        <img class="rd-img" src="../../wade-swift-hero.jpg" alt="Wade v. Swift" loading="lazy">
+        <div class="rd-body">
+          <span class="rd-status watch">MTD Hearing Aug 5</span>
+          <div class="rd-title">Flagg v. <em>Swift</em></div>
+          <div class="rd-line">33-page MTD bombshell. PI hearing recap. Gaga Mayhem precedent quietly in play.</div>
+          <div class="rd-next">C.D. Cal.</div>
+        </div>
+      </a>
     </div>
 
     <div class="rd-section-label">★ Fresh Filings</div>
     <div class="rundown-grid">
-      <div class="rd-card new">
-        <span class="rd-status new">New · $175M</span>
-        <div class="rd-title"><em>Mayweather</em> × Rechnitz</div>
-        <div class="rd-line">Floyd files $175M fraud action. Second front: $340M+ against Showtime. Two fronts, two courts.</div>
-        <div class="rd-next">N.Y. + C.D. Cal.</div>
-      </div>
-      <div class="rd-card new">
-        <span class="rd-status new">New · $2.8M</span>
-        <div class="rd-title">M.I.A. v. Kid <em>Cudi</em></div>
-        <div class="rd-line">$2.8M breach of contract. Same attorney as Ray J — Howard E. King. Case 2:26-cv-04591.</div>
-        <div class="rd-next">C.D. Cal.</div>
-      </div>
-      <div class="rd-card new">
-        <span class="rd-status new">New · AI Royalties</span>
-        <div class="rd-title">AFM v. <em>UMG &amp; Warner</em></div>
-        <div class="rd-line">Musicians' union sues both majors over Suno/Udio AI settlements. Filed Jun 5.</div>
-        <div class="rd-next">First Suno-deal lawsuit</div>
-      </div>
+      <a href="../../mayweather-fraud.html" class="rd-card new" style="text-decoration:none;color:inherit;">
+        <img class="rd-img" src="../../mayweather-fraud-hero.png" alt="Mayweather" loading="lazy">
+        <div class="rd-body">
+          <span class="rd-status new">New · $175M</span>
+          <div class="rd-title"><em>Mayweather</em> × Rechnitz</div>
+          <div class="rd-line">Floyd files $175M fraud action. Second front: $340M+ against Showtime. Two fronts, two courts.</div>
+          <div class="rd-next">N.Y. + C.D. Cal.</div>
+        </div>
+      </a>
+      <a href="../../mia-v-kidcudi.html" class="rd-card new" style="text-decoration:none;color:inherit;">
+        <img class="rd-img" src="../../mia-kidcudi-hero.png" alt="M.I.A. v. Cudi" loading="lazy">
+        <div class="rd-body">
+          <span class="rd-status new">New · $2.8M</span>
+          <div class="rd-title">M.I.A. v. Kid <em>Cudi</em></div>
+          <div class="rd-line">$2.8M breach of contract. Same attorney as Ray J — Howard E. King. Case 2:26-cv-04591.</div>
+          <div class="rd-next">C.D. Cal.</div>
+        </div>
+      </a>
+      <a href="../../afm-v-umg-wmg.html" class="rd-card new" style="text-decoration:none;color:inherit;">
+        <div class="rd-img-fallback">★ AFM</div>
+        <div class="rd-body">
+          <span class="rd-status new">New · AI Royalties</span>
+          <div class="rd-title">AFM v. <em>UMG &amp; Warner</em></div>
+          <div class="rd-line">Musicians' union sues both majors over Suno/Udio AI settlements. Filed Jun 5.</div>
+          <div class="rd-next">First Suno-deal lawsuit</div>
+        </div>
+      </a>
     </div>
 
     <div class="rd-section-label">★ Updates · Motion Watch</div>
     <div class="rundown-grid">
       <div class="rd-card update">
-        <span class="rd-status update">MTD Denied Again</span>
-        <div class="rd-title">Walters v. <em>Manson</em></div>
-        <div class="rd-line">SAC survives. Manson can re-attack on summary judgment after discovery. Not before.</div>
-        <div class="rd-next">Discovery proceeds</div>
+        <div class="rd-img-fallback">★ MANSON</div>
+        <div class="rd-body">
+          <span class="rd-status update">MTD Denied Again</span>
+          <div class="rd-title">Walters v. <em>Manson</em></div>
+          <div class="rd-line">SAC survives. Manson can re-attack on summary judgment after discovery. Not before.</div>
+          <div class="rd-next">Discovery proceeds</div>
+        </div>
       </div>
-      <div class="rd-card update">
-        <span class="rd-status update">Release · Feb 23 '28</span>
-        <div class="rd-title"><em>Diddy</em> Docket</div>
-        <div class="rd-line">BOP confirms release date. Civil docket stays hot — RICO cluster + Johnson v. Musk side-quest.</div>
-        <div class="rd-next">Civil cases active</div>
-      </div>
-      <div class="rd-card update">
-        <span class="rd-status update">3 Headlines · 1 Week</span>
-        <div class="rd-title">Brad <em>Pitt</em> PR Wars</div>
-        <div class="rd-line">Maddox name drop + skincare TM suit + Jolie depo win — three stories, same week. Who's flooding the zone?</div>
-        <div class="rd-next">Coordinated or coincidence?</div>
-      </div>
-      <div class="rd-card update">
-        <span class="rd-status update">Citing Liman</span>
-        <div class="rd-title"><em>McSweeney</em> v. Baldoni</div>
-        <div class="rd-line">Same judge. Same legal question. McSweeney's team using Liman's Lively playbook in real time.</div>
-        <div class="rd-next">SDNY · briefing</div>
-      </div>
+      <a href="../../combs-appeal.html" class="rd-card update" style="text-decoration:none;color:inherit;">
+        <img class="rd-img" src="../../combs-hero.jpg" alt="Diddy" loading="lazy">
+        <div class="rd-body">
+          <span class="rd-status update">Release · Feb 23 '28</span>
+          <div class="rd-title"><em>Diddy</em> Docket</div>
+          <div class="rd-line">BOP confirms release date. Civil docket stays hot — RICO cluster + Johnson v. Musk side-quest.</div>
+          <div class="rd-next">Civil cases active</div>
+        </div>
+      </a>
+      <a href="../../pitt-v-jolie-miraval.html" class="rd-card update" style="text-decoration:none;color:inherit;">
+        <img class="rd-img" src="../../pitt-jolie-hero.jpg" alt="Pitt PR" loading="lazy">
+        <div class="rd-body">
+          <span class="rd-status update">3 Headlines · 1 Week</span>
+          <div class="rd-title">Brad <em>Pitt</em> PR Wars</div>
+          <div class="rd-line">Maddox name drop + skincare TM suit + Jolie depo win — three stories, same week. Who's flooding the zone?</div>
+          <div class="rd-next">Coordinated or coincidence?</div>
+        </div>
+      </a>
+      <a href="../../cohen-v-mcsweeney.html" class="rd-card update" style="text-decoration:none;color:inherit;">
+        <img class="rd-img" src="../../cohen-mcsweeney-hero.jpg" alt="McSweeney" loading="lazy">
+        <div class="rd-body">
+          <span class="rd-status update">Citing Liman</span>
+          <div class="rd-title"><em>McSweeney</em> v. Baldoni</div>
+          <div class="rd-line">Same judge. Same legal question. McSweeney's team using Liman's Lively playbook in real time.</div>
+          <div class="rd-next">SDNY · briefing</div>
+        </div>
+      </a>
     </div>
 
     <div class="rd-section-label">★ Wild Cards</div>
     <div class="rundown-grid">
       <div class="rd-card wild">
-        <span class="rd-status wild">Pro Se · 213 pages</span>
-        <div class="rd-title">Johnson v. <em>Musk</em></div>
-        <div class="rd-line">Pro se complaint names The United Nations as a defendant. We read it so you don't have to.</div>
-        <div class="rd-next">★ Defend or Dismiss material</div>
+        <div class="rd-img-fallback">★ PRO SE</div>
+        <div class="rd-body">
+          <span class="rd-status wild">Pro Se · 213 pages</span>
+          <div class="rd-title">Johnson v. <em>Musk</em></div>
+          <div class="rd-line">Pro se complaint names The United Nations as a defendant. We read it so you don't have to.</div>
+          <div class="rd-next">★ Defend or Dismiss material</div>
+        </div>
       </div>
-      <div class="rd-card wild">
-        <span class="rd-status wild">New Game</span>
-        <div class="rd-title">★ <em>Defend or Dismiss</em></div>
-        <div class="rd-line">Flip a card, make the call. We play it live. 23 cases shuffled. Card game on the site.</div>
-        <div class="rd-next">/card-game.html</div>
-      </div>
+      <a href="../../card-game.html" class="rd-card wild" style="text-decoration:none;color:inherit;">
+        <div class="rd-img-fallback">🃏</div>
+        <div class="rd-body">
+          <span class="rd-status wild">New Game</span>
+          <div class="rd-title">★ <em>Defend or Dismiss</em></div>
+          <div class="rd-line">Flip a card, make the call. We play it live. 23 cases shuffled. Card game on the site.</div>
+          <div class="rd-next">/card-game.html</div>
+        </div>
+      </a>
     </div>
   </div>
 </section>
